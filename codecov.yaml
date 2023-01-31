@@ -2,4 +2,3 @@ comment: false
 ignore:
   - "**/*.freezed.dart"
   - "**/*.g.dart"
-  - "**/l10n/*.dart"
