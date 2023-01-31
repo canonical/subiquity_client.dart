@@ -1,7 +1,7 @@
 name: subiquity_client
 description: Subiquity Client
 version: 0.0.1
-homepage: https://github.com/canonical/ubuntu-desktop-installer
+homepage: https://github.com/canonical/subiquity_client.dart
 publish_to: 'none'
 
 environment:
