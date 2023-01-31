@@ -1,4 +1,6 @@
+build/
 coverage/
+doc/
 .idea/
 *.iml
 .vscode/
