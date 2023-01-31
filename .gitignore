@@ -2,5 +2,5 @@ coverage/
 .idea/
 *.iml
 .vscode/
-
-/*.snap
+.dart_tool/
+pubspec.lock
