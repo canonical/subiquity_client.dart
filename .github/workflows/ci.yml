@@ -1,0 +1,93 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          submodules: recursive
+
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: 'stable'
+          flutter-version: '3.7.x'
+
+      - name: Install lcov
+        run: sudo apt update && sudo apt install lcov
+
+      - name: Install subiquity dependencies
+        working-directory: ./subiquity
+        run: sudo ./scripts/installdeps.sh
+
+      - name: Prepare environment for subiquity
+        run: |
+          sudo loginctl enable-linger $USER
+          sudo systemctl start user@$UID.service
+          echo "XDG_RUNTIME_DIR=/run/user/$UID" >> $GITHUB_ENV
+
+      - name: Run tests
+        run: flutter test --coverage
+
+      - name: Upload coverage results
+        uses: codecov/codecov-action@v3
+        with:
+          token: ${{secrets.CODECOV_TOKEN}}
+
+  analyze:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          submodules: recursive
+      - uses: dart-lang/setup-dart@v1
+      - run: dart pub get
+      - run: dart analyze --fatal-infos
+
+  format:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          submodules: recursive
+      - uses: dart-lang/setup-dart@v1
+      - run: dart pub get
+      - run: dart format --set-exit-if-changed .
+
+  generate:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          submodules: recursive
+      - uses: dart-lang/setup-dart@v1
+      - run: dart pub get
+      - run: dart run build_runner build --delete-conflicting-outputs
+      - name: Warn about outdated generated files
+        if: github.event_name == 'pull_request'
+        run: |
+          if [ -n "$(git status --porcelain)" ]; then
+            git diff
+            for f in $(git ls-files --modified); do
+              echo "::warning ::$f may be outdated"
+            done
+            for f in $(git ls-files --others --exclude-standard); do
+              echo "::warning ::$f may be untracked"
+            done
+            exit 1
+          fi
+      - name: Create PR for outdated generated files
+        if: github.event_name == 'push'
+        uses: peter-evans/create-pull-request@v4
+        with:
+          title: 'Regenerate files'
+          commit-message: 'Regenerate files'
