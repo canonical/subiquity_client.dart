@@ -92,3 +92,12 @@ jobs:
         with:
           title: 'Regenerate files'
           commit-message: 'Regenerate files'
+
+  generator:
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          submodules: recursive
+      - run: make check
+        working-directory: ./generator
