@@ -36,6 +36,8 @@ class NetDevInfo {
 // Union[Partition, Gap]
 typedef DiskObject = PartitionOrGap;
 
+// BEGIN GENERATED CODE - RUN `make generate` - DO NOT MODIFY BY HAND
+
 enum ErrorReportState {
   INCOMPLETE,
   LOADING,
@@ -922,3 +924,5 @@ enum CasperMd5Results {
   PASS,
   SKIP,
 }
+
+// END GENERATED CODE
