@@ -12692,3 +12692,176 @@ abstract class _Change implements Change {
   _$$_ChangeCopyWith<_$_Change> get copyWith =>
       throw _privateConstructorUsedError;
 }
+
+MirrorCheckResponse _$MirrorCheckResponseFromJson(Map<String, dynamic> json) {
+  return _MirrorCheckResponse.fromJson(json);
+}
+
+/// @nodoc
+mixin _$MirrorCheckResponse {
+  String get url => throw _privateConstructorUsedError;
+  MirrorCheckStatus get status => throw _privateConstructorUsedError;
+  String get output => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $MirrorCheckResponseCopyWith<MirrorCheckResponse> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $MirrorCheckResponseCopyWith<$Res> {
+  factory $MirrorCheckResponseCopyWith(
+          MirrorCheckResponse value, $Res Function(MirrorCheckResponse) then) =
+      _$MirrorCheckResponseCopyWithImpl<$Res, MirrorCheckResponse>;
+  @useResult
+  $Res call({String url, MirrorCheckStatus status, String output});
+}
+
+/// @nodoc
+class _$MirrorCheckResponseCopyWithImpl<$Res, $Val extends MirrorCheckResponse>
+    implements $MirrorCheckResponseCopyWith<$Res> {
+  _$MirrorCheckResponseCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? url = null,
+    Object? status = null,
+    Object? output = null,
+  }) {
+    return _then(_value.copyWith(
+      url: null == url
+          ? _value.url
+          : url // ignore: cast_nullable_to_non_nullable
+              as String,
+      status: null == status
+          ? _value.status
+          : status // ignore: cast_nullable_to_non_nullable
+              as MirrorCheckStatus,
+      output: null == output
+          ? _value.output
+          : output // ignore: cast_nullable_to_non_nullable
+              as String,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$_MirrorCheckResponseCopyWith<$Res>
+    implements $MirrorCheckResponseCopyWith<$Res> {
+  factory _$$_MirrorCheckResponseCopyWith(_$_MirrorCheckResponse value,
+          $Res Function(_$_MirrorCheckResponse) then) =
+      __$$_MirrorCheckResponseCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({String url, MirrorCheckStatus status, String output});
+}
+
+/// @nodoc
+class __$$_MirrorCheckResponseCopyWithImpl<$Res>
+    extends _$MirrorCheckResponseCopyWithImpl<$Res, _$_MirrorCheckResponse>
+    implements _$$_MirrorCheckResponseCopyWith<$Res> {
+  __$$_MirrorCheckResponseCopyWithImpl(_$_MirrorCheckResponse _value,
+      $Res Function(_$_MirrorCheckResponse) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? url = null,
+    Object? status = null,
+    Object? output = null,
+  }) {
+    return _then(_$_MirrorCheckResponse(
+      url: null == url
+          ? _value.url
+          : url // ignore: cast_nullable_to_non_nullable
+              as String,
+      status: null == status
+          ? _value.status
+          : status // ignore: cast_nullable_to_non_nullable
+              as MirrorCheckStatus,
+      output: null == output
+          ? _value.output
+          : output // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$_MirrorCheckResponse implements _MirrorCheckResponse {
+  const _$_MirrorCheckResponse(
+      {required this.url, required this.status, required this.output});
+
+  factory _$_MirrorCheckResponse.fromJson(Map<String, dynamic> json) =>
+      _$$_MirrorCheckResponseFromJson(json);
+
+  @override
+  final String url;
+  @override
+  final MirrorCheckStatus status;
+  @override
+  final String output;
+
+  @override
+  String toString() {
+    return 'MirrorCheckResponse(url: $url, status: $status, output: $output)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_MirrorCheckResponse &&
+            (identical(other.url, url) || other.url == url) &&
+            (identical(other.status, status) || other.status == status) &&
+            (identical(other.output, output) || other.output == output));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(runtimeType, url, status, output);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_MirrorCheckResponseCopyWith<_$_MirrorCheckResponse> get copyWith =>
+      __$$_MirrorCheckResponseCopyWithImpl<_$_MirrorCheckResponse>(
+          this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_MirrorCheckResponseToJson(
+      this,
+    );
+  }
+}
+
+abstract class _MirrorCheckResponse implements MirrorCheckResponse {
+  const factory _MirrorCheckResponse(
+      {required final String url,
+      required final MirrorCheckStatus status,
+      required final String output}) = _$_MirrorCheckResponse;
+
+  factory _MirrorCheckResponse.fromJson(Map<String, dynamic> json) =
+      _$_MirrorCheckResponse.fromJson;
+
+  @override
+  String get url;
+  @override
+  MirrorCheckStatus get status;
+  @override
+  String get output;
+  @override
+  @JsonKey(ignore: true)
+  _$$_MirrorCheckResponseCopyWith<_$_MirrorCheckResponse> get copyWith =>
+      throw _privateConstructorUsedError;
+}

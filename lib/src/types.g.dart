@@ -1192,3 +1192,25 @@ Map<String, dynamic> _$$_ChangeToJson(_$_Change instance) => <String, dynamic>{
       'err': instance.err,
       'data': instance.data,
     };
+
+_$_MirrorCheckResponse _$$_MirrorCheckResponseFromJson(
+        Map<String, dynamic> json) =>
+    _$_MirrorCheckResponse(
+      url: json['url'] as String,
+      status: $enumDecode(_$MirrorCheckStatusEnumMap, json['status']),
+      output: json['output'] as String,
+    );
+
+Map<String, dynamic> _$$_MirrorCheckResponseToJson(
+        _$_MirrorCheckResponse instance) =>
+    <String, dynamic>{
+      'url': instance.url,
+      'status': _$MirrorCheckStatusEnumMap[instance.status]!,
+      'output': instance.output,
+    };
+
+const _$MirrorCheckStatusEnumMap = {
+  MirrorCheckStatus.OK: 'OK',
+  MirrorCheckStatus.RUNNING: 'RUNNING',
+  MirrorCheckStatus.FAILED: 'FAILED',
+};

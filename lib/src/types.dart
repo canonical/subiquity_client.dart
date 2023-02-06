@@ -925,4 +925,22 @@ enum CasperMd5Results {
   SKIP,
 }
 
+enum MirrorCheckStatus {
+  OK,
+  RUNNING,
+  FAILED,
+}
+
+@freezed
+class MirrorCheckResponse with _$MirrorCheckResponse {
+  const factory MirrorCheckResponse({
+    required String url,
+    required MirrorCheckStatus status,
+    required String output,
+  }) = _MirrorCheckResponse;
+
+  factory MirrorCheckResponse.fromJson(Map<String, dynamic> json) =>
+      _$MirrorCheckResponseFromJson(json);
+}
+
 // END GENERATED CODE
