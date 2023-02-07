@@ -537,20 +537,6 @@ class SubiquityClient {
     await _receive('setDrivers($install)', response);
   }
 
-  Future<CodecsData> getCodecs() async {
-    final request = await _openUrl('GET', url('codecs'));
-    final response = await request.close();
-    final json = await _receiveJson('getCodecs()', response);
-    return CodecsData.fromJson(json);
-  }
-
-  Future<void> setCodecs({required bool install}) async {
-    final request = await _openUrl('POST', url('codecs'));
-    request.write(jsonEncode(<String, dynamic>{'install': install}));
-    final response = await request.close();
-    await _receive('setCodecs($install)', response);
-  }
-
   Future<RefreshStatus> checkRefresh({bool wait = true}) async {
     final request = await _openUrl('GET', url('refresh', {'wait': '$wait'}));
     final response = await request.close();
@@ -562,13 +548,5 @@ class SubiquityClient {
     final request = await _openUrl('POST', url('refresh'));
     final response = await request.close();
     return _receive('startRefresh()', response);
-  }
-
-  Future<Change> getRefreshProgress(String changeId) async {
-    final request =
-        await _openUrl('GET', url('refresh/progress', {'change_id': changeId}));
-    final response = await request.close();
-    final json = await _receiveJson('getRefreshProgress($changeId)', response);
-    return Change.fromJson(json);
   }
 }
