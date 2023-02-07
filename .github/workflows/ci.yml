@@ -4,9 +4,11 @@ on:
   push:
     branches:
       - main
+      - 'ubuntu/**'
   pull_request:
     branches:
       - main
+      - 'ubuntu/**'
   workflow_dispatch:
 
 jobs:
