@@ -4766,7 +4766,6 @@ mixin _$GuidedChoice {
   String get diskId => throw _privateConstructorUsedError;
   bool get useLvm => throw _privateConstructorUsedError;
   String? get password => throw _privateConstructorUsedError;
-  bool get useTpm => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -4780,7 +4779,7 @@ abstract class $GuidedChoiceCopyWith<$Res> {
           GuidedChoice value, $Res Function(GuidedChoice) then) =
       _$GuidedChoiceCopyWithImpl<$Res, GuidedChoice>;
   @useResult
-  $Res call({String diskId, bool useLvm, String? password, bool useTpm});
+  $Res call({String diskId, bool useLvm, String? password});
 }
 
 /// @nodoc
@@ -4799,7 +4798,6 @@ class _$GuidedChoiceCopyWithImpl<$Res, $Val extends GuidedChoice>
     Object? diskId = null,
     Object? useLvm = null,
     Object? password = freezed,
-    Object? useTpm = null,
   }) {
     return _then(_value.copyWith(
       diskId: null == diskId
@@ -4814,10 +4812,6 @@ class _$GuidedChoiceCopyWithImpl<$Res, $Val extends GuidedChoice>
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
               as String?,
-      useTpm: null == useTpm
-          ? _value.useTpm
-          : useTpm // ignore: cast_nullable_to_non_nullable
-              as bool,
     ) as $Val);
   }
 }
@@ -4830,7 +4824,7 @@ abstract class _$$_GuidedChoiceCopyWith<$Res>
       __$$_GuidedChoiceCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String diskId, bool useLvm, String? password, bool useTpm});
+  $Res call({String diskId, bool useLvm, String? password});
 }
 
 /// @nodoc
@@ -4847,7 +4841,6 @@ class __$$_GuidedChoiceCopyWithImpl<$Res>
     Object? diskId = null,
     Object? useLvm = null,
     Object? password = freezed,
-    Object? useTpm = null,
   }) {
     return _then(_$_GuidedChoice(
       diskId: null == diskId
@@ -4862,10 +4855,6 @@ class __$$_GuidedChoiceCopyWithImpl<$Res>
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
               as String?,
-      useTpm: null == useTpm
-          ? _value.useTpm
-          : useTpm // ignore: cast_nullable_to_non_nullable
-              as bool,
     ));
   }
 }
@@ -4874,10 +4863,7 @@ class __$$_GuidedChoiceCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_GuidedChoice implements _GuidedChoice {
   const _$_GuidedChoice(
-      {required this.diskId,
-      this.useLvm = false,
-      this.password,
-      this.useTpm = false});
+      {required this.diskId, this.useLvm = false, this.password});
 
   factory _$_GuidedChoice.fromJson(Map<String, dynamic> json) =>
       _$$_GuidedChoiceFromJson(json);
@@ -4889,13 +4875,10 @@ class _$_GuidedChoice implements _GuidedChoice {
   final bool useLvm;
   @override
   final String? password;
-  @override
-  @JsonKey()
-  final bool useTpm;
 
   @override
   String toString() {
-    return 'GuidedChoice(diskId: $diskId, useLvm: $useLvm, password: $password, useTpm: $useTpm)';
+    return 'GuidedChoice(diskId: $diskId, useLvm: $useLvm, password: $password)';
   }
 
   @override
@@ -4906,14 +4889,12 @@ class _$_GuidedChoice implements _GuidedChoice {
             (identical(other.diskId, diskId) || other.diskId == diskId) &&
             (identical(other.useLvm, useLvm) || other.useLvm == useLvm) &&
             (identical(other.password, password) ||
-                other.password == password) &&
-            (identical(other.useTpm, useTpm) || other.useTpm == useTpm));
+                other.password == password));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, diskId, useLvm, password, useTpm);
+  int get hashCode => Object.hash(runtimeType, diskId, useLvm, password);
 
   @JsonKey(ignore: true)
   @override
@@ -4933,8 +4914,7 @@ abstract class _GuidedChoice implements GuidedChoice {
   const factory _GuidedChoice(
       {required final String diskId,
       final bool useLvm,
-      final String? password,
-      final bool useTpm}) = _$_GuidedChoice;
+      final String? password}) = _$_GuidedChoice;
 
   factory _GuidedChoice.fromJson(Map<String, dynamic> json) =
       _$_GuidedChoice.fromJson;
@@ -4946,215 +4926,8 @@ abstract class _GuidedChoice implements GuidedChoice {
   @override
   String? get password;
   @override
-  bool get useTpm;
-  @override
   @JsonKey(ignore: true)
   _$$_GuidedChoiceCopyWith<_$_GuidedChoice> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-StorageEncryption _$StorageEncryptionFromJson(Map<String, dynamic> json) {
-  return _StorageEncryption.fromJson(json);
-}
-
-/// @nodoc
-mixin _$StorageEncryption {
-  StorageEncryptionSupport get support => throw _privateConstructorUsedError;
-  StorageSafety get storageSafety => throw _privateConstructorUsedError;
-  EncryptionType get encryptionType => throw _privateConstructorUsedError;
-  String get unavailableReason => throw _privateConstructorUsedError;
-
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $StorageEncryptionCopyWith<StorageEncryption> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $StorageEncryptionCopyWith<$Res> {
-  factory $StorageEncryptionCopyWith(
-          StorageEncryption value, $Res Function(StorageEncryption) then) =
-      _$StorageEncryptionCopyWithImpl<$Res, StorageEncryption>;
-  @useResult
-  $Res call(
-      {StorageEncryptionSupport support,
-      StorageSafety storageSafety,
-      EncryptionType encryptionType,
-      String unavailableReason});
-}
-
-/// @nodoc
-class _$StorageEncryptionCopyWithImpl<$Res, $Val extends StorageEncryption>
-    implements $StorageEncryptionCopyWith<$Res> {
-  _$StorageEncryptionCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? support = null,
-    Object? storageSafety = null,
-    Object? encryptionType = null,
-    Object? unavailableReason = null,
-  }) {
-    return _then(_value.copyWith(
-      support: null == support
-          ? _value.support
-          : support // ignore: cast_nullable_to_non_nullable
-              as StorageEncryptionSupport,
-      storageSafety: null == storageSafety
-          ? _value.storageSafety
-          : storageSafety // ignore: cast_nullable_to_non_nullable
-              as StorageSafety,
-      encryptionType: null == encryptionType
-          ? _value.encryptionType
-          : encryptionType // ignore: cast_nullable_to_non_nullable
-              as EncryptionType,
-      unavailableReason: null == unavailableReason
-          ? _value.unavailableReason
-          : unavailableReason // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
-  }
-}
-
-/// @nodoc
-abstract class _$$_StorageEncryptionCopyWith<$Res>
-    implements $StorageEncryptionCopyWith<$Res> {
-  factory _$$_StorageEncryptionCopyWith(_$_StorageEncryption value,
-          $Res Function(_$_StorageEncryption) then) =
-      __$$_StorageEncryptionCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call(
-      {StorageEncryptionSupport support,
-      StorageSafety storageSafety,
-      EncryptionType encryptionType,
-      String unavailableReason});
-}
-
-/// @nodoc
-class __$$_StorageEncryptionCopyWithImpl<$Res>
-    extends _$StorageEncryptionCopyWithImpl<$Res, _$_StorageEncryption>
-    implements _$$_StorageEncryptionCopyWith<$Res> {
-  __$$_StorageEncryptionCopyWithImpl(
-      _$_StorageEncryption _value, $Res Function(_$_StorageEncryption) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? support = null,
-    Object? storageSafety = null,
-    Object? encryptionType = null,
-    Object? unavailableReason = null,
-  }) {
-    return _then(_$_StorageEncryption(
-      support: null == support
-          ? _value.support
-          : support // ignore: cast_nullable_to_non_nullable
-              as StorageEncryptionSupport,
-      storageSafety: null == storageSafety
-          ? _value.storageSafety
-          : storageSafety // ignore: cast_nullable_to_non_nullable
-              as StorageSafety,
-      encryptionType: null == encryptionType
-          ? _value.encryptionType
-          : encryptionType // ignore: cast_nullable_to_non_nullable
-              as EncryptionType,
-      unavailableReason: null == unavailableReason
-          ? _value.unavailableReason
-          : unavailableReason // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
-}
-
-/// @nodoc
-@JsonSerializable()
-class _$_StorageEncryption implements _StorageEncryption {
-  const _$_StorageEncryption(
-      {required this.support,
-      required this.storageSafety,
-      required this.encryptionType,
-      required this.unavailableReason});
-
-  factory _$_StorageEncryption.fromJson(Map<String, dynamic> json) =>
-      _$$_StorageEncryptionFromJson(json);
-
-  @override
-  final StorageEncryptionSupport support;
-  @override
-  final StorageSafety storageSafety;
-  @override
-  final EncryptionType encryptionType;
-  @override
-  final String unavailableReason;
-
-  @override
-  String toString() {
-    return 'StorageEncryption(support: $support, storageSafety: $storageSafety, encryptionType: $encryptionType, unavailableReason: $unavailableReason)';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$_StorageEncryption &&
-            (identical(other.support, support) || other.support == support) &&
-            (identical(other.storageSafety, storageSafety) ||
-                other.storageSafety == storageSafety) &&
-            (identical(other.encryptionType, encryptionType) ||
-                other.encryptionType == encryptionType) &&
-            (identical(other.unavailableReason, unavailableReason) ||
-                other.unavailableReason == unavailableReason));
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode => Object.hash(
-      runtimeType, support, storageSafety, encryptionType, unavailableReason);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$_StorageEncryptionCopyWith<_$_StorageEncryption> get copyWith =>
-      __$$_StorageEncryptionCopyWithImpl<_$_StorageEncryption>(
-          this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$_StorageEncryptionToJson(
-      this,
-    );
-  }
-}
-
-abstract class _StorageEncryption implements StorageEncryption {
-  const factory _StorageEncryption(
-      {required final StorageEncryptionSupport support,
-      required final StorageSafety storageSafety,
-      required final EncryptionType encryptionType,
-      required final String unavailableReason}) = _$_StorageEncryption;
-
-  factory _StorageEncryption.fromJson(Map<String, dynamic> json) =
-      _$_StorageEncryption.fromJson;
-
-  @override
-  StorageEncryptionSupport get support;
-  @override
-  StorageSafety get storageSafety;
-  @override
-  EncryptionType get encryptionType;
-  @override
-  String get unavailableReason;
-  @override
-  @JsonKey(ignore: true)
-  _$$_StorageEncryptionCopyWith<_$_StorageEncryption> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -5168,9 +4941,6 @@ mixin _$GuidedStorageResponse {
   ProbeStatus get status => throw _privateConstructorUsedError;
   ErrorReportRef? get errorReport => throw _privateConstructorUsedError;
   List<Disk>? get disks => throw _privateConstructorUsedError;
-  String get coreBootClassicError => throw _privateConstructorUsedError;
-  StorageEncryption? get storageEncryption =>
-      throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -5185,14 +4955,9 @@ abstract class $GuidedStorageResponseCopyWith<$Res> {
       _$GuidedStorageResponseCopyWithImpl<$Res, GuidedStorageResponse>;
   @useResult
   $Res call(
-      {ProbeStatus status,
-      ErrorReportRef? errorReport,
-      List<Disk>? disks,
-      String coreBootClassicError,
-      StorageEncryption? storageEncryption});
+      {ProbeStatus status, ErrorReportRef? errorReport, List<Disk>? disks});
 
   $ErrorReportRefCopyWith<$Res>? get errorReport;
-  $StorageEncryptionCopyWith<$Res>? get storageEncryption;
 }
 
 /// @nodoc
@@ -5212,8 +4977,6 @@ class _$GuidedStorageResponseCopyWithImpl<$Res,
     Object? status = null,
     Object? errorReport = freezed,
     Object? disks = freezed,
-    Object? coreBootClassicError = null,
-    Object? storageEncryption = freezed,
   }) {
     return _then(_value.copyWith(
       status: null == status
@@ -5228,14 +4991,6 @@ class _$GuidedStorageResponseCopyWithImpl<$Res,
           ? _value.disks
           : disks // ignore: cast_nullable_to_non_nullable
               as List<Disk>?,
-      coreBootClassicError: null == coreBootClassicError
-          ? _value.coreBootClassicError
-          : coreBootClassicError // ignore: cast_nullable_to_non_nullable
-              as String,
-      storageEncryption: freezed == storageEncryption
-          ? _value.storageEncryption
-          : storageEncryption // ignore: cast_nullable_to_non_nullable
-              as StorageEncryption?,
     ) as $Val);
   }
 
@@ -5250,18 +5005,6 @@ class _$GuidedStorageResponseCopyWithImpl<$Res,
       return _then(_value.copyWith(errorReport: value) as $Val);
     });
   }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $StorageEncryptionCopyWith<$Res>? get storageEncryption {
-    if (_value.storageEncryption == null) {
-      return null;
-    }
-
-    return $StorageEncryptionCopyWith<$Res>(_value.storageEncryption!, (value) {
-      return _then(_value.copyWith(storageEncryption: value) as $Val);
-    });
-  }
 }
 
 /// @nodoc
@@ -5273,16 +5016,10 @@ abstract class _$$_GuidedStorageResponseCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {ProbeStatus status,
-      ErrorReportRef? errorReport,
-      List<Disk>? disks,
-      String coreBootClassicError,
-      StorageEncryption? storageEncryption});
+      {ProbeStatus status, ErrorReportRef? errorReport, List<Disk>? disks});
 
   @override
   $ErrorReportRefCopyWith<$Res>? get errorReport;
-  @override
-  $StorageEncryptionCopyWith<$Res>? get storageEncryption;
 }
 
 /// @nodoc
@@ -5299,8 +5036,6 @@ class __$$_GuidedStorageResponseCopyWithImpl<$Res>
     Object? status = null,
     Object? errorReport = freezed,
     Object? disks = freezed,
-    Object? coreBootClassicError = null,
-    Object? storageEncryption = freezed,
   }) {
     return _then(_$_GuidedStorageResponse(
       status: null == status
@@ -5315,14 +5050,6 @@ class __$$_GuidedStorageResponseCopyWithImpl<$Res>
           ? _value._disks
           : disks // ignore: cast_nullable_to_non_nullable
               as List<Disk>?,
-      coreBootClassicError: null == coreBootClassicError
-          ? _value.coreBootClassicError
-          : coreBootClassicError // ignore: cast_nullable_to_non_nullable
-              as String,
-      storageEncryption: freezed == storageEncryption
-          ? _value.storageEncryption
-          : storageEncryption // ignore: cast_nullable_to_non_nullable
-              as StorageEncryption?,
     ));
   }
 }
@@ -5331,11 +5058,7 @@ class __$$_GuidedStorageResponseCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_GuidedStorageResponse implements _GuidedStorageResponse {
   const _$_GuidedStorageResponse(
-      {required this.status,
-      this.errorReport,
-      final List<Disk>? disks,
-      this.coreBootClassicError = '',
-      this.storageEncryption})
+      {required this.status, this.errorReport, final List<Disk>? disks})
       : _disks = disks;
 
   factory _$_GuidedStorageResponse.fromJson(Map<String, dynamic> json) =>
@@ -5356,14 +5079,8 @@ class _$_GuidedStorageResponse implements _GuidedStorageResponse {
   }
 
   @override
-  @JsonKey()
-  final String coreBootClassicError;
-  @override
-  final StorageEncryption? storageEncryption;
-
-  @override
   String toString() {
-    return 'GuidedStorageResponse(status: $status, errorReport: $errorReport, disks: $disks, coreBootClassicError: $coreBootClassicError, storageEncryption: $storageEncryption)';
+    return 'GuidedStorageResponse(status: $status, errorReport: $errorReport, disks: $disks)';
   }
 
   @override
@@ -5374,22 +5091,13 @@ class _$_GuidedStorageResponse implements _GuidedStorageResponse {
             (identical(other.status, status) || other.status == status) &&
             (identical(other.errorReport, errorReport) ||
                 other.errorReport == errorReport) &&
-            const DeepCollectionEquality().equals(other._disks, _disks) &&
-            (identical(other.coreBootClassicError, coreBootClassicError) ||
-                other.coreBootClassicError == coreBootClassicError) &&
-            (identical(other.storageEncryption, storageEncryption) ||
-                other.storageEncryption == storageEncryption));
+            const DeepCollectionEquality().equals(other._disks, _disks));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      status,
-      errorReport,
-      const DeepCollectionEquality().hash(_disks),
-      coreBootClassicError,
-      storageEncryption);
+  int get hashCode => Object.hash(runtimeType, status, errorReport,
+      const DeepCollectionEquality().hash(_disks));
 
   @JsonKey(ignore: true)
   @override
@@ -5410,9 +5118,7 @@ abstract class _GuidedStorageResponse implements GuidedStorageResponse {
   const factory _GuidedStorageResponse(
       {required final ProbeStatus status,
       final ErrorReportRef? errorReport,
-      final List<Disk>? disks,
-      final String coreBootClassicError,
-      final StorageEncryption? storageEncryption}) = _$_GuidedStorageResponse;
+      final List<Disk>? disks}) = _$_GuidedStorageResponse;
 
   factory _GuidedStorageResponse.fromJson(Map<String, dynamic> json) =
       _$_GuidedStorageResponse.fromJson;
@@ -5423,10 +5129,6 @@ abstract class _GuidedStorageResponse implements GuidedStorageResponse {
   ErrorReportRef? get errorReport;
   @override
   List<Disk>? get disks;
-  @override
-  String get coreBootClassicError;
-  @override
-  StorageEncryption? get storageEncryption;
   @override
   @JsonKey(ignore: true)
   _$$_GuidedStorageResponseCopyWith<_$_GuidedStorageResponse> get copyWith =>
@@ -9428,142 +9130,6 @@ abstract class _DriversResponse implements DriversResponse {
       throw _privateConstructorUsedError;
 }
 
-CodecsData _$CodecsDataFromJson(Map<String, dynamic> json) {
-  return _CodecsData.fromJson(json);
-}
-
-/// @nodoc
-mixin _$CodecsData {
-  bool get install => throw _privateConstructorUsedError;
-
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $CodecsDataCopyWith<CodecsData> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $CodecsDataCopyWith<$Res> {
-  factory $CodecsDataCopyWith(
-          CodecsData value, $Res Function(CodecsData) then) =
-      _$CodecsDataCopyWithImpl<$Res, CodecsData>;
-  @useResult
-  $Res call({bool install});
-}
-
-/// @nodoc
-class _$CodecsDataCopyWithImpl<$Res, $Val extends CodecsData>
-    implements $CodecsDataCopyWith<$Res> {
-  _$CodecsDataCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? install = null,
-  }) {
-    return _then(_value.copyWith(
-      install: null == install
-          ? _value.install
-          : install // ignore: cast_nullable_to_non_nullable
-              as bool,
-    ) as $Val);
-  }
-}
-
-/// @nodoc
-abstract class _$$_CodecsDataCopyWith<$Res>
-    implements $CodecsDataCopyWith<$Res> {
-  factory _$$_CodecsDataCopyWith(
-          _$_CodecsData value, $Res Function(_$_CodecsData) then) =
-      __$$_CodecsDataCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({bool install});
-}
-
-/// @nodoc
-class __$$_CodecsDataCopyWithImpl<$Res>
-    extends _$CodecsDataCopyWithImpl<$Res, _$_CodecsData>
-    implements _$$_CodecsDataCopyWith<$Res> {
-  __$$_CodecsDataCopyWithImpl(
-      _$_CodecsData _value, $Res Function(_$_CodecsData) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? install = null,
-  }) {
-    return _then(_$_CodecsData(
-      install: null == install
-          ? _value.install
-          : install // ignore: cast_nullable_to_non_nullable
-              as bool,
-    ));
-  }
-}
-
-/// @nodoc
-@JsonSerializable()
-class _$_CodecsData implements _CodecsData {
-  const _$_CodecsData({required this.install});
-
-  factory _$_CodecsData.fromJson(Map<String, dynamic> json) =>
-      _$$_CodecsDataFromJson(json);
-
-  @override
-  final bool install;
-
-  @override
-  String toString() {
-    return 'CodecsData(install: $install)';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$_CodecsData &&
-            (identical(other.install, install) || other.install == install));
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode => Object.hash(runtimeType, install);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$_CodecsDataCopyWith<_$_CodecsData> get copyWith =>
-      __$$_CodecsDataCopyWithImpl<_$_CodecsData>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$_CodecsDataToJson(
-      this,
-    );
-  }
-}
-
-abstract class _CodecsData implements CodecsData {
-  const factory _CodecsData({required final bool install}) = _$_CodecsData;
-
-  factory _CodecsData.fromJson(Map<String, dynamic> json) =
-      _$_CodecsData.fromJson;
-
-  @override
-  bool get install;
-  @override
-  @JsonKey(ignore: true)
-  _$$_CodecsDataCopyWith<_$_CodecsData> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
 DriversPayload _$DriversPayloadFromJson(Map<String, dynamic> json) {
   return _DriversPayload.fromJson(json);
 }
@@ -12002,866 +11568,5 @@ abstract class _WSLSetupOptions implements WSLSetupOptions {
   @override
   @JsonKey(ignore: true)
   _$$_WSLSetupOptionsCopyWith<_$_WSLSetupOptions> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-TaskProgress _$TaskProgressFromJson(Map<String, dynamic> json) {
-  return _TaskProgress.fromJson(json);
-}
-
-/// @nodoc
-mixin _$TaskProgress {
-  String get label => throw _privateConstructorUsedError;
-  int get done => throw _privateConstructorUsedError;
-  int get total => throw _privateConstructorUsedError;
-
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $TaskProgressCopyWith<TaskProgress> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $TaskProgressCopyWith<$Res> {
-  factory $TaskProgressCopyWith(
-          TaskProgress value, $Res Function(TaskProgress) then) =
-      _$TaskProgressCopyWithImpl<$Res, TaskProgress>;
-  @useResult
-  $Res call({String label, int done, int total});
-}
-
-/// @nodoc
-class _$TaskProgressCopyWithImpl<$Res, $Val extends TaskProgress>
-    implements $TaskProgressCopyWith<$Res> {
-  _$TaskProgressCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? label = null,
-    Object? done = null,
-    Object? total = null,
-  }) {
-    return _then(_value.copyWith(
-      label: null == label
-          ? _value.label
-          : label // ignore: cast_nullable_to_non_nullable
-              as String,
-      done: null == done
-          ? _value.done
-          : done // ignore: cast_nullable_to_non_nullable
-              as int,
-      total: null == total
-          ? _value.total
-          : total // ignore: cast_nullable_to_non_nullable
-              as int,
-    ) as $Val);
-  }
-}
-
-/// @nodoc
-abstract class _$$_TaskProgressCopyWith<$Res>
-    implements $TaskProgressCopyWith<$Res> {
-  factory _$$_TaskProgressCopyWith(
-          _$_TaskProgress value, $Res Function(_$_TaskProgress) then) =
-      __$$_TaskProgressCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({String label, int done, int total});
-}
-
-/// @nodoc
-class __$$_TaskProgressCopyWithImpl<$Res>
-    extends _$TaskProgressCopyWithImpl<$Res, _$_TaskProgress>
-    implements _$$_TaskProgressCopyWith<$Res> {
-  __$$_TaskProgressCopyWithImpl(
-      _$_TaskProgress _value, $Res Function(_$_TaskProgress) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? label = null,
-    Object? done = null,
-    Object? total = null,
-  }) {
-    return _then(_$_TaskProgress(
-      label: null == label
-          ? _value.label
-          : label // ignore: cast_nullable_to_non_nullable
-              as String,
-      done: null == done
-          ? _value.done
-          : done // ignore: cast_nullable_to_non_nullable
-              as int,
-      total: null == total
-          ? _value.total
-          : total // ignore: cast_nullable_to_non_nullable
-              as int,
-    ));
-  }
-}
-
-/// @nodoc
-@JsonSerializable()
-class _$_TaskProgress implements _TaskProgress {
-  const _$_TaskProgress({this.label = '', this.done = 0, this.total = 0});
-
-  factory _$_TaskProgress.fromJson(Map<String, dynamic> json) =>
-      _$$_TaskProgressFromJson(json);
-
-  @override
-  @JsonKey()
-  final String label;
-  @override
-  @JsonKey()
-  final int done;
-  @override
-  @JsonKey()
-  final int total;
-
-  @override
-  String toString() {
-    return 'TaskProgress(label: $label, done: $done, total: $total)';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$_TaskProgress &&
-            (identical(other.label, label) || other.label == label) &&
-            (identical(other.done, done) || other.done == done) &&
-            (identical(other.total, total) || other.total == total));
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode => Object.hash(runtimeType, label, done, total);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$_TaskProgressCopyWith<_$_TaskProgress> get copyWith =>
-      __$$_TaskProgressCopyWithImpl<_$_TaskProgress>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$_TaskProgressToJson(
-      this,
-    );
-  }
-}
-
-abstract class _TaskProgress implements TaskProgress {
-  const factory _TaskProgress(
-      {final String label, final int done, final int total}) = _$_TaskProgress;
-
-  factory _TaskProgress.fromJson(Map<String, dynamic> json) =
-      _$_TaskProgress.fromJson;
-
-  @override
-  String get label;
-  @override
-  int get done;
-  @override
-  int get total;
-  @override
-  @JsonKey(ignore: true)
-  _$$_TaskProgressCopyWith<_$_TaskProgress> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-Task _$TaskFromJson(Map<String, dynamic> json) {
-  return _Task.fromJson(json);
-}
-
-/// @nodoc
-mixin _$Task {
-  String get id => throw _privateConstructorUsedError;
-  String get kind => throw _privateConstructorUsedError;
-  String get summary => throw _privateConstructorUsedError;
-  TaskStatus get status => throw _privateConstructorUsedError;
-  TaskProgress get progress => throw _privateConstructorUsedError;
-
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $TaskCopyWith<Task> get copyWith => throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $TaskCopyWith<$Res> {
-  factory $TaskCopyWith(Task value, $Res Function(Task) then) =
-      _$TaskCopyWithImpl<$Res, Task>;
-  @useResult
-  $Res call(
-      {String id,
-      String kind,
-      String summary,
-      TaskStatus status,
-      TaskProgress progress});
-
-  $TaskProgressCopyWith<$Res> get progress;
-}
-
-/// @nodoc
-class _$TaskCopyWithImpl<$Res, $Val extends Task>
-    implements $TaskCopyWith<$Res> {
-  _$TaskCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? id = null,
-    Object? kind = null,
-    Object? summary = null,
-    Object? status = null,
-    Object? progress = null,
-  }) {
-    return _then(_value.copyWith(
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String,
-      kind: null == kind
-          ? _value.kind
-          : kind // ignore: cast_nullable_to_non_nullable
-              as String,
-      summary: null == summary
-          ? _value.summary
-          : summary // ignore: cast_nullable_to_non_nullable
-              as String,
-      status: null == status
-          ? _value.status
-          : status // ignore: cast_nullable_to_non_nullable
-              as TaskStatus,
-      progress: null == progress
-          ? _value.progress
-          : progress // ignore: cast_nullable_to_non_nullable
-              as TaskProgress,
-    ) as $Val);
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $TaskProgressCopyWith<$Res> get progress {
-    return $TaskProgressCopyWith<$Res>(_value.progress, (value) {
-      return _then(_value.copyWith(progress: value) as $Val);
-    });
-  }
-}
-
-/// @nodoc
-abstract class _$$_TaskCopyWith<$Res> implements $TaskCopyWith<$Res> {
-  factory _$$_TaskCopyWith(_$_Task value, $Res Function(_$_Task) then) =
-      __$$_TaskCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call(
-      {String id,
-      String kind,
-      String summary,
-      TaskStatus status,
-      TaskProgress progress});
-
-  @override
-  $TaskProgressCopyWith<$Res> get progress;
-}
-
-/// @nodoc
-class __$$_TaskCopyWithImpl<$Res> extends _$TaskCopyWithImpl<$Res, _$_Task>
-    implements _$$_TaskCopyWith<$Res> {
-  __$$_TaskCopyWithImpl(_$_Task _value, $Res Function(_$_Task) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? id = null,
-    Object? kind = null,
-    Object? summary = null,
-    Object? status = null,
-    Object? progress = null,
-  }) {
-    return _then(_$_Task(
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String,
-      kind: null == kind
-          ? _value.kind
-          : kind // ignore: cast_nullable_to_non_nullable
-              as String,
-      summary: null == summary
-          ? _value.summary
-          : summary // ignore: cast_nullable_to_non_nullable
-              as String,
-      status: null == status
-          ? _value.status
-          : status // ignore: cast_nullable_to_non_nullable
-              as TaskStatus,
-      progress: null == progress
-          ? _value.progress
-          : progress // ignore: cast_nullable_to_non_nullable
-              as TaskProgress,
-    ));
-  }
-}
-
-/// @nodoc
-@JsonSerializable()
-class _$_Task implements _Task {
-  const _$_Task(
-      {required this.id,
-      required this.kind,
-      required this.summary,
-      required this.status,
-      required this.progress});
-
-  factory _$_Task.fromJson(Map<String, dynamic> json) => _$$_TaskFromJson(json);
-
-  @override
-  final String id;
-  @override
-  final String kind;
-  @override
-  final String summary;
-  @override
-  final TaskStatus status;
-  @override
-  final TaskProgress progress;
-
-  @override
-  String toString() {
-    return 'Task(id: $id, kind: $kind, summary: $summary, status: $status, progress: $progress)';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$_Task &&
-            (identical(other.id, id) || other.id == id) &&
-            (identical(other.kind, kind) || other.kind == kind) &&
-            (identical(other.summary, summary) || other.summary == summary) &&
-            (identical(other.status, status) || other.status == status) &&
-            (identical(other.progress, progress) ||
-                other.progress == progress));
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode =>
-      Object.hash(runtimeType, id, kind, summary, status, progress);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$_TaskCopyWith<_$_Task> get copyWith =>
-      __$$_TaskCopyWithImpl<_$_Task>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$_TaskToJson(
-      this,
-    );
-  }
-}
-
-abstract class _Task implements Task {
-  const factory _Task(
-      {required final String id,
-      required final String kind,
-      required final String summary,
-      required final TaskStatus status,
-      required final TaskProgress progress}) = _$_Task;
-
-  factory _Task.fromJson(Map<String, dynamic> json) = _$_Task.fromJson;
-
-  @override
-  String get id;
-  @override
-  String get kind;
-  @override
-  String get summary;
-  @override
-  TaskStatus get status;
-  @override
-  TaskProgress get progress;
-  @override
-  @JsonKey(ignore: true)
-  _$$_TaskCopyWith<_$_Task> get copyWith => throw _privateConstructorUsedError;
-}
-
-Change _$ChangeFromJson(Map<String, dynamic> json) {
-  return _Change.fromJson(json);
-}
-
-/// @nodoc
-mixin _$Change {
-  String get id => throw _privateConstructorUsedError;
-  String get kind => throw _privateConstructorUsedError;
-  String get summary => throw _privateConstructorUsedError;
-  TaskStatus get status => throw _privateConstructorUsedError;
-  List<Task> get tasks => throw _privateConstructorUsedError;
-  bool get ready => throw _privateConstructorUsedError;
-  String? get err => throw _privateConstructorUsedError;
-  dynamic get data => throw _privateConstructorUsedError;
-
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $ChangeCopyWith<Change> get copyWith => throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $ChangeCopyWith<$Res> {
-  factory $ChangeCopyWith(Change value, $Res Function(Change) then) =
-      _$ChangeCopyWithImpl<$Res, Change>;
-  @useResult
-  $Res call(
-      {String id,
-      String kind,
-      String summary,
-      TaskStatus status,
-      List<Task> tasks,
-      bool ready,
-      String? err,
-      dynamic data});
-}
-
-/// @nodoc
-class _$ChangeCopyWithImpl<$Res, $Val extends Change>
-    implements $ChangeCopyWith<$Res> {
-  _$ChangeCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? id = null,
-    Object? kind = null,
-    Object? summary = null,
-    Object? status = null,
-    Object? tasks = null,
-    Object? ready = null,
-    Object? err = freezed,
-    Object? data = freezed,
-  }) {
-    return _then(_value.copyWith(
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String,
-      kind: null == kind
-          ? _value.kind
-          : kind // ignore: cast_nullable_to_non_nullable
-              as String,
-      summary: null == summary
-          ? _value.summary
-          : summary // ignore: cast_nullable_to_non_nullable
-              as String,
-      status: null == status
-          ? _value.status
-          : status // ignore: cast_nullable_to_non_nullable
-              as TaskStatus,
-      tasks: null == tasks
-          ? _value.tasks
-          : tasks // ignore: cast_nullable_to_non_nullable
-              as List<Task>,
-      ready: null == ready
-          ? _value.ready
-          : ready // ignore: cast_nullable_to_non_nullable
-              as bool,
-      err: freezed == err
-          ? _value.err
-          : err // ignore: cast_nullable_to_non_nullable
-              as String?,
-      data: freezed == data
-          ? _value.data
-          : data // ignore: cast_nullable_to_non_nullable
-              as dynamic,
-    ) as $Val);
-  }
-}
-
-/// @nodoc
-abstract class _$$_ChangeCopyWith<$Res> implements $ChangeCopyWith<$Res> {
-  factory _$$_ChangeCopyWith(_$_Change value, $Res Function(_$_Change) then) =
-      __$$_ChangeCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call(
-      {String id,
-      String kind,
-      String summary,
-      TaskStatus status,
-      List<Task> tasks,
-      bool ready,
-      String? err,
-      dynamic data});
-}
-
-/// @nodoc
-class __$$_ChangeCopyWithImpl<$Res>
-    extends _$ChangeCopyWithImpl<$Res, _$_Change>
-    implements _$$_ChangeCopyWith<$Res> {
-  __$$_ChangeCopyWithImpl(_$_Change _value, $Res Function(_$_Change) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? id = null,
-    Object? kind = null,
-    Object? summary = null,
-    Object? status = null,
-    Object? tasks = null,
-    Object? ready = null,
-    Object? err = freezed,
-    Object? data = freezed,
-  }) {
-    return _then(_$_Change(
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String,
-      kind: null == kind
-          ? _value.kind
-          : kind // ignore: cast_nullable_to_non_nullable
-              as String,
-      summary: null == summary
-          ? _value.summary
-          : summary // ignore: cast_nullable_to_non_nullable
-              as String,
-      status: null == status
-          ? _value.status
-          : status // ignore: cast_nullable_to_non_nullable
-              as TaskStatus,
-      tasks: null == tasks
-          ? _value._tasks
-          : tasks // ignore: cast_nullable_to_non_nullable
-              as List<Task>,
-      ready: null == ready
-          ? _value.ready
-          : ready // ignore: cast_nullable_to_non_nullable
-              as bool,
-      err: freezed == err
-          ? _value.err
-          : err // ignore: cast_nullable_to_non_nullable
-              as String?,
-      data: freezed == data
-          ? _value.data
-          : data // ignore: cast_nullable_to_non_nullable
-              as dynamic,
-    ));
-  }
-}
-
-/// @nodoc
-@JsonSerializable()
-class _$_Change implements _Change {
-  const _$_Change(
-      {required this.id,
-      required this.kind,
-      required this.summary,
-      required this.status,
-      required final List<Task> tasks,
-      required this.ready,
-      this.err,
-      this.data})
-      : _tasks = tasks;
-
-  factory _$_Change.fromJson(Map<String, dynamic> json) =>
-      _$$_ChangeFromJson(json);
-
-  @override
-  final String id;
-  @override
-  final String kind;
-  @override
-  final String summary;
-  @override
-  final TaskStatus status;
-  final List<Task> _tasks;
-  @override
-  List<Task> get tasks {
-    if (_tasks is EqualUnmodifiableListView) return _tasks;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_tasks);
-  }
-
-  @override
-  final bool ready;
-  @override
-  final String? err;
-  @override
-  final dynamic data;
-
-  @override
-  String toString() {
-    return 'Change(id: $id, kind: $kind, summary: $summary, status: $status, tasks: $tasks, ready: $ready, err: $err, data: $data)';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$_Change &&
-            (identical(other.id, id) || other.id == id) &&
-            (identical(other.kind, kind) || other.kind == kind) &&
-            (identical(other.summary, summary) || other.summary == summary) &&
-            (identical(other.status, status) || other.status == status) &&
-            const DeepCollectionEquality().equals(other._tasks, _tasks) &&
-            (identical(other.ready, ready) || other.ready == ready) &&
-            (identical(other.err, err) || other.err == err) &&
-            const DeepCollectionEquality().equals(other.data, data));
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      id,
-      kind,
-      summary,
-      status,
-      const DeepCollectionEquality().hash(_tasks),
-      ready,
-      err,
-      const DeepCollectionEquality().hash(data));
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$_ChangeCopyWith<_$_Change> get copyWith =>
-      __$$_ChangeCopyWithImpl<_$_Change>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$_ChangeToJson(
-      this,
-    );
-  }
-}
-
-abstract class _Change implements Change {
-  const factory _Change(
-      {required final String id,
-      required final String kind,
-      required final String summary,
-      required final TaskStatus status,
-      required final List<Task> tasks,
-      required final bool ready,
-      final String? err,
-      final dynamic data}) = _$_Change;
-
-  factory _Change.fromJson(Map<String, dynamic> json) = _$_Change.fromJson;
-
-  @override
-  String get id;
-  @override
-  String get kind;
-  @override
-  String get summary;
-  @override
-  TaskStatus get status;
-  @override
-  List<Task> get tasks;
-  @override
-  bool get ready;
-  @override
-  String? get err;
-  @override
-  dynamic get data;
-  @override
-  @JsonKey(ignore: true)
-  _$$_ChangeCopyWith<_$_Change> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-MirrorCheckResponse _$MirrorCheckResponseFromJson(Map<String, dynamic> json) {
-  return _MirrorCheckResponse.fromJson(json);
-}
-
-/// @nodoc
-mixin _$MirrorCheckResponse {
-  String get url => throw _privateConstructorUsedError;
-  MirrorCheckStatus get status => throw _privateConstructorUsedError;
-  String get output => throw _privateConstructorUsedError;
-
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $MirrorCheckResponseCopyWith<MirrorCheckResponse> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $MirrorCheckResponseCopyWith<$Res> {
-  factory $MirrorCheckResponseCopyWith(
-          MirrorCheckResponse value, $Res Function(MirrorCheckResponse) then) =
-      _$MirrorCheckResponseCopyWithImpl<$Res, MirrorCheckResponse>;
-  @useResult
-  $Res call({String url, MirrorCheckStatus status, String output});
-}
-
-/// @nodoc
-class _$MirrorCheckResponseCopyWithImpl<$Res, $Val extends MirrorCheckResponse>
-    implements $MirrorCheckResponseCopyWith<$Res> {
-  _$MirrorCheckResponseCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? url = null,
-    Object? status = null,
-    Object? output = null,
-  }) {
-    return _then(_value.copyWith(
-      url: null == url
-          ? _value.url
-          : url // ignore: cast_nullable_to_non_nullable
-              as String,
-      status: null == status
-          ? _value.status
-          : status // ignore: cast_nullable_to_non_nullable
-              as MirrorCheckStatus,
-      output: null == output
-          ? _value.output
-          : output // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
-  }
-}
-
-/// @nodoc
-abstract class _$$_MirrorCheckResponseCopyWith<$Res>
-    implements $MirrorCheckResponseCopyWith<$Res> {
-  factory _$$_MirrorCheckResponseCopyWith(_$_MirrorCheckResponse value,
-          $Res Function(_$_MirrorCheckResponse) then) =
-      __$$_MirrorCheckResponseCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({String url, MirrorCheckStatus status, String output});
-}
-
-/// @nodoc
-class __$$_MirrorCheckResponseCopyWithImpl<$Res>
-    extends _$MirrorCheckResponseCopyWithImpl<$Res, _$_MirrorCheckResponse>
-    implements _$$_MirrorCheckResponseCopyWith<$Res> {
-  __$$_MirrorCheckResponseCopyWithImpl(_$_MirrorCheckResponse _value,
-      $Res Function(_$_MirrorCheckResponse) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? url = null,
-    Object? status = null,
-    Object? output = null,
-  }) {
-    return _then(_$_MirrorCheckResponse(
-      url: null == url
-          ? _value.url
-          : url // ignore: cast_nullable_to_non_nullable
-              as String,
-      status: null == status
-          ? _value.status
-          : status // ignore: cast_nullable_to_non_nullable
-              as MirrorCheckStatus,
-      output: null == output
-          ? _value.output
-          : output // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
-}
-
-/// @nodoc
-@JsonSerializable()
-class _$_MirrorCheckResponse implements _MirrorCheckResponse {
-  const _$_MirrorCheckResponse(
-      {required this.url, required this.status, required this.output});
-
-  factory _$_MirrorCheckResponse.fromJson(Map<String, dynamic> json) =>
-      _$$_MirrorCheckResponseFromJson(json);
-
-  @override
-  final String url;
-  @override
-  final MirrorCheckStatus status;
-  @override
-  final String output;
-
-  @override
-  String toString() {
-    return 'MirrorCheckResponse(url: $url, status: $status, output: $output)';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$_MirrorCheckResponse &&
-            (identical(other.url, url) || other.url == url) &&
-            (identical(other.status, status) || other.status == status) &&
-            (identical(other.output, output) || other.output == output));
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode => Object.hash(runtimeType, url, status, output);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$_MirrorCheckResponseCopyWith<_$_MirrorCheckResponse> get copyWith =>
-      __$$_MirrorCheckResponseCopyWithImpl<_$_MirrorCheckResponse>(
-          this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$_MirrorCheckResponseToJson(
-      this,
-    );
-  }
-}
-
-abstract class _MirrorCheckResponse implements MirrorCheckResponse {
-  const factory _MirrorCheckResponse(
-      {required final String url,
-      required final MirrorCheckStatus status,
-      required final String output}) = _$_MirrorCheckResponse;
-
-  factory _MirrorCheckResponse.fromJson(Map<String, dynamic> json) =
-      _$_MirrorCheckResponse.fromJson;
-
-  @override
-  String get url;
-  @override
-  MirrorCheckStatus get status;
-  @override
-  String get output;
-  @override
-  @JsonKey(ignore: true)
-  _$$_MirrorCheckResponseCopyWith<_$_MirrorCheckResponse> get copyWith =>
       throw _privateConstructorUsedError;
 }
