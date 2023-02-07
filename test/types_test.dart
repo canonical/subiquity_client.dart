@@ -243,13 +243,11 @@ void main() {
       diskId: '0',
       useLvm: true,
       password: '2',
-      useTpm: false,
     );
     const json = <String, dynamic>{
       'disk_id': '0',
       'use_lvm': true,
       'password': '2',
-      'use_tpm': false,
     };
     expect(choice.toJson(), equals(json));
     expect(GuidedChoice.fromJson(json), choice);
