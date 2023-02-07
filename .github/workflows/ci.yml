@@ -92,8 +92,8 @@ jobs:
         if: github.event_name == 'push'
         uses: peter-evans/create-pull-request@v4
         with:
-          title: 'Regenerate files on `${GITHUB_REF##*/}`'
-          commit-message: 'Regenerate files on `${GITHUB_REF##*/}`'
+          title: 'Regenerate files on `${{github.ref_name}}`'
+          commit-message: 'Regenerate files on `${{github.ref_name}}`'
 
   generator:
     runs-on: ubuntu-22.04
