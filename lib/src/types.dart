@@ -943,4 +943,27 @@ class MirrorCheckResponse with _$MirrorCheckResponse {
       _$MirrorCheckResponseFromJson(json);
 }
 
+@freezed
+class ADConnectionInfo with _$ADConnectionInfo {
+  const factory ADConnectionInfo({
+    @Default('') String adminName,
+    @Default('') String domainName,
+    @Default('') String password,
+  }) = _ADConnectionInfo;
+
+  factory ADConnectionInfo.fromJson(Map<String, dynamic> json) =>
+      _$ADConnectionInfoFromJson(json);
+}
+
+enum ADValidationResult {
+  OK,
+  ADMIN_NAME_BAD_FIRST_CHAR,
+  ADMIN_NAME_BAD_CHARS,
+  DCNAME_BAD_CHARS,
+  DCNAME_BAD_HYPHEN,
+  DCNAME_BAD_DOTS,
+  DCNAME_BAD_LENGTH,
+  PASSWORD_EMPTY,
+}
+
 // END GENERATED CODE

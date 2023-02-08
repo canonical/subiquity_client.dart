@@ -12865,3 +12865,181 @@ abstract class _MirrorCheckResponse implements MirrorCheckResponse {
   _$$_MirrorCheckResponseCopyWith<_$_MirrorCheckResponse> get copyWith =>
       throw _privateConstructorUsedError;
 }
+
+ADConnectionInfo _$ADConnectionInfoFromJson(Map<String, dynamic> json) {
+  return _ADConnectionInfo.fromJson(json);
+}
+
+/// @nodoc
+mixin _$ADConnectionInfo {
+  String get adminName => throw _privateConstructorUsedError;
+  String get domainName => throw _privateConstructorUsedError;
+  String get password => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $ADConnectionInfoCopyWith<ADConnectionInfo> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $ADConnectionInfoCopyWith<$Res> {
+  factory $ADConnectionInfoCopyWith(
+          ADConnectionInfo value, $Res Function(ADConnectionInfo) then) =
+      _$ADConnectionInfoCopyWithImpl<$Res, ADConnectionInfo>;
+  @useResult
+  $Res call({String adminName, String domainName, String password});
+}
+
+/// @nodoc
+class _$ADConnectionInfoCopyWithImpl<$Res, $Val extends ADConnectionInfo>
+    implements $ADConnectionInfoCopyWith<$Res> {
+  _$ADConnectionInfoCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? adminName = null,
+    Object? domainName = null,
+    Object? password = null,
+  }) {
+    return _then(_value.copyWith(
+      adminName: null == adminName
+          ? _value.adminName
+          : adminName // ignore: cast_nullable_to_non_nullable
+              as String,
+      domainName: null == domainName
+          ? _value.domainName
+          : domainName // ignore: cast_nullable_to_non_nullable
+              as String,
+      password: null == password
+          ? _value.password
+          : password // ignore: cast_nullable_to_non_nullable
+              as String,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$_ADConnectionInfoCopyWith<$Res>
+    implements $ADConnectionInfoCopyWith<$Res> {
+  factory _$$_ADConnectionInfoCopyWith(
+          _$_ADConnectionInfo value, $Res Function(_$_ADConnectionInfo) then) =
+      __$$_ADConnectionInfoCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({String adminName, String domainName, String password});
+}
+
+/// @nodoc
+class __$$_ADConnectionInfoCopyWithImpl<$Res>
+    extends _$ADConnectionInfoCopyWithImpl<$Res, _$_ADConnectionInfo>
+    implements _$$_ADConnectionInfoCopyWith<$Res> {
+  __$$_ADConnectionInfoCopyWithImpl(
+      _$_ADConnectionInfo _value, $Res Function(_$_ADConnectionInfo) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? adminName = null,
+    Object? domainName = null,
+    Object? password = null,
+  }) {
+    return _then(_$_ADConnectionInfo(
+      adminName: null == adminName
+          ? _value.adminName
+          : adminName // ignore: cast_nullable_to_non_nullable
+              as String,
+      domainName: null == domainName
+          ? _value.domainName
+          : domainName // ignore: cast_nullable_to_non_nullable
+              as String,
+      password: null == password
+          ? _value.password
+          : password // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$_ADConnectionInfo implements _ADConnectionInfo {
+  const _$_ADConnectionInfo(
+      {this.adminName = '', this.domainName = '', this.password = ''});
+
+  factory _$_ADConnectionInfo.fromJson(Map<String, dynamic> json) =>
+      _$$_ADConnectionInfoFromJson(json);
+
+  @override
+  @JsonKey()
+  final String adminName;
+  @override
+  @JsonKey()
+  final String domainName;
+  @override
+  @JsonKey()
+  final String password;
+
+  @override
+  String toString() {
+    return 'ADConnectionInfo(adminName: $adminName, domainName: $domainName, password: $password)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_ADConnectionInfo &&
+            (identical(other.adminName, adminName) ||
+                other.adminName == adminName) &&
+            (identical(other.domainName, domainName) ||
+                other.domainName == domainName) &&
+            (identical(other.password, password) ||
+                other.password == password));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(runtimeType, adminName, domainName, password);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_ADConnectionInfoCopyWith<_$_ADConnectionInfo> get copyWith =>
+      __$$_ADConnectionInfoCopyWithImpl<_$_ADConnectionInfo>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_ADConnectionInfoToJson(
+      this,
+    );
+  }
+}
+
+abstract class _ADConnectionInfo implements ADConnectionInfo {
+  const factory _ADConnectionInfo(
+      {final String adminName,
+      final String domainName,
+      final String password}) = _$_ADConnectionInfo;
+
+  factory _ADConnectionInfo.fromJson(Map<String, dynamic> json) =
+      _$_ADConnectionInfo.fromJson;
+
+  @override
+  String get adminName;
+  @override
+  String get domainName;
+  @override
+  String get password;
+  @override
+  @JsonKey(ignore: true)
+  _$$_ADConnectionInfoCopyWith<_$_ADConnectionInfo> get copyWith =>
+      throw _privateConstructorUsedError;
+}
