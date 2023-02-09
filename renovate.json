@@ -7,7 +7,7 @@
     "git-submodules",
     "github-actions",
     "pub"
-  ]
+  ],
   "git-submodules": {
     "enabled": true
   }
