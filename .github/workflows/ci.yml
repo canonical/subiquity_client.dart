@@ -29,7 +29,7 @@ jobs:
 
       - name: Install subiquity dependencies
         working-directory: ./subiquity
-        run: sudo ./scripts/installdeps.sh
+        run: make install_deps
 
       - name: Prepare environment for subiquity
         run: |
