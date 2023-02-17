@@ -1215,6 +1215,37 @@ const _$MirrorCheckStatusEnumMap = {
   MirrorCheckStatus.FAILED: 'FAILED',
 };
 
+_$_MirrorPost _$$_MirrorPostFromJson(Map<String, dynamic> json) =>
+    _$_MirrorPost(
+      elected: json['elected'] as String?,
+      candidates: (json['candidates'] as List<dynamic>?)
+          ?.map((e) => e as String)
+          .toList(),
+      staged: json['staged'] as String?,
+    );
+
+Map<String, dynamic> _$$_MirrorPostToJson(_$_MirrorPost instance) =>
+    <String, dynamic>{
+      'elected': instance.elected,
+      'candidates': instance.candidates,
+      'staged': instance.staged,
+    };
+
+_$_MirrorGet _$$_MirrorGetFromJson(Map<String, dynamic> json) => _$_MirrorGet(
+      elected: json['elected'] as String?,
+      candidates: (json['candidates'] as List<dynamic>)
+          .map((e) => e as String)
+          .toList(),
+      staged: json['staged'] as String?,
+    );
+
+Map<String, dynamic> _$$_MirrorGetToJson(_$_MirrorGet instance) =>
+    <String, dynamic>{
+      'elected': instance.elected,
+      'candidates': instance.candidates,
+      'staged': instance.staged,
+    };
+
 _$_ADConnectionInfo _$$_ADConnectionInfoFromJson(Map<String, dynamic> json) =>
     _$_ADConnectionInfo(
       adminName: json['admin_name'] as String? ?? '',

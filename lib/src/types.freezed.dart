@@ -12866,6 +12866,370 @@ abstract class _MirrorCheckResponse implements MirrorCheckResponse {
       throw _privateConstructorUsedError;
 }
 
+MirrorPost _$MirrorPostFromJson(Map<String, dynamic> json) {
+  return _MirrorPost.fromJson(json);
+}
+
+/// @nodoc
+mixin _$MirrorPost {
+  String? get elected => throw _privateConstructorUsedError;
+  List<String>? get candidates => throw _privateConstructorUsedError;
+  String? get staged => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $MirrorPostCopyWith<MirrorPost> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $MirrorPostCopyWith<$Res> {
+  factory $MirrorPostCopyWith(
+          MirrorPost value, $Res Function(MirrorPost) then) =
+      _$MirrorPostCopyWithImpl<$Res, MirrorPost>;
+  @useResult
+  $Res call({String? elected, List<String>? candidates, String? staged});
+}
+
+/// @nodoc
+class _$MirrorPostCopyWithImpl<$Res, $Val extends MirrorPost>
+    implements $MirrorPostCopyWith<$Res> {
+  _$MirrorPostCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? elected = freezed,
+    Object? candidates = freezed,
+    Object? staged = freezed,
+  }) {
+    return _then(_value.copyWith(
+      elected: freezed == elected
+          ? _value.elected
+          : elected // ignore: cast_nullable_to_non_nullable
+              as String?,
+      candidates: freezed == candidates
+          ? _value.candidates
+          : candidates // ignore: cast_nullable_to_non_nullable
+              as List<String>?,
+      staged: freezed == staged
+          ? _value.staged
+          : staged // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$_MirrorPostCopyWith<$Res>
+    implements $MirrorPostCopyWith<$Res> {
+  factory _$$_MirrorPostCopyWith(
+          _$_MirrorPost value, $Res Function(_$_MirrorPost) then) =
+      __$$_MirrorPostCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({String? elected, List<String>? candidates, String? staged});
+}
+
+/// @nodoc
+class __$$_MirrorPostCopyWithImpl<$Res>
+    extends _$MirrorPostCopyWithImpl<$Res, _$_MirrorPost>
+    implements _$$_MirrorPostCopyWith<$Res> {
+  __$$_MirrorPostCopyWithImpl(
+      _$_MirrorPost _value, $Res Function(_$_MirrorPost) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? elected = freezed,
+    Object? candidates = freezed,
+    Object? staged = freezed,
+  }) {
+    return _then(_$_MirrorPost(
+      elected: freezed == elected
+          ? _value.elected
+          : elected // ignore: cast_nullable_to_non_nullable
+              as String?,
+      candidates: freezed == candidates
+          ? _value._candidates
+          : candidates // ignore: cast_nullable_to_non_nullable
+              as List<String>?,
+      staged: freezed == staged
+          ? _value.staged
+          : staged // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$_MirrorPost implements _MirrorPost {
+  const _$_MirrorPost(
+      {this.elected, final List<String>? candidates, this.staged})
+      : _candidates = candidates;
+
+  factory _$_MirrorPost.fromJson(Map<String, dynamic> json) =>
+      _$$_MirrorPostFromJson(json);
+
+  @override
+  final String? elected;
+  final List<String>? _candidates;
+  @override
+  List<String>? get candidates {
+    final value = _candidates;
+    if (value == null) return null;
+    if (_candidates is EqualUnmodifiableListView) return _candidates;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
+  @override
+  final String? staged;
+
+  @override
+  String toString() {
+    return 'MirrorPost(elected: $elected, candidates: $candidates, staged: $staged)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_MirrorPost &&
+            (identical(other.elected, elected) || other.elected == elected) &&
+            const DeepCollectionEquality()
+                .equals(other._candidates, _candidates) &&
+            (identical(other.staged, staged) || other.staged == staged));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(runtimeType, elected,
+      const DeepCollectionEquality().hash(_candidates), staged);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_MirrorPostCopyWith<_$_MirrorPost> get copyWith =>
+      __$$_MirrorPostCopyWithImpl<_$_MirrorPost>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_MirrorPostToJson(
+      this,
+    );
+  }
+}
+
+abstract class _MirrorPost implements MirrorPost {
+  const factory _MirrorPost(
+      {final String? elected,
+      final List<String>? candidates,
+      final String? staged}) = _$_MirrorPost;
+
+  factory _MirrorPost.fromJson(Map<String, dynamic> json) =
+      _$_MirrorPost.fromJson;
+
+  @override
+  String? get elected;
+  @override
+  List<String>? get candidates;
+  @override
+  String? get staged;
+  @override
+  @JsonKey(ignore: true)
+  _$$_MirrorPostCopyWith<_$_MirrorPost> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+MirrorGet _$MirrorGetFromJson(Map<String, dynamic> json) {
+  return _MirrorGet.fromJson(json);
+}
+
+/// @nodoc
+mixin _$MirrorGet {
+  String? get elected => throw _privateConstructorUsedError;
+  List<String> get candidates => throw _privateConstructorUsedError;
+  String? get staged => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $MirrorGetCopyWith<MirrorGet> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $MirrorGetCopyWith<$Res> {
+  factory $MirrorGetCopyWith(MirrorGet value, $Res Function(MirrorGet) then) =
+      _$MirrorGetCopyWithImpl<$Res, MirrorGet>;
+  @useResult
+  $Res call({String? elected, List<String> candidates, String? staged});
+}
+
+/// @nodoc
+class _$MirrorGetCopyWithImpl<$Res, $Val extends MirrorGet>
+    implements $MirrorGetCopyWith<$Res> {
+  _$MirrorGetCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? elected = freezed,
+    Object? candidates = null,
+    Object? staged = freezed,
+  }) {
+    return _then(_value.copyWith(
+      elected: freezed == elected
+          ? _value.elected
+          : elected // ignore: cast_nullable_to_non_nullable
+              as String?,
+      candidates: null == candidates
+          ? _value.candidates
+          : candidates // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      staged: freezed == staged
+          ? _value.staged
+          : staged // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$_MirrorGetCopyWith<$Res> implements $MirrorGetCopyWith<$Res> {
+  factory _$$_MirrorGetCopyWith(
+          _$_MirrorGet value, $Res Function(_$_MirrorGet) then) =
+      __$$_MirrorGetCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({String? elected, List<String> candidates, String? staged});
+}
+
+/// @nodoc
+class __$$_MirrorGetCopyWithImpl<$Res>
+    extends _$MirrorGetCopyWithImpl<$Res, _$_MirrorGet>
+    implements _$$_MirrorGetCopyWith<$Res> {
+  __$$_MirrorGetCopyWithImpl(
+      _$_MirrorGet _value, $Res Function(_$_MirrorGet) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? elected = freezed,
+    Object? candidates = null,
+    Object? staged = freezed,
+  }) {
+    return _then(_$_MirrorGet(
+      elected: freezed == elected
+          ? _value.elected
+          : elected // ignore: cast_nullable_to_non_nullable
+              as String?,
+      candidates: null == candidates
+          ? _value._candidates
+          : candidates // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      staged: freezed == staged
+          ? _value.staged
+          : staged // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$_MirrorGet implements _MirrorGet {
+  const _$_MirrorGet(
+      {required this.elected,
+      required final List<String> candidates,
+      required this.staged})
+      : _candidates = candidates;
+
+  factory _$_MirrorGet.fromJson(Map<String, dynamic> json) =>
+      _$$_MirrorGetFromJson(json);
+
+  @override
+  final String? elected;
+  final List<String> _candidates;
+  @override
+  List<String> get candidates {
+    if (_candidates is EqualUnmodifiableListView) return _candidates;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_candidates);
+  }
+
+  @override
+  final String? staged;
+
+  @override
+  String toString() {
+    return 'MirrorGet(elected: $elected, candidates: $candidates, staged: $staged)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_MirrorGet &&
+            (identical(other.elected, elected) || other.elected == elected) &&
+            const DeepCollectionEquality()
+                .equals(other._candidates, _candidates) &&
+            (identical(other.staged, staged) || other.staged == staged));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(runtimeType, elected,
+      const DeepCollectionEquality().hash(_candidates), staged);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_MirrorGetCopyWith<_$_MirrorGet> get copyWith =>
+      __$$_MirrorGetCopyWithImpl<_$_MirrorGet>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_MirrorGetToJson(
+      this,
+    );
+  }
+}
+
+abstract class _MirrorGet implements MirrorGet {
+  const factory _MirrorGet(
+      {required final String? elected,
+      required final List<String> candidates,
+      required final String? staged}) = _$_MirrorGet;
+
+  factory _MirrorGet.fromJson(Map<String, dynamic> json) =
+      _$_MirrorGet.fromJson;
+
+  @override
+  String? get elected;
+  @override
+  List<String> get candidates;
+  @override
+  String? get staged;
+  @override
+  @JsonKey(ignore: true)
+  _$$_MirrorGetCopyWith<_$_MirrorGet> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
 ADConnectionInfo _$ADConnectionInfoFromJson(Map<String, dynamic> json) {
   return _ADConnectionInfo.fromJson(json);
 }
