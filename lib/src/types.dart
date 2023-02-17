@@ -944,6 +944,41 @@ class MirrorCheckResponse with _$MirrorCheckResponse {
 }
 
 @freezed
+class MirrorPost with _$MirrorPost {
+  const factory MirrorPost({
+    String? elected,
+    List<String>? candidates,
+    String? staged,
+  }) = _MirrorPost;
+
+  factory MirrorPost.fromJson(Map<String, dynamic> json) =>
+      _$MirrorPostFromJson(json);
+}
+
+enum MirrorPostResponse {
+  OK,
+  NO_USABLE_MIRROR,
+}
+
+@freezed
+class MirrorGet with _$MirrorGet {
+  const factory MirrorGet({
+    required String? elected,
+    required List<String> candidates,
+    required String? staged,
+  }) = _MirrorGet;
+
+  factory MirrorGet.fromJson(Map<String, dynamic> json) =>
+      _$MirrorGetFromJson(json);
+}
+
+enum MirrorSelectionFallback {
+  ABORT,
+  CONTINUE_ANYWAY,
+  OFFLINE_INSTALL,
+}
+
+@freezed
 class ADConnectionInfo with _$ADConnectionInfo {
   const factory ADConnectionInfo({
     @Default('') String adminName,
@@ -955,15 +990,27 @@ class ADConnectionInfo with _$ADConnectionInfo {
       _$ADConnectionInfoFromJson(json);
 }
 
-enum ADValidationResult {
+enum AdAdminNameValidation {
   OK,
-  ADMIN_NAME_BAD_FIRST_CHAR,
-  ADMIN_NAME_BAD_CHARS,
-  DCNAME_BAD_CHARS,
-  DCNAME_BAD_HYPHEN,
-  DCNAME_BAD_DOTS,
-  DCNAME_BAD_LENGTH,
-  PASSWORD_EMPTY,
+  EMPTY,
+  INVALID_CHARS,
+}
+
+enum AdDomainNameValidation {
+  OK,
+  EMPTY,
+  TOO_LONG,
+  INVALID_CHARS,
+  START_DOT,
+  END_DOT,
+  START_HYPHEN,
+  END_HYPHEN,
+  MULTIPLE_DOTS,
+}
+
+enum AdPasswordValidation {
+  OK,
+  EMPTY,
 }
 
 // END GENERATED CODE

@@ -204,7 +204,6 @@ class SubiquityProcess {
       workingDirectory: workingDirectory,
       environment: {...?environment, ...?additionalEnv},
     ).then((process) {
-      process.stdout.listen(stdout.add);
       process.stderr.listen(stderr.add);
       return process;
     });
