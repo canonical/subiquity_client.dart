@@ -185,11 +185,12 @@ class SubiquityClient {
     return MirrorGet.fromJson(json);
   }
 
-  Future<void> setMirror(MirrorPost mirror) async {
+  Future<MirrorPostResponse> setMirror(MirrorPost? mirror) async {
     final request = await _openUrl('POST', url('mirror'));
-    request.write(jsonEncode(mirror.toJson()));
+    request.write(jsonEncode(mirror?.toJson()));
     final response = await request.close();
-    await _receive('setMirror("$mirror")', response);
+    final responseStr = await _receive('setMirror("$mirror")', response);
+    return MirrorPostResponse.values.byName(responseStr.replaceAll('"', ''));
   }
 
   Future<bool> freeOnly() async {

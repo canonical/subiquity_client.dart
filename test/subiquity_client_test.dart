@@ -333,15 +333,17 @@ void main() {
     });
 
     test('mirror', () async {
-      await client.setMirror(
-          MirrorPost(elected: 'http://fr.archive.ubuntu.com/ubuntu'));
+      expect(await client.setMirror(MirrorPost(elected: 'test')),
+          MirrorPostResponse.OK);
       final test = await client.mirror();
-      expect(test.elected, 'http://fr.archive.ubuntu.com/ubuntu');
+      expect(test.elected, endsWith('test'));
       expect(test.candidates, isNotEmpty);
       expect(test.staged, isNull);
 
-      await client
-          .setMirror(MirrorPost(elected: 'https://archive.ubuntu.com/ubuntu'));
+      expect(
+          await client.setMirror(
+              MirrorPost(elected: 'https://archive.ubuntu.com/ubuntu')),
+          MirrorPostResponse.OK);
       final archive = await client.mirror();
       expect(archive.elected, 'https://archive.ubuntu.com/ubuntu');
       expect(archive.candidates, isNotEmpty);
