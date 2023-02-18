@@ -452,4 +452,76 @@ class SubiquityClient {
     final request = await _openUrl('GET', url('refresh/progress', params));
     return _receive('getRefreshProgress($changeId)', request, Change.fromJson);
   }
+
+  Future<bool> hasActiveDirectorySupport() async {
+    final request = await _openUrl('GET', url('active_directory/has_support'));
+    return _receive('hasActiveDirectorySupport()', request);
+  }
+
+  Future<ADConnectionInfo> getActiveDirectory() async {
+    final request = await _openUrl('GET', url('active_directory'));
+    return _receive(
+      'getActiveDirectory()',
+      request,
+      ADConnectionInfo.fromJson,
+      (method, response) => _formatResponseLog(
+        method,
+        ADConnectionInfo.fromJson(jsonDecode(response))
+            .hidePassword()
+            .toString(),
+      ),
+    );
+  }
+
+  Future<void> setActiveDirectory(ADConnectionInfo info) async {
+    final request = await _openUrl('POST', url('active_directory'));
+    request.write(jsonEncode(info.toJson()));
+    return _receive('setActiveDirectory(${info.hidePassword()})', request);
+  }
+
+  Future<List<AdDomainNameValidation>> checkActiveDirectoryDomainName(
+      String domain) async {
+    final request =
+        await _openUrl('POST', url('active_directory/check_domain_name'));
+    request.write(jsonEncode(domain));
+    return _receive(
+        'checkActiveDirectoryDomainName($domain)',
+        request,
+        (List values) => values
+            .cast<String>()
+            .map(AdDomainNameValidation.values.byName)
+            .toList());
+  }
+
+  Future<AdAdminNameValidation> checkActiveDirectoryAdminName(
+      String admin) async {
+    final request =
+        await _openUrl('POST', url('active_directory/check_admin_name'));
+    request.write(jsonEncode(admin));
+    return _receive(
+      'checkActiveDirectoryAdminName($admin)',
+      request,
+      AdAdminNameValidation.values.byName,
+    );
+  }
+
+  Future<AdPasswordValidation> checkActiveDirectoryPassword(
+      String password) async {
+    final request =
+        await _openUrl('POST', url('active_directory/check_password'));
+    request.write(jsonEncode(password));
+    return _receive(
+      'checkActiveDirectoryPassword(${password.hide()})',
+      request,
+      AdPasswordValidation.values.byName,
+    );
+  }
+}
+
+extension on String {
+  String hide() => '*' * length;
+}
+
+extension on ADConnectionInfo {
+  ADConnectionInfo hidePassword() => copyWith(password: password.hide());
 }
