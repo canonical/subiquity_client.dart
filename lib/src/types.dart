@@ -1006,6 +1006,7 @@ enum AdDomainNameValidation {
   START_HYPHEN,
   END_HYPHEN,
   MULTIPLE_DOTS,
+  REALM_NOT_FOUND,
 }
 
 enum AdPasswordValidation {
