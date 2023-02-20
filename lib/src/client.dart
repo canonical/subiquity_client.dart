@@ -97,7 +97,7 @@ class SubiquityClient {
   Future<void> setVariant(Variant variant) async {
     final params = {'variant': jsonEncode(variant.toVariantString())};
     final request = await _openUrl('POST', url('meta/client_variant', params));
-    await _receive('setVariant("$variant")', request);
+    await _receive('setVariant($variant)', request);
   }
 
   Future<SourceSelectionAndSetting> source() async {
@@ -109,7 +109,7 @@ class SubiquityClient {
   Future<void> setSource(String sourceId) async {
     final params = {'source_id': jsonEncode(sourceId)};
     final request = await _openUrl('POST', url('source', params));
-    await _receive('setSource("$sourceId")', request);
+    await _receive('setSource($sourceId)', request);
   }
 
   Future<String> locale() async {
@@ -120,7 +120,7 @@ class SubiquityClient {
   Future<void> setLocale(String locale) async {
     final request = await _openUrl('POST', url('locale'));
     request.write('"$locale"');
-    await _receive('setLocale("$locale")', request);
+    await _receive('setLocale($locale)', request);
   }
 
   Future<KeyboardSetup> keyboard() async {
@@ -132,13 +132,13 @@ class SubiquityClient {
   Future<void> setKeyboard(KeyboardSetting setting) async {
     final request = await _openUrl('POST', url('keyboard'));
     request.write(jsonEncode(setting.toJson()));
-    await _receive('setKeyboard(${jsonEncode(setting.toJson())})', request);
+    await _receive('setKeyboard($setting)', request);
   }
 
   Future<void> setInputSource(KeyboardSetting setting) async {
     final request = await _openUrl('POST', url('keyboard/input_source'));
     request.write(jsonEncode(setting.toJson()));
-    await _receive('setInputSource(${jsonEncode(setting.toJson())})', request);
+    await _receive('setInputSource($setting)', request);
   }
 
   Future<String> proxy() async {
@@ -149,7 +149,7 @@ class SubiquityClient {
   Future<void> setProxy(String proxy) async {
     final request = await _openUrl('POST', url('proxy'));
     request.write('"$proxy"');
-    await _receive('setProxy("$proxy")', request);
+    await _receive('setProxy($proxy)', request);
   }
 
   Future<MirrorGet> mirror() async {
@@ -161,7 +161,7 @@ class SubiquityClient {
   Future<MirrorPostResponse> setMirror(MirrorPost? mirror) async {
     final request = await _openUrl('POST', url('mirror'));
     request.write(jsonEncode(mirror?.toJson()));
-    final responseStr = await _receive('setMirror("$mirror")', request);
+    final responseStr = await _receive('setMirror($mirror)', request);
     return MirrorPostResponse.values.byName(responseStr);
   }
 
@@ -174,7 +174,7 @@ class SubiquityClient {
   Future<void> setFreeOnly(bool enable) async {
     final params = {'enable': jsonEncode(enable)};
     final request = await _openUrl('POST', url('meta/free_only', params));
-    await _receive('setFreeOnly("$freeOnly")', request);
+    await _receive('setFreeOnly($enable)', request);
   }
 
   Future<IdentityData> identity() async {
@@ -186,7 +186,7 @@ class SubiquityClient {
   Future<void> setIdentity(IdentityData identity) async {
     final request = await _openUrl('POST', url('identity'));
     request.write(jsonEncode(identity.toJson()));
-    await _receive('setIdentity(${jsonEncode(identity.toJson())})', request);
+    await _receive('setIdentity($identity)', request);
   }
 
   Future<UsernameValidation> validateUsername(String username) async {
@@ -212,7 +212,7 @@ class SubiquityClient {
   Future<void> setTimezone(String timezone) async {
     final params = {'tz': jsonEncode(timezone)};
     final request = await _openUrl('POST', url('timezone', params));
-    await _receive('setTimezone("$timezone")', request);
+    await _receive('setTimezone($timezone)', request);
   }
 
   /// Get the installer state.
@@ -222,7 +222,7 @@ class SubiquityClient {
     if (current != null) {
       final params = {'cur': jsonEncode(current.name)};
       final request = await _openUrl('GET', url('meta/status', params));
-      statusJson = await _receiveJson('status("${current.name}")', request);
+      statusJson = await _receiveJson('status(${current.name})', request);
     } else {
       final request = await _openUrl('GET', url('meta/status'));
       statusJson = await _receiveJson('status()', request);
@@ -238,14 +238,14 @@ class SubiquityClient {
   Future<void> markConfigured(List<String> endpointNames) async {
     final params = {'endpoint_names': jsonEncode(endpointNames)};
     final request = await _openUrl('POST', url('meta/mark_configured', params));
-    await _receive('markConfigured(${jsonEncode(endpointNames)})', request);
+    await _receive('markConfigured($endpointNames)', request);
   }
 
   /// Confirm that the installation should proceed.
   Future<void> confirm(String tty) async {
     final params = {'tty': jsonEncode(tty)};
     final request = await _openUrl('POST', url('meta/confirm', params));
-    await _receive('confirm("$tty")', request);
+    await _receive('confirm($tty)', request);
   }
 
   /// Returns whether RST is turned on.
@@ -265,7 +265,7 @@ class SubiquityClient {
     final params = {'wait': jsonEncode(wait)};
     final request = await _openUrl('GET', url('storage/v2/guided', params));
     final responseJson =
-        await _receiveJson("getGuidedStorageV2('$wait')", request);
+        await _receiveJson('getGuidedStorageV2($wait)', request);
     return GuidedStorageResponseV2.fromJson(responseJson);
   }
 
