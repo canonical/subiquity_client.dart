@@ -42,9 +42,6 @@ class SubiquityException implements Exception {
 class SubiquityClient {
   final _client = HttpClient();
   Endpoint? _endpoint;
-  final _isOpen = Completer<bool>();
-
-  Future<bool> get isOpen => _isOpen.future;
 
   Uri url(String unencodedPath, [Map<String, dynamic>? queryParameters]) =>
       Uri.http(_endpoint!.authority, unencodedPath, queryParameters);
@@ -55,7 +52,6 @@ class SubiquityClient {
     _client.connectionFactory = (uri, proxyHost, proxyPort) async {
       return Socket.startConnect(endpoint.address, endpoint.port);
     };
-    _isOpen.complete(true);
   }
 
   Future<void> close() async {
