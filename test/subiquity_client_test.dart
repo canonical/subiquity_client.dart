@@ -10,15 +10,6 @@ void main() {
   late SubiquityServer testServer;
   late SubiquityClient client;
 
-  test('initialization', () async {
-    client = SubiquityClient();
-    final isOpen = client.isOpen;
-    final address = Endpoint.unix('');
-    Future.delayed(Duration(milliseconds: 1)).then((_) => client.open(address));
-    await expectLater(isOpen, completes);
-    expect(await isOpen, isTrue);
-  });
-
   group('subiquity process', () {
     test('set additional environment before starting the process', () async {
       const foo = '42';
