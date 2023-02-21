@@ -58,26 +58,20 @@ class SubiquityClient {
     _client.close();
   }
 
-  Future<T> _receive<T>(
+  Future<R> _receive<R, V>(
     String method,
     HttpClientRequest request, [
+    R Function(V)? decode,
     String Function(String, String) formatResponseLog = _formatResponseLog,
   ]) async {
     final response = await request.close();
-    final responseStr = await response.transform(utf8.decoder).join();
+    final str = await response.transform(utf8.decoder).join();
     if (response.statusCode != 200) {
-      throw SubiquityException(method, response.statusCode, responseStr);
+      throw SubiquityException(method, response.statusCode, str);
     }
-    log.debug(() => formatResponseLog(method, responseStr));
-    return jsonDecode(responseStr) as T;
-  }
-
-  Future<Map<String, dynamic>> _receiveJson(
-    String method,
-    HttpClientRequest request, [
-    String Function(String, String) formatResponseLog = _formatResponseLog,
-  ]) async {
-    return _receive<Map<String, dynamic>>(method, request, formatResponseLog);
+    log.debug(() => formatResponseLog(method, str));
+    final json = jsonDecode(str);
+    return decode?.call(json as V) ?? json as R;
   }
 
   Future<HttpClientRequest> _openUrl(String method, Uri url) async {
@@ -90,8 +84,7 @@ class SubiquityClient {
 
   Future<Variant> variant() async {
     final request = await _openUrl('GET', url('meta/client_variant'));
-    final responseStr = await _receive('variant()', request);
-    return VariantString.fromString(responseStr);
+    return _receive('variant()', request, VariantString.fromString);
   }
 
   Future<void> setVariant(Variant variant) async {
@@ -102,8 +95,7 @@ class SubiquityClient {
 
   Future<SourceSelectionAndSetting> source() async {
     final request = await _openUrl('GET', url('source'));
-    final json = await _receiveJson('source()', request);
-    return SourceSelectionAndSetting.fromJson(json);
+    return _receive('source()', request, SourceSelectionAndSetting.fromJson);
   }
 
   Future<void> setSource(String sourceId) async {
@@ -119,14 +111,13 @@ class SubiquityClient {
 
   Future<void> setLocale(String locale) async {
     final request = await _openUrl('POST', url('locale'));
-    request.write('"$locale"');
+    request.write(jsonEncode(locale));
     await _receive('setLocale($locale)', request);
   }
 
   Future<KeyboardSetup> keyboard() async {
     final request = await _openUrl('GET', url('keyboard'));
-    final keyboardJson = await _receiveJson('keyboard()', request);
-    return KeyboardSetup.fromJson(keyboardJson);
+    return _receive('keyboard()', request, KeyboardSetup.fromJson);
   }
 
   Future<void> setKeyboard(KeyboardSetting setting) async {
@@ -148,21 +139,20 @@ class SubiquityClient {
 
   Future<void> setProxy(String proxy) async {
     final request = await _openUrl('POST', url('proxy'));
-    request.write('"$proxy"');
+    request.write(jsonEncode(proxy));
     await _receive('setProxy($proxy)', request);
   }
 
   Future<MirrorGet> mirror() async {
     final request = await _openUrl('GET', url('mirror'));
-    final json = await _receiveJson('mirror()', request);
-    return MirrorGet.fromJson(json);
+    return _receive('mirror()', request, MirrorGet.fromJson);
   }
 
   Future<MirrorPostResponse> setMirror(MirrorPost? mirror) async {
     final request = await _openUrl('POST', url('mirror'));
     request.write(jsonEncode(mirror?.toJson()));
-    final responseStr = await _receive('setMirror($mirror)', request);
-    return MirrorPostResponse.values.byName(responseStr);
+    return _receive(
+        'setMirror($mirror)', request, MirrorPostResponse.values.byName);
   }
 
   Future<bool> freeOnly() async {
@@ -179,8 +169,7 @@ class SubiquityClient {
 
   Future<IdentityData> identity() async {
     final request = await _openUrl('GET', url('identity'));
-    final identityJson = await _receiveJson('identity()', request);
-    return IdentityData.fromJson(identityJson);
+    return _receive('identity()', request, IdentityData.fromJson);
   }
 
   Future<void> setIdentity(IdentityData identity) async {
@@ -191,22 +180,15 @@ class SubiquityClient {
 
   Future<UsernameValidation> validateUsername(String username) async {
     final params = {'username': jsonEncode(username)};
-    final request = await _openUrl(
-      'GET',
-      Uri.http(
-        'localhost',
-        'identity/validate_username',
-        params,
-      ),
-    );
-    final respStr = await _receive('identity/validate_username()', request);
-    return UsernameValidation.values.byName(respStr);
+    final request =
+        await _openUrl('GET', url('identity/validate_username', params));
+    return _receive('identity/validate_username()', request,
+        UsernameValidation.values.byName);
   }
 
   Future<TimeZoneInfo> timezone() async {
     final request = await _openUrl('GET', url('timezone'));
-    final timezoneJson = await _receiveJson('timezone()', request);
-    return TimeZoneInfo.fromJson(timezoneJson);
+    return _receive('timezone()', request, TimeZoneInfo.fromJson);
   }
 
   Future<void> setTimezone(String timezone) async {
@@ -217,21 +199,18 @@ class SubiquityClient {
 
   /// Get the installer state.
   Future<ApplicationStatus> status({ApplicationState? current}) async {
-    late Map<String, dynamic> statusJson;
-
+    late ApplicationStatus status;
     if (current != null) {
       final params = {'cur': jsonEncode(current.name)};
       final request = await _openUrl('GET', url('meta/status', params));
-      statusJson = await _receiveJson('status(${current.name})', request);
+      status = await _receive(
+          'status(${current.name})', request, ApplicationStatus.fromJson);
     } else {
       final request = await _openUrl('GET', url('meta/status'));
-      statusJson = await _receiveJson('status()', request);
+      status = await _receive('status()', request, ApplicationStatus.fromJson);
     }
-
-    final result = ApplicationStatus.fromJson(statusJson);
-    log.info('state: ${current?.name} => ${result.state.name}');
-
-    return result;
+    log.info('state: ${current?.name} => ${status.state.name}');
+    return status;
   }
 
   /// Mark the controllers for endpoint_names as configured.
@@ -257,16 +236,15 @@ class SubiquityClient {
   /// Returns whether any disks contain BitLocker partitions.
   Future<bool> hasBitLocker() async {
     final request = await _openUrl('GET', url('storage/has_bitlocker'));
-    final disks = await _receive<List>('hasBitLocker()', request);
-    return disks.isNotEmpty;
+    return _receive(
+        'hasBitLocker()', request, (List disks) => disks.isNotEmpty);
   }
 
   Future<GuidedStorageResponseV2> getGuidedStorageV2({bool wait = true}) async {
     final params = {'wait': jsonEncode(wait)};
     final request = await _openUrl('GET', url('storage/v2/guided', params));
-    final responseJson =
-        await _receiveJson('getGuidedStorageV2($wait)', request);
-    return GuidedStorageResponseV2.fromJson(responseJson);
+    return _receive(
+        'getGuidedStorageV2($wait)', request, GuidedStorageResponseV2.fromJson);
   }
 
   Future<GuidedStorageResponseV2> setGuidedStorageV2(
@@ -294,37 +272,34 @@ class SubiquityClient {
       return _formatResponseLog(method, json);
     }
 
-    final responseJson = await _receiveJson(
+    return _receive(
       'setGuidedStorageV2(${hidePasswordRequest(choice)})',
       request,
+      GuidedStorageResponseV2.fromJson,
       hidePasswordResponse,
     );
-    return GuidedStorageResponseV2.fromJson(responseJson);
   }
 
   Future<StorageResponseV2> getOriginalStorageV2() async {
     final request = await _openUrl('GET', url('storage/v2/orig_config'));
-    final responseJson = await _receiveJson('getOriginalStorageV2()', request);
-    return StorageResponseV2.fromJson(responseJson);
+    return _receive(
+        'getOriginalStorageV2()', request, StorageResponseV2.fromJson);
   }
 
   Future<StorageResponseV2> getStorageV2({bool wait = true}) async {
     final params = {'wait': jsonEncode(wait)};
     final request = await _openUrl('GET', url('storage/v2', params));
-    final responseJson = await _receiveJson('getStorageV2()', request);
-    return StorageResponseV2.fromJson(responseJson);
+    return _receive('getStorageV2()', request, StorageResponseV2.fromJson);
   }
 
   Future<StorageResponseV2> setStorageV2() async {
     final request = await _openUrl('POST', url('storage/v2'));
-    final responseJson = await _receiveJson('setStorageV2()', request);
-    return StorageResponseV2.fromJson(responseJson);
+    return _receive('setStorageV2()', request, StorageResponseV2.fromJson);
   }
 
   Future<StorageResponseV2> resetStorageV2() async {
     final request = await _openUrl('POST', url('storage/v2/reset'));
-    final responseJson = await _receiveJson('resetStorageV2()', request);
-    return StorageResponseV2.fromJson(responseJson);
+    return _receive('resetStorageV2()', request, StorageResponseV2.fromJson);
   }
 
   Future<StorageResponseV2> addPartitionV2(
@@ -335,9 +310,8 @@ class SubiquityClient {
       'gap': gap.toJson(),
       'partition': partition.toJson(),
     }));
-    final responseJson =
-        await _receiveJson('addPartition(${disk.id}, $partition)', request);
-    return StorageResponseV2.fromJson(responseJson);
+    return _receive('addPartition(${disk.id}, $partition)', request,
+        StorageResponseV2.fromJson);
   }
 
   Future<StorageResponseV2> editPartitionV2(
@@ -347,9 +321,8 @@ class SubiquityClient {
       'disk_id': disk.id,
       'partition': partition.toJson(),
     }));
-    final responseJson =
-        await _receiveJson('editPartition(${disk.id}, $partition)', request);
-    return StorageResponseV2.fromJson(responseJson);
+    return _receive('editPartition(${disk.id}, $partition)', request,
+        StorageResponseV2.fromJson);
   }
 
   Future<StorageResponseV2> deletePartitionV2(
@@ -359,26 +332,23 @@ class SubiquityClient {
       'disk_id': disk.id,
       'partition': partition.toJson(),
     }));
-    final responseJson =
-        await _receiveJson('deletePartition(${disk.id}, $partition)', request);
-    return StorageResponseV2.fromJson(responseJson);
+    return _receive('deletePartition(${disk.id}, $partition)', request,
+        StorageResponseV2.fromJson);
   }
 
   Future<StorageResponseV2> addBootPartitionV2(Disk disk) async {
     final params = {'disk_id': jsonEncode(disk.id)};
     final request =
         await _openUrl('POST', url('storage/v2/add_boot_partition', params));
-    final responseJson =
-        await _receiveJson('addBootPartitionV2(${disk.id})', request);
-    return StorageResponseV2.fromJson(responseJson);
+    return _receive(
+        'addBootPartitionV2(${disk.id})', request, StorageResponseV2.fromJson);
   }
 
   Future<StorageResponseV2> reformatDiskV2(Disk disk) async {
     final request = await _openUrl('POST', url('storage/v2/reformat_disk'));
     request.write(jsonEncode({'disk_id': disk.id}));
-    final responseJson =
-        await _receiveJson('reformatDiskV2(${disk.id})', request);
-    return StorageResponseV2.fromJson(responseJson);
+    return _receive(
+        'reformatDiskV2(${disk.id})', request, StorageResponseV2.fromJson);
   }
 
   Future<void> reboot({bool immediate = false}) async {
@@ -405,53 +375,48 @@ class SubiquityClient {
 
   Future<WSLSetupOptions> wslSetupOptions() async {
     final request = await _openUrl('GET', url('wslsetupoptions'));
-    final json = await _receiveJson('wslsetupoptions()', request);
-    return WSLSetupOptions.fromJson(json);
+    return _receive('wslsetupoptions()', request, WSLSetupOptions.fromJson);
   }
 
   Future<void> setWslSetupOptions(WSLSetupOptions options) async {
     final request = await _openUrl('POST', url('wslsetupoptions'));
     request.write(jsonEncode(options.toJson()));
-    await _receive(
-        'setWslSetupOptions(${jsonEncode(options.toJson())})', request);
+    return _receive('setWslSetupOptions($options)', request);
   }
 
   Future<WSLConfigurationBase> wslConfigurationBase() async {
     final request = await _openUrl('GET', url('wslconfbase'));
-    final json = await _receiveJson('wslconfbase()', request);
-    return WSLConfigurationBase.fromJson(json);
+    return _receive('wslconfbase()', request, WSLConfigurationBase.fromJson);
   }
 
   Future<void> setWslConfigurationBase(WSLConfigurationBase conf) async {
     final request = await _openUrl('POST', url('wslconfbase'));
     request.write(jsonEncode(conf.toJson()));
-    await _receive('setWslconfbase(${jsonEncode(conf.toJson())})', request);
+    await _receive('setWslconfbase($conf)', request);
   }
 
   Future<WSLConfigurationAdvanced> wslConfigurationAdvanced() async {
     final request = await _openUrl('GET', url('wslconfadvanced'));
-    final json = await _receiveJson('wslconfadvanced()', request);
-    return WSLConfigurationAdvanced.fromJson(json);
+    return _receive(
+        'wslconfadvanced()', request, WSLConfigurationAdvanced.fromJson);
   }
 
   Future<void> setWslConfigurationAdvanced(
       WSLConfigurationAdvanced conf) async {
     final request = await _openUrl('POST', url('wslconfadvanced'));
     request.write(jsonEncode(conf.toJson()));
-    await _receive('setWslconfadvanced(${jsonEncode(conf.toJson())})', request);
+    await _receive('setWslconfadvanced($conf)', request);
   }
 
   Future<AnyStep> getKeyboardStep([String step = '0']) async {
     final params = {'index': jsonEncode(step)};
     final request = await _openUrl('GET', url('keyboard/steps', params));
-    final json = await _receiveJson('getKeyboardStep($step)', request);
-    return AnyStep.fromJson(json);
+    return _receive('getKeyboardStep($step)', request, AnyStep.fromJson);
   }
 
   Future<DriversResponse> getDrivers() async {
     final request = await _openUrl('GET', url('drivers'));
-    final json = await _receiveJson('getDrivers()', request);
-    return DriversResponse.fromJson(json);
+    return _receive('getDrivers()', request, DriversResponse.fromJson);
   }
 
   Future<void> setDrivers({required bool install}) async {
@@ -462,8 +427,7 @@ class SubiquityClient {
 
   Future<CodecsData> getCodecs() async {
     final request = await _openUrl('GET', url('codecs'));
-    final json = await _receiveJson('getCodecs()', request);
-    return CodecsData.fromJson(json);
+    return _receive('getCodecs()', request, CodecsData.fromJson);
   }
 
   Future<void> setCodecs({required bool install}) async {
@@ -475,8 +439,7 @@ class SubiquityClient {
   Future<RefreshStatus> checkRefresh({bool wait = true}) async {
     final params = {'wait': jsonEncode(wait)};
     final request = await _openUrl('GET', url('refresh', params));
-    final json = await _receiveJson('checkRefresh()', request);
-    return RefreshStatus.fromJson(json);
+    return _receive('checkRefresh()', request, RefreshStatus.fromJson);
   }
 
   Future<String> startRefresh() async {
@@ -487,7 +450,6 @@ class SubiquityClient {
   Future<Change> getRefreshProgress(String changeId) async {
     final params = {'change_id': jsonEncode(changeId)};
     final request = await _openUrl('GET', url('refresh/progress', params));
-    final json = await _receiveJson('getRefreshProgress($changeId)', request);
-    return Change.fromJson(json);
+    return _receive('getRefreshProgress($changeId)', request, Change.fromJson);
   }
 }
