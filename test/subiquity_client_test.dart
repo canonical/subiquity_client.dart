@@ -493,6 +493,61 @@ void main() {
       expect(change.ready, isFalse);
       expect(change.err, isNull);
     });
+
+    test('AD support', () async {
+      expect(await client.hasActiveDirectorySupport(), anyOf(isTrue, isFalse));
+    });
+
+    test('AD info', () async {
+      final info = ADConnectionInfo(
+        domainName: 'foo.bar.baz',
+        adminName: 'admin',
+        password: 'password',
+      );
+      await client.setActiveDirectory(info);
+      expect(await client.getActiveDirectory(), info);
+    });
+
+    test('AD domain', () async {
+      expect(
+        await client.checkActiveDirectoryDomainName(''),
+        [AdDomainNameValidation.EMPTY],
+      );
+      expect(
+        await client.checkActiveDirectoryDomainName('!"#¤%&/(=)'),
+        [AdDomainNameValidation.INVALID_CHARS],
+      );
+      expect(
+        await client.checkActiveDirectoryDomainName('foo.bar.baz'),
+        [AdDomainNameValidation.OK],
+      );
+    });
+
+    test('AD admin', () async {
+      expect(
+        await client.checkActiveDirectoryAdminName(''),
+        AdAdminNameValidation.EMPTY,
+      );
+      expect(
+        await client.checkActiveDirectoryAdminName('!"#¤%&/(=)'),
+        AdAdminNameValidation.INVALID_CHARS,
+      );
+      expect(
+        await client.checkActiveDirectoryAdminName('foo.bar.baz'),
+        AdAdminNameValidation.OK,
+      );
+    });
+
+    test('AD password', () async {
+      expect(
+        await client.checkActiveDirectoryPassword(''),
+        AdPasswordValidation.EMPTY,
+      );
+      expect(
+        await client.checkActiveDirectoryPassword('!"#¤%&/(=)'),
+        AdPasswordValidation.OK,
+      );
+    });
   });
 
   group('wsl', () {
