@@ -516,6 +516,14 @@ class SubiquityClient {
       AdPasswordValidation.values.byName,
     );
   }
+
+  Future<AdJoinResult> getActiveDirectoryJoinResult({bool wait = true}) async {
+    final params = {'wait': jsonEncode(wait)};
+    final request =
+        await _openUrl('GET', url('active_directory/join_result', params));
+    return _receive('getActiveDirectoryJoinResult($wait)', request,
+        AdJoinResult.values.byName);
+  }
 }
 
 extension on String {

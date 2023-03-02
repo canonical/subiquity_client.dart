@@ -548,6 +548,15 @@ void main() {
         AdPasswordValidation.OK,
       );
     });
+
+    test('AD join result', () async {
+      // this is only testing that the endpoint answers as expected. the actual
+      // join is called from the install controller and not tested here.
+      expect(
+        await client.getActiveDirectoryJoinResult(wait: false),
+        AdJoinResult.UNKNOWN,
+      );
+    });
   });
 
   group('wsl', () {
