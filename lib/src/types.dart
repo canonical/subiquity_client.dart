@@ -1014,4 +1014,12 @@ enum AdPasswordValidation {
   EMPTY,
 }
 
+enum AdJoinResult {
+  OK,
+  JOIN_ERROR,
+  EMPTY_HOSTNAME,
+  PAM_ERROR,
+  UNKNOWN,
+}
+
 // END GENERATED CODE
