@@ -517,12 +517,12 @@ class SubiquityClient {
     );
   }
 
-  Future<AdJoinResult> joinActiveDirectory({bool wait = true}) async {
+  Future<AdJoinResult> getActiveDirectoryJoinResult({bool wait = true}) async {
     final params = {'wait': jsonEncode(wait)};
     final request =
         await _openUrl('GET', url('active_directory/join_result', params));
-    return _receive(
-        'joinActiveDirectory($wait)', request, AdJoinResult.values.byName);
+    return _receive('getActiveDirectoryJoinResult($wait)', request,
+        AdJoinResult.values.byName);
   }
 }
 
