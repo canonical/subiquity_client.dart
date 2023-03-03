@@ -139,6 +139,7 @@ void main() {
     test('input source', () async {
       const ks = KeyboardSetting(layout: 'fr', variant: 'latin9');
       await expectLater(client.setInputSource(ks), completes);
+      await expectLater(client.setInputSource(ks, user: 'flavor'), completes);
     });
 
     test('has rst', () async {

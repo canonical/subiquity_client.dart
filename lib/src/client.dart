@@ -126,8 +126,10 @@ class SubiquityClient {
     await _receive('setKeyboard($setting)', request);
   }
 
-  Future<void> setInputSource(KeyboardSetting setting) async {
-    final request = await _openUrl('POST', url('keyboard/input_source'));
+  Future<void> setInputSource(KeyboardSetting setting, {String? user}) async {
+    final params = {if (user != null) 'user': jsonEncode(user)};
+    final request =
+        await _openUrl('POST', url('keyboard/input_source', params));
     request.write(jsonEncode(setting.toJson()));
     await _receive('setInputSource($setting)', request);
   }
