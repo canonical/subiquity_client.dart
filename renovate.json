@@ -10,5 +10,13 @@
   ],
   "git-submodules": {
     "enabled": true
-  }
+  },
+  "packageRules": [
+    {
+      "managers": [
+        "git-submodules"
+      ],
+      "automerge": true
+    }
+  ]
 }
