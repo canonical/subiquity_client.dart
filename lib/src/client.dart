@@ -495,6 +495,15 @@ class SubiquityClient {
             .toList());
   }
 
+  Future<AdDomainNameValidation> pingActiveDirectoryDomainController(
+      String domain) async {
+    final request =
+        await _openUrl('POST', url('active_directory/ping_domain_controller'));
+    request.write(jsonEncode(domain));
+    return _receive('pingActiveDirectoryDomainController($domain)', request,
+        AdDomainNameValidation.values.byName);
+  }
+
   Future<AdAdminNameValidation> checkActiveDirectoryAdminName(
       String admin) async {
     final request =
