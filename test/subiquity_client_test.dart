@@ -524,6 +524,21 @@ void main() {
       );
     });
 
+    test('AD ping domain controller', () async {
+      expect(
+        await client.pingActiveDirectoryDomainController(''),
+        AdDomainNameValidation.EMPTY,
+      );
+      expect(
+        await client.pingActiveDirectoryDomainController('realm-not-found'),
+        AdDomainNameValidation.REALM_NOT_FOUND,
+      );
+      expect(
+        await client.pingActiveDirectoryDomainController('ubuntu.com'),
+        AdDomainNameValidation.OK,
+      );
+    });
+
     test('AD admin', () async {
       expect(
         await client.checkActiveDirectoryAdminName(''),
