@@ -13230,35 +13230,35 @@ abstract class _MirrorGet implements MirrorGet {
       throw _privateConstructorUsedError;
 }
 
-ADConnectionInfo _$ADConnectionInfoFromJson(Map<String, dynamic> json) {
-  return _ADConnectionInfo.fromJson(json);
+AdConnectionInfo _$AdConnectionInfoFromJson(Map<String, dynamic> json) {
+  return _AdConnectionInfo.fromJson(json);
 }
 
 /// @nodoc
-mixin _$ADConnectionInfo {
+mixin _$AdConnectionInfo {
   String get adminName => throw _privateConstructorUsedError;
   String get domainName => throw _privateConstructorUsedError;
   String get password => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $ADConnectionInfoCopyWith<ADConnectionInfo> get copyWith =>
+  $AdConnectionInfoCopyWith<AdConnectionInfo> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $ADConnectionInfoCopyWith<$Res> {
-  factory $ADConnectionInfoCopyWith(
-          ADConnectionInfo value, $Res Function(ADConnectionInfo) then) =
-      _$ADConnectionInfoCopyWithImpl<$Res, ADConnectionInfo>;
+abstract class $AdConnectionInfoCopyWith<$Res> {
+  factory $AdConnectionInfoCopyWith(
+          AdConnectionInfo value, $Res Function(AdConnectionInfo) then) =
+      _$AdConnectionInfoCopyWithImpl<$Res, AdConnectionInfo>;
   @useResult
   $Res call({String adminName, String domainName, String password});
 }
 
 /// @nodoc
-class _$ADConnectionInfoCopyWithImpl<$Res, $Val extends ADConnectionInfo>
-    implements $ADConnectionInfoCopyWith<$Res> {
-  _$ADConnectionInfoCopyWithImpl(this._value, this._then);
+class _$AdConnectionInfoCopyWithImpl<$Res, $Val extends AdConnectionInfo>
+    implements $AdConnectionInfoCopyWith<$Res> {
+  _$AdConnectionInfoCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -13290,22 +13290,22 @@ class _$ADConnectionInfoCopyWithImpl<$Res, $Val extends ADConnectionInfo>
 }
 
 /// @nodoc
-abstract class _$$_ADConnectionInfoCopyWith<$Res>
-    implements $ADConnectionInfoCopyWith<$Res> {
-  factory _$$_ADConnectionInfoCopyWith(
-          _$_ADConnectionInfo value, $Res Function(_$_ADConnectionInfo) then) =
-      __$$_ADConnectionInfoCopyWithImpl<$Res>;
+abstract class _$$_AdConnectionInfoCopyWith<$Res>
+    implements $AdConnectionInfoCopyWith<$Res> {
+  factory _$$_AdConnectionInfoCopyWith(
+          _$_AdConnectionInfo value, $Res Function(_$_AdConnectionInfo) then) =
+      __$$_AdConnectionInfoCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String adminName, String domainName, String password});
 }
 
 /// @nodoc
-class __$$_ADConnectionInfoCopyWithImpl<$Res>
-    extends _$ADConnectionInfoCopyWithImpl<$Res, _$_ADConnectionInfo>
-    implements _$$_ADConnectionInfoCopyWith<$Res> {
-  __$$_ADConnectionInfoCopyWithImpl(
-      _$_ADConnectionInfo _value, $Res Function(_$_ADConnectionInfo) _then)
+class __$$_AdConnectionInfoCopyWithImpl<$Res>
+    extends _$AdConnectionInfoCopyWithImpl<$Res, _$_AdConnectionInfo>
+    implements _$$_AdConnectionInfoCopyWith<$Res> {
+  __$$_AdConnectionInfoCopyWithImpl(
+      _$_AdConnectionInfo _value, $Res Function(_$_AdConnectionInfo) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -13315,7 +13315,7 @@ class __$$_ADConnectionInfoCopyWithImpl<$Res>
     Object? domainName = null,
     Object? password = null,
   }) {
-    return _then(_$_ADConnectionInfo(
+    return _then(_$_AdConnectionInfo(
       adminName: null == adminName
           ? _value.adminName
           : adminName // ignore: cast_nullable_to_non_nullable
@@ -13334,12 +13334,12 @@ class __$$_ADConnectionInfoCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_ADConnectionInfo implements _ADConnectionInfo {
-  const _$_ADConnectionInfo(
+class _$_AdConnectionInfo implements _AdConnectionInfo {
+  const _$_AdConnectionInfo(
       {this.adminName = '', this.domainName = '', this.password = ''});
 
-  factory _$_ADConnectionInfo.fromJson(Map<String, dynamic> json) =>
-      _$$_ADConnectionInfoFromJson(json);
+  factory _$_AdConnectionInfo.fromJson(Map<String, dynamic> json) =>
+      _$$_AdConnectionInfoFromJson(json);
 
   @override
   @JsonKey()
@@ -13353,14 +13353,14 @@ class _$_ADConnectionInfo implements _ADConnectionInfo {
 
   @override
   String toString() {
-    return 'ADConnectionInfo(adminName: $adminName, domainName: $domainName, password: $password)';
+    return 'AdConnectionInfo(adminName: $adminName, domainName: $domainName, password: $password)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ADConnectionInfo &&
+            other is _$_AdConnectionInfo &&
             (identical(other.adminName, adminName) ||
                 other.adminName == adminName) &&
             (identical(other.domainName, domainName) ||
@@ -13376,25 +13376,25 @@ class _$_ADConnectionInfo implements _ADConnectionInfo {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ADConnectionInfoCopyWith<_$_ADConnectionInfo> get copyWith =>
-      __$$_ADConnectionInfoCopyWithImpl<_$_ADConnectionInfo>(this, _$identity);
+  _$$_AdConnectionInfoCopyWith<_$_AdConnectionInfo> get copyWith =>
+      __$$_AdConnectionInfoCopyWithImpl<_$_AdConnectionInfo>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ADConnectionInfoToJson(
+    return _$$_AdConnectionInfoToJson(
       this,
     );
   }
 }
 
-abstract class _ADConnectionInfo implements ADConnectionInfo {
-  const factory _ADConnectionInfo(
+abstract class _AdConnectionInfo implements AdConnectionInfo {
+  const factory _AdConnectionInfo(
       {final String adminName,
       final String domainName,
-      final String password}) = _$_ADConnectionInfo;
+      final String password}) = _$_AdConnectionInfo;
 
-  factory _ADConnectionInfo.fromJson(Map<String, dynamic> json) =
-      _$_ADConnectionInfo.fromJson;
+  factory _AdConnectionInfo.fromJson(Map<String, dynamic> json) =
+      _$_AdConnectionInfo.fromJson;
 
   @override
   String get adminName;
@@ -13404,6 +13404,6 @@ abstract class _ADConnectionInfo implements ADConnectionInfo {
   String get password;
   @override
   @JsonKey(ignore: true)
-  _$$_ADConnectionInfoCopyWith<_$_ADConnectionInfo> get copyWith =>
+  _$$_AdConnectionInfoCopyWith<_$_AdConnectionInfo> get copyWith =>
       throw _privateConstructorUsedError;
 }

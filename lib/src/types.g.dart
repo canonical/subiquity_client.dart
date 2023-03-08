@@ -1246,14 +1246,14 @@ Map<String, dynamic> _$$_MirrorGetToJson(_$_MirrorGet instance) =>
       'staged': instance.staged,
     };
 
-_$_ADConnectionInfo _$$_ADConnectionInfoFromJson(Map<String, dynamic> json) =>
-    _$_ADConnectionInfo(
+_$_AdConnectionInfo _$$_AdConnectionInfoFromJson(Map<String, dynamic> json) =>
+    _$_AdConnectionInfo(
       adminName: json['admin_name'] as String? ?? '',
       domainName: json['domain_name'] as String? ?? '',
       password: json['password'] as String? ?? '',
     );
 
-Map<String, dynamic> _$$_ADConnectionInfoToJson(_$_ADConnectionInfo instance) =>
+Map<String, dynamic> _$$_AdConnectionInfoToJson(_$_AdConnectionInfo instance) =>
     <String, dynamic>{
       'admin_name': instance.adminName,
       'domain_name': instance.domainName,
