@@ -61,6 +61,7 @@ void main() {
       final socketPath = await testServer.start(args: [
         '--machine-config=examples/simple.json',
         '--source-catalog=examples/mixed-sources.yaml',
+        '--storage-version=2',
         '--bootloader=uefi',
       ]);
       client.open(socketPath);
