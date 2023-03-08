@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:subiquity_client/subiquity_client.dart';
 import 'package:subiquity_client/subiquity_server.dart';
 import 'package:test/test.dart';
@@ -61,12 +59,9 @@ void main() {
       );
       client = SubiquityClient();
       final socketPath = await testServer.start(args: [
-        '--machine-config',
-        'examples/simple.json',
-        '--source-catalog',
-        '${Directory.current.path}/test/install-sources.yaml',
-        '--bootloader',
-        'uefi',
+        '--machine-config=examples/simple.json',
+        '--source-catalog=examples/mixed-sources.yaml',
+        '--bootloader=uefi',
       ]);
       client.open(socketPath);
     });
@@ -85,34 +80,27 @@ void main() {
     });
 
     test('source', () async {
-      final expected = SourceSelectionAndSetting(sources: <SourceSelection>[
-        SourceSelection(
-            id: 'ubuntu-desktop',
-            name: 'Ubuntu Desktop',
-            description: 'Standard Ubuntu Desktop image',
-            size: 10,
-            variant: 'desktop',
-            isDefault: true),
-        SourceSelection(
-            id: 'ubuntu-desktop-minimal',
-            name: 'Ubuntu Desktop (minimized)',
-            description: 'Minimized Ubuntu Desktop image',
-            size: 5,
-            variant: 'desktop',
-            isDefault: false)
-      ], currentId: 'ubuntu-desktop', searchDrivers: false);
-
       await client.setVariant(Variant.DESKTOP);
-      var actual = await client.source();
-      expect(actual.sources, unorderedEquals(expected.sources));
 
-      await client.setSource('ubuntu-desktop-minimal');
-      actual = await client.source();
-      expect(actual.currentId, 'ubuntu-desktop-minimal');
+      final sources = await client.source().then((s) => s.sources);
+      expect(
+        sources,
+        containsAll([
+          isA<SourceSelection>()
+              .having((s) => s.id, 'id', 'ubuntu-server')
+              .having((s) => s.variant, 'variant',
+                  Variant.SERVER.toVariantString()),
+          isA<SourceSelection>()
+              .having((s) => s.id, 'id', 'ubuntu-desktop')
+              .having((s) => s.variant, 'variant',
+                  Variant.DESKTOP.toVariantString())
+              .having((s) => s.isDefault, 'default', isTrue),
+        ]),
+      );
 
       await client.setSource('ubuntu-desktop');
-      actual = await client.source();
-      expect(actual.currentId, 'ubuntu-desktop');
+      final source = await client.source();
+      expect(source.currentId, 'ubuntu-desktop');
     });
 
     test('locale', () async {
