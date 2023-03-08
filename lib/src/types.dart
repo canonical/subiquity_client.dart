@@ -979,15 +979,15 @@ enum MirrorSelectionFallback {
 }
 
 @freezed
-class ADConnectionInfo with _$ADConnectionInfo {
-  const factory ADConnectionInfo({
+class AdConnectionInfo with _$AdConnectionInfo {
+  const factory AdConnectionInfo({
     @Default('') String adminName,
     @Default('') String domainName,
     @Default('') String password,
-  }) = _ADConnectionInfo;
+  }) = _AdConnectionInfo;
 
-  factory ADConnectionInfo.fromJson(Map<String, dynamic> json) =>
-      _$ADConnectionInfoFromJson(json);
+  factory AdConnectionInfo.fromJson(Map<String, dynamic> json) =>
+      _$AdConnectionInfoFromJson(json);
 }
 
 enum AdAdminNameValidation {

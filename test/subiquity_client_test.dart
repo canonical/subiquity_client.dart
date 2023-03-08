@@ -500,7 +500,7 @@ void main() {
     });
 
     test('AD info', () async {
-      final info = ADConnectionInfo(
+      final info = AdConnectionInfo(
         domainName: 'foo.bar.baz',
         adminName: 'admin',
         password: 'password',

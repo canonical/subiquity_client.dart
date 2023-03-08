@@ -460,22 +460,22 @@ class SubiquityClient {
     return _receive('hasActiveDirectorySupport()', request);
   }
 
-  Future<ADConnectionInfo> getActiveDirectory() async {
+  Future<AdConnectionInfo> getActiveDirectory() async {
     final request = await _openUrl('GET', url('active_directory'));
     return _receive(
       'getActiveDirectory()',
       request,
-      ADConnectionInfo.fromJson,
+      AdConnectionInfo.fromJson,
       (method, response) => _formatResponseLog(
         method,
-        ADConnectionInfo.fromJson(jsonDecode(response))
+        AdConnectionInfo.fromJson(jsonDecode(response))
             .hidePassword()
             .toString(),
       ),
     );
   }
 
-  Future<void> setActiveDirectory(ADConnectionInfo info) async {
+  Future<void> setActiveDirectory(AdConnectionInfo info) async {
     final request = await _openUrl('POST', url('active_directory'));
     request.write(jsonEncode(info.toJson()));
     return _receive('setActiveDirectory(${info.hidePassword()})', request);
@@ -541,6 +541,6 @@ extension on String {
   String hide() => '*' * length;
 }
 
-extension on ADConnectionInfo {
-  ADConnectionInfo hidePassword() => copyWith(password: password.hide());
+extension on AdConnectionInfo {
+  AdConnectionInfo hidePassword() => copyWith(password: password.hide());
 }
