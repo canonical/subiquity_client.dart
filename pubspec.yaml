@@ -22,7 +22,7 @@ dev_dependencies:
   # TODO: dart_style 2.3.0 has some formatting changes that cause differences
   # between `dart format` and `dart pub run build_runner`. Remove this when the
   # latest stable Dart SDK uses dart_style 2.3.0+.
-  dart_style: 2.2.5
+  dart_style: 2.3.0
   freezed: ^2.3.2
   json_serializable: ^6.3.1
   lints: ^2.0.1
