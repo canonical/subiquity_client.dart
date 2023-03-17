@@ -4,3 +4,9 @@ updates:
     directory: /
     schedule:
         interval: "daily"
+    target-branch: "main"
+  - package-ecosystem: gitsubmodule
+    directory: /
+    schedule:
+        interval: "daily"
+    target-branch: "ubuntu/lunar"
