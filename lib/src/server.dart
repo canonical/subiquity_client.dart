@@ -7,7 +7,7 @@ import 'server/process.dart';
 import 'server/paths.dart';
 import 'types.dart';
 
-const _kWaitTimes = 30;
+const _kWaitTimes = 90;
 const _kWaitDuration = Duration(seconds: 1);
 
 Future<Endpoint> defaultEndpoint(ServerMode serverMode) async {
