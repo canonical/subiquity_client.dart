@@ -371,50 +371,26 @@ class Disk with _$Disk {
   factory Disk.fromJson(Map<String, dynamic> json) => _$DiskFromJson(json);
 }
 
+enum GuidedCapability {
+  DIRECT,
+  LVM,
+  LVM_LUKS,
+  CORE_BOOT_ENCRYPTED,
+  CORE_BOOT_UNENCRYPTED,
+  CORE_BOOT_PREFER_ENCRYPTED,
+  CORE_BOOT_PREFER_UNENCRYPTED,
+}
+
 @freezed
 class GuidedChoice with _$GuidedChoice {
   const factory GuidedChoice({
     required String diskId,
-    @Default(false) bool useLvm,
+    required GuidedCapability capability,
     String? password,
-    @Default(false) bool useTpm,
   }) = _GuidedChoice;
 
   factory GuidedChoice.fromJson(Map<String, dynamic> json) =>
       _$GuidedChoiceFromJson(json);
-}
-
-enum StorageEncryptionSupport {
-  DISABLED,
-  AVAILABLE,
-  UNAVAILABLE,
-  DEFECTIVE,
-}
-
-enum StorageSafety {
-  UNSET,
-  ENCRYPTED,
-  PREFER_ENCRYPTED,
-  PREFER_UNENCRYPTED,
-}
-
-enum EncryptionType {
-  NONE,
-  CRYPTSETUP,
-  DEVICE_SETUP_HOOK,
-}
-
-@freezed
-class StorageEncryption with _$StorageEncryption {
-  const factory StorageEncryption({
-    required StorageEncryptionSupport support,
-    required StorageSafety storageSafety,
-    required EncryptionType encryptionType,
-    required String unavailableReason,
-  }) = _StorageEncryption;
-
-  factory StorageEncryption.fromJson(Map<String, dynamic> json) =>
-      _$StorageEncryptionFromJson(json);
 }
 
 @freezed
@@ -424,7 +400,8 @@ class GuidedStorageResponse with _$GuidedStorageResponse {
     ErrorReportRef? errorReport,
     List<Disk>? disks,
     @Default('') String coreBootClassicError,
-    StorageEncryption? storageEncryption,
+    @Default('') String encryptionUnavailableReason,
+    @Default([]) List<GuidedCapability> capabilities,
   }) = _GuidedStorageResponse;
 
   factory GuidedStorageResponse.fromJson(Map<String, dynamic> json) =>
@@ -481,6 +458,7 @@ class GuidedStorageTarget with _$GuidedStorageTarget {
   @FreezedUnionValue('GuidedStorageTargetReformat')
   const factory GuidedStorageTarget.reformat({
     required String diskId,
+    required List<GuidedCapability> capabilities,
   }) = GuidedStorageTargetReformat;
 
   @FreezedUnionValue('GuidedStorageTargetResize')
@@ -491,12 +469,14 @@ class GuidedStorageTarget with _$GuidedStorageTarget {
     required int? minimum,
     required int? recommended,
     required int? maximum,
+    required List<GuidedCapability> capabilities,
   }) = GuidedStorageTargetResize;
 
   @FreezedUnionValue('GuidedStorageTargetUseGap')
   const factory GuidedStorageTarget.useGap({
     required String diskId,
     required Gap gap,
+    required List<GuidedCapability> capabilities,
   }) = GuidedStorageTargetUseGap;
 
   factory GuidedStorageTarget.fromJson(Map<String, dynamic> json) =>
@@ -507,7 +487,7 @@ class GuidedStorageTarget with _$GuidedStorageTarget {
 class GuidedChoiceV2 with _$GuidedChoiceV2 {
   const factory GuidedChoiceV2({
     required GuidedStorageTarget target,
-    @Default(false) bool useLvm,
+    required GuidedCapability capability,
     String? password,
   }) = _GuidedChoiceV2;
 
