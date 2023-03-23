@@ -241,15 +241,13 @@ void main() {
   test('guided choice', () {
     const choice = GuidedChoice(
       diskId: '0',
-      useLvm: true,
       password: '2',
-      useTpm: false,
+      capability: GuidedCapability.LVM,
     );
     const json = <String, dynamic>{
       'disk_id': '0',
-      'use_lvm': true,
+      'capability': 'LVM',
       'password': '2',
-      'use_tpm': false,
     };
     expect(choice.toJson(), equals(json));
     expect(GuidedChoice.fromJson(json), choice);
