@@ -145,7 +145,10 @@ void main() {
       final guided = await client.getGuidedStorageV2();
       expect(guided.possible, isNotEmpty);
 
-      final choice = GuidedChoiceV2(target: guided.possible.last);
+      final choice = GuidedChoiceV2(
+        target: guided.possible.last,
+        capability: guided.possible.last.capabilities.first,
+      );
       final response = await client.setGuidedStorageV2(choice);
       expect(response.configured, isNotNull);
       expect(response.possible, isNotEmpty);
