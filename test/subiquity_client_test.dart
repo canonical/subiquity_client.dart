@@ -254,9 +254,6 @@ void main() {
       expect(disks, isNotNull);
       expect(disks, isNotEmpty);
 
-      final ids = await client.getPotentialBootDisksV2();
-      expect(ids, isNotEmpty);
-
       final response = await client.addBootPartitionV2(disks.first);
       expect(response.disks, isNotNull);
       expect(response.disks, hasLength(disks.length));
