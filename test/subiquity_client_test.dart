@@ -148,6 +148,7 @@ void main() {
       final choice = GuidedChoiceV2(
         target: guided.possible.last,
         capability: guided.possible.last.capabilities.first,
+        sizingPolicy: null,
       );
       final response = await client.setGuidedStorageV2(choice);
       expect(response.configured, isNotNull);

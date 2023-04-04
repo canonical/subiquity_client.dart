@@ -6945,6 +6945,7 @@ mixin _$GuidedChoiceV2 {
   GuidedStorageTarget get target => throw _privateConstructorUsedError;
   GuidedCapability get capability => throw _privateConstructorUsedError;
   String? get password => throw _privateConstructorUsedError;
+  SizingPolicy? get sizingPolicy => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -6961,7 +6962,8 @@ abstract class $GuidedChoiceV2CopyWith<$Res> {
   $Res call(
       {GuidedStorageTarget target,
       GuidedCapability capability,
-      String? password});
+      String? password,
+      SizingPolicy? sizingPolicy});
 
   $GuidedStorageTargetCopyWith<$Res> get target;
 }
@@ -6982,6 +6984,7 @@ class _$GuidedChoiceV2CopyWithImpl<$Res, $Val extends GuidedChoiceV2>
     Object? target = null,
     Object? capability = null,
     Object? password = freezed,
+    Object? sizingPolicy = freezed,
   }) {
     return _then(_value.copyWith(
       target: null == target
@@ -6996,6 +6999,10 @@ class _$GuidedChoiceV2CopyWithImpl<$Res, $Val extends GuidedChoiceV2>
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
               as String?,
+      sizingPolicy: freezed == sizingPolicy
+          ? _value.sizingPolicy
+          : sizingPolicy // ignore: cast_nullable_to_non_nullable
+              as SizingPolicy?,
     ) as $Val);
   }
 
@@ -7019,7 +7026,8 @@ abstract class _$$_GuidedChoiceV2CopyWith<$Res>
   $Res call(
       {GuidedStorageTarget target,
       GuidedCapability capability,
-      String? password});
+      String? password,
+      SizingPolicy? sizingPolicy});
 
   @override
   $GuidedStorageTargetCopyWith<$Res> get target;
@@ -7039,6 +7047,7 @@ class __$$_GuidedChoiceV2CopyWithImpl<$Res>
     Object? target = null,
     Object? capability = null,
     Object? password = freezed,
+    Object? sizingPolicy = freezed,
   }) {
     return _then(_$_GuidedChoiceV2(
       target: null == target
@@ -7053,6 +7062,10 @@ class __$$_GuidedChoiceV2CopyWithImpl<$Res>
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
               as String?,
+      sizingPolicy: freezed == sizingPolicy
+          ? _value.sizingPolicy
+          : sizingPolicy // ignore: cast_nullable_to_non_nullable
+              as SizingPolicy?,
     ));
   }
 }
@@ -7061,7 +7074,10 @@ class __$$_GuidedChoiceV2CopyWithImpl<$Res>
 @JsonSerializable()
 class _$_GuidedChoiceV2 implements _GuidedChoiceV2 {
   const _$_GuidedChoiceV2(
-      {required this.target, required this.capability, this.password});
+      {required this.target,
+      required this.capability,
+      this.password,
+      required this.sizingPolicy});
 
   factory _$_GuidedChoiceV2.fromJson(Map<String, dynamic> json) =>
       _$$_GuidedChoiceV2FromJson(json);
@@ -7072,10 +7088,12 @@ class _$_GuidedChoiceV2 implements _GuidedChoiceV2 {
   final GuidedCapability capability;
   @override
   final String? password;
+  @override
+  final SizingPolicy? sizingPolicy;
 
   @override
   String toString() {
-    return 'GuidedChoiceV2(target: $target, capability: $capability, password: $password)';
+    return 'GuidedChoiceV2(target: $target, capability: $capability, password: $password, sizingPolicy: $sizingPolicy)';
   }
 
   @override
@@ -7087,12 +7105,15 @@ class _$_GuidedChoiceV2 implements _GuidedChoiceV2 {
             (identical(other.capability, capability) ||
                 other.capability == capability) &&
             (identical(other.password, password) ||
-                other.password == password));
+                other.password == password) &&
+            (identical(other.sizingPolicy, sizingPolicy) ||
+                other.sizingPolicy == sizingPolicy));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, target, capability, password);
+  int get hashCode =>
+      Object.hash(runtimeType, target, capability, password, sizingPolicy);
 
   @JsonKey(ignore: true)
   @override
@@ -7112,7 +7133,8 @@ abstract class _GuidedChoiceV2 implements GuidedChoiceV2 {
   const factory _GuidedChoiceV2(
       {required final GuidedStorageTarget target,
       required final GuidedCapability capability,
-      final String? password}) = _$_GuidedChoiceV2;
+      final String? password,
+      required final SizingPolicy? sizingPolicy}) = _$_GuidedChoiceV2;
 
   factory _GuidedChoiceV2.fromJson(Map<String, dynamic> json) =
       _$_GuidedChoiceV2.fromJson;
@@ -7123,6 +7145,8 @@ abstract class _GuidedChoiceV2 implements GuidedChoiceV2 {
   GuidedCapability get capability;
   @override
   String? get password;
+  @override
+  SizingPolicy? get sizingPolicy;
   @override
   @JsonKey(ignore: true)
   _$$_GuidedChoiceV2CopyWith<_$_GuidedChoiceV2> get copyWith =>

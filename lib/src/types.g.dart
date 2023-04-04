@@ -672,6 +672,8 @@ _$_GuidedChoiceV2 _$$_GuidedChoiceV2FromJson(Map<String, dynamic> json) =>
           GuidedStorageTarget.fromJson(json['target'] as Map<String, dynamic>),
       capability: $enumDecode(_$GuidedCapabilityEnumMap, json['capability']),
       password: json['password'] as String?,
+      sizingPolicy:
+          $enumDecodeNullable(_$SizingPolicyEnumMap, json['sizing_policy']),
     );
 
 Map<String, dynamic> _$$_GuidedChoiceV2ToJson(_$_GuidedChoiceV2 instance) =>
@@ -679,7 +681,13 @@ Map<String, dynamic> _$$_GuidedChoiceV2ToJson(_$_GuidedChoiceV2 instance) =>
       'target': instance.target.toJson(),
       'capability': _$GuidedCapabilityEnumMap[instance.capability]!,
       'password': instance.password,
+      'sizing_policy': _$SizingPolicyEnumMap[instance.sizingPolicy],
     };
+
+const _$SizingPolicyEnumMap = {
+  SizingPolicy.SCALED: 'SCALED',
+  SizingPolicy.ALL: 'ALL',
+};
 
 _$_GuidedStorageResponseV2 _$$_GuidedStorageResponseV2FromJson(
         Map<String, dynamic> json) =>
