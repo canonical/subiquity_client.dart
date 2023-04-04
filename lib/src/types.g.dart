@@ -432,6 +432,7 @@ _$_Disk _$$_DiskFromJson(Map<String, dynamic> json) => _$_Disk(
       preserve: json['preserve'] as bool,
       path: json['path'] as String?,
       bootDevice: json['boot_device'] as bool,
+      canBeBootDevice: json['can_be_boot_device'] as bool,
       model: json['model'] as String?,
       vendor: json['vendor'] as String?,
     );
@@ -448,6 +449,7 @@ Map<String, dynamic> _$$_DiskToJson(_$_Disk instance) => <String, dynamic>{
       'preserve': instance.preserve,
       'path': instance.path,
       'boot_device': instance.bootDevice,
+      'can_be_boot_device': instance.canBeBootDevice,
       'model': instance.model,
       'vendor': instance.vendor,
     };
@@ -680,6 +682,8 @@ _$_GuidedChoiceV2 _$$_GuidedChoiceV2FromJson(Map<String, dynamic> json) =>
           GuidedStorageTarget.fromJson(json['target'] as Map<String, dynamic>),
       useLvm: json['use_lvm'] as bool? ?? false,
       password: json['password'] as String?,
+      sizingPolicy:
+          $enumDecodeNullable(_$SizingPolicyEnumMap, json['sizing_policy']),
     );
 
 Map<String, dynamic> _$$_GuidedChoiceV2ToJson(_$_GuidedChoiceV2 instance) =>
@@ -687,7 +691,13 @@ Map<String, dynamic> _$$_GuidedChoiceV2ToJson(_$_GuidedChoiceV2 instance) =>
       'target': instance.target.toJson(),
       'use_lvm': instance.useLvm,
       'password': instance.password,
+      'sizing_policy': _$SizingPolicyEnumMap[instance.sizingPolicy],
     };
+
+const _$SizingPolicyEnumMap = {
+  SizingPolicy.SCALED: 'SCALED',
+  SizingPolicy.ALL: 'ALL',
+};
 
 _$_GuidedStorageResponseV2 _$$_GuidedStorageResponseV2FromJson(
         Map<String, dynamic> json) =>

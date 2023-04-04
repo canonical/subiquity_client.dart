@@ -211,6 +211,7 @@ void main() {
       ptable: 'tst',
       preserve: true,
       bootDevice: true,
+      canBeBootDevice: true,
       model: 'QEMU',
       vendor: 'ATA',
     );
@@ -230,6 +231,7 @@ void main() {
       'ptable': 'tst',
       'preserve': true,
       'boot_device': true,
+      'can_be_boot_device': true,
       'model': 'QEMU',
       'vendor': 'ATA',
     };

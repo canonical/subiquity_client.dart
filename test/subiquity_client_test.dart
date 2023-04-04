@@ -145,7 +145,10 @@ void main() {
       final guided = await client.getGuidedStorageV2();
       expect(guided.possible, isNotEmpty);
 
-      final choice = GuidedChoiceV2(target: guided.possible.last);
+      final choice = GuidedChoiceV2(
+        target: guided.possible.last,
+        sizingPolicy: null,
+      );
       final response = await client.setGuidedStorageV2(choice);
       expect(response.configured, isNotNull);
       expect(response.possible, isNotEmpty);
@@ -250,9 +253,6 @@ void main() {
       final disks = await client.resetStorageV2().then((r) => r.disks);
       expect(disks, isNotNull);
       expect(disks, isNotEmpty);
-
-      final ids = await client.getPotentialBootDisksV2();
-      expect(ids, isNotEmpty);
 
       final response = await client.addBootPartitionV2(disks.first);
       expect(response.disks, isNotNull);
