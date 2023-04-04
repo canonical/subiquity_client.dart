@@ -432,6 +432,7 @@ _$_Disk _$$_DiskFromJson(Map<String, dynamic> json) => _$_Disk(
       preserve: json['preserve'] as bool,
       path: json['path'] as String?,
       bootDevice: json['boot_device'] as bool,
+      canBeBootDevice: json['can_be_boot_device'] as bool,
       model: json['model'] as String?,
       vendor: json['vendor'] as String?,
     );
@@ -448,6 +449,7 @@ Map<String, dynamic> _$$_DiskToJson(_$_Disk instance) => <String, dynamic>{
       'preserve': instance.preserve,
       'path': instance.path,
       'boot_device': instance.bootDevice,
+      'can_be_boot_device': instance.canBeBootDevice,
       'model': instance.model,
       'vendor': instance.vendor,
     };

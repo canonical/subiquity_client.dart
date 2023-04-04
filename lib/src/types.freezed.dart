@@ -4370,6 +4370,7 @@ mixin _$Disk {
   bool get preserve => throw _privateConstructorUsedError;
   String? get path => throw _privateConstructorUsedError;
   bool get bootDevice => throw _privateConstructorUsedError;
+  bool get canBeBootDevice => throw _privateConstructorUsedError;
   String? get model => throw _privateConstructorUsedError;
   String? get vendor => throw _privateConstructorUsedError;
 
@@ -4395,6 +4396,7 @@ abstract class $DiskCopyWith<$Res> {
       bool preserve,
       String? path,
       bool bootDevice,
+      bool canBeBootDevice,
       String? model,
       String? vendor});
 }
@@ -4423,6 +4425,7 @@ class _$DiskCopyWithImpl<$Res, $Val extends Disk>
     Object? preserve = null,
     Object? path = freezed,
     Object? bootDevice = null,
+    Object? canBeBootDevice = null,
     Object? model = freezed,
     Object? vendor = freezed,
   }) {
@@ -4471,6 +4474,10 @@ class _$DiskCopyWithImpl<$Res, $Val extends Disk>
           ? _value.bootDevice
           : bootDevice // ignore: cast_nullable_to_non_nullable
               as bool,
+      canBeBootDevice: null == canBeBootDevice
+          ? _value.canBeBootDevice
+          : canBeBootDevice // ignore: cast_nullable_to_non_nullable
+              as bool,
       model: freezed == model
           ? _value.model
           : model // ignore: cast_nullable_to_non_nullable
@@ -4501,6 +4508,7 @@ abstract class _$$_DiskCopyWith<$Res> implements $DiskCopyWith<$Res> {
       bool preserve,
       String? path,
       bool bootDevice,
+      bool canBeBootDevice,
       String? model,
       String? vendor});
 }
@@ -4525,6 +4533,7 @@ class __$$_DiskCopyWithImpl<$Res> extends _$DiskCopyWithImpl<$Res, _$_Disk>
     Object? preserve = null,
     Object? path = freezed,
     Object? bootDevice = null,
+    Object? canBeBootDevice = null,
     Object? model = freezed,
     Object? vendor = freezed,
   }) {
@@ -4573,6 +4582,10 @@ class __$$_DiskCopyWithImpl<$Res> extends _$DiskCopyWithImpl<$Res, _$_Disk>
           ? _value.bootDevice
           : bootDevice // ignore: cast_nullable_to_non_nullable
               as bool,
+      canBeBootDevice: null == canBeBootDevice
+          ? _value.canBeBootDevice
+          : canBeBootDevice // ignore: cast_nullable_to_non_nullable
+              as bool,
       model: freezed == model
           ? _value.model
           : model // ignore: cast_nullable_to_non_nullable
@@ -4600,6 +4613,7 @@ class _$_Disk implements _Disk {
       required this.preserve,
       required this.path,
       required this.bootDevice,
+      required this.canBeBootDevice,
       this.model,
       this.vendor})
       : _usageLabels = usageLabels,
@@ -4642,13 +4656,15 @@ class _$_Disk implements _Disk {
   @override
   final bool bootDevice;
   @override
+  final bool canBeBootDevice;
+  @override
   final String? model;
   @override
   final String? vendor;
 
   @override
   String toString() {
-    return 'Disk(id: $id, label: $label, type: $type, size: $size, usageLabels: $usageLabels, partitions: $partitions, okForGuided: $okForGuided, ptable: $ptable, preserve: $preserve, path: $path, bootDevice: $bootDevice, model: $model, vendor: $vendor)';
+    return 'Disk(id: $id, label: $label, type: $type, size: $size, usageLabels: $usageLabels, partitions: $partitions, okForGuided: $okForGuided, ptable: $ptable, preserve: $preserve, path: $path, bootDevice: $bootDevice, canBeBootDevice: $canBeBootDevice, model: $model, vendor: $vendor)';
   }
 
   @override
@@ -4672,6 +4688,8 @@ class _$_Disk implements _Disk {
             (identical(other.path, path) || other.path == path) &&
             (identical(other.bootDevice, bootDevice) ||
                 other.bootDevice == bootDevice) &&
+            (identical(other.canBeBootDevice, canBeBootDevice) ||
+                other.canBeBootDevice == canBeBootDevice) &&
             (identical(other.model, model) || other.model == model) &&
             (identical(other.vendor, vendor) || other.vendor == vendor));
   }
@@ -4691,6 +4709,7 @@ class _$_Disk implements _Disk {
       preserve,
       path,
       bootDevice,
+      canBeBootDevice,
       model,
       vendor);
 
@@ -4721,6 +4740,7 @@ abstract class _Disk implements Disk {
       required final bool preserve,
       required final String? path,
       required final bool bootDevice,
+      required final bool canBeBootDevice,
       final String? model,
       final String? vendor}) = _$_Disk;
 
@@ -4748,6 +4768,8 @@ abstract class _Disk implements Disk {
   String? get path;
   @override
   bool get bootDevice;
+  @override
+  bool get canBeBootDevice;
   @override
   String? get model;
   @override

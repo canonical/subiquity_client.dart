@@ -364,6 +364,7 @@ class Disk with _$Disk {
     required bool preserve,
     required String? path,
     required bool bootDevice,
+    required bool canBeBootDevice,
     String? model,
     String? vendor,
   }) = _Disk;
