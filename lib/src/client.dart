@@ -338,13 +338,6 @@ class SubiquityClient {
         StorageResponseV2.fromJson);
   }
 
-  Future<List<String>> getPotentialBootDisksV2() async {
-    final request =
-        await _openUrl('GET', url('storage/v2/potential_boot_disks'));
-    return _receive(
-        'getPotentialBootDisks()', request, (List ids) => ids.cast());
-  }
-
   Future<StorageResponseV2> addBootPartitionV2(Disk disk) async {
     final params = {'disk_id': jsonEncode(disk.id)};
     final request =
