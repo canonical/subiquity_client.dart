@@ -440,6 +440,11 @@ class StorageResponseV2 with _$StorageResponseV2 {
       _$StorageResponseV2FromJson(json);
 }
 
+enum SizingPolicy {
+  SCALED,
+  ALL,
+}
+
 @freezed
 class GuidedResizeValues with _$GuidedResizeValues {
   const factory GuidedResizeValues({
@@ -489,6 +494,7 @@ class GuidedChoiceV2 with _$GuidedChoiceV2 {
     required GuidedStorageTarget target,
     required GuidedCapability capability,
     String? password,
+    required SizingPolicy? sizingPolicy,
   }) = _GuidedChoiceV2;
 
   factory GuidedChoiceV2.fromJson(Map<String, dynamic> json) =>
