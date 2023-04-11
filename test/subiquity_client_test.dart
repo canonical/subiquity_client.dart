@@ -445,6 +445,10 @@ void main() {
       expect(stepKeyPresent.no, isNotEmpty);
     });
 
+    test('has network', () async {
+      expect(client.hasNetwork(), completes);
+    });
+
     test('free_only', () async {
       await client.setFreeOnly(true);
       expect(await client.freeOnly(), true);
