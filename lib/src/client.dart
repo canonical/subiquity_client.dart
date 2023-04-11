@@ -157,6 +157,11 @@ class SubiquityClient {
         'setMirror($mirror)', request, MirrorPostResponse.values.byName);
   }
 
+  Future<bool> hasNetwork() async {
+    final request = await _openUrl('GET', url('network/has_network'));
+    return _receive('hasNetwork()', request);
+  }
+
   Future<bool> freeOnly() async {
     final request = await _openUrl('GET', url('meta/free_only'));
     return _receive('freeOnly()', request);
