@@ -5,6 +5,7 @@ on:
     branches:
       - main
       - 'ubuntu/**'
+      - 'canary-*'
 
 permissions:
   contents: write
