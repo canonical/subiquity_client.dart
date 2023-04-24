@@ -5,10 +5,12 @@ on:
     branches:
       - main
       - 'ubuntu/**'
+      - 'canary-*'
   pull_request:
     branches:
       - main
       - 'ubuntu/**'
+      - 'canary-*'
   workflow_dispatch:
 
 jobs:
