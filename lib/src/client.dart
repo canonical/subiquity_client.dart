@@ -82,7 +82,7 @@ class SubiquityClient {
     return request;
   }
 
-  Future<Variant> variant() async {
+  Future<Variant> getVariant() async {
     final request = await _openUrl('GET', url('meta/client_variant'));
     return _receive('variant()', request, VariantString.fromString);
   }
@@ -93,7 +93,7 @@ class SubiquityClient {
     await _receive('setVariant($variant)', request);
   }
 
-  Future<SourceSelectionAndSetting> source() async {
+  Future<SourceSelectionAndSetting> getSource() async {
     final request = await _openUrl('GET', url('source'));
     return _receive('source()', request, SourceSelectionAndSetting.fromJson);
   }
@@ -104,7 +104,7 @@ class SubiquityClient {
     await _receive('setSource($sourceId)', request);
   }
 
-  Future<String> locale() async {
+  Future<String> getLocale() async {
     final request = await _openUrl('GET', url('locale'));
     return _receive('locale()', request);
   }
@@ -115,7 +115,7 @@ class SubiquityClient {
     await _receive('setLocale($locale)', request);
   }
 
-  Future<KeyboardSetup> keyboard() async {
+  Future<KeyboardSetup> getKeyboard() async {
     final request = await _openUrl('GET', url('keyboard'));
     return _receive('keyboard()', request, KeyboardSetup.fromJson);
   }
@@ -134,7 +134,7 @@ class SubiquityClient {
     await _receive('setInputSource($setting)', request);
   }
 
-  Future<String> proxy() async {
+  Future<String> getProxy() async {
     final request = await _openUrl('GET', url('proxy'));
     return _receive('proxy()', request);
   }
@@ -145,7 +145,7 @@ class SubiquityClient {
     await _receive('setProxy($proxy)', request);
   }
 
-  Future<MirrorGet> mirror() async {
+  Future<MirrorGet> getMirror() async {
     final request = await _openUrl('GET', url('mirror'));
     return _receive('mirror()', request, MirrorGet.fromJson);
   }
@@ -162,7 +162,7 @@ class SubiquityClient {
     return _receive('hasNetwork()', request);
   }
 
-  Future<IdentityData> identity() async {
+  Future<IdentityData> getIdentity() async {
     final request = await _openUrl('GET', url('identity'));
     return _receive('identity()', request, IdentityData.fromJson);
   }
@@ -181,7 +181,7 @@ class SubiquityClient {
         UsernameValidation.values.byName);
   }
 
-  Future<TimeZoneInfo> timezone() async {
+  Future<TimeZoneInfo> getTimezone() async {
     final request = await _openUrl('GET', url('timezone'));
     return _receive('timezone()', request, TimeZoneInfo.fromJson);
   }
@@ -193,7 +193,7 @@ class SubiquityClient {
   }
 
   /// Get the installer state.
-  Future<ApplicationStatus> status({ApplicationState? current}) async {
+  Future<ApplicationStatus> getStatus({ApplicationState? current}) async {
     late ApplicationStatus status;
     if (current != null) {
       final params = {'cur': jsonEncode(current.name)};
