@@ -1,3 +1,4 @@
+import 'package:subiquity_client/src/extensions.dart';
 import 'package:subiquity_client/src/types.dart';
 import 'package:test/test.dart';
 
@@ -157,6 +158,9 @@ void main() {
       path: '/dev/sda2',
       estimatedMinSize: 123,
     );
+
+    expect(partition.sysname, equals('sda2'));
+
     const json = <String, dynamic>{
       'size': 1,
       'number': 2,
@@ -215,6 +219,8 @@ void main() {
       model: 'QEMU',
       vendor: 'ATA',
     );
+
+    expect(disk.sysname, equals('path'));
 
     final json = <String, dynamic>{
       'id': 'test-id',
