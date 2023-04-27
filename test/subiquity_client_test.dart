@@ -74,16 +74,16 @@ void main() {
 
     test('variant', () async {
       await client.setVariant(Variant.SERVER);
-      expect(await client.variant(), equals(Variant.SERVER));
+      expect(await client.getVariant(), equals(Variant.SERVER));
 
       await client.setVariant(Variant.DESKTOP);
-      expect(await client.variant(), equals(Variant.DESKTOP));
+      expect(await client.getVariant(), equals(Variant.DESKTOP));
     });
 
     test('source', () async {
       await client.setVariant(Variant.DESKTOP);
 
-      final sources = await client.source().then((s) => s.sources);
+      final sources = await client.getSource().then((s) => s.sources);
       expect(
         sources,
         containsAll([
@@ -100,13 +100,13 @@ void main() {
       );
 
       await client.setSource('ubuntu-desktop');
-      final source = await client.source();
+      final source = await client.getSource();
       expect(source.currentId, 'ubuntu-desktop');
     });
 
     test('locale', () async {
       await client.setLocale('en_US.UTF-8');
-      expect(await client.locale(), 'en_US.UTF-8');
+      expect(await client.getLocale(), 'en_US.UTF-8');
     });
 
     test('keyboard', () async {
@@ -118,7 +118,7 @@ void main() {
 
       await client.setKeyboard(ks);
 
-      var kb = await client.keyboard();
+      var kb = await client.getKeyboard();
       expect(kb.setting.layout, 'us');
       expect(kb.setting.variant, '');
       expect(kb.setting.toggle, null);
@@ -312,15 +312,15 @@ void main() {
 
     test('proxy', () async {
       await client.setProxy('test');
-      expect(await client.proxy(), 'test');
+      expect(await client.getProxy(), 'test');
       await client.setProxy('');
-      expect(await client.proxy(), '');
+      expect(await client.getProxy(), '');
     });
 
     test('mirror', () async {
       expect(await client.setMirror(MirrorPost(elected: 'test')),
           MirrorPostResponse.OK);
-      final test = await client.mirror();
+      final test = await client.getMirror();
       expect(test.elected, endsWith('test'));
       expect(test.candidates, isNotEmpty);
       expect(test.staged, isNull);
@@ -329,7 +329,7 @@ void main() {
           await client.setMirror(
               MirrorPost(elected: 'https://archive.ubuntu.com/ubuntu')),
           MirrorPostResponse.OK);
-      final archive = await client.mirror();
+      final archive = await client.getMirror();
       expect(archive.elected, 'https://archive.ubuntu.com/ubuntu');
       expect(archive.candidates, isNotEmpty);
       expect(archive.staged, isNull);
@@ -346,7 +346,7 @@ void main() {
 
       await client.setIdentity(newId);
 
-      var id = await client.identity();
+      var id = await client.getIdentity();
       expect(id.realname, 'übuntù');
       expect(id.username, 'ubuntu');
       expect(id.cryptedPassword, '');
@@ -386,18 +386,18 @@ void main() {
 
     test('timezone', () async {
       await client.setTimezone('Pacific/Guam');
-      var tzdata = await client.timezone();
+      var tzdata = await client.getTimezone();
       expect(tzdata.timezone, 'Pacific/Guam');
       expect(tzdata.fromGeoip, isFalse);
 
       await client.setTimezone('geoip');
-      tzdata = await client.timezone();
+      tzdata = await client.getTimezone();
       expect(tzdata.timezone, isNotNull);
       expect(tzdata.fromGeoip, isTrue);
     });
 
     test('status', () async {
-      var status = await client.status();
+      var status = await client.getStatus();
       expect(status.state, ApplicationState.WAITING);
       expect(status.confirmingTty, '');
       expect(status.cloudInitOk, true);
@@ -407,7 +407,7 @@ void main() {
       expect(status.eventSyslogId, startsWith('subiquity_event.'));
 
       // Should not block as the status is currently WAITING
-      status = await client.status(current: ApplicationState.RUNNING);
+      status = await client.getStatus(current: ApplicationState.RUNNING);
     });
 
     test('markConfigured', () async {
@@ -597,10 +597,10 @@ void main() {
 
     test('variant', () async {
       await client.setVariant(Variant.WSL_SETUP);
-      expect(await client.variant(), equals(Variant.WSL_SETUP));
+      expect(await client.getVariant(), equals(Variant.WSL_SETUP));
 
       await client.setVariant(Variant.WSL_CONFIGURATION);
-      expect(await client.variant(), equals(Variant.WSL_CONFIGURATION));
+      expect(await client.getVariant(), equals(Variant.WSL_CONFIGURATION));
     });
 
     test('wslsetupoptions', () async {
