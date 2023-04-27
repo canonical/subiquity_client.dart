@@ -162,18 +162,6 @@ class SubiquityClient {
     return _receive('hasNetwork()', request);
   }
 
-  Future<bool> freeOnly() async {
-    final request = await _openUrl('GET', url('meta/free_only'));
-    return _receive('freeOnly()', request);
-  }
-
-  // ignore: avoid_positional_boolean_parameters
-  Future<void> setFreeOnly(bool enable) async {
-    final params = {'enable': jsonEncode(enable)};
-    final request = await _openUrl('POST', url('meta/free_only', params));
-    await _receive('setFreeOnly($enable)', request);
-  }
-
   Future<IdentityData> identity() async {
     final request = await _openUrl('GET', url('identity'));
     return _receive('identity()', request, IdentityData.fromJson);

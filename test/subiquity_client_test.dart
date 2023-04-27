@@ -450,14 +450,6 @@ void main() {
       expect(client.hasNetwork(), completes);
     });
 
-    test('free_only', () async {
-      await client.setFreeOnly(true);
-      expect(await client.freeOnly(), true);
-
-      await client.setFreeOnly(false);
-      expect(await client.freeOnly(), false);
-    });
-
     test('drivers', () async {
       await client.setDrivers(install: true);
       final response1 = await client.getDrivers();
