@@ -40,7 +40,10 @@ jobs:
           echo "XDG_RUNTIME_DIR=/run/user/$UID" >> $GITHUB_ENV
 
       - name: Run tests
-        run: flutter test --coverage
+        run: |
+          flutter pub global activate melos
+          melos bootstrap
+          melos coverage
 
       - name: Upload coverage results
         uses: codecov/codecov-action@v3
@@ -54,8 +57,9 @@ jobs:
         with:
           submodules: recursive
       - uses: dart-lang/setup-dart@v1
-      - run: dart pub get
-      - run: dart analyze --fatal-infos
+      - run: dart pub global activate melos
+      - run: melos bootstrap
+      - run: melos analyze
 
   format:
     runs-on: ubuntu-22.04
@@ -64,8 +68,9 @@ jobs:
         with:
           submodules: recursive
       - uses: dart-lang/setup-dart@v1
-      - run: dart pub get
-      - run: dart format --set-exit-if-changed .
+      - run: dart pub global activate melos
+      - run: melos bootstrap
+      - run: melos format
 
   generate:
     runs-on: ubuntu-22.04
@@ -75,8 +80,9 @@ jobs:
           submodules: recursive
       - uses: dart-lang/setup-dart@v1
       - run: make generate
-      - run: dart pub get
-      - run: dart run build_runner build --delete-conflicting-outputs
+      - run: dart pub global activate melos
+      - run: melos bootstrap
+      - run: melos generate
       - name: Warn about outdated generated files
         if: github.event_name == 'pull_request'
         run: |
