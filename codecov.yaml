@@ -2,3 +2,5 @@ comment: false
 ignore:
   - "**/*.freezed.dart"
   - "**/*.g.dart"
+  - "**/*.mocks.dart"
+  - "**/fakes.dart"
