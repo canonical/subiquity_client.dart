@@ -8,6 +8,30 @@ void main() {
   late SubiquityServer testServer;
   late SubiquityClient client;
 
+  test('wait ready', () async {
+    final subiquityPath = await getSubiquityPath();
+    final endpoint = await defaultEndpoint(ServerMode.DRY_RUN);
+    final process = SubiquityProcess.python(
+      'subiquity.cmd.server',
+      serverMode: ServerMode.DRY_RUN,
+      subiquityPath: subiquityPath,
+    );
+    testServer = SubiquityServer(
+      process: process,
+      endpoint: endpoint,
+    );
+    client = SubiquityClient();
+    final socketPath = await testServer.start(args: [
+      '--machine-config=examples/simple.json',
+      '--source-catalog=examples/mixed-sources.yaml',
+      '--storage-version=2',
+      '--bootloader=uefi',
+    ]);
+    final future = client.getStatus();
+    client.open(socketPath);
+    await expectLater(future, completes);
+  });
+
   group('subiquity process', () {
     test('set additional environment before starting the process', () async {
       const foo = '42';
