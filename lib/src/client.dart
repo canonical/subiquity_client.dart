@@ -2,7 +2,9 @@ import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
 import 'package:ubuntu_logger/ubuntu_logger.dart';
+
 import 'endpoint.dart';
+import 'status_monitor.dart';
 import 'types.dart';
 
 /// @internal
@@ -40,6 +42,7 @@ class SubiquityException implements Exception {
 
 class SubiquityClient {
   final _client = HttpClient();
+  final _ready = Completer();
   Endpoint? _endpoint;
 
   Uri url(String unencodedPath, [Map<String, dynamic>? queryParameters]) =>
@@ -51,6 +54,7 @@ class SubiquityClient {
     _client.connectionFactory = (uri, proxyHost, proxyPort) async {
       return Socket.startConnect(endpoint.address, endpoint.port);
     };
+    _ready.complete();
   }
 
   Future<void> close() async {
@@ -206,6 +210,19 @@ class SubiquityClient {
     }
     log.info('state: ${current?.name} => ${status.state.name}');
     return status;
+  }
+
+  /// Monitor status changes.
+  Stream<ApplicationStatus?> monitorStatus() async* {
+    await _ready.future;
+    final monitor = SubiquityStatusMonitor();
+    try {
+      await monitor.start(_endpoint!);
+      yield monitor.status;
+      yield* monitor.onStatusChanged;
+    } finally {
+      await monitor.stop();
+    }
   }
 
   /// Mark the controllers for endpoint_names as configured.

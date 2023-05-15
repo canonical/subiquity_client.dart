@@ -494,6 +494,14 @@ class MockSubiquityClient extends _i1.Mock implements _i4.SubiquityClient {
         )),
       ) as _i5.Future<_i2.ApplicationStatus>);
   @override
+  _i5.Stream<_i2.ApplicationStatus?> monitorStatus() => (super.noSuchMethod(
+        Invocation.method(
+          #monitorStatus,
+          [],
+        ),
+        returnValue: _i5.Stream<_i2.ApplicationStatus?>.empty(),
+      ) as _i5.Stream<_i2.ApplicationStatus?>);
+  @override
   _i5.Future<void> markConfigured(List<String>? endpointNames) =>
       (super.noSuchMethod(
         Invocation.method(
