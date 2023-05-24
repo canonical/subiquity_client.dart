@@ -1,3 +1,4 @@
 dependency_overrides:
+  mockito: 5.4.0
   subiquity_client:
     path: ../../

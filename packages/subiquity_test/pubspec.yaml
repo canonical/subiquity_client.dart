@@ -6,7 +6,7 @@ environment:
 
 dependencies:
   build_runner: ^2.2.0
-  mockito: 5.4.0
+  mockito: ^5.4.0
   path: ^1.8.0
   subiquity_client:
     git:
