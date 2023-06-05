@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:subiquity_client/subiquity_client.dart';
 import 'package:subiquity_client/subiquity_server.dart';
 import 'package:test/test.dart';
@@ -94,6 +96,10 @@ void main() {
     tearDownAll(() async {
       await client.close();
       await testServer.stop();
+    });
+
+    test('no interactive sections', () async {
+      expect(await client.getInteractiveSections(), isNull);
     });
 
     test('variant', () async {
@@ -705,6 +711,40 @@ void main() {
       expect(conf.interopEnabled, false);
       expect(conf.interopAppendwindowspath, false);
       expect(conf.systemdEnabled, true);
+    });
+  });
+
+  group('autoinstall', () {
+    setUpAll(() async {
+      final subiquityPath = await getSubiquityPath();
+      final endpoint = await defaultEndpoint(ServerMode.DRY_RUN);
+      final process = SubiquityProcess.python(
+        'subiquity.cmd.server',
+        serverMode: ServerMode.DRY_RUN,
+        subiquityPath: subiquityPath,
+      );
+      testServer = SubiquityServer(
+        process: process,
+        endpoint: endpoint,
+      );
+      client = SubiquityClient();
+      final socketPath = await testServer.start(args: [
+        '--autoinstall=examples/autoinstall-interactive.yaml',
+        '--machine-config=examples/simple.json',
+      ]);
+      client.open(socketPath);
+    });
+
+    tearDownAll(() async {
+      await client.close();
+      await testServer.stop();
+
+      final subiquityPath = await getSubiquityPath();
+      await Directory('$subiquityPath/.subiquity').delete(recursive: true);
+    });
+
+    test('interactive network section', () async {
+      expect(await client.getInteractiveSections(), ['network']);
     });
   });
 }

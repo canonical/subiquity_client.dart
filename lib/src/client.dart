@@ -89,6 +89,15 @@ class SubiquityClient {
     return request;
   }
 
+  Future<List<String>?> getInteractiveSections() async {
+    final request = await _openUrl('GET', 'meta/interactive_sections');
+    return _receive(
+      'getInteractiveSections()',
+      request,
+      (List? values) => values?.cast<String>(),
+    );
+  }
+
   Future<Variant> getVariant() async {
     final request = await _openUrl('GET', 'meta/client_variant');
     return _receive('variant()', request, VariantString.fromString);
