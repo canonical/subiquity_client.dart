@@ -496,6 +496,7 @@ class GuidedChoiceV2 with _$GuidedChoiceV2 {
     required GuidedCapability capability,
     String? password,
     required SizingPolicy? sizingPolicy,
+    @Default(false) bool resetPartition,
   }) = _GuidedChoiceV2;
 
   factory GuidedChoiceV2.fromJson(Map<String, dynamic> json) =>

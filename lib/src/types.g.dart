@@ -676,6 +676,7 @@ _$_GuidedChoiceV2 _$$_GuidedChoiceV2FromJson(Map<String, dynamic> json) =>
       password: json['password'] as String?,
       sizingPolicy:
           $enumDecodeNullable(_$SizingPolicyEnumMap, json['sizing_policy']),
+      resetPartition: json['reset_partition'] as bool? ?? false,
     );
 
 Map<String, dynamic> _$$_GuidedChoiceV2ToJson(_$_GuidedChoiceV2 instance) =>
@@ -684,6 +685,7 @@ Map<String, dynamic> _$$_GuidedChoiceV2ToJson(_$_GuidedChoiceV2 instance) =>
       'capability': _$GuidedCapabilityEnumMap[instance.capability]!,
       'password': instance.password,
       'sizing_policy': _$SizingPolicyEnumMap[instance.sizingPolicy],
+      'reset_partition': instance.resetPartition,
     };
 
 const _$SizingPolicyEnumMap = {
