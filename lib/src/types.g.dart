@@ -454,6 +454,39 @@ Map<String, dynamic> _$$_DiskToJson(_$_Disk instance) => <String, dynamic>{
       'vendor': instance.vendor,
     };
 
+_$_GuidedDisallowedCapability _$$_GuidedDisallowedCapabilityFromJson(
+        Map<String, dynamic> json) =>
+    _$_GuidedDisallowedCapability(
+      capability: $enumDecode(_$GuidedCapabilityEnumMap, json['capability']),
+      reason: $enumDecode(
+          _$GuidedDisallowedCapabilityReasonEnumMap, json['reason']),
+      message: json['message'] as String?,
+    );
+
+Map<String, dynamic> _$$_GuidedDisallowedCapabilityToJson(
+        _$_GuidedDisallowedCapability instance) =>
+    <String, dynamic>{
+      'capability': _$GuidedCapabilityEnumMap[instance.capability]!,
+      'reason': _$GuidedDisallowedCapabilityReasonEnumMap[instance.reason]!,
+      'message': instance.message,
+    };
+
+const _$GuidedCapabilityEnumMap = {
+  GuidedCapability.DIRECT: 'DIRECT',
+  GuidedCapability.LVM: 'LVM',
+  GuidedCapability.LVM_LUKS: 'LVM_LUKS',
+  GuidedCapability.CORE_BOOT_ENCRYPTED: 'CORE_BOOT_ENCRYPTED',
+  GuidedCapability.CORE_BOOT_UNENCRYPTED: 'CORE_BOOT_UNENCRYPTED',
+  GuidedCapability.CORE_BOOT_PREFER_ENCRYPTED: 'CORE_BOOT_PREFER_ENCRYPTED',
+  GuidedCapability.CORE_BOOT_PREFER_UNENCRYPTED: 'CORE_BOOT_PREFER_UNENCRYPTED',
+};
+
+const _$GuidedDisallowedCapabilityReasonEnumMap = {
+  GuidedDisallowedCapabilityReason.TOO_SMALL: 'TOO_SMALL',
+  GuidedDisallowedCapabilityReason.CORE_BOOT_ENCRYPTION_UNAVAILABLE:
+      'CORE_BOOT_ENCRYPTION_UNAVAILABLE',
+};
+
 _$_GuidedChoice _$$_GuidedChoiceFromJson(Map<String, dynamic> json) =>
     _$_GuidedChoice(
       diskId: json['disk_id'] as String,
@@ -467,16 +500,6 @@ Map<String, dynamic> _$$_GuidedChoiceToJson(_$_GuidedChoice instance) =>
       'capability': _$GuidedCapabilityEnumMap[instance.capability]!,
       'password': instance.password,
     };
-
-const _$GuidedCapabilityEnumMap = {
-  GuidedCapability.DIRECT: 'DIRECT',
-  GuidedCapability.LVM: 'LVM',
-  GuidedCapability.LVM_LUKS: 'LVM_LUKS',
-  GuidedCapability.CORE_BOOT_ENCRYPTED: 'CORE_BOOT_ENCRYPTED',
-  GuidedCapability.CORE_BOOT_UNENCRYPTED: 'CORE_BOOT_UNENCRYPTED',
-  GuidedCapability.CORE_BOOT_PREFER_ENCRYPTED: 'CORE_BOOT_PREFER_ENCRYPTED',
-  GuidedCapability.CORE_BOOT_PREFER_UNENCRYPTED: 'CORE_BOOT_PREFER_UNENCRYPTED',
-};
 
 _$_GuidedStorageResponse _$$_GuidedStorageResponseFromJson(
         Map<String, dynamic> json) =>
@@ -600,9 +623,15 @@ _$GuidedStorageTargetReformat _$$GuidedStorageTargetReformatFromJson(
         Map<String, dynamic> json) =>
     _$GuidedStorageTargetReformat(
       diskId: json['disk_id'] as String,
-      capabilities: (json['capabilities'] as List<dynamic>)
-          .map((e) => $enumDecode(_$GuidedCapabilityEnumMap, e))
-          .toList(),
+      allowed: (json['allowed'] as List<dynamic>?)
+              ?.map((e) => $enumDecode(_$GuidedCapabilityEnumMap, e))
+              .toList() ??
+          const [],
+      disallowed: (json['disallowed'] as List<dynamic>?)
+              ?.map((e) => GuidedDisallowedCapability.fromJson(
+                  e as Map<String, dynamic>))
+              .toList() ??
+          const [],
       $type: json[r'$type'] as String?,
     );
 
@@ -610,9 +639,9 @@ Map<String, dynamic> _$$GuidedStorageTargetReformatToJson(
         _$GuidedStorageTargetReformat instance) =>
     <String, dynamic>{
       'disk_id': instance.diskId,
-      'capabilities': instance.capabilities
-          .map((e) => _$GuidedCapabilityEnumMap[e]!)
-          .toList(),
+      'allowed':
+          instance.allowed.map((e) => _$GuidedCapabilityEnumMap[e]!).toList(),
+      'disallowed': instance.disallowed.map((e) => e.toJson()).toList(),
       r'$type': instance.$type,
     };
 
@@ -625,9 +654,15 @@ _$GuidedStorageTargetResize _$$GuidedStorageTargetResizeFromJson(
       minimum: json['minimum'] as int?,
       recommended: json['recommended'] as int?,
       maximum: json['maximum'] as int?,
-      capabilities: (json['capabilities'] as List<dynamic>)
-          .map((e) => $enumDecode(_$GuidedCapabilityEnumMap, e))
-          .toList(),
+      allowed: (json['allowed'] as List<dynamic>?)
+              ?.map((e) => $enumDecode(_$GuidedCapabilityEnumMap, e))
+              .toList() ??
+          const [],
+      disallowed: (json['disallowed'] as List<dynamic>?)
+              ?.map((e) => GuidedDisallowedCapability.fromJson(
+                  e as Map<String, dynamic>))
+              .toList() ??
+          const [],
       $type: json[r'$type'] as String?,
     );
 
@@ -640,9 +675,9 @@ Map<String, dynamic> _$$GuidedStorageTargetResizeToJson(
       'minimum': instance.minimum,
       'recommended': instance.recommended,
       'maximum': instance.maximum,
-      'capabilities': instance.capabilities
-          .map((e) => _$GuidedCapabilityEnumMap[e]!)
-          .toList(),
+      'allowed':
+          instance.allowed.map((e) => _$GuidedCapabilityEnumMap[e]!).toList(),
+      'disallowed': instance.disallowed.map((e) => e.toJson()).toList(),
       r'$type': instance.$type,
     };
 
@@ -651,9 +686,15 @@ _$GuidedStorageTargetUseGap _$$GuidedStorageTargetUseGapFromJson(
     _$GuidedStorageTargetUseGap(
       diskId: json['disk_id'] as String,
       gap: Gap.fromJson(json['gap'] as Map<String, dynamic>),
-      capabilities: (json['capabilities'] as List<dynamic>)
-          .map((e) => $enumDecode(_$GuidedCapabilityEnumMap, e))
-          .toList(),
+      allowed: (json['allowed'] as List<dynamic>?)
+              ?.map((e) => $enumDecode(_$GuidedCapabilityEnumMap, e))
+              .toList() ??
+          const [],
+      disallowed: (json['disallowed'] as List<dynamic>?)
+              ?.map((e) => GuidedDisallowedCapability.fromJson(
+                  e as Map<String, dynamic>))
+              .toList() ??
+          const [],
       $type: json[r'$type'] as String?,
     );
 
@@ -662,9 +703,9 @@ Map<String, dynamic> _$$GuidedStorageTargetUseGapToJson(
     <String, dynamic>{
       'disk_id': instance.diskId,
       'gap': instance.gap.toJson(),
-      'capabilities': instance.capabilities
-          .map((e) => _$GuidedCapabilityEnumMap[e]!)
-          .toList(),
+      'allowed':
+          instance.allowed.map((e) => _$GuidedCapabilityEnumMap[e]!).toList(),
+      'disallowed': instance.disallowed.map((e) => e.toJson()).toList(),
       r'$type': instance.$type,
     };
 
@@ -676,6 +717,7 @@ _$_GuidedChoiceV2 _$$_GuidedChoiceV2FromJson(Map<String, dynamic> json) =>
       password: json['password'] as String?,
       sizingPolicy:
           $enumDecodeNullable(_$SizingPolicyEnumMap, json['sizing_policy']),
+      resetPartition: json['reset_partition'] as bool? ?? false,
     );
 
 Map<String, dynamic> _$$_GuidedChoiceV2ToJson(_$_GuidedChoiceV2 instance) =>
@@ -684,6 +726,7 @@ Map<String, dynamic> _$$_GuidedChoiceV2ToJson(_$_GuidedChoiceV2 instance) =>
       'capability': _$GuidedCapabilityEnumMap[instance.capability]!,
       'password': instance.password,
       'sizing_policy': _$SizingPolicyEnumMap[instance.sizingPolicy],
+      'reset_partition': instance.resetPartition,
     };
 
 const _$SizingPolicyEnumMap = {
@@ -702,7 +745,7 @@ _$_GuidedStorageResponseV2 _$$_GuidedStorageResponseV2FromJson(
       configured: json['configured'] == null
           ? null
           : GuidedChoiceV2.fromJson(json['configured'] as Map<String, dynamic>),
-      possible: (json['possible'] as List<dynamic>?)
+      targets: (json['targets'] as List<dynamic>?)
               ?.map((e) =>
                   GuidedStorageTarget.fromJson(e as Map<String, dynamic>))
               .toList() ??
@@ -715,7 +758,7 @@ Map<String, dynamic> _$$_GuidedStorageResponseV2ToJson(
       'status': _$ProbeStatusEnumMap[instance.status]!,
       'error_report': instance.errorReport?.toJson(),
       'configured': instance.configured?.toJson(),
-      'possible': instance.possible.map((e) => e.toJson()).toList(),
+      'targets': instance.targets.map((e) => e.toJson()).toList(),
     };
 
 _$_AddPartitionV2 _$$_AddPartitionV2FromJson(Map<String, dynamic> json) =>
@@ -892,6 +935,18 @@ Map<String, dynamic> _$$_DriversResponseToJson(_$_DriversResponse instance) =>
       'drivers': instance.drivers,
       'local_only': instance.localOnly,
       'search_drivers': instance.searchDrivers,
+    };
+
+_$_OEMResponse _$$_OEMResponseFromJson(Map<String, dynamic> json) =>
+    _$_OEMResponse(
+      metapackages: (json['metapackages'] as List<dynamic>?)
+          ?.map((e) => e as String)
+          .toList(),
+    );
+
+Map<String, dynamic> _$$_OEMResponseToJson(_$_OEMResponse instance) =>
+    <String, dynamic>{
+      'metapackages': instance.metapackages,
     };
 
 _$_CodecsData _$$_CodecsDataFromJson(Map<String, dynamic> json) =>

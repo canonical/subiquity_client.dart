@@ -1152,15 +1152,14 @@ class MockHttpClientResponse extends _i1.Mock
         returnValue: _i4.Future<bool>.value(false),
       ) as _i4.Future<bool>);
   @override
-  _i4.Future<void> forEach(void Function(List<int>)? action) =>
+  _i4.Future<dynamic> forEach(void Function(List<int>)? action) =>
       (super.noSuchMethod(
         Invocation.method(
           #forEach,
           [action],
         ),
-        returnValue: _i4.Future<void>.value(),
-        returnValueForMissingStub: _i4.Future<void>.value(),
-      ) as _i4.Future<void>);
+        returnValue: _i4.Future<dynamic>.value(),
+      ) as _i4.Future<dynamic>);
   @override
   _i4.Future<bool> every(bool Function(List<int>)? test) => (super.noSuchMethod(
         Invocation.method(
