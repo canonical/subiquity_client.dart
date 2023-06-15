@@ -382,6 +382,23 @@ enum GuidedCapability {
   CORE_BOOT_PREFER_UNENCRYPTED,
 }
 
+enum GuidedDisallowedCapabilityReason {
+  TOO_SMALL,
+  CORE_BOOT_ENCRYPTION_UNAVAILABLE,
+}
+
+@freezed
+class GuidedDisallowedCapability with _$GuidedDisallowedCapability {
+  const factory GuidedDisallowedCapability({
+    required GuidedCapability capability,
+    required GuidedDisallowedCapabilityReason reason,
+    String? message,
+  }) = _GuidedDisallowedCapability;
+
+  factory GuidedDisallowedCapability.fromJson(Map<String, dynamic> json) =>
+      _$GuidedDisallowedCapabilityFromJson(json);
+}
+
 @freezed
 class GuidedChoice with _$GuidedChoice {
   const factory GuidedChoice({
@@ -464,7 +481,8 @@ class GuidedStorageTarget with _$GuidedStorageTarget {
   @FreezedUnionValue('GuidedStorageTargetReformat')
   const factory GuidedStorageTarget.reformat({
     required String diskId,
-    required List<GuidedCapability> capabilities,
+    @Default([]) List<GuidedCapability> allowed,
+    @Default([]) List<GuidedDisallowedCapability> disallowed,
   }) = GuidedStorageTargetReformat;
 
   @FreezedUnionValue('GuidedStorageTargetResize')
@@ -475,14 +493,16 @@ class GuidedStorageTarget with _$GuidedStorageTarget {
     required int? minimum,
     required int? recommended,
     required int? maximum,
-    required List<GuidedCapability> capabilities,
+    @Default([]) List<GuidedCapability> allowed,
+    @Default([]) List<GuidedDisallowedCapability> disallowed,
   }) = GuidedStorageTargetResize;
 
   @FreezedUnionValue('GuidedStorageTargetUseGap')
   const factory GuidedStorageTarget.useGap({
     required String diskId,
     required Gap gap,
-    required List<GuidedCapability> capabilities,
+    @Default([]) List<GuidedCapability> allowed,
+    @Default([]) List<GuidedDisallowedCapability> disallowed,
   }) = GuidedStorageTargetUseGap;
 
   factory GuidedStorageTarget.fromJson(Map<String, dynamic> json) =>
@@ -496,6 +516,7 @@ class GuidedChoiceV2 with _$GuidedChoiceV2 {
     required GuidedCapability capability,
     String? password,
     required SizingPolicy? sizingPolicy,
+    @Default(false) bool resetPartition,
   }) = _GuidedChoiceV2;
 
   factory GuidedChoiceV2.fromJson(Map<String, dynamic> json) =>
@@ -508,7 +529,7 @@ class GuidedStorageResponseV2 with _$GuidedStorageResponseV2 {
     required ProbeStatus status,
     ErrorReportRef? errorReport,
     GuidedChoiceV2? configured,
-    @Default([]) List<GuidedStorageTarget> possible,
+    @Default([]) List<GuidedStorageTarget> targets,
   }) = _GuidedStorageResponseV2;
 
   factory GuidedStorageResponseV2.fromJson(Map<String, dynamic> json) =>
@@ -663,6 +684,16 @@ class DriversResponse with _$DriversResponse {
 
   factory DriversResponse.fromJson(Map<String, dynamic> json) =>
       _$DriversResponseFromJson(json);
+}
+
+@freezed
+class OEMResponse with _$OEMResponse {
+  const factory OEMResponse({
+    required List<String>? metapackages,
+  }) = _OEMResponse;
+
+  factory OEMResponse.fromJson(Map<String, dynamic> json) =>
+      _$OEMResponseFromJson(json);
 }
 
 @freezed

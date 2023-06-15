@@ -1,4 +1,4 @@
 [submodule "subiquity_client/subiquity"]
 	path = subiquity
 	url = https://github.com/canonical/subiquity.git
-	branch = canary-23.04
+	branch = main
