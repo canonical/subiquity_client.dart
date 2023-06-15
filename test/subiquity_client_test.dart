@@ -173,16 +173,16 @@ void main() {
 
     test('guided storage v2', () async {
       final guided = await client.getGuidedStorageV2();
-      expect(guided.possible, isNotEmpty);
+      expect(guided.targets, isNotEmpty);
 
       final choice = GuidedChoiceV2(
-        target: guided.possible.last,
-        capability: guided.possible.last.capabilities.first,
+        target: guided.targets.last,
+        capability: guided.targets.last.allowed.first,
         sizingPolicy: null,
       );
       final response = await client.setGuidedStorageV2(choice);
       expect(response.configured, isNotNull);
-      expect(response.possible, isNotEmpty);
+      expect(response.targets, isNotEmpty);
     });
 
     test('get storage v2', () async {

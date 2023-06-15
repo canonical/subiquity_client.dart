@@ -4779,6 +4779,194 @@ abstract class _Disk implements Disk {
   _$$_DiskCopyWith<_$_Disk> get copyWith => throw _privateConstructorUsedError;
 }
 
+GuidedDisallowedCapability _$GuidedDisallowedCapabilityFromJson(
+    Map<String, dynamic> json) {
+  return _GuidedDisallowedCapability.fromJson(json);
+}
+
+/// @nodoc
+mixin _$GuidedDisallowedCapability {
+  GuidedCapability get capability => throw _privateConstructorUsedError;
+  GuidedDisallowedCapabilityReason get reason =>
+      throw _privateConstructorUsedError;
+  String? get message => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $GuidedDisallowedCapabilityCopyWith<GuidedDisallowedCapability>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $GuidedDisallowedCapabilityCopyWith<$Res> {
+  factory $GuidedDisallowedCapabilityCopyWith(GuidedDisallowedCapability value,
+          $Res Function(GuidedDisallowedCapability) then) =
+      _$GuidedDisallowedCapabilityCopyWithImpl<$Res,
+          GuidedDisallowedCapability>;
+  @useResult
+  $Res call(
+      {GuidedCapability capability,
+      GuidedDisallowedCapabilityReason reason,
+      String? message});
+}
+
+/// @nodoc
+class _$GuidedDisallowedCapabilityCopyWithImpl<$Res,
+        $Val extends GuidedDisallowedCapability>
+    implements $GuidedDisallowedCapabilityCopyWith<$Res> {
+  _$GuidedDisallowedCapabilityCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? capability = null,
+    Object? reason = null,
+    Object? message = freezed,
+  }) {
+    return _then(_value.copyWith(
+      capability: null == capability
+          ? _value.capability
+          : capability // ignore: cast_nullable_to_non_nullable
+              as GuidedCapability,
+      reason: null == reason
+          ? _value.reason
+          : reason // ignore: cast_nullable_to_non_nullable
+              as GuidedDisallowedCapabilityReason,
+      message: freezed == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$_GuidedDisallowedCapabilityCopyWith<$Res>
+    implements $GuidedDisallowedCapabilityCopyWith<$Res> {
+  factory _$$_GuidedDisallowedCapabilityCopyWith(
+          _$_GuidedDisallowedCapability value,
+          $Res Function(_$_GuidedDisallowedCapability) then) =
+      __$$_GuidedDisallowedCapabilityCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call(
+      {GuidedCapability capability,
+      GuidedDisallowedCapabilityReason reason,
+      String? message});
+}
+
+/// @nodoc
+class __$$_GuidedDisallowedCapabilityCopyWithImpl<$Res>
+    extends _$GuidedDisallowedCapabilityCopyWithImpl<$Res,
+        _$_GuidedDisallowedCapability>
+    implements _$$_GuidedDisallowedCapabilityCopyWith<$Res> {
+  __$$_GuidedDisallowedCapabilityCopyWithImpl(
+      _$_GuidedDisallowedCapability _value,
+      $Res Function(_$_GuidedDisallowedCapability) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? capability = null,
+    Object? reason = null,
+    Object? message = freezed,
+  }) {
+    return _then(_$_GuidedDisallowedCapability(
+      capability: null == capability
+          ? _value.capability
+          : capability // ignore: cast_nullable_to_non_nullable
+              as GuidedCapability,
+      reason: null == reason
+          ? _value.reason
+          : reason // ignore: cast_nullable_to_non_nullable
+              as GuidedDisallowedCapabilityReason,
+      message: freezed == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$_GuidedDisallowedCapability implements _GuidedDisallowedCapability {
+  const _$_GuidedDisallowedCapability(
+      {required this.capability, required this.reason, this.message});
+
+  factory _$_GuidedDisallowedCapability.fromJson(Map<String, dynamic> json) =>
+      _$$_GuidedDisallowedCapabilityFromJson(json);
+
+  @override
+  final GuidedCapability capability;
+  @override
+  final GuidedDisallowedCapabilityReason reason;
+  @override
+  final String? message;
+
+  @override
+  String toString() {
+    return 'GuidedDisallowedCapability(capability: $capability, reason: $reason, message: $message)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_GuidedDisallowedCapability &&
+            (identical(other.capability, capability) ||
+                other.capability == capability) &&
+            (identical(other.reason, reason) || other.reason == reason) &&
+            (identical(other.message, message) || other.message == message));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(runtimeType, capability, reason, message);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_GuidedDisallowedCapabilityCopyWith<_$_GuidedDisallowedCapability>
+      get copyWith => __$$_GuidedDisallowedCapabilityCopyWithImpl<
+          _$_GuidedDisallowedCapability>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_GuidedDisallowedCapabilityToJson(
+      this,
+    );
+  }
+}
+
+abstract class _GuidedDisallowedCapability
+    implements GuidedDisallowedCapability {
+  const factory _GuidedDisallowedCapability(
+      {required final GuidedCapability capability,
+      required final GuidedDisallowedCapabilityReason reason,
+      final String? message}) = _$_GuidedDisallowedCapability;
+
+  factory _GuidedDisallowedCapability.fromJson(Map<String, dynamic> json) =
+      _$_GuidedDisallowedCapability.fromJson;
+
+  @override
+  GuidedCapability get capability;
+  @override
+  GuidedDisallowedCapabilityReason get reason;
+  @override
+  String? get message;
+  @override
+  @JsonKey(ignore: true)
+  _$$_GuidedDisallowedCapabilityCopyWith<_$_GuidedDisallowedCapability>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
 GuidedChoice _$GuidedChoiceFromJson(Map<String, dynamic> json) {
   return _GuidedChoice.fromJson(json);
 }
@@ -6082,11 +6270,13 @@ GuidedStorageTarget _$GuidedStorageTargetFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$GuidedStorageTarget {
   String get diskId => throw _privateConstructorUsedError;
-  List<GuidedCapability> get capabilities => throw _privateConstructorUsedError;
+  List<GuidedCapability> get allowed => throw _privateConstructorUsedError;
+  List<GuidedDisallowedCapability> get disallowed =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(
-            String diskId, List<GuidedCapability> capabilities)
+    required TResult Function(String diskId, List<GuidedCapability> allowed,
+            List<GuidedDisallowedCapability> disallowed)
         reformat,
     required TResult Function(
             String diskId,
@@ -6095,16 +6285,21 @@ mixin _$GuidedStorageTarget {
             int? minimum,
             int? recommended,
             int? maximum,
-            List<GuidedCapability> capabilities)
+            List<GuidedCapability> allowed,
+            List<GuidedDisallowedCapability> disallowed)
         resize,
     required TResult Function(
-            String diskId, Gap gap, List<GuidedCapability> capabilities)
+            String diskId,
+            Gap gap,
+            List<GuidedCapability> allowed,
+            List<GuidedDisallowedCapability> disallowed)
         useGap,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String diskId, List<GuidedCapability> capabilities)?
+    TResult? Function(String diskId, List<GuidedCapability> allowed,
+            List<GuidedDisallowedCapability> disallowed)?
         reformat,
     TResult? Function(
             String diskId,
@@ -6113,16 +6308,18 @@ mixin _$GuidedStorageTarget {
             int? minimum,
             int? recommended,
             int? maximum,
-            List<GuidedCapability> capabilities)?
+            List<GuidedCapability> allowed,
+            List<GuidedDisallowedCapability> disallowed)?
         resize,
-    TResult? Function(
-            String diskId, Gap gap, List<GuidedCapability> capabilities)?
+    TResult? Function(String diskId, Gap gap, List<GuidedCapability> allowed,
+            List<GuidedDisallowedCapability> disallowed)?
         useGap,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String diskId, List<GuidedCapability> capabilities)?
+    TResult Function(String diskId, List<GuidedCapability> allowed,
+            List<GuidedDisallowedCapability> disallowed)?
         reformat,
     TResult Function(
             String diskId,
@@ -6131,10 +6328,11 @@ mixin _$GuidedStorageTarget {
             int? minimum,
             int? recommended,
             int? maximum,
-            List<GuidedCapability> capabilities)?
+            List<GuidedCapability> allowed,
+            List<GuidedDisallowedCapability> disallowed)?
         resize,
-    TResult Function(
-            String diskId, Gap gap, List<GuidedCapability> capabilities)?
+    TResult Function(String diskId, Gap gap, List<GuidedCapability> allowed,
+            List<GuidedDisallowedCapability> disallowed)?
         useGap,
     required TResult orElse(),
   }) =>
@@ -6173,7 +6371,10 @@ abstract class $GuidedStorageTargetCopyWith<$Res> {
           GuidedStorageTarget value, $Res Function(GuidedStorageTarget) then) =
       _$GuidedStorageTargetCopyWithImpl<$Res, GuidedStorageTarget>;
   @useResult
-  $Res call({String diskId, List<GuidedCapability> capabilities});
+  $Res call(
+      {String diskId,
+      List<GuidedCapability> allowed,
+      List<GuidedDisallowedCapability> disallowed});
 }
 
 /// @nodoc
@@ -6190,17 +6391,22 @@ class _$GuidedStorageTargetCopyWithImpl<$Res, $Val extends GuidedStorageTarget>
   @override
   $Res call({
     Object? diskId = null,
-    Object? capabilities = null,
+    Object? allowed = null,
+    Object? disallowed = null,
   }) {
     return _then(_value.copyWith(
       diskId: null == diskId
           ? _value.diskId
           : diskId // ignore: cast_nullable_to_non_nullable
               as String,
-      capabilities: null == capabilities
-          ? _value.capabilities
-          : capabilities // ignore: cast_nullable_to_non_nullable
+      allowed: null == allowed
+          ? _value.allowed
+          : allowed // ignore: cast_nullable_to_non_nullable
               as List<GuidedCapability>,
+      disallowed: null == disallowed
+          ? _value.disallowed
+          : disallowed // ignore: cast_nullable_to_non_nullable
+              as List<GuidedDisallowedCapability>,
     ) as $Val);
   }
 }
@@ -6214,7 +6420,10 @@ abstract class _$$GuidedStorageTargetReformatCopyWith<$Res>
       __$$GuidedStorageTargetReformatCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String diskId, List<GuidedCapability> capabilities});
+  $Res call(
+      {String diskId,
+      List<GuidedCapability> allowed,
+      List<GuidedDisallowedCapability> disallowed});
 }
 
 /// @nodoc
@@ -6231,17 +6440,22 @@ class __$$GuidedStorageTargetReformatCopyWithImpl<$Res>
   @override
   $Res call({
     Object? diskId = null,
-    Object? capabilities = null,
+    Object? allowed = null,
+    Object? disallowed = null,
   }) {
     return _then(_$GuidedStorageTargetReformat(
       diskId: null == diskId
           ? _value.diskId
           : diskId // ignore: cast_nullable_to_non_nullable
               as String,
-      capabilities: null == capabilities
-          ? _value._capabilities
-          : capabilities // ignore: cast_nullable_to_non_nullable
+      allowed: null == allowed
+          ? _value._allowed
+          : allowed // ignore: cast_nullable_to_non_nullable
               as List<GuidedCapability>,
+      disallowed: null == disallowed
+          ? _value._disallowed
+          : disallowed // ignore: cast_nullable_to_non_nullable
+              as List<GuidedDisallowedCapability>,
     ));
   }
 }
@@ -6251,9 +6465,11 @@ class __$$GuidedStorageTargetReformatCopyWithImpl<$Res>
 class _$GuidedStorageTargetReformat implements GuidedStorageTargetReformat {
   const _$GuidedStorageTargetReformat(
       {required this.diskId,
-      required final List<GuidedCapability> capabilities,
+      final List<GuidedCapability> allowed = const [],
+      final List<GuidedDisallowedCapability> disallowed = const [],
       final String? $type})
-      : _capabilities = capabilities,
+      : _allowed = allowed,
+        _disallowed = disallowed,
         $type = $type ?? 'GuidedStorageTargetReformat';
 
   factory _$GuidedStorageTargetReformat.fromJson(Map<String, dynamic> json) =>
@@ -6261,12 +6477,22 @@ class _$GuidedStorageTargetReformat implements GuidedStorageTargetReformat {
 
   @override
   final String diskId;
-  final List<GuidedCapability> _capabilities;
+  final List<GuidedCapability> _allowed;
   @override
-  List<GuidedCapability> get capabilities {
-    if (_capabilities is EqualUnmodifiableListView) return _capabilities;
+  @JsonKey()
+  List<GuidedCapability> get allowed {
+    if (_allowed is EqualUnmodifiableListView) return _allowed;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_capabilities);
+    return EqualUnmodifiableListView(_allowed);
+  }
+
+  final List<GuidedDisallowedCapability> _disallowed;
+  @override
+  @JsonKey()
+  List<GuidedDisallowedCapability> get disallowed {
+    if (_disallowed is EqualUnmodifiableListView) return _disallowed;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_disallowed);
   }
 
   @JsonKey(name: '\$type')
@@ -6274,7 +6500,7 @@ class _$GuidedStorageTargetReformat implements GuidedStorageTargetReformat {
 
   @override
   String toString() {
-    return 'GuidedStorageTarget.reformat(diskId: $diskId, capabilities: $capabilities)';
+    return 'GuidedStorageTarget.reformat(diskId: $diskId, allowed: $allowed, disallowed: $disallowed)';
   }
 
   @override
@@ -6283,14 +6509,18 @@ class _$GuidedStorageTargetReformat implements GuidedStorageTargetReformat {
         (other.runtimeType == runtimeType &&
             other is _$GuidedStorageTargetReformat &&
             (identical(other.diskId, diskId) || other.diskId == diskId) &&
+            const DeepCollectionEquality().equals(other._allowed, _allowed) &&
             const DeepCollectionEquality()
-                .equals(other._capabilities, _capabilities));
+                .equals(other._disallowed, _disallowed));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
-      runtimeType, diskId, const DeepCollectionEquality().hash(_capabilities));
+      runtimeType,
+      diskId,
+      const DeepCollectionEquality().hash(_allowed),
+      const DeepCollectionEquality().hash(_disallowed));
 
   @JsonKey(ignore: true)
   @override
@@ -6302,8 +6532,8 @@ class _$GuidedStorageTargetReformat implements GuidedStorageTargetReformat {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(
-            String diskId, List<GuidedCapability> capabilities)
+    required TResult Function(String diskId, List<GuidedCapability> allowed,
+            List<GuidedDisallowedCapability> disallowed)
         reformat,
     required TResult Function(
             String diskId,
@@ -6312,19 +6542,24 @@ class _$GuidedStorageTargetReformat implements GuidedStorageTargetReformat {
             int? minimum,
             int? recommended,
             int? maximum,
-            List<GuidedCapability> capabilities)
+            List<GuidedCapability> allowed,
+            List<GuidedDisallowedCapability> disallowed)
         resize,
     required TResult Function(
-            String diskId, Gap gap, List<GuidedCapability> capabilities)
+            String diskId,
+            Gap gap,
+            List<GuidedCapability> allowed,
+            List<GuidedDisallowedCapability> disallowed)
         useGap,
   }) {
-    return reformat(diskId, capabilities);
+    return reformat(diskId, allowed, disallowed);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String diskId, List<GuidedCapability> capabilities)?
+    TResult? Function(String diskId, List<GuidedCapability> allowed,
+            List<GuidedDisallowedCapability> disallowed)?
         reformat,
     TResult? Function(
             String diskId,
@@ -6333,19 +6568,21 @@ class _$GuidedStorageTargetReformat implements GuidedStorageTargetReformat {
             int? minimum,
             int? recommended,
             int? maximum,
-            List<GuidedCapability> capabilities)?
+            List<GuidedCapability> allowed,
+            List<GuidedDisallowedCapability> disallowed)?
         resize,
-    TResult? Function(
-            String diskId, Gap gap, List<GuidedCapability> capabilities)?
+    TResult? Function(String diskId, Gap gap, List<GuidedCapability> allowed,
+            List<GuidedDisallowedCapability> disallowed)?
         useGap,
   }) {
-    return reformat?.call(diskId, capabilities);
+    return reformat?.call(diskId, allowed, disallowed);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String diskId, List<GuidedCapability> capabilities)?
+    TResult Function(String diskId, List<GuidedCapability> allowed,
+            List<GuidedDisallowedCapability> disallowed)?
         reformat,
     TResult Function(
             String diskId,
@@ -6354,15 +6591,16 @@ class _$GuidedStorageTargetReformat implements GuidedStorageTargetReformat {
             int? minimum,
             int? recommended,
             int? maximum,
-            List<GuidedCapability> capabilities)?
+            List<GuidedCapability> allowed,
+            List<GuidedDisallowedCapability> disallowed)?
         resize,
-    TResult Function(
-            String diskId, Gap gap, List<GuidedCapability> capabilities)?
+    TResult Function(String diskId, Gap gap, List<GuidedCapability> allowed,
+            List<GuidedDisallowedCapability> disallowed)?
         useGap,
     required TResult orElse(),
   }) {
     if (reformat != null) {
-      return reformat(diskId, capabilities);
+      return reformat(diskId, allowed, disallowed);
     }
     return orElse();
   }
@@ -6412,7 +6650,8 @@ class _$GuidedStorageTargetReformat implements GuidedStorageTargetReformat {
 abstract class GuidedStorageTargetReformat implements GuidedStorageTarget {
   const factory GuidedStorageTargetReformat(
           {required final String diskId,
-          required final List<GuidedCapability> capabilities}) =
+          final List<GuidedCapability> allowed,
+          final List<GuidedDisallowedCapability> disallowed}) =
       _$GuidedStorageTargetReformat;
 
   factory GuidedStorageTargetReformat.fromJson(Map<String, dynamic> json) =
@@ -6421,7 +6660,9 @@ abstract class GuidedStorageTargetReformat implements GuidedStorageTarget {
   @override
   String get diskId;
   @override
-  List<GuidedCapability> get capabilities;
+  List<GuidedCapability> get allowed;
+  @override
+  List<GuidedDisallowedCapability> get disallowed;
   @override
   @JsonKey(ignore: true)
   _$$GuidedStorageTargetReformatCopyWith<_$GuidedStorageTargetReformat>
@@ -6444,7 +6685,8 @@ abstract class _$$GuidedStorageTargetResizeCopyWith<$Res>
       int? minimum,
       int? recommended,
       int? maximum,
-      List<GuidedCapability> capabilities});
+      List<GuidedCapability> allowed,
+      List<GuidedDisallowedCapability> disallowed});
 }
 
 /// @nodoc
@@ -6464,7 +6706,8 @@ class __$$GuidedStorageTargetResizeCopyWithImpl<$Res>
     Object? minimum = freezed,
     Object? recommended = freezed,
     Object? maximum = freezed,
-    Object? capabilities = null,
+    Object? allowed = null,
+    Object? disallowed = null,
   }) {
     return _then(_$GuidedStorageTargetResize(
       diskId: null == diskId
@@ -6491,10 +6734,14 @@ class __$$GuidedStorageTargetResizeCopyWithImpl<$Res>
           ? _value.maximum
           : maximum // ignore: cast_nullable_to_non_nullable
               as int?,
-      capabilities: null == capabilities
-          ? _value._capabilities
-          : capabilities // ignore: cast_nullable_to_non_nullable
+      allowed: null == allowed
+          ? _value._allowed
+          : allowed // ignore: cast_nullable_to_non_nullable
               as List<GuidedCapability>,
+      disallowed: null == disallowed
+          ? _value._disallowed
+          : disallowed // ignore: cast_nullable_to_non_nullable
+              as List<GuidedDisallowedCapability>,
     ));
   }
 }
@@ -6509,9 +6756,11 @@ class _$GuidedStorageTargetResize implements GuidedStorageTargetResize {
       required this.minimum,
       required this.recommended,
       required this.maximum,
-      required final List<GuidedCapability> capabilities,
+      final List<GuidedCapability> allowed = const [],
+      final List<GuidedDisallowedCapability> disallowed = const [],
       final String? $type})
-      : _capabilities = capabilities,
+      : _allowed = allowed,
+        _disallowed = disallowed,
         $type = $type ?? 'GuidedStorageTargetResize';
 
   factory _$GuidedStorageTargetResize.fromJson(Map<String, dynamic> json) =>
@@ -6529,12 +6778,22 @@ class _$GuidedStorageTargetResize implements GuidedStorageTargetResize {
   final int? recommended;
   @override
   final int? maximum;
-  final List<GuidedCapability> _capabilities;
+  final List<GuidedCapability> _allowed;
   @override
-  List<GuidedCapability> get capabilities {
-    if (_capabilities is EqualUnmodifiableListView) return _capabilities;
+  @JsonKey()
+  List<GuidedCapability> get allowed {
+    if (_allowed is EqualUnmodifiableListView) return _allowed;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_capabilities);
+    return EqualUnmodifiableListView(_allowed);
+  }
+
+  final List<GuidedDisallowedCapability> _disallowed;
+  @override
+  @JsonKey()
+  List<GuidedDisallowedCapability> get disallowed {
+    if (_disallowed is EqualUnmodifiableListView) return _disallowed;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_disallowed);
   }
 
   @JsonKey(name: '\$type')
@@ -6542,7 +6801,7 @@ class _$GuidedStorageTargetResize implements GuidedStorageTargetResize {
 
   @override
   String toString() {
-    return 'GuidedStorageTarget.resize(diskId: $diskId, partitionNumber: $partitionNumber, newSize: $newSize, minimum: $minimum, recommended: $recommended, maximum: $maximum, capabilities: $capabilities)';
+    return 'GuidedStorageTarget.resize(diskId: $diskId, partitionNumber: $partitionNumber, newSize: $newSize, minimum: $minimum, recommended: $recommended, maximum: $maximum, allowed: $allowed, disallowed: $disallowed)';
   }
 
   @override
@@ -6558,8 +6817,9 @@ class _$GuidedStorageTargetResize implements GuidedStorageTargetResize {
             (identical(other.recommended, recommended) ||
                 other.recommended == recommended) &&
             (identical(other.maximum, maximum) || other.maximum == maximum) &&
+            const DeepCollectionEquality().equals(other._allowed, _allowed) &&
             const DeepCollectionEquality()
-                .equals(other._capabilities, _capabilities));
+                .equals(other._disallowed, _disallowed));
   }
 
   @JsonKey(ignore: true)
@@ -6572,7 +6832,8 @@ class _$GuidedStorageTargetResize implements GuidedStorageTargetResize {
       minimum,
       recommended,
       maximum,
-      const DeepCollectionEquality().hash(_capabilities));
+      const DeepCollectionEquality().hash(_allowed),
+      const DeepCollectionEquality().hash(_disallowed));
 
   @JsonKey(ignore: true)
   @override
@@ -6584,8 +6845,8 @@ class _$GuidedStorageTargetResize implements GuidedStorageTargetResize {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(
-            String diskId, List<GuidedCapability> capabilities)
+    required TResult Function(String diskId, List<GuidedCapability> allowed,
+            List<GuidedDisallowedCapability> disallowed)
         reformat,
     required TResult Function(
             String diskId,
@@ -6594,20 +6855,25 @@ class _$GuidedStorageTargetResize implements GuidedStorageTargetResize {
             int? minimum,
             int? recommended,
             int? maximum,
-            List<GuidedCapability> capabilities)
+            List<GuidedCapability> allowed,
+            List<GuidedDisallowedCapability> disallowed)
         resize,
     required TResult Function(
-            String diskId, Gap gap, List<GuidedCapability> capabilities)
+            String diskId,
+            Gap gap,
+            List<GuidedCapability> allowed,
+            List<GuidedDisallowedCapability> disallowed)
         useGap,
   }) {
     return resize(diskId, partitionNumber, newSize, minimum, recommended,
-        maximum, capabilities);
+        maximum, allowed, disallowed);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String diskId, List<GuidedCapability> capabilities)?
+    TResult? Function(String diskId, List<GuidedCapability> allowed,
+            List<GuidedDisallowedCapability> disallowed)?
         reformat,
     TResult? Function(
             String diskId,
@@ -6616,20 +6882,22 @@ class _$GuidedStorageTargetResize implements GuidedStorageTargetResize {
             int? minimum,
             int? recommended,
             int? maximum,
-            List<GuidedCapability> capabilities)?
+            List<GuidedCapability> allowed,
+            List<GuidedDisallowedCapability> disallowed)?
         resize,
-    TResult? Function(
-            String diskId, Gap gap, List<GuidedCapability> capabilities)?
+    TResult? Function(String diskId, Gap gap, List<GuidedCapability> allowed,
+            List<GuidedDisallowedCapability> disallowed)?
         useGap,
   }) {
     return resize?.call(diskId, partitionNumber, newSize, minimum, recommended,
-        maximum, capabilities);
+        maximum, allowed, disallowed);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String diskId, List<GuidedCapability> capabilities)?
+    TResult Function(String diskId, List<GuidedCapability> allowed,
+            List<GuidedDisallowedCapability> disallowed)?
         reformat,
     TResult Function(
             String diskId,
@@ -6638,16 +6906,17 @@ class _$GuidedStorageTargetResize implements GuidedStorageTargetResize {
             int? minimum,
             int? recommended,
             int? maximum,
-            List<GuidedCapability> capabilities)?
+            List<GuidedCapability> allowed,
+            List<GuidedDisallowedCapability> disallowed)?
         resize,
-    TResult Function(
-            String diskId, Gap gap, List<GuidedCapability> capabilities)?
+    TResult Function(String diskId, Gap gap, List<GuidedCapability> allowed,
+            List<GuidedDisallowedCapability> disallowed)?
         useGap,
     required TResult orElse(),
   }) {
     if (resize != null) {
       return resize(diskId, partitionNumber, newSize, minimum, recommended,
-          maximum, capabilities);
+          maximum, allowed, disallowed);
     }
     return orElse();
   }
@@ -6702,7 +6971,8 @@ abstract class GuidedStorageTargetResize implements GuidedStorageTarget {
           required final int? minimum,
           required final int? recommended,
           required final int? maximum,
-          required final List<GuidedCapability> capabilities}) =
+          final List<GuidedCapability> allowed,
+          final List<GuidedDisallowedCapability> disallowed}) =
       _$GuidedStorageTargetResize;
 
   factory GuidedStorageTargetResize.fromJson(Map<String, dynamic> json) =
@@ -6716,7 +6986,9 @@ abstract class GuidedStorageTargetResize implements GuidedStorageTarget {
   int? get recommended;
   int? get maximum;
   @override
-  List<GuidedCapability> get capabilities;
+  List<GuidedCapability> get allowed;
+  @override
+  List<GuidedDisallowedCapability> get disallowed;
   @override
   @JsonKey(ignore: true)
   _$$GuidedStorageTargetResizeCopyWith<_$GuidedStorageTargetResize>
@@ -6732,7 +7004,11 @@ abstract class _$$GuidedStorageTargetUseGapCopyWith<$Res>
       __$$GuidedStorageTargetUseGapCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String diskId, Gap gap, List<GuidedCapability> capabilities});
+  $Res call(
+      {String diskId,
+      Gap gap,
+      List<GuidedCapability> allowed,
+      List<GuidedDisallowedCapability> disallowed});
 }
 
 /// @nodoc
@@ -6748,7 +7024,8 @@ class __$$GuidedStorageTargetUseGapCopyWithImpl<$Res>
   $Res call({
     Object? diskId = null,
     Object? gap = freezed,
-    Object? capabilities = null,
+    Object? allowed = null,
+    Object? disallowed = null,
   }) {
     return _then(_$GuidedStorageTargetUseGap(
       diskId: null == diskId
@@ -6759,10 +7036,14 @@ class __$$GuidedStorageTargetUseGapCopyWithImpl<$Res>
           ? _value.gap
           : gap // ignore: cast_nullable_to_non_nullable
               as Gap,
-      capabilities: null == capabilities
-          ? _value._capabilities
-          : capabilities // ignore: cast_nullable_to_non_nullable
+      allowed: null == allowed
+          ? _value._allowed
+          : allowed // ignore: cast_nullable_to_non_nullable
               as List<GuidedCapability>,
+      disallowed: null == disallowed
+          ? _value._disallowed
+          : disallowed // ignore: cast_nullable_to_non_nullable
+              as List<GuidedDisallowedCapability>,
     ));
   }
 }
@@ -6773,9 +7054,11 @@ class _$GuidedStorageTargetUseGap implements GuidedStorageTargetUseGap {
   const _$GuidedStorageTargetUseGap(
       {required this.diskId,
       required this.gap,
-      required final List<GuidedCapability> capabilities,
+      final List<GuidedCapability> allowed = const [],
+      final List<GuidedDisallowedCapability> disallowed = const [],
       final String? $type})
-      : _capabilities = capabilities,
+      : _allowed = allowed,
+        _disallowed = disallowed,
         $type = $type ?? 'GuidedStorageTargetUseGap';
 
   factory _$GuidedStorageTargetUseGap.fromJson(Map<String, dynamic> json) =>
@@ -6785,12 +7068,22 @@ class _$GuidedStorageTargetUseGap implements GuidedStorageTargetUseGap {
   final String diskId;
   @override
   final Gap gap;
-  final List<GuidedCapability> _capabilities;
+  final List<GuidedCapability> _allowed;
   @override
-  List<GuidedCapability> get capabilities {
-    if (_capabilities is EqualUnmodifiableListView) return _capabilities;
+  @JsonKey()
+  List<GuidedCapability> get allowed {
+    if (_allowed is EqualUnmodifiableListView) return _allowed;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_capabilities);
+    return EqualUnmodifiableListView(_allowed);
+  }
+
+  final List<GuidedDisallowedCapability> _disallowed;
+  @override
+  @JsonKey()
+  List<GuidedDisallowedCapability> get disallowed {
+    if (_disallowed is EqualUnmodifiableListView) return _disallowed;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_disallowed);
   }
 
   @JsonKey(name: '\$type')
@@ -6798,7 +7091,7 @@ class _$GuidedStorageTargetUseGap implements GuidedStorageTargetUseGap {
 
   @override
   String toString() {
-    return 'GuidedStorageTarget.useGap(diskId: $diskId, gap: $gap, capabilities: $capabilities)';
+    return 'GuidedStorageTarget.useGap(diskId: $diskId, gap: $gap, allowed: $allowed, disallowed: $disallowed)';
   }
 
   @override
@@ -6808,8 +7101,9 @@ class _$GuidedStorageTargetUseGap implements GuidedStorageTargetUseGap {
             other is _$GuidedStorageTargetUseGap &&
             (identical(other.diskId, diskId) || other.diskId == diskId) &&
             const DeepCollectionEquality().equals(other.gap, gap) &&
+            const DeepCollectionEquality().equals(other._allowed, _allowed) &&
             const DeepCollectionEquality()
-                .equals(other._capabilities, _capabilities));
+                .equals(other._disallowed, _disallowed));
   }
 
   @JsonKey(ignore: true)
@@ -6818,7 +7112,8 @@ class _$GuidedStorageTargetUseGap implements GuidedStorageTargetUseGap {
       runtimeType,
       diskId,
       const DeepCollectionEquality().hash(gap),
-      const DeepCollectionEquality().hash(_capabilities));
+      const DeepCollectionEquality().hash(_allowed),
+      const DeepCollectionEquality().hash(_disallowed));
 
   @JsonKey(ignore: true)
   @override
@@ -6830,8 +7125,8 @@ class _$GuidedStorageTargetUseGap implements GuidedStorageTargetUseGap {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(
-            String diskId, List<GuidedCapability> capabilities)
+    required TResult Function(String diskId, List<GuidedCapability> allowed,
+            List<GuidedDisallowedCapability> disallowed)
         reformat,
     required TResult Function(
             String diskId,
@@ -6840,19 +7135,24 @@ class _$GuidedStorageTargetUseGap implements GuidedStorageTargetUseGap {
             int? minimum,
             int? recommended,
             int? maximum,
-            List<GuidedCapability> capabilities)
+            List<GuidedCapability> allowed,
+            List<GuidedDisallowedCapability> disallowed)
         resize,
     required TResult Function(
-            String diskId, Gap gap, List<GuidedCapability> capabilities)
+            String diskId,
+            Gap gap,
+            List<GuidedCapability> allowed,
+            List<GuidedDisallowedCapability> disallowed)
         useGap,
   }) {
-    return useGap(diskId, gap, capabilities);
+    return useGap(diskId, gap, allowed, disallowed);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String diskId, List<GuidedCapability> capabilities)?
+    TResult? Function(String diskId, List<GuidedCapability> allowed,
+            List<GuidedDisallowedCapability> disallowed)?
         reformat,
     TResult? Function(
             String diskId,
@@ -6861,19 +7161,21 @@ class _$GuidedStorageTargetUseGap implements GuidedStorageTargetUseGap {
             int? minimum,
             int? recommended,
             int? maximum,
-            List<GuidedCapability> capabilities)?
+            List<GuidedCapability> allowed,
+            List<GuidedDisallowedCapability> disallowed)?
         resize,
-    TResult? Function(
-            String diskId, Gap gap, List<GuidedCapability> capabilities)?
+    TResult? Function(String diskId, Gap gap, List<GuidedCapability> allowed,
+            List<GuidedDisallowedCapability> disallowed)?
         useGap,
   }) {
-    return useGap?.call(diskId, gap, capabilities);
+    return useGap?.call(diskId, gap, allowed, disallowed);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String diskId, List<GuidedCapability> capabilities)?
+    TResult Function(String diskId, List<GuidedCapability> allowed,
+            List<GuidedDisallowedCapability> disallowed)?
         reformat,
     TResult Function(
             String diskId,
@@ -6882,15 +7184,16 @@ class _$GuidedStorageTargetUseGap implements GuidedStorageTargetUseGap {
             int? minimum,
             int? recommended,
             int? maximum,
-            List<GuidedCapability> capabilities)?
+            List<GuidedCapability> allowed,
+            List<GuidedDisallowedCapability> disallowed)?
         resize,
-    TResult Function(
-            String diskId, Gap gap, List<GuidedCapability> capabilities)?
+    TResult Function(String diskId, Gap gap, List<GuidedCapability> allowed,
+            List<GuidedDisallowedCapability> disallowed)?
         useGap,
     required TResult orElse(),
   }) {
     if (useGap != null) {
-      return useGap(diskId, gap, capabilities);
+      return useGap(diskId, gap, allowed, disallowed);
     }
     return orElse();
   }
@@ -6941,7 +7244,8 @@ abstract class GuidedStorageTargetUseGap implements GuidedStorageTarget {
   const factory GuidedStorageTargetUseGap(
           {required final String diskId,
           required final Gap gap,
-          required final List<GuidedCapability> capabilities}) =
+          final List<GuidedCapability> allowed,
+          final List<GuidedDisallowedCapability> disallowed}) =
       _$GuidedStorageTargetUseGap;
 
   factory GuidedStorageTargetUseGap.fromJson(Map<String, dynamic> json) =
@@ -6951,7 +7255,9 @@ abstract class GuidedStorageTargetUseGap implements GuidedStorageTarget {
   String get diskId;
   Gap get gap;
   @override
-  List<GuidedCapability> get capabilities;
+  List<GuidedCapability> get allowed;
+  @override
+  List<GuidedDisallowedCapability> get disallowed;
   @override
   @JsonKey(ignore: true)
   _$$GuidedStorageTargetUseGapCopyWith<_$GuidedStorageTargetUseGap>
@@ -7207,7 +7513,7 @@ mixin _$GuidedStorageResponseV2 {
   ProbeStatus get status => throw _privateConstructorUsedError;
   ErrorReportRef? get errorReport => throw _privateConstructorUsedError;
   GuidedChoiceV2? get configured => throw _privateConstructorUsedError;
-  List<GuidedStorageTarget> get possible => throw _privateConstructorUsedError;
+  List<GuidedStorageTarget> get targets => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -7225,7 +7531,7 @@ abstract class $GuidedStorageResponseV2CopyWith<$Res> {
       {ProbeStatus status,
       ErrorReportRef? errorReport,
       GuidedChoiceV2? configured,
-      List<GuidedStorageTarget> possible});
+      List<GuidedStorageTarget> targets});
 
   $ErrorReportRefCopyWith<$Res>? get errorReport;
   $GuidedChoiceV2CopyWith<$Res>? get configured;
@@ -7248,7 +7554,7 @@ class _$GuidedStorageResponseV2CopyWithImpl<$Res,
     Object? status = null,
     Object? errorReport = freezed,
     Object? configured = freezed,
-    Object? possible = null,
+    Object? targets = null,
   }) {
     return _then(_value.copyWith(
       status: null == status
@@ -7263,9 +7569,9 @@ class _$GuidedStorageResponseV2CopyWithImpl<$Res,
           ? _value.configured
           : configured // ignore: cast_nullable_to_non_nullable
               as GuidedChoiceV2?,
-      possible: null == possible
-          ? _value.possible
-          : possible // ignore: cast_nullable_to_non_nullable
+      targets: null == targets
+          ? _value.targets
+          : targets // ignore: cast_nullable_to_non_nullable
               as List<GuidedStorageTarget>,
     ) as $Val);
   }
@@ -7307,7 +7613,7 @@ abstract class _$$_GuidedStorageResponseV2CopyWith<$Res>
       {ProbeStatus status,
       ErrorReportRef? errorReport,
       GuidedChoiceV2? configured,
-      List<GuidedStorageTarget> possible});
+      List<GuidedStorageTarget> targets});
 
   @override
   $ErrorReportRefCopyWith<$Res>? get errorReport;
@@ -7330,7 +7636,7 @@ class __$$_GuidedStorageResponseV2CopyWithImpl<$Res>
     Object? status = null,
     Object? errorReport = freezed,
     Object? configured = freezed,
-    Object? possible = null,
+    Object? targets = null,
   }) {
     return _then(_$_GuidedStorageResponseV2(
       status: null == status
@@ -7345,9 +7651,9 @@ class __$$_GuidedStorageResponseV2CopyWithImpl<$Res>
           ? _value.configured
           : configured // ignore: cast_nullable_to_non_nullable
               as GuidedChoiceV2?,
-      possible: null == possible
-          ? _value._possible
-          : possible // ignore: cast_nullable_to_non_nullable
+      targets: null == targets
+          ? _value._targets
+          : targets // ignore: cast_nullable_to_non_nullable
               as List<GuidedStorageTarget>,
     ));
   }
@@ -7360,8 +7666,8 @@ class _$_GuidedStorageResponseV2 implements _GuidedStorageResponseV2 {
       {required this.status,
       this.errorReport,
       this.configured,
-      final List<GuidedStorageTarget> possible = const []})
-      : _possible = possible;
+      final List<GuidedStorageTarget> targets = const []})
+      : _targets = targets;
 
   factory _$_GuidedStorageResponseV2.fromJson(Map<String, dynamic> json) =>
       _$$_GuidedStorageResponseV2FromJson(json);
@@ -7372,18 +7678,18 @@ class _$_GuidedStorageResponseV2 implements _GuidedStorageResponseV2 {
   final ErrorReportRef? errorReport;
   @override
   final GuidedChoiceV2? configured;
-  final List<GuidedStorageTarget> _possible;
+  final List<GuidedStorageTarget> _targets;
   @override
   @JsonKey()
-  List<GuidedStorageTarget> get possible {
-    if (_possible is EqualUnmodifiableListView) return _possible;
+  List<GuidedStorageTarget> get targets {
+    if (_targets is EqualUnmodifiableListView) return _targets;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_possible);
+    return EqualUnmodifiableListView(_targets);
   }
 
   @override
   String toString() {
-    return 'GuidedStorageResponseV2(status: $status, errorReport: $errorReport, configured: $configured, possible: $possible)';
+    return 'GuidedStorageResponseV2(status: $status, errorReport: $errorReport, configured: $configured, targets: $targets)';
   }
 
   @override
@@ -7396,13 +7702,13 @@ class _$_GuidedStorageResponseV2 implements _GuidedStorageResponseV2 {
                 other.errorReport == errorReport) &&
             (identical(other.configured, configured) ||
                 other.configured == configured) &&
-            const DeepCollectionEquality().equals(other._possible, _possible));
+            const DeepCollectionEquality().equals(other._targets, _targets));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, status, errorReport, configured,
-      const DeepCollectionEquality().hash(_possible));
+      const DeepCollectionEquality().hash(_targets));
 
   @JsonKey(ignore: true)
   @override
@@ -7425,7 +7731,7 @@ abstract class _GuidedStorageResponseV2 implements GuidedStorageResponseV2 {
       {required final ProbeStatus status,
       final ErrorReportRef? errorReport,
       final GuidedChoiceV2? configured,
-      final List<GuidedStorageTarget> possible}) = _$_GuidedStorageResponseV2;
+      final List<GuidedStorageTarget> targets}) = _$_GuidedStorageResponseV2;
 
   factory _GuidedStorageResponseV2.fromJson(Map<String, dynamic> json) =
       _$_GuidedStorageResponseV2.fromJson;
@@ -7437,7 +7743,7 @@ abstract class _GuidedStorageResponseV2 implements GuidedStorageResponseV2 {
   @override
   GuidedChoiceV2? get configured;
   @override
-  List<GuidedStorageTarget> get possible;
+  List<GuidedStorageTarget> get targets;
   @override
   @JsonKey(ignore: true)
   _$$_GuidedStorageResponseV2CopyWith<_$_GuidedStorageResponseV2>
@@ -9481,6 +9787,153 @@ abstract class _DriversResponse implements DriversResponse {
   @override
   @JsonKey(ignore: true)
   _$$_DriversResponseCopyWith<_$_DriversResponse> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+OEMResponse _$OEMResponseFromJson(Map<String, dynamic> json) {
+  return _OEMResponse.fromJson(json);
+}
+
+/// @nodoc
+mixin _$OEMResponse {
+  List<String>? get metapackages => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $OEMResponseCopyWith<OEMResponse> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $OEMResponseCopyWith<$Res> {
+  factory $OEMResponseCopyWith(
+          OEMResponse value, $Res Function(OEMResponse) then) =
+      _$OEMResponseCopyWithImpl<$Res, OEMResponse>;
+  @useResult
+  $Res call({List<String>? metapackages});
+}
+
+/// @nodoc
+class _$OEMResponseCopyWithImpl<$Res, $Val extends OEMResponse>
+    implements $OEMResponseCopyWith<$Res> {
+  _$OEMResponseCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? metapackages = freezed,
+  }) {
+    return _then(_value.copyWith(
+      metapackages: freezed == metapackages
+          ? _value.metapackages
+          : metapackages // ignore: cast_nullable_to_non_nullable
+              as List<String>?,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$_OEMResponseCopyWith<$Res>
+    implements $OEMResponseCopyWith<$Res> {
+  factory _$$_OEMResponseCopyWith(
+          _$_OEMResponse value, $Res Function(_$_OEMResponse) then) =
+      __$$_OEMResponseCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({List<String>? metapackages});
+}
+
+/// @nodoc
+class __$$_OEMResponseCopyWithImpl<$Res>
+    extends _$OEMResponseCopyWithImpl<$Res, _$_OEMResponse>
+    implements _$$_OEMResponseCopyWith<$Res> {
+  __$$_OEMResponseCopyWithImpl(
+      _$_OEMResponse _value, $Res Function(_$_OEMResponse) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? metapackages = freezed,
+  }) {
+    return _then(_$_OEMResponse(
+      metapackages: freezed == metapackages
+          ? _value._metapackages
+          : metapackages // ignore: cast_nullable_to_non_nullable
+              as List<String>?,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$_OEMResponse implements _OEMResponse {
+  const _$_OEMResponse({required final List<String>? metapackages})
+      : _metapackages = metapackages;
+
+  factory _$_OEMResponse.fromJson(Map<String, dynamic> json) =>
+      _$$_OEMResponseFromJson(json);
+
+  final List<String>? _metapackages;
+  @override
+  List<String>? get metapackages {
+    final value = _metapackages;
+    if (value == null) return null;
+    if (_metapackages is EqualUnmodifiableListView) return _metapackages;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
+  @override
+  String toString() {
+    return 'OEMResponse(metapackages: $metapackages)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_OEMResponse &&
+            const DeepCollectionEquality()
+                .equals(other._metapackages, _metapackages));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(_metapackages));
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_OEMResponseCopyWith<_$_OEMResponse> get copyWith =>
+      __$$_OEMResponseCopyWithImpl<_$_OEMResponse>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_OEMResponseToJson(
+      this,
+    );
+  }
+}
+
+abstract class _OEMResponse implements OEMResponse {
+  const factory _OEMResponse({required final List<String>? metapackages}) =
+      _$_OEMResponse;
+
+  factory _OEMResponse.fromJson(Map<String, dynamic> json) =
+      _$_OEMResponse.fromJson;
+
+  @override
+  List<String>? get metapackages;
+  @override
+  @JsonKey(ignore: true)
+  _$$_OEMResponseCopyWith<_$_OEMResponse> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
