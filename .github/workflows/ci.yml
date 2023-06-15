@@ -54,6 +54,8 @@ jobs:
         with:
           submodules: recursive
       - uses: dart-lang/setup-dart@v1
+        with:
+          sdk: 2.19.6
       - run: dart pub get
       - run: dart analyze --fatal-infos
 
@@ -64,6 +66,8 @@ jobs:
         with:
           submodules: recursive
       - uses: dart-lang/setup-dart@v1
+        with:
+          sdk: 2.19.6
       - run: dart pub get
       - run: dart format --set-exit-if-changed .
 
@@ -74,6 +78,8 @@ jobs:
         with:
           submodules: recursive
       - uses: dart-lang/setup-dart@v1
+        with:
+          sdk: 2.19.6
       - run: make generate
       - run: dart pub get
       - run: dart run build_runner build --delete-conflicting-outputs
