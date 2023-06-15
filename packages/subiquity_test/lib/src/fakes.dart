@@ -80,11 +80,13 @@ GuidedChoiceV2 fakeGuidedChoice(
 
 GuidedStorageTargetReformat fakeGuidedStorageTargetReformat({
   String diskId = '',
-  List<GuidedCapability> capabilities = const [GuidedCapability.DIRECT],
+  List<GuidedCapability> allowed = const [GuidedCapability.DIRECT],
+  List<GuidedDisallowedCapability> disallowed = const [],
 }) {
   return GuidedStorageTargetReformat(
     diskId: diskId,
-    capabilities: capabilities,
+    allowed: allowed,
+    disallowed: disallowed,
   );
 }
 
@@ -95,7 +97,8 @@ GuidedStorageTargetResize fakeGuidedStorageTargetResize({
   int? minimum,
   int? recommended,
   int? maximum,
-  List<GuidedCapability> capabilities = const [GuidedCapability.DIRECT],
+  List<GuidedCapability> allowed = const [GuidedCapability.DIRECT],
+  List<GuidedDisallowedCapability> disallowed = const [],
 }) {
   return GuidedStorageTargetResize(
     diskId: diskId,
@@ -104,19 +107,22 @@ GuidedStorageTargetResize fakeGuidedStorageTargetResize({
     minimum: minimum,
     recommended: recommended,
     maximum: maximum,
-    capabilities: capabilities,
+    allowed: allowed,
+    disallowed: disallowed,
   );
 }
 
 GuidedStorageTargetUseGap fakeGuidedStorageTargetUseGap({
   String diskId = '',
   Gap? gap,
-  List<GuidedCapability> capabilities = const [GuidedCapability.DIRECT],
+  List<GuidedCapability> allowed = const [GuidedCapability.DIRECT],
+  List<GuidedDisallowedCapability> disallowed = const [],
 }) {
   return GuidedStorageTargetUseGap(
     diskId: diskId,
     gap: gap ?? fakeGap(),
-    capabilities: capabilities,
+    allowed: allowed,
+    disallowed: disallowed,
   );
 }
 
@@ -124,13 +130,13 @@ GuidedStorageResponseV2 fakeGuidedStorageResponse({
   ProbeStatus status = ProbeStatus.DONE,
   ErrorReportRef? errorReport,
   GuidedChoiceV2? configured,
-  List<GuidedStorageTarget> possible = const [],
+  List<GuidedStorageTarget> targets = const [],
 }) {
   return GuidedStorageResponseV2(
     status: status,
     errorReport: errorReport,
     configured: configured,
-    possible: possible,
+    targets: targets,
   );
 }
 
