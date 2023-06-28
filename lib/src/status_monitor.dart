@@ -54,7 +54,9 @@ class SubiquityStatusMonitor {
 
   Future<void> _listen() async {
     while (_status != null && _statusController?.isClosed == false) {
-      await _fetchStatus().then(_updateStatus);
+      await _fetchStatus()
+          .then(_updateStatus)
+          .onError((_, __) => _updateStatus(null));
     }
   }
 
