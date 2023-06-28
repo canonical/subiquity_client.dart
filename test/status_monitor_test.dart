@@ -127,6 +127,23 @@ void main() {
     await expectLater(
         monitor.onStatusChanged, emitsInOrder([isRunning, isNull]));
   });
+
+  test('exception', () async {
+    final client = MockHttpClient();
+    when(client.openUrl('GET', noStatus))
+        .thenAnswer((_) async => statusResponse(isWaiting));
+    when(client.openUrl('GET', wasWaiting))
+        .thenAnswer((_) async => statusResponse(isRunning));
+    when(client.openUrl('GET', wasRunning))
+        .thenAnswer((_) async => throw HttpException(''));
+
+    final monitor = SubiquityStatusMonitor(client);
+
+    await monitor.start(addr);
+    expect(monitor.status, equals(isWaiting));
+    await expectLater(
+        monitor.onStatusChanged, emitsInOrder([isRunning, isNull]));
+  });
 }
 
 // null -> waiting -> running -> done
