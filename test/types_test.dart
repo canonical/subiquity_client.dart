@@ -247,18 +247,31 @@ void main() {
   });
 
   test('guided choice', () {
-    const choice = GuidedChoice(
-      diskId: '0',
-      password: '2',
+    const choice = GuidedChoiceV2(
+      target: GuidedStorageTarget.reformat(
+        diskId: '0',
+        allowed: [],
+        disallowed: [],
+      ),
       capability: GuidedCapability.LVM,
+      password: '2',
+      sizingPolicy: SizingPolicy.ALL,
+      resetPartition: false,
     );
     const json = <String, dynamic>{
-      'disk_id': '0',
+      'target': {
+        'disk_id': '0',
+        'allowed': [],
+        'disallowed': [],
+        '\$type': 'GuidedStorageTargetReformat',
+      },
       'capability': 'LVM',
       'password': '2',
+      'sizing_policy': 'ALL',
+      'reset_partition': false,
     };
     expect(choice.toJson(), equals(json));
-    expect(GuidedChoice.fromJson(json), choice);
+    expect(GuidedChoiceV2.fromJson(json), choice);
   });
 
   test('wsl configuration base data', () {
