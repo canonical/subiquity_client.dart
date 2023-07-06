@@ -400,33 +400,6 @@ class GuidedDisallowedCapability with _$GuidedDisallowedCapability {
 }
 
 @freezed
-class GuidedChoice with _$GuidedChoice {
-  const factory GuidedChoice({
-    required String diskId,
-    required GuidedCapability capability,
-    String? password,
-  }) = _GuidedChoice;
-
-  factory GuidedChoice.fromJson(Map<String, dynamic> json) =>
-      _$GuidedChoiceFromJson(json);
-}
-
-@freezed
-class GuidedStorageResponse with _$GuidedStorageResponse {
-  const factory GuidedStorageResponse({
-    required ProbeStatus status,
-    ErrorReportRef? errorReport,
-    List<Disk>? disks,
-    @Default('') String coreBootClassicError,
-    @Default('') String encryptionUnavailableReason,
-    @Default([]) List<GuidedCapability> capabilities,
-  }) = _GuidedStorageResponse;
-
-  factory GuidedStorageResponse.fromJson(Map<String, dynamic> json) =>
-      _$GuidedStorageResponseFromJson(json);
-}
-
-@freezed
 class StorageResponse with _$StorageResponse {
   const factory StorageResponse({
     required ProbeStatus status,

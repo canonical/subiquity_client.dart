@@ -487,59 +487,6 @@ const _$GuidedDisallowedCapabilityReasonEnumMap = {
       'CORE_BOOT_ENCRYPTION_UNAVAILABLE',
 };
 
-_$_GuidedChoice _$$_GuidedChoiceFromJson(Map<String, dynamic> json) =>
-    _$_GuidedChoice(
-      diskId: json['disk_id'] as String,
-      capability: $enumDecode(_$GuidedCapabilityEnumMap, json['capability']),
-      password: json['password'] as String?,
-    );
-
-Map<String, dynamic> _$$_GuidedChoiceToJson(_$_GuidedChoice instance) =>
-    <String, dynamic>{
-      'disk_id': instance.diskId,
-      'capability': _$GuidedCapabilityEnumMap[instance.capability]!,
-      'password': instance.password,
-    };
-
-_$_GuidedStorageResponse _$$_GuidedStorageResponseFromJson(
-        Map<String, dynamic> json) =>
-    _$_GuidedStorageResponse(
-      status: $enumDecode(_$ProbeStatusEnumMap, json['status']),
-      errorReport: json['error_report'] == null
-          ? null
-          : ErrorReportRef.fromJson(
-              json['error_report'] as Map<String, dynamic>),
-      disks: (json['disks'] as List<dynamic>?)
-          ?.map((e) => Disk.fromJson(e as Map<String, dynamic>))
-          .toList(),
-      coreBootClassicError: json['core_boot_classic_error'] as String? ?? '',
-      encryptionUnavailableReason:
-          json['encryption_unavailable_reason'] as String? ?? '',
-      capabilities: (json['capabilities'] as List<dynamic>?)
-              ?.map((e) => $enumDecode(_$GuidedCapabilityEnumMap, e))
-              .toList() ??
-          const [],
-    );
-
-Map<String, dynamic> _$$_GuidedStorageResponseToJson(
-        _$_GuidedStorageResponse instance) =>
-    <String, dynamic>{
-      'status': _$ProbeStatusEnumMap[instance.status]!,
-      'error_report': instance.errorReport?.toJson(),
-      'disks': instance.disks?.map((e) => e.toJson()).toList(),
-      'core_boot_classic_error': instance.coreBootClassicError,
-      'encryption_unavailable_reason': instance.encryptionUnavailableReason,
-      'capabilities': instance.capabilities
-          .map((e) => _$GuidedCapabilityEnumMap[e]!)
-          .toList(),
-    };
-
-const _$ProbeStatusEnumMap = {
-  ProbeStatus.PROBING: 'PROBING',
-  ProbeStatus.FAILED: 'FAILED',
-  ProbeStatus.DONE: 'DONE',
-};
-
 _$_StorageResponse _$$_StorageResponseFromJson(Map<String, dynamic> json) =>
     _$_StorageResponse(
       status: $enumDecode(_$ProbeStatusEnumMap, json['status']),
@@ -566,6 +513,12 @@ Map<String, dynamic> _$$_StorageResponseToJson(_$_StorageResponse instance) =>
       'dasd': instance.dasd,
       'storage_version': instance.storageVersion,
     };
+
+const _$ProbeStatusEnumMap = {
+  ProbeStatus.PROBING: 'PROBING',
+  ProbeStatus.FAILED: 'FAILED',
+  ProbeStatus.DONE: 'DONE',
+};
 
 const _$BootloaderEnumMap = {
   Bootloader.NONE: 'NONE',
