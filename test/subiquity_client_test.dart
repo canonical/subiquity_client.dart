@@ -24,8 +24,8 @@ void main() {
     );
     client = SubiquityClient();
     final socketPath = await testServer.start(args: [
-      '--machine-config=examples/simple.json',
-      '--source-catalog=examples/mixed-sources.yaml',
+      '--machine-config=examples/machines/simple.json',
+      '--source-catalog=examples/sources/mixed.yaml',
       '--storage-version=2',
       '--bootloader=uefi',
     ]);
@@ -85,8 +85,8 @@ void main() {
       );
       client = SubiquityClient();
       final socketPath = await testServer.start(args: [
-        '--machine-config=examples/simple.json',
-        '--source-catalog=examples/mixed-sources.yaml',
+        '--machine-config=examples/machines/simple.json',
+        '--source-catalog=examples/sources/mixed.yaml',
         '--storage-version=2',
         '--bootloader=uefi',
       ]);
@@ -732,8 +732,8 @@ void main() {
       );
       client = SubiquityClient();
       final socketPath = await testServer.start(args: [
-        '--autoinstall=examples/autoinstall-interactive.yaml',
-        '--machine-config=examples/simple.json',
+        '--autoinstall=examples/autoinstall/interactive.yaml',
+        '--machine-config=examples/machines/simple.json',
       ]);
       client.open(socketPath);
     });
