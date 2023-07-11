@@ -175,9 +175,12 @@ void main() {
       final guided = await client.getGuidedStorageV2();
       expect(guided.targets, isNotEmpty);
 
+      final target =
+          guided.targets.whereType<GuidedStorageTargetReformat>().last;
+
       final choice = GuidedChoiceV2(
-        target: guided.targets.last,
-        capability: guided.targets.last.allowed.first,
+        target: target,
+        capability: target.allowed.first,
         sizingPolicy: null,
       );
       final response = await client.setGuidedStorageV2(choice);
