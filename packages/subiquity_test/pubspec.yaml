@@ -9,8 +9,7 @@ dependencies:
   mockito: 5.4.2
   path: ^1.8.0
   subiquity_client:
-    git:
-      url: https://github.com/canonical/subiquity_client.dart
+    path: ../../
 
 dev_dependencies:
   test: ^1.23.1
