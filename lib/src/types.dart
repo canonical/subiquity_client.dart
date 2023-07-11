@@ -373,6 +373,7 @@ class Disk with _$Disk {
 }
 
 enum GuidedCapability {
+  MANUAL,
   DIRECT,
   LVM,
   LVM_LUKS,
@@ -477,6 +478,12 @@ class GuidedStorageTarget with _$GuidedStorageTarget {
     @Default([]) List<GuidedCapability> allowed,
     @Default([]) List<GuidedDisallowedCapability> disallowed,
   }) = GuidedStorageTargetUseGap;
+
+  @FreezedUnionValue('GuidedStorageTargetManual')
+  const factory GuidedStorageTarget.manual({
+    required List<GuidedCapability> allowed,
+    @Default([]) List<GuidedDisallowedCapability> disallowed,
+  }) = GuidedStorageTargetManual;
 
   factory GuidedStorageTarget.fromJson(Map<String, dynamic> json) =>
       _$GuidedStorageTargetFromJson(json);

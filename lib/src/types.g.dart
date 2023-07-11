@@ -472,6 +472,7 @@ Map<String, dynamic> _$$_GuidedDisallowedCapabilityToJson(
     };
 
 const _$GuidedCapabilityEnumMap = {
+  GuidedCapability.MANUAL: 'MANUAL',
   GuidedCapability.DIRECT: 'DIRECT',
   GuidedCapability.LVM: 'LVM',
   GuidedCapability.LVM_LUKS: 'LVM_LUKS',
@@ -656,6 +657,29 @@ Map<String, dynamic> _$$GuidedStorageTargetUseGapToJson(
     <String, dynamic>{
       'disk_id': instance.diskId,
       'gap': instance.gap.toJson(),
+      'allowed':
+          instance.allowed.map((e) => _$GuidedCapabilityEnumMap[e]!).toList(),
+      'disallowed': instance.disallowed.map((e) => e.toJson()).toList(),
+      r'$type': instance.$type,
+    };
+
+_$GuidedStorageTargetManual _$$GuidedStorageTargetManualFromJson(
+        Map<String, dynamic> json) =>
+    _$GuidedStorageTargetManual(
+      allowed: (json['allowed'] as List<dynamic>)
+          .map((e) => $enumDecode(_$GuidedCapabilityEnumMap, e))
+          .toList(),
+      disallowed: (json['disallowed'] as List<dynamic>?)
+              ?.map((e) => GuidedDisallowedCapability.fromJson(
+                  e as Map<String, dynamic>))
+              .toList() ??
+          const [],
+      $type: json[r'$type'] as String?,
+    );
+
+Map<String, dynamic> _$$GuidedStorageTargetManualToJson(
+        _$GuidedStorageTargetManual instance) =>
+    <String, dynamic>{
       'allowed':
           instance.allowed.map((e) => _$GuidedCapabilityEnumMap[e]!).toList(),
       'disallowed': instance.disallowed.map((e) => e.toJson()).toList(),
