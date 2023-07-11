@@ -5795,6 +5795,8 @@ GuidedStorageTarget _$GuidedStorageTargetFromJson(Map<String, dynamic> json) {
       return GuidedStorageTargetResize.fromJson(json);
     case 'GuidedStorageTargetUseGap':
       return GuidedStorageTargetUseGap.fromJson(json);
+    case 'GuidedStorageTargetManual':
+      return GuidedStorageTargetManual.fromJson(json);
 
     default:
       throw CheckedFromJsonException(json, '\$type', 'GuidedStorageTarget',
@@ -5804,7 +5806,6 @@ GuidedStorageTarget _$GuidedStorageTargetFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$GuidedStorageTarget {
-  String get diskId => throw _privateConstructorUsedError;
   List<GuidedCapability> get allowed => throw _privateConstructorUsedError;
   List<GuidedDisallowedCapability> get disallowed =>
       throw _privateConstructorUsedError;
@@ -5829,6 +5830,9 @@ mixin _$GuidedStorageTarget {
             List<GuidedCapability> allowed,
             List<GuidedDisallowedCapability> disallowed)
         useGap,
+    required TResult Function(List<GuidedCapability> allowed,
+            List<GuidedDisallowedCapability> disallowed)
+        manual,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -5849,6 +5853,9 @@ mixin _$GuidedStorageTarget {
     TResult? Function(String diskId, Gap gap, List<GuidedCapability> allowed,
             List<GuidedDisallowedCapability> disallowed)?
         useGap,
+    TResult? Function(List<GuidedCapability> allowed,
+            List<GuidedDisallowedCapability> disallowed)?
+        manual,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -5869,6 +5876,9 @@ mixin _$GuidedStorageTarget {
     TResult Function(String diskId, Gap gap, List<GuidedCapability> allowed,
             List<GuidedDisallowedCapability> disallowed)?
         useGap,
+    TResult Function(List<GuidedCapability> allowed,
+            List<GuidedDisallowedCapability> disallowed)?
+        manual,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -5877,6 +5887,7 @@ mixin _$GuidedStorageTarget {
     required TResult Function(GuidedStorageTargetReformat value) reformat,
     required TResult Function(GuidedStorageTargetResize value) resize,
     required TResult Function(GuidedStorageTargetUseGap value) useGap,
+    required TResult Function(GuidedStorageTargetManual value) manual,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -5884,6 +5895,7 @@ mixin _$GuidedStorageTarget {
     TResult? Function(GuidedStorageTargetReformat value)? reformat,
     TResult? Function(GuidedStorageTargetResize value)? resize,
     TResult? Function(GuidedStorageTargetUseGap value)? useGap,
+    TResult? Function(GuidedStorageTargetManual value)? manual,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -5891,6 +5903,7 @@ mixin _$GuidedStorageTarget {
     TResult Function(GuidedStorageTargetReformat value)? reformat,
     TResult Function(GuidedStorageTargetResize value)? resize,
     TResult Function(GuidedStorageTargetUseGap value)? useGap,
+    TResult Function(GuidedStorageTargetManual value)? manual,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -5907,8 +5920,7 @@ abstract class $GuidedStorageTargetCopyWith<$Res> {
       _$GuidedStorageTargetCopyWithImpl<$Res, GuidedStorageTarget>;
   @useResult
   $Res call(
-      {String diskId,
-      List<GuidedCapability> allowed,
+      {List<GuidedCapability> allowed,
       List<GuidedDisallowedCapability> disallowed});
 }
 
@@ -5925,15 +5937,10 @@ class _$GuidedStorageTargetCopyWithImpl<$Res, $Val extends GuidedStorageTarget>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? diskId = null,
     Object? allowed = null,
     Object? disallowed = null,
   }) {
     return _then(_value.copyWith(
-      diskId: null == diskId
-          ? _value.diskId
-          : diskId // ignore: cast_nullable_to_non_nullable
-              as String,
       allowed: null == allowed
           ? _value.allowed
           : allowed // ignore: cast_nullable_to_non_nullable
@@ -6086,6 +6093,9 @@ class _$GuidedStorageTargetReformat implements GuidedStorageTargetReformat {
             List<GuidedCapability> allowed,
             List<GuidedDisallowedCapability> disallowed)
         useGap,
+    required TResult Function(List<GuidedCapability> allowed,
+            List<GuidedDisallowedCapability> disallowed)
+        manual,
   }) {
     return reformat(diskId, allowed, disallowed);
   }
@@ -6109,6 +6119,9 @@ class _$GuidedStorageTargetReformat implements GuidedStorageTargetReformat {
     TResult? Function(String diskId, Gap gap, List<GuidedCapability> allowed,
             List<GuidedDisallowedCapability> disallowed)?
         useGap,
+    TResult? Function(List<GuidedCapability> allowed,
+            List<GuidedDisallowedCapability> disallowed)?
+        manual,
   }) {
     return reformat?.call(diskId, allowed, disallowed);
   }
@@ -6132,6 +6145,9 @@ class _$GuidedStorageTargetReformat implements GuidedStorageTargetReformat {
     TResult Function(String diskId, Gap gap, List<GuidedCapability> allowed,
             List<GuidedDisallowedCapability> disallowed)?
         useGap,
+    TResult Function(List<GuidedCapability> allowed,
+            List<GuidedDisallowedCapability> disallowed)?
+        manual,
     required TResult orElse(),
   }) {
     if (reformat != null) {
@@ -6146,6 +6162,7 @@ class _$GuidedStorageTargetReformat implements GuidedStorageTargetReformat {
     required TResult Function(GuidedStorageTargetReformat value) reformat,
     required TResult Function(GuidedStorageTargetResize value) resize,
     required TResult Function(GuidedStorageTargetUseGap value) useGap,
+    required TResult Function(GuidedStorageTargetManual value) manual,
   }) {
     return reformat(this);
   }
@@ -6156,6 +6173,7 @@ class _$GuidedStorageTargetReformat implements GuidedStorageTargetReformat {
     TResult? Function(GuidedStorageTargetReformat value)? reformat,
     TResult? Function(GuidedStorageTargetResize value)? resize,
     TResult? Function(GuidedStorageTargetUseGap value)? useGap,
+    TResult? Function(GuidedStorageTargetManual value)? manual,
   }) {
     return reformat?.call(this);
   }
@@ -6166,6 +6184,7 @@ class _$GuidedStorageTargetReformat implements GuidedStorageTargetReformat {
     TResult Function(GuidedStorageTargetReformat value)? reformat,
     TResult Function(GuidedStorageTargetResize value)? resize,
     TResult Function(GuidedStorageTargetUseGap value)? useGap,
+    TResult Function(GuidedStorageTargetManual value)? manual,
     required TResult orElse(),
   }) {
     if (reformat != null) {
@@ -6192,7 +6211,6 @@ abstract class GuidedStorageTargetReformat implements GuidedStorageTarget {
   factory GuidedStorageTargetReformat.fromJson(Map<String, dynamic> json) =
       _$GuidedStorageTargetReformat.fromJson;
 
-  @override
   String get diskId;
   @override
   List<GuidedCapability> get allowed;
@@ -6399,6 +6417,9 @@ class _$GuidedStorageTargetResize implements GuidedStorageTargetResize {
             List<GuidedCapability> allowed,
             List<GuidedDisallowedCapability> disallowed)
         useGap,
+    required TResult Function(List<GuidedCapability> allowed,
+            List<GuidedDisallowedCapability> disallowed)
+        manual,
   }) {
     return resize(diskId, partitionNumber, newSize, minimum, recommended,
         maximum, allowed, disallowed);
@@ -6423,6 +6444,9 @@ class _$GuidedStorageTargetResize implements GuidedStorageTargetResize {
     TResult? Function(String diskId, Gap gap, List<GuidedCapability> allowed,
             List<GuidedDisallowedCapability> disallowed)?
         useGap,
+    TResult? Function(List<GuidedCapability> allowed,
+            List<GuidedDisallowedCapability> disallowed)?
+        manual,
   }) {
     return resize?.call(diskId, partitionNumber, newSize, minimum, recommended,
         maximum, allowed, disallowed);
@@ -6447,6 +6471,9 @@ class _$GuidedStorageTargetResize implements GuidedStorageTargetResize {
     TResult Function(String diskId, Gap gap, List<GuidedCapability> allowed,
             List<GuidedDisallowedCapability> disallowed)?
         useGap,
+    TResult Function(List<GuidedCapability> allowed,
+            List<GuidedDisallowedCapability> disallowed)?
+        manual,
     required TResult orElse(),
   }) {
     if (resize != null) {
@@ -6462,6 +6489,7 @@ class _$GuidedStorageTargetResize implements GuidedStorageTargetResize {
     required TResult Function(GuidedStorageTargetReformat value) reformat,
     required TResult Function(GuidedStorageTargetResize value) resize,
     required TResult Function(GuidedStorageTargetUseGap value) useGap,
+    required TResult Function(GuidedStorageTargetManual value) manual,
   }) {
     return resize(this);
   }
@@ -6472,6 +6500,7 @@ class _$GuidedStorageTargetResize implements GuidedStorageTargetResize {
     TResult? Function(GuidedStorageTargetReformat value)? reformat,
     TResult? Function(GuidedStorageTargetResize value)? resize,
     TResult? Function(GuidedStorageTargetUseGap value)? useGap,
+    TResult? Function(GuidedStorageTargetManual value)? manual,
   }) {
     return resize?.call(this);
   }
@@ -6482,6 +6511,7 @@ class _$GuidedStorageTargetResize implements GuidedStorageTargetResize {
     TResult Function(GuidedStorageTargetReformat value)? reformat,
     TResult Function(GuidedStorageTargetResize value)? resize,
     TResult Function(GuidedStorageTargetUseGap value)? useGap,
+    TResult Function(GuidedStorageTargetManual value)? manual,
     required TResult orElse(),
   }) {
     if (resize != null) {
@@ -6513,7 +6543,6 @@ abstract class GuidedStorageTargetResize implements GuidedStorageTarget {
   factory GuidedStorageTargetResize.fromJson(Map<String, dynamic> json) =
       _$GuidedStorageTargetResize.fromJson;
 
-  @override
   String get diskId;
   int get partitionNumber;
   int get newSize;
@@ -6679,6 +6708,9 @@ class _$GuidedStorageTargetUseGap implements GuidedStorageTargetUseGap {
             List<GuidedCapability> allowed,
             List<GuidedDisallowedCapability> disallowed)
         useGap,
+    required TResult Function(List<GuidedCapability> allowed,
+            List<GuidedDisallowedCapability> disallowed)
+        manual,
   }) {
     return useGap(diskId, gap, allowed, disallowed);
   }
@@ -6702,6 +6734,9 @@ class _$GuidedStorageTargetUseGap implements GuidedStorageTargetUseGap {
     TResult? Function(String diskId, Gap gap, List<GuidedCapability> allowed,
             List<GuidedDisallowedCapability> disallowed)?
         useGap,
+    TResult? Function(List<GuidedCapability> allowed,
+            List<GuidedDisallowedCapability> disallowed)?
+        manual,
   }) {
     return useGap?.call(diskId, gap, allowed, disallowed);
   }
@@ -6725,6 +6760,9 @@ class _$GuidedStorageTargetUseGap implements GuidedStorageTargetUseGap {
     TResult Function(String diskId, Gap gap, List<GuidedCapability> allowed,
             List<GuidedDisallowedCapability> disallowed)?
         useGap,
+    TResult Function(List<GuidedCapability> allowed,
+            List<GuidedDisallowedCapability> disallowed)?
+        manual,
     required TResult orElse(),
   }) {
     if (useGap != null) {
@@ -6739,6 +6777,7 @@ class _$GuidedStorageTargetUseGap implements GuidedStorageTargetUseGap {
     required TResult Function(GuidedStorageTargetReformat value) reformat,
     required TResult Function(GuidedStorageTargetResize value) resize,
     required TResult Function(GuidedStorageTargetUseGap value) useGap,
+    required TResult Function(GuidedStorageTargetManual value) manual,
   }) {
     return useGap(this);
   }
@@ -6749,6 +6788,7 @@ class _$GuidedStorageTargetUseGap implements GuidedStorageTargetUseGap {
     TResult? Function(GuidedStorageTargetReformat value)? reformat,
     TResult? Function(GuidedStorageTargetResize value)? resize,
     TResult? Function(GuidedStorageTargetUseGap value)? useGap,
+    TResult? Function(GuidedStorageTargetManual value)? manual,
   }) {
     return useGap?.call(this);
   }
@@ -6759,6 +6799,7 @@ class _$GuidedStorageTargetUseGap implements GuidedStorageTargetUseGap {
     TResult Function(GuidedStorageTargetReformat value)? reformat,
     TResult Function(GuidedStorageTargetResize value)? resize,
     TResult Function(GuidedStorageTargetUseGap value)? useGap,
+    TResult Function(GuidedStorageTargetManual value)? manual,
     required TResult orElse(),
   }) {
     if (useGap != null) {
@@ -6786,7 +6827,6 @@ abstract class GuidedStorageTargetUseGap implements GuidedStorageTarget {
   factory GuidedStorageTargetUseGap.fromJson(Map<String, dynamic> json) =
       _$GuidedStorageTargetUseGap.fromJson;
 
-  @override
   String get diskId;
   Gap get gap;
   @override
@@ -6796,6 +6836,259 @@ abstract class GuidedStorageTargetUseGap implements GuidedStorageTarget {
   @override
   @JsonKey(ignore: true)
   _$$GuidedStorageTargetUseGapCopyWith<_$GuidedStorageTargetUseGap>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$GuidedStorageTargetManualCopyWith<$Res>
+    implements $GuidedStorageTargetCopyWith<$Res> {
+  factory _$$GuidedStorageTargetManualCopyWith(
+          _$GuidedStorageTargetManual value,
+          $Res Function(_$GuidedStorageTargetManual) then) =
+      __$$GuidedStorageTargetManualCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call(
+      {List<GuidedCapability> allowed,
+      List<GuidedDisallowedCapability> disallowed});
+}
+
+/// @nodoc
+class __$$GuidedStorageTargetManualCopyWithImpl<$Res>
+    extends _$GuidedStorageTargetCopyWithImpl<$Res, _$GuidedStorageTargetManual>
+    implements _$$GuidedStorageTargetManualCopyWith<$Res> {
+  __$$GuidedStorageTargetManualCopyWithImpl(_$GuidedStorageTargetManual _value,
+      $Res Function(_$GuidedStorageTargetManual) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? allowed = null,
+    Object? disallowed = null,
+  }) {
+    return _then(_$GuidedStorageTargetManual(
+      allowed: null == allowed
+          ? _value._allowed
+          : allowed // ignore: cast_nullable_to_non_nullable
+              as List<GuidedCapability>,
+      disallowed: null == disallowed
+          ? _value._disallowed
+          : disallowed // ignore: cast_nullable_to_non_nullable
+              as List<GuidedDisallowedCapability>,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$GuidedStorageTargetManual implements GuidedStorageTargetManual {
+  const _$GuidedStorageTargetManual(
+      {required final List<GuidedCapability> allowed,
+      final List<GuidedDisallowedCapability> disallowed = const [],
+      final String? $type})
+      : _allowed = allowed,
+        _disallowed = disallowed,
+        $type = $type ?? 'GuidedStorageTargetManual';
+
+  factory _$GuidedStorageTargetManual.fromJson(Map<String, dynamic> json) =>
+      _$$GuidedStorageTargetManualFromJson(json);
+
+  final List<GuidedCapability> _allowed;
+  @override
+  List<GuidedCapability> get allowed {
+    if (_allowed is EqualUnmodifiableListView) return _allowed;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_allowed);
+  }
+
+  final List<GuidedDisallowedCapability> _disallowed;
+  @override
+  @JsonKey()
+  List<GuidedDisallowedCapability> get disallowed {
+    if (_disallowed is EqualUnmodifiableListView) return _disallowed;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_disallowed);
+  }
+
+  @JsonKey(name: '\$type')
+  final String $type;
+
+  @override
+  String toString() {
+    return 'GuidedStorageTarget.manual(allowed: $allowed, disallowed: $disallowed)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$GuidedStorageTargetManual &&
+            const DeepCollectionEquality().equals(other._allowed, _allowed) &&
+            const DeepCollectionEquality()
+                .equals(other._disallowed, _disallowed));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(_allowed),
+      const DeepCollectionEquality().hash(_disallowed));
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$GuidedStorageTargetManualCopyWith<_$GuidedStorageTargetManual>
+      get copyWith => __$$GuidedStorageTargetManualCopyWithImpl<
+          _$GuidedStorageTargetManual>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String diskId, List<GuidedCapability> allowed,
+            List<GuidedDisallowedCapability> disallowed)
+        reformat,
+    required TResult Function(
+            String diskId,
+            int partitionNumber,
+            int newSize,
+            int? minimum,
+            int? recommended,
+            int? maximum,
+            List<GuidedCapability> allowed,
+            List<GuidedDisallowedCapability> disallowed)
+        resize,
+    required TResult Function(
+            String diskId,
+            Gap gap,
+            List<GuidedCapability> allowed,
+            List<GuidedDisallowedCapability> disallowed)
+        useGap,
+    required TResult Function(List<GuidedCapability> allowed,
+            List<GuidedDisallowedCapability> disallowed)
+        manual,
+  }) {
+    return manual(allowed, disallowed);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String diskId, List<GuidedCapability> allowed,
+            List<GuidedDisallowedCapability> disallowed)?
+        reformat,
+    TResult? Function(
+            String diskId,
+            int partitionNumber,
+            int newSize,
+            int? minimum,
+            int? recommended,
+            int? maximum,
+            List<GuidedCapability> allowed,
+            List<GuidedDisallowedCapability> disallowed)?
+        resize,
+    TResult? Function(String diskId, Gap gap, List<GuidedCapability> allowed,
+            List<GuidedDisallowedCapability> disallowed)?
+        useGap,
+    TResult? Function(List<GuidedCapability> allowed,
+            List<GuidedDisallowedCapability> disallowed)?
+        manual,
+  }) {
+    return manual?.call(allowed, disallowed);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String diskId, List<GuidedCapability> allowed,
+            List<GuidedDisallowedCapability> disallowed)?
+        reformat,
+    TResult Function(
+            String diskId,
+            int partitionNumber,
+            int newSize,
+            int? minimum,
+            int? recommended,
+            int? maximum,
+            List<GuidedCapability> allowed,
+            List<GuidedDisallowedCapability> disallowed)?
+        resize,
+    TResult Function(String diskId, Gap gap, List<GuidedCapability> allowed,
+            List<GuidedDisallowedCapability> disallowed)?
+        useGap,
+    TResult Function(List<GuidedCapability> allowed,
+            List<GuidedDisallowedCapability> disallowed)?
+        manual,
+    required TResult orElse(),
+  }) {
+    if (manual != null) {
+      return manual(allowed, disallowed);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(GuidedStorageTargetReformat value) reformat,
+    required TResult Function(GuidedStorageTargetResize value) resize,
+    required TResult Function(GuidedStorageTargetUseGap value) useGap,
+    required TResult Function(GuidedStorageTargetManual value) manual,
+  }) {
+    return manual(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(GuidedStorageTargetReformat value)? reformat,
+    TResult? Function(GuidedStorageTargetResize value)? resize,
+    TResult? Function(GuidedStorageTargetUseGap value)? useGap,
+    TResult? Function(GuidedStorageTargetManual value)? manual,
+  }) {
+    return manual?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(GuidedStorageTargetReformat value)? reformat,
+    TResult Function(GuidedStorageTargetResize value)? resize,
+    TResult Function(GuidedStorageTargetUseGap value)? useGap,
+    TResult Function(GuidedStorageTargetManual value)? manual,
+    required TResult orElse(),
+  }) {
+    if (manual != null) {
+      return manual(this);
+    }
+    return orElse();
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$GuidedStorageTargetManualToJson(
+      this,
+    );
+  }
+}
+
+abstract class GuidedStorageTargetManual implements GuidedStorageTarget {
+  const factory GuidedStorageTargetManual(
+          {required final List<GuidedCapability> allowed,
+          final List<GuidedDisallowedCapability> disallowed}) =
+      _$GuidedStorageTargetManual;
+
+  factory GuidedStorageTargetManual.fromJson(Map<String, dynamic> json) =
+      _$GuidedStorageTargetManual.fromJson;
+
+  @override
+  List<GuidedCapability> get allowed;
+  @override
+  List<GuidedDisallowedCapability> get disallowed;
+  @override
+  @JsonKey(ignore: true)
+  _$$GuidedStorageTargetManualCopyWith<_$GuidedStorageTargetManual>
       get copyWith => throw _privateConstructorUsedError;
 }
 
