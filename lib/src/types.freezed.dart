@@ -3201,7 +3201,7 @@ NetworkStatus _$NetworkStatusFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$NetworkStatus {
   List<NetDevInfo> get devices => throw _privateConstructorUsedError;
-  WLANSupportInstallState get wlanSupportInstallState =>
+  PackageInstallState get wlanSupportInstallState =>
       throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -3217,8 +3217,7 @@ abstract class $NetworkStatusCopyWith<$Res> {
       _$NetworkStatusCopyWithImpl<$Res, NetworkStatus>;
   @useResult
   $Res call(
-      {List<NetDevInfo> devices,
-      WLANSupportInstallState wlanSupportInstallState});
+      {List<NetDevInfo> devices, PackageInstallState wlanSupportInstallState});
 }
 
 /// @nodoc
@@ -3245,7 +3244,7 @@ class _$NetworkStatusCopyWithImpl<$Res, $Val extends NetworkStatus>
       wlanSupportInstallState: null == wlanSupportInstallState
           ? _value.wlanSupportInstallState
           : wlanSupportInstallState // ignore: cast_nullable_to_non_nullable
-              as WLANSupportInstallState,
+              as PackageInstallState,
     ) as $Val);
   }
 }
@@ -3259,8 +3258,7 @@ abstract class _$$_NetworkStatusCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {List<NetDevInfo> devices,
-      WLANSupportInstallState wlanSupportInstallState});
+      {List<NetDevInfo> devices, PackageInstallState wlanSupportInstallState});
 }
 
 /// @nodoc
@@ -3285,7 +3283,7 @@ class __$$_NetworkStatusCopyWithImpl<$Res>
       wlanSupportInstallState: null == wlanSupportInstallState
           ? _value.wlanSupportInstallState
           : wlanSupportInstallState // ignore: cast_nullable_to_non_nullable
-              as WLANSupportInstallState,
+              as PackageInstallState,
     ));
   }
 }
@@ -3310,7 +3308,7 @@ class _$_NetworkStatus implements _NetworkStatus {
   }
 
   @override
-  final WLANSupportInstallState wlanSupportInstallState;
+  final PackageInstallState wlanSupportInstallState;
 
   @override
   String toString() {
@@ -3350,7 +3348,7 @@ class _$_NetworkStatus implements _NetworkStatus {
 abstract class _NetworkStatus implements NetworkStatus {
   const factory _NetworkStatus(
           {required final List<NetDevInfo> devices,
-          required final WLANSupportInstallState wlanSupportInstallState}) =
+          required final PackageInstallState wlanSupportInstallState}) =
       _$_NetworkStatus;
 
   factory _NetworkStatus.fromJson(Map<String, dynamic> json) =
@@ -3359,7 +3357,7 @@ abstract class _NetworkStatus implements NetworkStatus {
   @override
   List<NetDevInfo> get devices;
   @override
-  WLANSupportInstallState get wlanSupportInstallState;
+  PackageInstallState get wlanSupportInstallState;
   @override
   @JsonKey(ignore: true)
   _$$_NetworkStatusCopyWith<_$_NetworkStatus> get copyWith =>
