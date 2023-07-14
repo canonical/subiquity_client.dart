@@ -268,7 +268,7 @@ class ZdevInfo with _$ZdevInfo {
       _$ZdevInfoFromJson(json);
 }
 
-enum WLANSupportInstallState {
+enum PackageInstallState {
   NOT_NEEDED,
   NOT_AVAILABLE,
   INSTALLING,
@@ -280,7 +280,7 @@ enum WLANSupportInstallState {
 class NetworkStatus with _$NetworkStatus {
   const factory NetworkStatus({
     required List<NetDevInfo> devices,
-    required WLANSupportInstallState wlanSupportInstallState,
+    required PackageInstallState wlanSupportInstallState,
   }) = _NetworkStatus;
 
   factory NetworkStatus.fromJson(Map<String, dynamic> json) =>

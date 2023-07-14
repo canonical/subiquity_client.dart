@@ -320,22 +320,22 @@ _$_NetworkStatus _$$_NetworkStatusFromJson(Map<String, dynamic> json) =>
           .map((e) => NetDevInfo.fromJson(e as Map<String, dynamic>))
           .toList(),
       wlanSupportInstallState: $enumDecode(
-          _$WLANSupportInstallStateEnumMap, json['wlan_support_install_state']),
+          _$PackageInstallStateEnumMap, json['wlan_support_install_state']),
     );
 
 Map<String, dynamic> _$$_NetworkStatusToJson(_$_NetworkStatus instance) =>
     <String, dynamic>{
       'devices': instance.devices.map((e) => e.toJson()).toList(),
       'wlan_support_install_state':
-          _$WLANSupportInstallStateEnumMap[instance.wlanSupportInstallState]!,
+          _$PackageInstallStateEnumMap[instance.wlanSupportInstallState]!,
     };
 
-const _$WLANSupportInstallStateEnumMap = {
-  WLANSupportInstallState.NOT_NEEDED: 'NOT_NEEDED',
-  WLANSupportInstallState.NOT_AVAILABLE: 'NOT_AVAILABLE',
-  WLANSupportInstallState.INSTALLING: 'INSTALLING',
-  WLANSupportInstallState.FAILED: 'FAILED',
-  WLANSupportInstallState.DONE: 'DONE',
+const _$PackageInstallStateEnumMap = {
+  PackageInstallState.NOT_NEEDED: 'NOT_NEEDED',
+  PackageInstallState.NOT_AVAILABLE: 'NOT_AVAILABLE',
+  PackageInstallState.INSTALLING: 'INSTALLING',
+  PackageInstallState.FAILED: 'FAILED',
+  PackageInstallState.DONE: 'DONE',
 };
 
 _$_OsProber _$$_OsProberFromJson(Map<String, dynamic> json) => _$_OsProber(
