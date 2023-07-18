@@ -416,6 +416,34 @@ const _$GapUsableEnumMap = {
   GapUsable.TOO_MANY_PRIMARY_PARTS: 'TOO_MANY_PRIMARY_PARTS',
 };
 
+_$_ZFS _$$_ZFSFromJson(Map<String, dynamic> json) => _$_ZFS(
+      volume: json['volume'] as String,
+      properties: json['properties'] as Map<String, dynamic>?,
+    );
+
+Map<String, dynamic> _$$_ZFSToJson(_$_ZFS instance) => <String, dynamic>{
+      'volume': instance.volume,
+      'properties': instance.properties,
+    };
+
+_$_ZPool _$$_ZPoolFromJson(Map<String, dynamic> json) => _$_ZPool(
+      pool: json['pool'] as String,
+      mountpoint: json['mountpoint'] as String,
+      zfses: json['zfses'] == null
+          ? null
+          : ZFS.fromJson(json['zfses'] as Map<String, dynamic>),
+      poolProperties: json['pool_properties'] as Map<String, dynamic>?,
+      fsProperties: json['fs_properties'] as Map<String, dynamic>?,
+    );
+
+Map<String, dynamic> _$$_ZPoolToJson(_$_ZPool instance) => <String, dynamic>{
+      'pool': instance.pool,
+      'mountpoint': instance.mountpoint,
+      'zfses': instance.zfses?.toJson(),
+      'pool_properties': instance.poolProperties,
+      'fs_properties': instance.fsProperties,
+    };
+
 _$_Disk _$$_DiskFromJson(Map<String, dynamic> json) => _$_Disk(
       id: json['id'] as String,
       label: json['label'] as String,
@@ -476,6 +504,7 @@ const _$GuidedCapabilityEnumMap = {
   GuidedCapability.DIRECT: 'DIRECT',
   GuidedCapability.LVM: 'LVM',
   GuidedCapability.LVM_LUKS: 'LVM_LUKS',
+  GuidedCapability.ZFS: 'ZFS',
   GuidedCapability.CORE_BOOT_ENCRYPTED: 'CORE_BOOT_ENCRYPTED',
   GuidedCapability.CORE_BOOT_UNENCRYPTED: 'CORE_BOOT_UNENCRYPTED',
   GuidedCapability.CORE_BOOT_PREFER_ENCRYPTED: 'CORE_BOOT_PREFER_ENCRYPTED',
@@ -498,7 +527,6 @@ _$_StorageResponse _$$_StorageResponseFromJson(Map<String, dynamic> json) =>
       bootloader: $enumDecodeNullable(_$BootloaderEnumMap, json['bootloader']),
       origConfig: json['orig_config'] as List<dynamic>?,
       config: json['config'] as List<dynamic>?,
-      blockdev: json['blockdev'] as Map<String, dynamic>?,
       dasd: json['dasd'] as Map<String, dynamic>?,
       storageVersion: json['storage_version'] as int? ?? 1,
     );
@@ -510,7 +538,6 @@ Map<String, dynamic> _$$_StorageResponseToJson(_$_StorageResponse instance) =>
       'bootloader': _$BootloaderEnumMap[instance.bootloader],
       'orig_config': instance.origConfig,
       'config': instance.config,
-      'blockdev': instance.blockdev,
       'dasd': instance.dasd,
       'storage_version': instance.storageVersion,
     };

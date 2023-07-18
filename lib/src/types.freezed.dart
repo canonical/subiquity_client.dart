@@ -4351,6 +4351,417 @@ abstract class Gap implements PartitionOrGap {
   _$$GapCopyWith<_$Gap> get copyWith => throw _privateConstructorUsedError;
 }
 
+ZFS _$ZFSFromJson(Map<String, dynamic> json) {
+  return _ZFS.fromJson(json);
+}
+
+/// @nodoc
+mixin _$ZFS {
+  String get volume => throw _privateConstructorUsedError;
+  Map<String, dynamic>? get properties => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $ZFSCopyWith<ZFS> get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $ZFSCopyWith<$Res> {
+  factory $ZFSCopyWith(ZFS value, $Res Function(ZFS) then) =
+      _$ZFSCopyWithImpl<$Res, ZFS>;
+  @useResult
+  $Res call({String volume, Map<String, dynamic>? properties});
+}
+
+/// @nodoc
+class _$ZFSCopyWithImpl<$Res, $Val extends ZFS> implements $ZFSCopyWith<$Res> {
+  _$ZFSCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? volume = null,
+    Object? properties = freezed,
+  }) {
+    return _then(_value.copyWith(
+      volume: null == volume
+          ? _value.volume
+          : volume // ignore: cast_nullable_to_non_nullable
+              as String,
+      properties: freezed == properties
+          ? _value.properties
+          : properties // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>?,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$_ZFSCopyWith<$Res> implements $ZFSCopyWith<$Res> {
+  factory _$$_ZFSCopyWith(_$_ZFS value, $Res Function(_$_ZFS) then) =
+      __$$_ZFSCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({String volume, Map<String, dynamic>? properties});
+}
+
+/// @nodoc
+class __$$_ZFSCopyWithImpl<$Res> extends _$ZFSCopyWithImpl<$Res, _$_ZFS>
+    implements _$$_ZFSCopyWith<$Res> {
+  __$$_ZFSCopyWithImpl(_$_ZFS _value, $Res Function(_$_ZFS) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? volume = null,
+    Object? properties = freezed,
+  }) {
+    return _then(_$_ZFS(
+      volume: null == volume
+          ? _value.volume
+          : volume // ignore: cast_nullable_to_non_nullable
+              as String,
+      properties: freezed == properties
+          ? _value._properties
+          : properties // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>?,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$_ZFS implements _ZFS {
+  const _$_ZFS({required this.volume, final Map<String, dynamic>? properties})
+      : _properties = properties;
+
+  factory _$_ZFS.fromJson(Map<String, dynamic> json) => _$$_ZFSFromJson(json);
+
+  @override
+  final String volume;
+  final Map<String, dynamic>? _properties;
+  @override
+  Map<String, dynamic>? get properties {
+    final value = _properties;
+    if (value == null) return null;
+    if (_properties is EqualUnmodifiableMapView) return _properties;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(value);
+  }
+
+  @override
+  String toString() {
+    return 'ZFS(volume: $volume, properties: $properties)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_ZFS &&
+            (identical(other.volume, volume) || other.volume == volume) &&
+            const DeepCollectionEquality()
+                .equals(other._properties, _properties));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, volume, const DeepCollectionEquality().hash(_properties));
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_ZFSCopyWith<_$_ZFS> get copyWith =>
+      __$$_ZFSCopyWithImpl<_$_ZFS>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_ZFSToJson(
+      this,
+    );
+  }
+}
+
+abstract class _ZFS implements ZFS {
+  const factory _ZFS(
+      {required final String volume,
+      final Map<String, dynamic>? properties}) = _$_ZFS;
+
+  factory _ZFS.fromJson(Map<String, dynamic> json) = _$_ZFS.fromJson;
+
+  @override
+  String get volume;
+  @override
+  Map<String, dynamic>? get properties;
+  @override
+  @JsonKey(ignore: true)
+  _$$_ZFSCopyWith<_$_ZFS> get copyWith => throw _privateConstructorUsedError;
+}
+
+ZPool _$ZPoolFromJson(Map<String, dynamic> json) {
+  return _ZPool.fromJson(json);
+}
+
+/// @nodoc
+mixin _$ZPool {
+  String get pool => throw _privateConstructorUsedError;
+  String get mountpoint => throw _privateConstructorUsedError;
+  ZFS? get zfses => throw _privateConstructorUsedError;
+  Map<String, dynamic>? get poolProperties =>
+      throw _privateConstructorUsedError;
+  Map<String, dynamic>? get fsProperties => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $ZPoolCopyWith<ZPool> get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $ZPoolCopyWith<$Res> {
+  factory $ZPoolCopyWith(ZPool value, $Res Function(ZPool) then) =
+      _$ZPoolCopyWithImpl<$Res, ZPool>;
+  @useResult
+  $Res call(
+      {String pool,
+      String mountpoint,
+      ZFS? zfses,
+      Map<String, dynamic>? poolProperties,
+      Map<String, dynamic>? fsProperties});
+
+  $ZFSCopyWith<$Res>? get zfses;
+}
+
+/// @nodoc
+class _$ZPoolCopyWithImpl<$Res, $Val extends ZPool>
+    implements $ZPoolCopyWith<$Res> {
+  _$ZPoolCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? pool = null,
+    Object? mountpoint = null,
+    Object? zfses = freezed,
+    Object? poolProperties = freezed,
+    Object? fsProperties = freezed,
+  }) {
+    return _then(_value.copyWith(
+      pool: null == pool
+          ? _value.pool
+          : pool // ignore: cast_nullable_to_non_nullable
+              as String,
+      mountpoint: null == mountpoint
+          ? _value.mountpoint
+          : mountpoint // ignore: cast_nullable_to_non_nullable
+              as String,
+      zfses: freezed == zfses
+          ? _value.zfses
+          : zfses // ignore: cast_nullable_to_non_nullable
+              as ZFS?,
+      poolProperties: freezed == poolProperties
+          ? _value.poolProperties
+          : poolProperties // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>?,
+      fsProperties: freezed == fsProperties
+          ? _value.fsProperties
+          : fsProperties // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>?,
+    ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $ZFSCopyWith<$Res>? get zfses {
+    if (_value.zfses == null) {
+      return null;
+    }
+
+    return $ZFSCopyWith<$Res>(_value.zfses!, (value) {
+      return _then(_value.copyWith(zfses: value) as $Val);
+    });
+  }
+}
+
+/// @nodoc
+abstract class _$$_ZPoolCopyWith<$Res> implements $ZPoolCopyWith<$Res> {
+  factory _$$_ZPoolCopyWith(_$_ZPool value, $Res Function(_$_ZPool) then) =
+      __$$_ZPoolCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call(
+      {String pool,
+      String mountpoint,
+      ZFS? zfses,
+      Map<String, dynamic>? poolProperties,
+      Map<String, dynamic>? fsProperties});
+
+  @override
+  $ZFSCopyWith<$Res>? get zfses;
+}
+
+/// @nodoc
+class __$$_ZPoolCopyWithImpl<$Res> extends _$ZPoolCopyWithImpl<$Res, _$_ZPool>
+    implements _$$_ZPoolCopyWith<$Res> {
+  __$$_ZPoolCopyWithImpl(_$_ZPool _value, $Res Function(_$_ZPool) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? pool = null,
+    Object? mountpoint = null,
+    Object? zfses = freezed,
+    Object? poolProperties = freezed,
+    Object? fsProperties = freezed,
+  }) {
+    return _then(_$_ZPool(
+      pool: null == pool
+          ? _value.pool
+          : pool // ignore: cast_nullable_to_non_nullable
+              as String,
+      mountpoint: null == mountpoint
+          ? _value.mountpoint
+          : mountpoint // ignore: cast_nullable_to_non_nullable
+              as String,
+      zfses: freezed == zfses
+          ? _value.zfses
+          : zfses // ignore: cast_nullable_to_non_nullable
+              as ZFS?,
+      poolProperties: freezed == poolProperties
+          ? _value._poolProperties
+          : poolProperties // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>?,
+      fsProperties: freezed == fsProperties
+          ? _value._fsProperties
+          : fsProperties // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>?,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$_ZPool implements _ZPool {
+  const _$_ZPool(
+      {required this.pool,
+      required this.mountpoint,
+      this.zfses,
+      final Map<String, dynamic>? poolProperties,
+      final Map<String, dynamic>? fsProperties})
+      : _poolProperties = poolProperties,
+        _fsProperties = fsProperties;
+
+  factory _$_ZPool.fromJson(Map<String, dynamic> json) =>
+      _$$_ZPoolFromJson(json);
+
+  @override
+  final String pool;
+  @override
+  final String mountpoint;
+  @override
+  final ZFS? zfses;
+  final Map<String, dynamic>? _poolProperties;
+  @override
+  Map<String, dynamic>? get poolProperties {
+    final value = _poolProperties;
+    if (value == null) return null;
+    if (_poolProperties is EqualUnmodifiableMapView) return _poolProperties;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(value);
+  }
+
+  final Map<String, dynamic>? _fsProperties;
+  @override
+  Map<String, dynamic>? get fsProperties {
+    final value = _fsProperties;
+    if (value == null) return null;
+    if (_fsProperties is EqualUnmodifiableMapView) return _fsProperties;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(value);
+  }
+
+  @override
+  String toString() {
+    return 'ZPool(pool: $pool, mountpoint: $mountpoint, zfses: $zfses, poolProperties: $poolProperties, fsProperties: $fsProperties)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_ZPool &&
+            (identical(other.pool, pool) || other.pool == pool) &&
+            (identical(other.mountpoint, mountpoint) ||
+                other.mountpoint == mountpoint) &&
+            (identical(other.zfses, zfses) || other.zfses == zfses) &&
+            const DeepCollectionEquality()
+                .equals(other._poolProperties, _poolProperties) &&
+            const DeepCollectionEquality()
+                .equals(other._fsProperties, _fsProperties));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      pool,
+      mountpoint,
+      zfses,
+      const DeepCollectionEquality().hash(_poolProperties),
+      const DeepCollectionEquality().hash(_fsProperties));
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_ZPoolCopyWith<_$_ZPool> get copyWith =>
+      __$$_ZPoolCopyWithImpl<_$_ZPool>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_ZPoolToJson(
+      this,
+    );
+  }
+}
+
+abstract class _ZPool implements ZPool {
+  const factory _ZPool(
+      {required final String pool,
+      required final String mountpoint,
+      final ZFS? zfses,
+      final Map<String, dynamic>? poolProperties,
+      final Map<String, dynamic>? fsProperties}) = _$_ZPool;
+
+  factory _ZPool.fromJson(Map<String, dynamic> json) = _$_ZPool.fromJson;
+
+  @override
+  String get pool;
+  @override
+  String get mountpoint;
+  @override
+  ZFS? get zfses;
+  @override
+  Map<String, dynamic>? get poolProperties;
+  @override
+  Map<String, dynamic>? get fsProperties;
+  @override
+  @JsonKey(ignore: true)
+  _$$_ZPoolCopyWith<_$_ZPool> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
 Disk _$DiskFromJson(Map<String, dynamic> json) {
   return _Disk.fromJson(json);
 }
@@ -4976,7 +5387,6 @@ mixin _$StorageResponse {
   Bootloader? get bootloader => throw _privateConstructorUsedError;
   List<dynamic>? get origConfig => throw _privateConstructorUsedError;
   List<dynamic>? get config => throw _privateConstructorUsedError;
-  Map<String, dynamic>? get blockdev => throw _privateConstructorUsedError;
   Map<String, dynamic>? get dasd => throw _privateConstructorUsedError;
   int get storageVersion => throw _privateConstructorUsedError;
 
@@ -4998,7 +5408,6 @@ abstract class $StorageResponseCopyWith<$Res> {
       Bootloader? bootloader,
       List<dynamic>? origConfig,
       List<dynamic>? config,
-      Map<String, dynamic>? blockdev,
       Map<String, dynamic>? dasd,
       int storageVersion});
 
@@ -5023,7 +5432,6 @@ class _$StorageResponseCopyWithImpl<$Res, $Val extends StorageResponse>
     Object? bootloader = freezed,
     Object? origConfig = freezed,
     Object? config = freezed,
-    Object? blockdev = freezed,
     Object? dasd = freezed,
     Object? storageVersion = null,
   }) {
@@ -5048,10 +5456,6 @@ class _$StorageResponseCopyWithImpl<$Res, $Val extends StorageResponse>
           ? _value.config
           : config // ignore: cast_nullable_to_non_nullable
               as List<dynamic>?,
-      blockdev: freezed == blockdev
-          ? _value.blockdev
-          : blockdev // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>?,
       dasd: freezed == dasd
           ? _value.dasd
           : dasd // ignore: cast_nullable_to_non_nullable
@@ -5090,7 +5494,6 @@ abstract class _$$_StorageResponseCopyWith<$Res>
       Bootloader? bootloader,
       List<dynamic>? origConfig,
       List<dynamic>? config,
-      Map<String, dynamic>? blockdev,
       Map<String, dynamic>? dasd,
       int storageVersion});
 
@@ -5114,7 +5517,6 @@ class __$$_StorageResponseCopyWithImpl<$Res>
     Object? bootloader = freezed,
     Object? origConfig = freezed,
     Object? config = freezed,
-    Object? blockdev = freezed,
     Object? dasd = freezed,
     Object? storageVersion = null,
   }) {
@@ -5139,10 +5541,6 @@ class __$$_StorageResponseCopyWithImpl<$Res>
           ? _value._config
           : config // ignore: cast_nullable_to_non_nullable
               as List<dynamic>?,
-      blockdev: freezed == blockdev
-          ? _value._blockdev
-          : blockdev // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>?,
       dasd: freezed == dasd
           ? _value._dasd
           : dasd // ignore: cast_nullable_to_non_nullable
@@ -5164,12 +5562,10 @@ class _$_StorageResponse implements _StorageResponse {
       this.bootloader,
       final List<dynamic>? origConfig,
       final List<dynamic>? config,
-      final Map<String, dynamic>? blockdev,
       final Map<String, dynamic>? dasd,
       this.storageVersion = 1})
       : _origConfig = origConfig,
         _config = config,
-        _blockdev = blockdev,
         _dasd = dasd;
 
   factory _$_StorageResponse.fromJson(Map<String, dynamic> json) =>
@@ -5201,16 +5597,6 @@ class _$_StorageResponse implements _StorageResponse {
     return EqualUnmodifiableListView(value);
   }
 
-  final Map<String, dynamic>? _blockdev;
-  @override
-  Map<String, dynamic>? get blockdev {
-    final value = _blockdev;
-    if (value == null) return null;
-    if (_blockdev is EqualUnmodifiableMapView) return _blockdev;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(value);
-  }
-
   final Map<String, dynamic>? _dasd;
   @override
   Map<String, dynamic>? get dasd {
@@ -5227,7 +5613,7 @@ class _$_StorageResponse implements _StorageResponse {
 
   @override
   String toString() {
-    return 'StorageResponse(status: $status, errorReport: $errorReport, bootloader: $bootloader, origConfig: $origConfig, config: $config, blockdev: $blockdev, dasd: $dasd, storageVersion: $storageVersion)';
+    return 'StorageResponse(status: $status, errorReport: $errorReport, bootloader: $bootloader, origConfig: $origConfig, config: $config, dasd: $dasd, storageVersion: $storageVersion)';
   }
 
   @override
@@ -5243,7 +5629,6 @@ class _$_StorageResponse implements _StorageResponse {
             const DeepCollectionEquality()
                 .equals(other._origConfig, _origConfig) &&
             const DeepCollectionEquality().equals(other._config, _config) &&
-            const DeepCollectionEquality().equals(other._blockdev, _blockdev) &&
             const DeepCollectionEquality().equals(other._dasd, _dasd) &&
             (identical(other.storageVersion, storageVersion) ||
                 other.storageVersion == storageVersion));
@@ -5258,7 +5643,6 @@ class _$_StorageResponse implements _StorageResponse {
       bootloader,
       const DeepCollectionEquality().hash(_origConfig),
       const DeepCollectionEquality().hash(_config),
-      const DeepCollectionEquality().hash(_blockdev),
       const DeepCollectionEquality().hash(_dasd),
       storageVersion);
 
@@ -5283,7 +5667,6 @@ abstract class _StorageResponse implements StorageResponse {
       final Bootloader? bootloader,
       final List<dynamic>? origConfig,
       final List<dynamic>? config,
-      final Map<String, dynamic>? blockdev,
       final Map<String, dynamic>? dasd,
       final int storageVersion}) = _$_StorageResponse;
 
@@ -5300,8 +5683,6 @@ abstract class _StorageResponse implements StorageResponse {
   List<dynamic>? get origConfig;
   @override
   List<dynamic>? get config;
-  @override
-  Map<String, dynamic>? get blockdev;
   @override
   Map<String, dynamic>? get dasd;
   @override
