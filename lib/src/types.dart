@@ -345,6 +345,29 @@ class PartitionOrGap with _$PartitionOrGap {
       _$PartitionOrGapFromJson(json);
 }
 
+@freezed
+class ZFS with _$ZFS {
+  const factory ZFS({
+    required String volume,
+    Map<String, dynamic>? properties,
+  }) = _ZFS;
+
+  factory ZFS.fromJson(Map<String, dynamic> json) => _$ZFSFromJson(json);
+}
+
+@freezed
+class ZPool with _$ZPool {
+  const factory ZPool({
+    required String pool,
+    required String mountpoint,
+    ZFS? zfses,
+    Map<String, dynamic>? poolProperties,
+    Map<String, dynamic>? fsProperties,
+  }) = _ZPool;
+
+  factory ZPool.fromJson(Map<String, dynamic> json) => _$ZPoolFromJson(json);
+}
+
 enum GapUsable {
   YES,
   TOO_MANY_PRIMARY_PARTS,
@@ -377,6 +400,7 @@ enum GuidedCapability {
   DIRECT,
   LVM,
   LVM_LUKS,
+  ZFS,
   CORE_BOOT_ENCRYPTED,
   CORE_BOOT_UNENCRYPTED,
   CORE_BOOT_PREFER_ENCRYPTED,
@@ -408,7 +432,6 @@ class StorageResponse with _$StorageResponse {
     Bootloader? bootloader,
     List<dynamic>? origConfig,
     List<dynamic>? config,
-    Map<String, dynamic>? blockdev,
     Map<String, dynamic>? dasd,
     @Default(1) int storageVersion,
   }) = _StorageResponse;
