@@ -375,6 +375,7 @@ _$Partition _$$PartitionFromJson(Map<String, dynamic> json) => _$Partition(
       estimatedMinSize: json['estimated_min_size'] as int? ?? -1,
       resize: json['resize'] as bool?,
       path: json['path'] as String?,
+      isInUse: json['is_in_use'] as bool? ?? false,
       $type: json[r'$type'] as String?,
     );
 
@@ -394,6 +395,7 @@ Map<String, dynamic> _$$PartitionToJson(_$Partition instance) =>
       'estimated_min_size': instance.estimatedMinSize,
       'resize': instance.resize,
       'path': instance.path,
+      'is_in_use': instance.isInUse,
       r'$type': instance.$type,
     };
 
@@ -463,6 +465,7 @@ _$_Disk _$$_DiskFromJson(Map<String, dynamic> json) => _$_Disk(
       canBeBootDevice: json['can_be_boot_device'] as bool,
       model: json['model'] as String?,
       vendor: json['vendor'] as String?,
+      hasInUsePartition: json['has_in_use_partition'] as bool? ?? false,
     );
 
 Map<String, dynamic> _$$_DiskToJson(_$_Disk instance) => <String, dynamic>{
@@ -480,6 +483,7 @@ Map<String, dynamic> _$$_DiskToJson(_$_Disk instance) => <String, dynamic>{
       'can_be_boot_device': instance.canBeBootDevice,
       'model': instance.model,
       'vendor': instance.vendor,
+      'has_in_use_partition': instance.hasInUsePartition,
     };
 
 _$_GuidedDisallowedCapability _$$_GuidedDisallowedCapabilityFromJson(
@@ -1293,6 +1297,7 @@ Map<String, dynamic> _$$_MirrorPostToJson(_$_MirrorPost instance) =>
     };
 
 _$_MirrorGet _$$_MirrorGetFromJson(Map<String, dynamic> json) => _$_MirrorGet(
+      relevant: json['relevant'] as bool,
       elected: json['elected'] as String?,
       candidates: (json['candidates'] as List<dynamic>)
           .map((e) => e as String)
@@ -1302,6 +1307,7 @@ _$_MirrorGet _$$_MirrorGetFromJson(Map<String, dynamic> json) => _$_MirrorGet(
 
 Map<String, dynamic> _$$_MirrorGetToJson(_$_MirrorGet instance) =>
     <String, dynamic>{
+      'relevant': instance.relevant,
       'elected': instance.elected,
       'candidates': instance.candidates,
       'staged': instance.staged,
