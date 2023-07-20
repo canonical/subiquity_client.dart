@@ -157,6 +157,7 @@ void main() {
       resize: false,
       path: '/dev/sda2',
       estimatedMinSize: 123,
+      isInUse: true,
     );
 
     expect(partition.sysname, equals('sda2'));
@@ -182,6 +183,7 @@ void main() {
       'resize': false,
       'path': '/dev/sda2',
       'estimated_min_size': 123,
+      'is_in_use': true,
       '\$type': 'Partition',
     };
     expect(partition.toJson(), equals(json));
@@ -218,6 +220,7 @@ void main() {
       canBeBootDevice: true,
       model: 'QEMU',
       vendor: 'ATA',
+      hasInUsePartition: true,
     );
 
     expect(disk.sysname, equals('path'));
@@ -240,6 +243,7 @@ void main() {
       'can_be_boot_device': true,
       'model': 'QEMU',
       'vendor': 'ATA',
+      'has_in_use_partition': true,
     };
 
     expect(disk.toJson(), equals(json));
