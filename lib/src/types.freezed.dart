@@ -3615,7 +3615,8 @@ mixin _$PartitionOrGap {
             int? offset,
             int? estimatedMinSize,
             bool? resize,
-            String? path)
+            String? path,
+            bool isInUse)
         partition,
     required TResult Function(int offset, int size, GapUsable usable) gap,
   }) =>
@@ -3636,7 +3637,8 @@ mixin _$PartitionOrGap {
             int? offset,
             int? estimatedMinSize,
             bool? resize,
-            String? path)?
+            String? path,
+            bool isInUse)?
         partition,
     TResult? Function(int offset, int size, GapUsable usable)? gap,
   }) =>
@@ -3657,7 +3659,8 @@ mixin _$PartitionOrGap {
             int? offset,
             int? estimatedMinSize,
             bool? resize,
-            String? path)?
+            String? path,
+            bool isInUse)?
         partition,
     TResult Function(int offset, int size, GapUsable usable)? gap,
     required TResult orElse(),
@@ -3748,7 +3751,8 @@ abstract class _$$PartitionCopyWith<$Res>
       int? offset,
       int? estimatedMinSize,
       bool? resize,
-      String? path});
+      String? path,
+      bool isInUse});
 
   $OsProberCopyWith<$Res>? get os;
 }
@@ -3778,6 +3782,7 @@ class __$$PartitionCopyWithImpl<$Res>
     Object? estimatedMinSize = freezed,
     Object? resize = freezed,
     Object? path = freezed,
+    Object? isInUse = null,
   }) {
     return _then(_$Partition(
       size: freezed == size
@@ -3836,6 +3841,10 @@ class __$$PartitionCopyWithImpl<$Res>
           ? _value.path
           : path // ignore: cast_nullable_to_non_nullable
               as String?,
+      isInUse: null == isInUse
+          ? _value.isInUse
+          : isInUse // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 
@@ -3870,6 +3879,7 @@ class _$Partition implements Partition {
       this.estimatedMinSize = -1,
       this.resize,
       this.path,
+      this.isInUse = false,
       final String? $type})
       : _annotations = annotations,
         $type = $type ?? 'Partition';
@@ -3913,13 +3923,16 @@ class _$Partition implements Partition {
   final bool? resize;
   @override
   final String? path;
+  @override
+  @JsonKey()
+  final bool isInUse;
 
   @JsonKey(name: '\$type')
   final String $type;
 
   @override
   String toString() {
-    return 'PartitionOrGap.partition(size: $size, number: $number, preserve: $preserve, wipe: $wipe, annotations: $annotations, mount: $mount, format: $format, grubDevice: $grubDevice, boot: $boot, os: $os, offset: $offset, estimatedMinSize: $estimatedMinSize, resize: $resize, path: $path)';
+    return 'PartitionOrGap.partition(size: $size, number: $number, preserve: $preserve, wipe: $wipe, annotations: $annotations, mount: $mount, format: $format, grubDevice: $grubDevice, boot: $boot, os: $os, offset: $offset, estimatedMinSize: $estimatedMinSize, resize: $resize, path: $path, isInUse: $isInUse)';
   }
 
   @override
@@ -3944,7 +3957,8 @@ class _$Partition implements Partition {
             (identical(other.estimatedMinSize, estimatedMinSize) ||
                 other.estimatedMinSize == estimatedMinSize) &&
             (identical(other.resize, resize) || other.resize == resize) &&
-            (identical(other.path, path) || other.path == path));
+            (identical(other.path, path) || other.path == path) &&
+            (identical(other.isInUse, isInUse) || other.isInUse == isInUse));
   }
 
   @JsonKey(ignore: true)
@@ -3964,7 +3978,8 @@ class _$Partition implements Partition {
       offset,
       estimatedMinSize,
       resize,
-      path);
+      path,
+      isInUse);
 
   @JsonKey(ignore: true)
   @override
@@ -3989,12 +4004,13 @@ class _$Partition implements Partition {
             int? offset,
             int? estimatedMinSize,
             bool? resize,
-            String? path)
+            String? path,
+            bool isInUse)
         partition,
     required TResult Function(int offset, int size, GapUsable usable) gap,
   }) {
     return partition(size, number, preserve, wipe, annotations, mount, format,
-        grubDevice, boot, os, offset, estimatedMinSize, resize, path);
+        grubDevice, boot, os, offset, estimatedMinSize, resize, path, isInUse);
   }
 
   @override
@@ -4014,12 +4030,27 @@ class _$Partition implements Partition {
             int? offset,
             int? estimatedMinSize,
             bool? resize,
-            String? path)?
+            String? path,
+            bool isInUse)?
         partition,
     TResult? Function(int offset, int size, GapUsable usable)? gap,
   }) {
-    return partition?.call(size, number, preserve, wipe, annotations, mount,
-        format, grubDevice, boot, os, offset, estimatedMinSize, resize, path);
+    return partition?.call(
+        size,
+        number,
+        preserve,
+        wipe,
+        annotations,
+        mount,
+        format,
+        grubDevice,
+        boot,
+        os,
+        offset,
+        estimatedMinSize,
+        resize,
+        path,
+        isInUse);
   }
 
   @override
@@ -4039,14 +4070,29 @@ class _$Partition implements Partition {
             int? offset,
             int? estimatedMinSize,
             bool? resize,
-            String? path)?
+            String? path,
+            bool isInUse)?
         partition,
     TResult Function(int offset, int size, GapUsable usable)? gap,
     required TResult orElse(),
   }) {
     if (partition != null) {
-      return partition(size, number, preserve, wipe, annotations, mount, format,
-          grubDevice, boot, os, offset, estimatedMinSize, resize, path);
+      return partition(
+          size,
+          number,
+          preserve,
+          wipe,
+          annotations,
+          mount,
+          format,
+          grubDevice,
+          boot,
+          os,
+          offset,
+          estimatedMinSize,
+          resize,
+          path,
+          isInUse);
     }
     return orElse();
   }
@@ -4105,7 +4151,8 @@ abstract class Partition implements PartitionOrGap {
       final int? offset,
       final int? estimatedMinSize,
       final bool? resize,
-      final String? path}) = _$Partition;
+      final String? path,
+      final bool isInUse}) = _$Partition;
 
   factory Partition.fromJson(Map<String, dynamic> json) = _$Partition.fromJson;
 
@@ -4125,6 +4172,7 @@ abstract class Partition implements PartitionOrGap {
   int? get estimatedMinSize;
   bool? get resize;
   String? get path;
+  bool get isInUse;
   @override
   @JsonKey(ignore: true)
   _$$PartitionCopyWith<_$Partition> get copyWith =>
@@ -4235,7 +4283,8 @@ class _$Gap implements Gap {
             int? offset,
             int? estimatedMinSize,
             bool? resize,
-            String? path)
+            String? path,
+            bool isInUse)
         partition,
     required TResult Function(int offset, int size, GapUsable usable) gap,
   }) {
@@ -4259,7 +4308,8 @@ class _$Gap implements Gap {
             int? offset,
             int? estimatedMinSize,
             bool? resize,
-            String? path)?
+            String? path,
+            bool isInUse)?
         partition,
     TResult? Function(int offset, int size, GapUsable usable)? gap,
   }) {
@@ -4283,7 +4333,8 @@ class _$Gap implements Gap {
             int? offset,
             int? estimatedMinSize,
             bool? resize,
-            String? path)?
+            String? path,
+            bool isInUse)?
         partition,
     TResult Function(int offset, int size, GapUsable usable)? gap,
     required TResult orElse(),
@@ -4782,6 +4833,7 @@ mixin _$Disk {
   bool get canBeBootDevice => throw _privateConstructorUsedError;
   String? get model => throw _privateConstructorUsedError;
   String? get vendor => throw _privateConstructorUsedError;
+  bool get hasInUsePartition => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -4807,7 +4859,8 @@ abstract class $DiskCopyWith<$Res> {
       bool bootDevice,
       bool canBeBootDevice,
       String? model,
-      String? vendor});
+      String? vendor,
+      bool hasInUsePartition});
 }
 
 /// @nodoc
@@ -4837,6 +4890,7 @@ class _$DiskCopyWithImpl<$Res, $Val extends Disk>
     Object? canBeBootDevice = null,
     Object? model = freezed,
     Object? vendor = freezed,
+    Object? hasInUsePartition = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -4895,6 +4949,10 @@ class _$DiskCopyWithImpl<$Res, $Val extends Disk>
           ? _value.vendor
           : vendor // ignore: cast_nullable_to_non_nullable
               as String?,
+      hasInUsePartition: null == hasInUsePartition
+          ? _value.hasInUsePartition
+          : hasInUsePartition // ignore: cast_nullable_to_non_nullable
+              as bool,
     ) as $Val);
   }
 }
@@ -4919,7 +4977,8 @@ abstract class _$$_DiskCopyWith<$Res> implements $DiskCopyWith<$Res> {
       bool bootDevice,
       bool canBeBootDevice,
       String? model,
-      String? vendor});
+      String? vendor,
+      bool hasInUsePartition});
 }
 
 /// @nodoc
@@ -4945,6 +5004,7 @@ class __$$_DiskCopyWithImpl<$Res> extends _$DiskCopyWithImpl<$Res, _$_Disk>
     Object? canBeBootDevice = null,
     Object? model = freezed,
     Object? vendor = freezed,
+    Object? hasInUsePartition = null,
   }) {
     return _then(_$_Disk(
       id: null == id
@@ -5003,6 +5063,10 @@ class __$$_DiskCopyWithImpl<$Res> extends _$DiskCopyWithImpl<$Res, _$_Disk>
           ? _value.vendor
           : vendor // ignore: cast_nullable_to_non_nullable
               as String?,
+      hasInUsePartition: null == hasInUsePartition
+          ? _value.hasInUsePartition
+          : hasInUsePartition // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -5024,7 +5088,8 @@ class _$_Disk implements _Disk {
       required this.bootDevice,
       required this.canBeBootDevice,
       this.model,
-      this.vendor})
+      this.vendor,
+      this.hasInUsePartition = false})
       : _usageLabels = usageLabels,
         _partitions = partitions;
 
@@ -5070,10 +5135,13 @@ class _$_Disk implements _Disk {
   final String? model;
   @override
   final String? vendor;
+  @override
+  @JsonKey()
+  final bool hasInUsePartition;
 
   @override
   String toString() {
-    return 'Disk(id: $id, label: $label, type: $type, size: $size, usageLabels: $usageLabels, partitions: $partitions, okForGuided: $okForGuided, ptable: $ptable, preserve: $preserve, path: $path, bootDevice: $bootDevice, canBeBootDevice: $canBeBootDevice, model: $model, vendor: $vendor)';
+    return 'Disk(id: $id, label: $label, type: $type, size: $size, usageLabels: $usageLabels, partitions: $partitions, okForGuided: $okForGuided, ptable: $ptable, preserve: $preserve, path: $path, bootDevice: $bootDevice, canBeBootDevice: $canBeBootDevice, model: $model, vendor: $vendor, hasInUsePartition: $hasInUsePartition)';
   }
 
   @override
@@ -5100,7 +5168,9 @@ class _$_Disk implements _Disk {
             (identical(other.canBeBootDevice, canBeBootDevice) ||
                 other.canBeBootDevice == canBeBootDevice) &&
             (identical(other.model, model) || other.model == model) &&
-            (identical(other.vendor, vendor) || other.vendor == vendor));
+            (identical(other.vendor, vendor) || other.vendor == vendor) &&
+            (identical(other.hasInUsePartition, hasInUsePartition) ||
+                other.hasInUsePartition == hasInUsePartition));
   }
 
   @JsonKey(ignore: true)
@@ -5120,7 +5190,8 @@ class _$_Disk implements _Disk {
       bootDevice,
       canBeBootDevice,
       model,
-      vendor);
+      vendor,
+      hasInUsePartition);
 
   @JsonKey(ignore: true)
   @override
@@ -5151,7 +5222,8 @@ abstract class _Disk implements Disk {
       required final bool bootDevice,
       required final bool canBeBootDevice,
       final String? model,
-      final String? vendor}) = _$_Disk;
+      final String? vendor,
+      final bool hasInUsePartition}) = _$_Disk;
 
   factory _Disk.fromJson(Map<String, dynamic> json) = _$_Disk.fromJson;
 
@@ -5183,6 +5255,8 @@ abstract class _Disk implements Disk {
   String? get model;
   @override
   String? get vendor;
+  @override
+  bool get hasInUsePartition;
   @override
   @JsonKey(ignore: true)
   _$$_DiskCopyWith<_$_Disk> get copyWith => throw _privateConstructorUsedError;
@@ -13771,6 +13845,7 @@ MirrorGet _$MirrorGetFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$MirrorGet {
+  bool get relevant => throw _privateConstructorUsedError;
   String? get elected => throw _privateConstructorUsedError;
   List<String> get candidates => throw _privateConstructorUsedError;
   String? get staged => throw _privateConstructorUsedError;
@@ -13786,7 +13861,11 @@ abstract class $MirrorGetCopyWith<$Res> {
   factory $MirrorGetCopyWith(MirrorGet value, $Res Function(MirrorGet) then) =
       _$MirrorGetCopyWithImpl<$Res, MirrorGet>;
   @useResult
-  $Res call({String? elected, List<String> candidates, String? staged});
+  $Res call(
+      {bool relevant,
+      String? elected,
+      List<String> candidates,
+      String? staged});
 }
 
 /// @nodoc
@@ -13802,11 +13881,16 @@ class _$MirrorGetCopyWithImpl<$Res, $Val extends MirrorGet>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? relevant = null,
     Object? elected = freezed,
     Object? candidates = null,
     Object? staged = freezed,
   }) {
     return _then(_value.copyWith(
+      relevant: null == relevant
+          ? _value.relevant
+          : relevant // ignore: cast_nullable_to_non_nullable
+              as bool,
       elected: freezed == elected
           ? _value.elected
           : elected // ignore: cast_nullable_to_non_nullable
@@ -13830,7 +13914,11 @@ abstract class _$$_MirrorGetCopyWith<$Res> implements $MirrorGetCopyWith<$Res> {
       __$$_MirrorGetCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String? elected, List<String> candidates, String? staged});
+  $Res call(
+      {bool relevant,
+      String? elected,
+      List<String> candidates,
+      String? staged});
 }
 
 /// @nodoc
@@ -13844,11 +13932,16 @@ class __$$_MirrorGetCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? relevant = null,
     Object? elected = freezed,
     Object? candidates = null,
     Object? staged = freezed,
   }) {
     return _then(_$_MirrorGet(
+      relevant: null == relevant
+          ? _value.relevant
+          : relevant // ignore: cast_nullable_to_non_nullable
+              as bool,
       elected: freezed == elected
           ? _value.elected
           : elected // ignore: cast_nullable_to_non_nullable
@@ -13869,7 +13962,8 @@ class __$$_MirrorGetCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_MirrorGet implements _MirrorGet {
   const _$_MirrorGet(
-      {required this.elected,
+      {required this.relevant,
+      required this.elected,
       required final List<String> candidates,
       required this.staged})
       : _candidates = candidates;
@@ -13877,6 +13971,8 @@ class _$_MirrorGet implements _MirrorGet {
   factory _$_MirrorGet.fromJson(Map<String, dynamic> json) =>
       _$$_MirrorGetFromJson(json);
 
+  @override
+  final bool relevant;
   @override
   final String? elected;
   final List<String> _candidates;
@@ -13892,7 +13988,7 @@ class _$_MirrorGet implements _MirrorGet {
 
   @override
   String toString() {
-    return 'MirrorGet(elected: $elected, candidates: $candidates, staged: $staged)';
+    return 'MirrorGet(relevant: $relevant, elected: $elected, candidates: $candidates, staged: $staged)';
   }
 
   @override
@@ -13900,6 +13996,8 @@ class _$_MirrorGet implements _MirrorGet {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_MirrorGet &&
+            (identical(other.relevant, relevant) ||
+                other.relevant == relevant) &&
             (identical(other.elected, elected) || other.elected == elected) &&
             const DeepCollectionEquality()
                 .equals(other._candidates, _candidates) &&
@@ -13908,7 +14006,7 @@ class _$_MirrorGet implements _MirrorGet {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, elected,
+  int get hashCode => Object.hash(runtimeType, relevant, elected,
       const DeepCollectionEquality().hash(_candidates), staged);
 
   @JsonKey(ignore: true)
@@ -13927,13 +14025,16 @@ class _$_MirrorGet implements _MirrorGet {
 
 abstract class _MirrorGet implements MirrorGet {
   const factory _MirrorGet(
-      {required final String? elected,
+      {required final bool relevant,
+      required final String? elected,
       required final List<String> candidates,
       required final String? staged}) = _$_MirrorGet;
 
   factory _MirrorGet.fromJson(Map<String, dynamic> json) =
       _$_MirrorGet.fromJson;
 
+  @override
+  bool get relevant;
   @override
   String? get elected;
   @override

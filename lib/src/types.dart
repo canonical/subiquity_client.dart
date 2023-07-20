@@ -332,6 +332,7 @@ class PartitionOrGap with _$PartitionOrGap {
     @Default(-1) int? estimatedMinSize,
     bool? resize,
     String? path,
+    @Default(false) bool isInUse,
   }) = Partition;
 
   @FreezedUnionValue('Gap')
@@ -390,6 +391,7 @@ class Disk with _$Disk {
     required bool canBeBootDevice,
     String? model,
     String? vendor,
+    @Default(false) bool hasInUsePartition,
   }) = _Disk;
 
   factory Disk.fromJson(Map<String, dynamic> json) => _$DiskFromJson(json);
@@ -984,6 +986,7 @@ enum MirrorPostResponse {
 @freezed
 class MirrorGet with _$MirrorGet {
   const factory MirrorGet({
+    required bool relevant,
     required String? elected,
     required List<String> candidates,
     required String? staged,
