@@ -513,6 +513,7 @@ const _$GuidedCapabilityEnumMap = {
   GuidedCapability.CORE_BOOT_UNENCRYPTED: 'CORE_BOOT_UNENCRYPTED',
   GuidedCapability.CORE_BOOT_PREFER_ENCRYPTED: 'CORE_BOOT_PREFER_ENCRYPTED',
   GuidedCapability.CORE_BOOT_PREFER_UNENCRYPTED: 'CORE_BOOT_PREFER_UNENCRYPTED',
+  GuidedCapability.DD: 'DD',
 };
 
 const _$GuidedDisallowedCapabilityReasonEnumMap = {

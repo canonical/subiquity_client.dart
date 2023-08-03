@@ -407,6 +407,7 @@ enum GuidedCapability {
   CORE_BOOT_UNENCRYPTED,
   CORE_BOOT_PREFER_ENCRYPTED,
   CORE_BOOT_PREFER_UNENCRYPTED,
+  DD,
 }
 
 enum GuidedDisallowedCapabilityReason {
