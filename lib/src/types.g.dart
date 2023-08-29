@@ -436,6 +436,7 @@ _$_ZPool _$$_ZPoolFromJson(Map<String, dynamic> json) => _$_ZPool(
           : ZFS.fromJson(json['zfses'] as Map<String, dynamic>),
       poolProperties: json['pool_properties'] as Map<String, dynamic>?,
       fsProperties: json['fs_properties'] as Map<String, dynamic>?,
+      defaultFeatures: json['default_features'] as bool? ?? true,
     );
 
 Map<String, dynamic> _$$_ZPoolToJson(_$_ZPool instance) => <String, dynamic>{
@@ -444,6 +445,7 @@ Map<String, dynamic> _$$_ZPoolToJson(_$_ZPool instance) => <String, dynamic>{
       'zfses': instance.zfses?.toJson(),
       'pool_properties': instance.poolProperties,
       'fs_properties': instance.fsProperties,
+      'default_features': instance.defaultFeatures,
     };
 
 _$_Disk _$$_DiskFromJson(Map<String, dynamic> json) => _$_Disk(
