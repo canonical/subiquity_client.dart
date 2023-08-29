@@ -364,6 +364,7 @@ class ZPool with _$ZPool {
     ZFS? zfses,
     Map<String, dynamic>? poolProperties,
     Map<String, dynamic>? fsProperties,
+    @Default(true) bool? defaultFeatures,
   }) = _ZPool;
 
   factory ZPool.fromJson(Map<String, dynamic> json) => _$ZPoolFromJson(json);

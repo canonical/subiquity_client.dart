@@ -4568,6 +4568,7 @@ mixin _$ZPool {
   Map<String, dynamic>? get poolProperties =>
       throw _privateConstructorUsedError;
   Map<String, dynamic>? get fsProperties => throw _privateConstructorUsedError;
+  bool? get defaultFeatures => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -4584,7 +4585,8 @@ abstract class $ZPoolCopyWith<$Res> {
       String mountpoint,
       ZFS? zfses,
       Map<String, dynamic>? poolProperties,
-      Map<String, dynamic>? fsProperties});
+      Map<String, dynamic>? fsProperties,
+      bool? defaultFeatures});
 
   $ZFSCopyWith<$Res>? get zfses;
 }
@@ -4607,6 +4609,7 @@ class _$ZPoolCopyWithImpl<$Res, $Val extends ZPool>
     Object? zfses = freezed,
     Object? poolProperties = freezed,
     Object? fsProperties = freezed,
+    Object? defaultFeatures = freezed,
   }) {
     return _then(_value.copyWith(
       pool: null == pool
@@ -4629,6 +4632,10 @@ class _$ZPoolCopyWithImpl<$Res, $Val extends ZPool>
           ? _value.fsProperties
           : fsProperties // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>?,
+      defaultFeatures: freezed == defaultFeatures
+          ? _value.defaultFeatures
+          : defaultFeatures // ignore: cast_nullable_to_non_nullable
+              as bool?,
     ) as $Val);
   }
 
@@ -4656,7 +4663,8 @@ abstract class _$$_ZPoolCopyWith<$Res> implements $ZPoolCopyWith<$Res> {
       String mountpoint,
       ZFS? zfses,
       Map<String, dynamic>? poolProperties,
-      Map<String, dynamic>? fsProperties});
+      Map<String, dynamic>? fsProperties,
+      bool? defaultFeatures});
 
   @override
   $ZFSCopyWith<$Res>? get zfses;
@@ -4676,6 +4684,7 @@ class __$$_ZPoolCopyWithImpl<$Res> extends _$ZPoolCopyWithImpl<$Res, _$_ZPool>
     Object? zfses = freezed,
     Object? poolProperties = freezed,
     Object? fsProperties = freezed,
+    Object? defaultFeatures = freezed,
   }) {
     return _then(_$_ZPool(
       pool: null == pool
@@ -4698,6 +4707,10 @@ class __$$_ZPoolCopyWithImpl<$Res> extends _$ZPoolCopyWithImpl<$Res, _$_ZPool>
           ? _value._fsProperties
           : fsProperties // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>?,
+      defaultFeatures: freezed == defaultFeatures
+          ? _value.defaultFeatures
+          : defaultFeatures // ignore: cast_nullable_to_non_nullable
+              as bool?,
     ));
   }
 }
@@ -4710,7 +4723,8 @@ class _$_ZPool implements _ZPool {
       required this.mountpoint,
       this.zfses,
       final Map<String, dynamic>? poolProperties,
-      final Map<String, dynamic>? fsProperties})
+      final Map<String, dynamic>? fsProperties,
+      this.defaultFeatures = true})
       : _poolProperties = poolProperties,
         _fsProperties = fsProperties;
 
@@ -4744,8 +4758,12 @@ class _$_ZPool implements _ZPool {
   }
 
   @override
+  @JsonKey()
+  final bool? defaultFeatures;
+
+  @override
   String toString() {
-    return 'ZPool(pool: $pool, mountpoint: $mountpoint, zfses: $zfses, poolProperties: $poolProperties, fsProperties: $fsProperties)';
+    return 'ZPool(pool: $pool, mountpoint: $mountpoint, zfses: $zfses, poolProperties: $poolProperties, fsProperties: $fsProperties, defaultFeatures: $defaultFeatures)';
   }
 
   @override
@@ -4760,7 +4778,9 @@ class _$_ZPool implements _ZPool {
             const DeepCollectionEquality()
                 .equals(other._poolProperties, _poolProperties) &&
             const DeepCollectionEquality()
-                .equals(other._fsProperties, _fsProperties));
+                .equals(other._fsProperties, _fsProperties) &&
+            (identical(other.defaultFeatures, defaultFeatures) ||
+                other.defaultFeatures == defaultFeatures));
   }
 
   @JsonKey(ignore: true)
@@ -4771,7 +4791,8 @@ class _$_ZPool implements _ZPool {
       mountpoint,
       zfses,
       const DeepCollectionEquality().hash(_poolProperties),
-      const DeepCollectionEquality().hash(_fsProperties));
+      const DeepCollectionEquality().hash(_fsProperties),
+      defaultFeatures);
 
   @JsonKey(ignore: true)
   @override
@@ -4793,7 +4814,8 @@ abstract class _ZPool implements ZPool {
       required final String mountpoint,
       final ZFS? zfses,
       final Map<String, dynamic>? poolProperties,
-      final Map<String, dynamic>? fsProperties}) = _$_ZPool;
+      final Map<String, dynamic>? fsProperties,
+      final bool? defaultFeatures}) = _$_ZPool;
 
   factory _ZPool.fromJson(Map<String, dynamic> json) = _$_ZPool.fromJson;
 
@@ -4807,6 +4829,8 @@ abstract class _ZPool implements ZPool {
   Map<String, dynamic>? get poolProperties;
   @override
   Map<String, dynamic>? get fsProperties;
+  @override
+  bool? get defaultFeatures;
   @override
   @JsonKey(ignore: true)
   _$$_ZPoolCopyWith<_$_ZPool> get copyWith =>
