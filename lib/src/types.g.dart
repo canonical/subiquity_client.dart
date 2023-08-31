@@ -720,12 +720,27 @@ Map<String, dynamic> _$$GuidedStorageTargetManualToJson(
       r'$type': instance.$type,
     };
 
+_$_RecoveryKey _$$_RecoveryKeyFromJson(Map<String, dynamic> json) =>
+    _$_RecoveryKey(
+      liveLocation: json['live_location'] as String?,
+      backupLocation: json['backup_location'] as String?,
+    );
+
+Map<String, dynamic> _$$_RecoveryKeyToJson(_$_RecoveryKey instance) =>
+    <String, dynamic>{
+      'live_location': instance.liveLocation,
+      'backup_location': instance.backupLocation,
+    };
+
 _$_GuidedChoiceV2 _$$_GuidedChoiceV2FromJson(Map<String, dynamic> json) =>
     _$_GuidedChoiceV2(
       target:
           GuidedStorageTarget.fromJson(json['target'] as Map<String, dynamic>),
       capability: $enumDecode(_$GuidedCapabilityEnumMap, json['capability']),
       password: json['password'] as String?,
+      recoveryKey: json['recovery_key'] == null
+          ? null
+          : RecoveryKey.fromJson(json['recovery_key'] as Map<String, dynamic>),
       sizingPolicy:
           $enumDecodeNullable(_$SizingPolicyEnumMap, json['sizing_policy']),
       resetPartition: json['reset_partition'] as bool? ?? false,
@@ -736,6 +751,7 @@ Map<String, dynamic> _$$_GuidedChoiceV2ToJson(_$_GuidedChoiceV2 instance) =>
       'target': instance.target.toJson(),
       'capability': _$GuidedCapabilityEnumMap[instance.capability]!,
       'password': instance.password,
+      'recovery_key': instance.recoveryKey?.toJson(),
       'sizing_policy': _$SizingPolicyEnumMap[instance.sizingPolicy],
       'reset_partition': instance.resetPartition,
     };

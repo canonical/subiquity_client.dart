@@ -517,11 +517,23 @@ class GuidedStorageTarget with _$GuidedStorageTarget {
 }
 
 @freezed
+class RecoveryKey with _$RecoveryKey {
+  const factory RecoveryKey({
+    String? liveLocation,
+    String? backupLocation,
+  }) = _RecoveryKey;
+
+  factory RecoveryKey.fromJson(Map<String, dynamic> json) =>
+      _$RecoveryKeyFromJson(json);
+}
+
+@freezed
 class GuidedChoiceV2 with _$GuidedChoiceV2 {
   const factory GuidedChoiceV2({
     required GuidedStorageTarget target,
     required GuidedCapability capability,
     String? password,
+    RecoveryKey? recoveryKey,
     required SizingPolicy? sizingPolicy,
     @Default(false) bool resetPartition,
   }) = _GuidedChoiceV2;
