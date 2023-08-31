@@ -271,6 +271,7 @@ void main() {
       },
       'capability': 'LVM',
       'password': '2',
+      'recovery_key': null,
       'sizing_policy': 'ALL',
       'reset_partition': false,
     };

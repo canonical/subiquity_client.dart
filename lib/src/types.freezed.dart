@@ -7569,6 +7569,162 @@ abstract class GuidedStorageTargetManual implements GuidedStorageTarget {
       get copyWith => throw _privateConstructorUsedError;
 }
 
+RecoveryKey _$RecoveryKeyFromJson(Map<String, dynamic> json) {
+  return _RecoveryKey.fromJson(json);
+}
+
+/// @nodoc
+mixin _$RecoveryKey {
+  String? get liveLocation => throw _privateConstructorUsedError;
+  String? get backupLocation => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $RecoveryKeyCopyWith<RecoveryKey> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $RecoveryKeyCopyWith<$Res> {
+  factory $RecoveryKeyCopyWith(
+          RecoveryKey value, $Res Function(RecoveryKey) then) =
+      _$RecoveryKeyCopyWithImpl<$Res, RecoveryKey>;
+  @useResult
+  $Res call({String? liveLocation, String? backupLocation});
+}
+
+/// @nodoc
+class _$RecoveryKeyCopyWithImpl<$Res, $Val extends RecoveryKey>
+    implements $RecoveryKeyCopyWith<$Res> {
+  _$RecoveryKeyCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? liveLocation = freezed,
+    Object? backupLocation = freezed,
+  }) {
+    return _then(_value.copyWith(
+      liveLocation: freezed == liveLocation
+          ? _value.liveLocation
+          : liveLocation // ignore: cast_nullable_to_non_nullable
+              as String?,
+      backupLocation: freezed == backupLocation
+          ? _value.backupLocation
+          : backupLocation // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$_RecoveryKeyCopyWith<$Res>
+    implements $RecoveryKeyCopyWith<$Res> {
+  factory _$$_RecoveryKeyCopyWith(
+          _$_RecoveryKey value, $Res Function(_$_RecoveryKey) then) =
+      __$$_RecoveryKeyCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({String? liveLocation, String? backupLocation});
+}
+
+/// @nodoc
+class __$$_RecoveryKeyCopyWithImpl<$Res>
+    extends _$RecoveryKeyCopyWithImpl<$Res, _$_RecoveryKey>
+    implements _$$_RecoveryKeyCopyWith<$Res> {
+  __$$_RecoveryKeyCopyWithImpl(
+      _$_RecoveryKey _value, $Res Function(_$_RecoveryKey) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? liveLocation = freezed,
+    Object? backupLocation = freezed,
+  }) {
+    return _then(_$_RecoveryKey(
+      liveLocation: freezed == liveLocation
+          ? _value.liveLocation
+          : liveLocation // ignore: cast_nullable_to_non_nullable
+              as String?,
+      backupLocation: freezed == backupLocation
+          ? _value.backupLocation
+          : backupLocation // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$_RecoveryKey implements _RecoveryKey {
+  const _$_RecoveryKey({this.liveLocation, this.backupLocation});
+
+  factory _$_RecoveryKey.fromJson(Map<String, dynamic> json) =>
+      _$$_RecoveryKeyFromJson(json);
+
+  @override
+  final String? liveLocation;
+  @override
+  final String? backupLocation;
+
+  @override
+  String toString() {
+    return 'RecoveryKey(liveLocation: $liveLocation, backupLocation: $backupLocation)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_RecoveryKey &&
+            (identical(other.liveLocation, liveLocation) ||
+                other.liveLocation == liveLocation) &&
+            (identical(other.backupLocation, backupLocation) ||
+                other.backupLocation == backupLocation));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(runtimeType, liveLocation, backupLocation);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_RecoveryKeyCopyWith<_$_RecoveryKey> get copyWith =>
+      __$$_RecoveryKeyCopyWithImpl<_$_RecoveryKey>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_RecoveryKeyToJson(
+      this,
+    );
+  }
+}
+
+abstract class _RecoveryKey implements RecoveryKey {
+  const factory _RecoveryKey(
+      {final String? liveLocation,
+      final String? backupLocation}) = _$_RecoveryKey;
+
+  factory _RecoveryKey.fromJson(Map<String, dynamic> json) =
+      _$_RecoveryKey.fromJson;
+
+  @override
+  String? get liveLocation;
+  @override
+  String? get backupLocation;
+  @override
+  @JsonKey(ignore: true)
+  _$$_RecoveryKeyCopyWith<_$_RecoveryKey> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
 GuidedChoiceV2 _$GuidedChoiceV2FromJson(Map<String, dynamic> json) {
   return _GuidedChoiceV2.fromJson(json);
 }
@@ -7578,6 +7734,7 @@ mixin _$GuidedChoiceV2 {
   GuidedStorageTarget get target => throw _privateConstructorUsedError;
   GuidedCapability get capability => throw _privateConstructorUsedError;
   String? get password => throw _privateConstructorUsedError;
+  RecoveryKey? get recoveryKey => throw _privateConstructorUsedError;
   SizingPolicy? get sizingPolicy => throw _privateConstructorUsedError;
   bool get resetPartition => throw _privateConstructorUsedError;
 
@@ -7597,10 +7754,12 @@ abstract class $GuidedChoiceV2CopyWith<$Res> {
       {GuidedStorageTarget target,
       GuidedCapability capability,
       String? password,
+      RecoveryKey? recoveryKey,
       SizingPolicy? sizingPolicy,
       bool resetPartition});
 
   $GuidedStorageTargetCopyWith<$Res> get target;
+  $RecoveryKeyCopyWith<$Res>? get recoveryKey;
 }
 
 /// @nodoc
@@ -7619,6 +7778,7 @@ class _$GuidedChoiceV2CopyWithImpl<$Res, $Val extends GuidedChoiceV2>
     Object? target = null,
     Object? capability = null,
     Object? password = freezed,
+    Object? recoveryKey = freezed,
     Object? sizingPolicy = freezed,
     Object? resetPartition = null,
   }) {
@@ -7635,6 +7795,10 @@ class _$GuidedChoiceV2CopyWithImpl<$Res, $Val extends GuidedChoiceV2>
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
               as String?,
+      recoveryKey: freezed == recoveryKey
+          ? _value.recoveryKey
+          : recoveryKey // ignore: cast_nullable_to_non_nullable
+              as RecoveryKey?,
       sizingPolicy: freezed == sizingPolicy
           ? _value.sizingPolicy
           : sizingPolicy // ignore: cast_nullable_to_non_nullable
@@ -7653,6 +7817,18 @@ class _$GuidedChoiceV2CopyWithImpl<$Res, $Val extends GuidedChoiceV2>
       return _then(_value.copyWith(target: value) as $Val);
     });
   }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $RecoveryKeyCopyWith<$Res>? get recoveryKey {
+    if (_value.recoveryKey == null) {
+      return null;
+    }
+
+    return $RecoveryKeyCopyWith<$Res>(_value.recoveryKey!, (value) {
+      return _then(_value.copyWith(recoveryKey: value) as $Val);
+    });
+  }
 }
 
 /// @nodoc
@@ -7667,11 +7843,14 @@ abstract class _$$_GuidedChoiceV2CopyWith<$Res>
       {GuidedStorageTarget target,
       GuidedCapability capability,
       String? password,
+      RecoveryKey? recoveryKey,
       SizingPolicy? sizingPolicy,
       bool resetPartition});
 
   @override
   $GuidedStorageTargetCopyWith<$Res> get target;
+  @override
+  $RecoveryKeyCopyWith<$Res>? get recoveryKey;
 }
 
 /// @nodoc
@@ -7688,6 +7867,7 @@ class __$$_GuidedChoiceV2CopyWithImpl<$Res>
     Object? target = null,
     Object? capability = null,
     Object? password = freezed,
+    Object? recoveryKey = freezed,
     Object? sizingPolicy = freezed,
     Object? resetPartition = null,
   }) {
@@ -7704,6 +7884,10 @@ class __$$_GuidedChoiceV2CopyWithImpl<$Res>
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
               as String?,
+      recoveryKey: freezed == recoveryKey
+          ? _value.recoveryKey
+          : recoveryKey // ignore: cast_nullable_to_non_nullable
+              as RecoveryKey?,
       sizingPolicy: freezed == sizingPolicy
           ? _value.sizingPolicy
           : sizingPolicy // ignore: cast_nullable_to_non_nullable
@@ -7723,6 +7907,7 @@ class _$_GuidedChoiceV2 implements _GuidedChoiceV2 {
       {required this.target,
       required this.capability,
       this.password,
+      this.recoveryKey,
       required this.sizingPolicy,
       this.resetPartition = false});
 
@@ -7736,6 +7921,8 @@ class _$_GuidedChoiceV2 implements _GuidedChoiceV2 {
   @override
   final String? password;
   @override
+  final RecoveryKey? recoveryKey;
+  @override
   final SizingPolicy? sizingPolicy;
   @override
   @JsonKey()
@@ -7743,7 +7930,7 @@ class _$_GuidedChoiceV2 implements _GuidedChoiceV2 {
 
   @override
   String toString() {
-    return 'GuidedChoiceV2(target: $target, capability: $capability, password: $password, sizingPolicy: $sizingPolicy, resetPartition: $resetPartition)';
+    return 'GuidedChoiceV2(target: $target, capability: $capability, password: $password, recoveryKey: $recoveryKey, sizingPolicy: $sizingPolicy, resetPartition: $resetPartition)';
   }
 
   @override
@@ -7756,6 +7943,8 @@ class _$_GuidedChoiceV2 implements _GuidedChoiceV2 {
                 other.capability == capability) &&
             (identical(other.password, password) ||
                 other.password == password) &&
+            (identical(other.recoveryKey, recoveryKey) ||
+                other.recoveryKey == recoveryKey) &&
             (identical(other.sizingPolicy, sizingPolicy) ||
                 other.sizingPolicy == sizingPolicy) &&
             (identical(other.resetPartition, resetPartition) ||
@@ -7764,8 +7953,8 @@ class _$_GuidedChoiceV2 implements _GuidedChoiceV2 {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType, target, capability, password, sizingPolicy, resetPartition);
+  int get hashCode => Object.hash(runtimeType, target, capability, password,
+      recoveryKey, sizingPolicy, resetPartition);
 
   @JsonKey(ignore: true)
   @override
@@ -7786,6 +7975,7 @@ abstract class _GuidedChoiceV2 implements GuidedChoiceV2 {
       {required final GuidedStorageTarget target,
       required final GuidedCapability capability,
       final String? password,
+      final RecoveryKey? recoveryKey,
       required final SizingPolicy? sizingPolicy,
       final bool resetPartition}) = _$_GuidedChoiceV2;
 
@@ -7798,6 +7988,8 @@ abstract class _GuidedChoiceV2 implements GuidedChoiceV2 {
   GuidedCapability get capability;
   @override
   String? get password;
+  @override
+  RecoveryKey? get recoveryKey;
   @override
   SizingPolicy? get sizingPolicy;
   @override
