@@ -481,18 +481,36 @@ class SubiquityClient {
   }
 
   Future<AdConnectionInfo> getActiveDirectory() async {
-    final request = await _openUrl('GET', 'active_directory');
-    return _receive(
-      'getActiveDirectory()',
-      request,
-      AdConnectionInfo.fromJson,
-      (method, response) => _formatResponseLog(
-        method,
-        AdConnectionInfo.fromJson(jsonDecode(response))
-            .hidePassword()
-            .toString(),
-      ),
-    );
+    try {
+      final request = await _openUrl('GET', 'active_directory');
+      return await _receive(
+        'getActiveDirectory()',
+        request,
+        (json) {
+          if (json == null || json is! Map<String, dynamic>) {
+            json = <String, dynamic>{};
+          }
+          return AdConnectionInfo.fromJson(json);
+        },
+        (method, response) {
+          if (response.isEmpty) {
+            throw Exception('Received empty response');
+          }
+          var decodedJson = jsonDecode(response);
+          if (decodedJson == null || decodedJson is! Map<String, dynamic>) {
+            decodedJson = <String, dynamic>{};
+          }
+          return _formatResponseLog(
+            method,
+            AdConnectionInfo.fromJson(decodedJson).hidePassword().toString(),
+          );
+        },
+      );
+    } catch (e) {
+      // Handle or rethrow the exception
+      print('Exception caught: $e');
+      rethrow;
+    }
   }
 
   Future<void> setActiveDirectory(AdConnectionInfo info) async {
