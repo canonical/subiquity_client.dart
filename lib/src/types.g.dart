@@ -522,6 +522,8 @@ const _$GuidedDisallowedCapabilityReasonEnumMap = {
   GuidedDisallowedCapabilityReason.TOO_SMALL: 'TOO_SMALL',
   GuidedDisallowedCapabilityReason.CORE_BOOT_ENCRYPTION_UNAVAILABLE:
       'CORE_BOOT_ENCRYPTION_UNAVAILABLE',
+  GuidedDisallowedCapabilityReason.NOT_UEFI: 'NOT_UEFI',
+  GuidedDisallowedCapabilityReason.THIRD_PARTY_DRIVERS: 'THIRD_PARTY_DRIVERS',
 };
 
 _$_StorageResponse _$$_StorageResponseFromJson(Map<String, dynamic> json) =>

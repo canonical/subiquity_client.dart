@@ -414,6 +414,8 @@ enum GuidedCapability {
 enum GuidedDisallowedCapabilityReason {
   TOO_SMALL,
   CORE_BOOT_ENCRYPTION_UNAVAILABLE,
+  NOT_UEFI,
+  THIRD_PARTY_DRIVERS,
 }
 
 @freezed
