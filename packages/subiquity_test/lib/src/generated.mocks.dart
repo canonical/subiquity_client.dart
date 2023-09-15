@@ -279,10 +279,15 @@ class MockSubiquityClient extends _i1.Mock implements _i4.SubiquityClient {
         )),
       ) as _i5.Future<_i2.SourceSelectionAndSetting>);
   @override
-  _i5.Future<void> setSource(String? sourceId) => (super.noSuchMethod(
+  _i5.Future<void> setSource(
+    String? sourceId, {
+    bool? searchDrivers = false,
+  }) =>
+      (super.noSuchMethod(
         Invocation.method(
           #setSource,
           [sourceId],
+          {#searchDrivers: searchDrivers},
         ),
         returnValue: _i5.Future<void>.value(),
         returnValueForMissingStub: _i5.Future<void>.value(),
