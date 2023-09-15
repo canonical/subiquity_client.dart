@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
+
 import 'package:ubuntu_logger/ubuntu_logger.dart';
 
 import 'endpoint.dart';
@@ -114,8 +115,8 @@ class SubiquityClient {
     return _receive('source()', request, SourceSelectionAndSetting.fromJson);
   }
 
-  Future<void> setSource(String sourceId) async {
-    final params = {'source_id': jsonEncode(sourceId)};
+  Future<void> setSource(String sourceId, {bool searchDrivers = false}) async {
+    final params = {'source_id': jsonEncode(sourceId), 'search_drivers': '$searchDrivers'};
     final request = await _openUrl('POST', 'source', params);
     await _receive('setSource($sourceId)', request);
   }
