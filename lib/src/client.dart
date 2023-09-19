@@ -116,7 +116,10 @@ class SubiquityClient {
   }
 
   Future<void> setSource(String sourceId, {bool searchDrivers = false}) async {
-    final params = {'source_id': jsonEncode(sourceId), 'search_drivers': '$searchDrivers'};
+    final params = {
+      'source_id': jsonEncode(sourceId),
+      'search_drivers': '$searchDrivers'
+    };
     final request = await _openUrl('POST', 'source', params);
     await _receive('setSource($sourceId)', request);
   }
