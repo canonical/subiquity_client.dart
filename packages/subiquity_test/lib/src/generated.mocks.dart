@@ -229,6 +229,7 @@ class MockSubiquityClient extends _i1.Mock implements _i4.SubiquityClient {
         ),
         returnValueForMissingStub: null,
       );
+
   @override
   _i5.Future<void> close() => (super.noSuchMethod(
         Invocation.method(
@@ -238,6 +239,7 @@ class MockSubiquityClient extends _i1.Mock implements _i4.SubiquityClient {
         returnValue: _i5.Future<void>.value(),
         returnValueForMissingStub: _i5.Future<void>.value(),
       ) as _i5.Future<void>);
+
   @override
   _i5.Future<List<String>?> getInteractiveSections() => (super.noSuchMethod(
         Invocation.method(
@@ -246,6 +248,7 @@ class MockSubiquityClient extends _i1.Mock implements _i4.SubiquityClient {
         ),
         returnValue: _i5.Future<List<String>?>.value(),
       ) as _i5.Future<List<String>?>);
+
   @override
   _i5.Future<_i4.Variant> getVariant() => (super.noSuchMethod(
         Invocation.method(
@@ -254,6 +257,7 @@ class MockSubiquityClient extends _i1.Mock implements _i4.SubiquityClient {
         ),
         returnValue: _i5.Future<_i4.Variant>.value(_i4.Variant.SERVER),
       ) as _i5.Future<_i4.Variant>);
+
   @override
   _i5.Future<void> setVariant(_i4.Variant? variant) => (super.noSuchMethod(
         Invocation.method(
@@ -263,6 +267,7 @@ class MockSubiquityClient extends _i1.Mock implements _i4.SubiquityClient {
         returnValue: _i5.Future<void>.value(),
         returnValueForMissingStub: _i5.Future<void>.value(),
       ) as _i5.Future<void>);
+
   @override
   _i5.Future<_i2.SourceSelectionAndSetting> getSource() => (super.noSuchMethod(
         Invocation.method(
@@ -278,6 +283,7 @@ class MockSubiquityClient extends _i1.Mock implements _i4.SubiquityClient {
           ),
         )),
       ) as _i5.Future<_i2.SourceSelectionAndSetting>);
+
   @override
   _i5.Future<void> setSource(
     String? sourceId, {
@@ -292,6 +298,7 @@ class MockSubiquityClient extends _i1.Mock implements _i4.SubiquityClient {
         returnValue: _i5.Future<void>.value(),
         returnValueForMissingStub: _i5.Future<void>.value(),
       ) as _i5.Future<void>);
+
   @override
   _i5.Future<String> getLocale() => (super.noSuchMethod(
         Invocation.method(
@@ -300,6 +307,7 @@ class MockSubiquityClient extends _i1.Mock implements _i4.SubiquityClient {
         ),
         returnValue: _i5.Future<String>.value(''),
       ) as _i5.Future<String>);
+
   @override
   _i5.Future<void> setLocale(String? locale) => (super.noSuchMethod(
         Invocation.method(
@@ -309,6 +317,7 @@ class MockSubiquityClient extends _i1.Mock implements _i4.SubiquityClient {
         returnValue: _i5.Future<void>.value(),
         returnValueForMissingStub: _i5.Future<void>.value(),
       ) as _i5.Future<void>);
+
   @override
   _i5.Future<_i2.KeyboardSetup> getKeyboard() => (super.noSuchMethod(
         Invocation.method(
@@ -323,6 +332,7 @@ class MockSubiquityClient extends _i1.Mock implements _i4.SubiquityClient {
           ),
         )),
       ) as _i5.Future<_i2.KeyboardSetup>);
+
   @override
   _i5.Future<void> setKeyboard(_i2.KeyboardSetting? setting) =>
       (super.noSuchMethod(
@@ -333,6 +343,7 @@ class MockSubiquityClient extends _i1.Mock implements _i4.SubiquityClient {
         returnValue: _i5.Future<void>.value(),
         returnValueForMissingStub: _i5.Future<void>.value(),
       ) as _i5.Future<void>);
+
   @override
   _i5.Future<void> setInputSource(
     _i2.KeyboardSetting? setting, {
@@ -347,6 +358,7 @@ class MockSubiquityClient extends _i1.Mock implements _i4.SubiquityClient {
         returnValue: _i5.Future<void>.value(),
         returnValueForMissingStub: _i5.Future<void>.value(),
       ) as _i5.Future<void>);
+
   @override
   _i5.Future<String> getProxy() => (super.noSuchMethod(
         Invocation.method(
@@ -355,6 +367,7 @@ class MockSubiquityClient extends _i1.Mock implements _i4.SubiquityClient {
         ),
         returnValue: _i5.Future<String>.value(''),
       ) as _i5.Future<String>);
+
   @override
   _i5.Future<void> setProxy(String? proxy) => (super.noSuchMethod(
         Invocation.method(
@@ -364,6 +377,7 @@ class MockSubiquityClient extends _i1.Mock implements _i4.SubiquityClient {
         returnValue: _i5.Future<void>.value(),
         returnValueForMissingStub: _i5.Future<void>.value(),
       ) as _i5.Future<void>);
+
   @override
   _i5.Future<_i2.MirrorGet> getMirror() => (super.noSuchMethod(
         Invocation.method(
@@ -378,6 +392,7 @@ class MockSubiquityClient extends _i1.Mock implements _i4.SubiquityClient {
           ),
         )),
       ) as _i5.Future<_i2.MirrorGet>);
+
   @override
   _i5.Future<_i2.MirrorPostResponse> setMirror(_i2.MirrorPost? mirror) =>
       (super.noSuchMethod(
@@ -388,6 +403,7 @@ class MockSubiquityClient extends _i1.Mock implements _i4.SubiquityClient {
         returnValue:
             _i5.Future<_i2.MirrorPostResponse>.value(_i2.MirrorPostResponse.OK),
       ) as _i5.Future<_i2.MirrorPostResponse>);
+
   @override
   _i5.Future<bool> hasNetwork() => (super.noSuchMethod(
         Invocation.method(
@@ -396,6 +412,7 @@ class MockSubiquityClient extends _i1.Mock implements _i4.SubiquityClient {
         ),
         returnValue: _i5.Future<bool>.value(false),
       ) as _i5.Future<bool>);
+
   @override
   _i5.Future<_i2.IdentityData> getIdentity() => (super.noSuchMethod(
         Invocation.method(
@@ -410,6 +427,7 @@ class MockSubiquityClient extends _i1.Mock implements _i4.SubiquityClient {
           ),
         )),
       ) as _i5.Future<_i2.IdentityData>);
+
   @override
   _i5.Future<void> setIdentity(_i2.IdentityData? identity) =>
       (super.noSuchMethod(
@@ -420,6 +438,7 @@ class MockSubiquityClient extends _i1.Mock implements _i4.SubiquityClient {
         returnValue: _i5.Future<void>.value(),
         returnValueForMissingStub: _i5.Future<void>.value(),
       ) as _i5.Future<void>);
+
   @override
   _i5.Future<_i2.UsernameValidation> validateUsername(String? username) =>
       (super.noSuchMethod(
@@ -430,6 +449,7 @@ class MockSubiquityClient extends _i1.Mock implements _i4.SubiquityClient {
         returnValue:
             _i5.Future<_i2.UsernameValidation>.value(_i2.UsernameValidation.OK),
       ) as _i5.Future<_i2.UsernameValidation>);
+
   @override
   _i5.Future<_i2.TimeZoneInfo> getTimezone() => (super.noSuchMethod(
         Invocation.method(
@@ -444,6 +464,7 @@ class MockSubiquityClient extends _i1.Mock implements _i4.SubiquityClient {
           ),
         )),
       ) as _i5.Future<_i2.TimeZoneInfo>);
+
   @override
   _i5.Future<void> setTimezone(String? timezone) => (super.noSuchMethod(
         Invocation.method(
@@ -453,6 +474,7 @@ class MockSubiquityClient extends _i1.Mock implements _i4.SubiquityClient {
         returnValue: _i5.Future<void>.value(),
         returnValueForMissingStub: _i5.Future<void>.value(),
       ) as _i5.Future<void>);
+
   @override
   _i5.Future<_i2.ApplicationStatus> getStatus(
           {_i2.ApplicationState? current}) =>
@@ -472,6 +494,7 @@ class MockSubiquityClient extends _i1.Mock implements _i4.SubiquityClient {
           ),
         )),
       ) as _i5.Future<_i2.ApplicationStatus>);
+
   @override
   _i5.Stream<_i2.ApplicationStatus?> monitorStatus() => (super.noSuchMethod(
         Invocation.method(
@@ -480,6 +503,7 @@ class MockSubiquityClient extends _i1.Mock implements _i4.SubiquityClient {
         ),
         returnValue: _i5.Stream<_i2.ApplicationStatus?>.empty(),
       ) as _i5.Stream<_i2.ApplicationStatus?>);
+
   @override
   _i5.Future<void> markConfigured(List<String>? endpointNames) =>
       (super.noSuchMethod(
@@ -490,6 +514,7 @@ class MockSubiquityClient extends _i1.Mock implements _i4.SubiquityClient {
         returnValue: _i5.Future<void>.value(),
         returnValueForMissingStub: _i5.Future<void>.value(),
       ) as _i5.Future<void>);
+
   @override
   _i5.Future<void> confirm(String? tty) => (super.noSuchMethod(
         Invocation.method(
@@ -499,6 +524,7 @@ class MockSubiquityClient extends _i1.Mock implements _i4.SubiquityClient {
         returnValue: _i5.Future<void>.value(),
         returnValueForMissingStub: _i5.Future<void>.value(),
       ) as _i5.Future<void>);
+
   @override
   _i5.Future<bool> hasRst() => (super.noSuchMethod(
         Invocation.method(
@@ -507,6 +533,7 @@ class MockSubiquityClient extends _i1.Mock implements _i4.SubiquityClient {
         ),
         returnValue: _i5.Future<bool>.value(false),
       ) as _i5.Future<bool>);
+
   @override
   _i5.Future<bool> hasBitLocker() => (super.noSuchMethod(
         Invocation.method(
@@ -515,6 +542,7 @@ class MockSubiquityClient extends _i1.Mock implements _i4.SubiquityClient {
         ),
         returnValue: _i5.Future<bool>.value(false),
       ) as _i5.Future<bool>);
+
   @override
   _i5.Future<_i2.GuidedStorageResponseV2> getGuidedStorageV2(
           {bool? wait = true}) =>
@@ -534,6 +562,7 @@ class MockSubiquityClient extends _i1.Mock implements _i4.SubiquityClient {
           ),
         )),
       ) as _i5.Future<_i2.GuidedStorageResponseV2>);
+
   @override
   _i5.Future<_i2.GuidedStorageResponseV2> setGuidedStorageV2(
           _i2.GuidedChoiceV2? choice) =>
@@ -551,6 +580,7 @@ class MockSubiquityClient extends _i1.Mock implements _i4.SubiquityClient {
           ),
         )),
       ) as _i5.Future<_i2.GuidedStorageResponseV2>);
+
   @override
   _i5.Future<_i2.StorageResponseV2> getOriginalStorageV2() =>
       (super.noSuchMethod(
@@ -567,6 +597,7 @@ class MockSubiquityClient extends _i1.Mock implements _i4.SubiquityClient {
           ),
         )),
       ) as _i5.Future<_i2.StorageResponseV2>);
+
   @override
   _i5.Future<_i2.StorageResponseV2> getStorageV2({bool? wait = true}) =>
       (super.noSuchMethod(
@@ -585,6 +616,7 @@ class MockSubiquityClient extends _i1.Mock implements _i4.SubiquityClient {
           ),
         )),
       ) as _i5.Future<_i2.StorageResponseV2>);
+
   @override
   _i5.Future<_i2.StorageResponseV2> setStorageV2() => (super.noSuchMethod(
         Invocation.method(
@@ -600,6 +632,7 @@ class MockSubiquityClient extends _i1.Mock implements _i4.SubiquityClient {
           ),
         )),
       ) as _i5.Future<_i2.StorageResponseV2>);
+
   @override
   _i5.Future<_i2.StorageResponseV2> resetStorageV2() => (super.noSuchMethod(
         Invocation.method(
@@ -615,6 +648,7 @@ class MockSubiquityClient extends _i1.Mock implements _i4.SubiquityClient {
           ),
         )),
       ) as _i5.Future<_i2.StorageResponseV2>);
+
   @override
   _i5.Future<_i2.StorageResponseV2> addPartitionV2(
     _i2.Disk? disk,
@@ -643,6 +677,7 @@ class MockSubiquityClient extends _i1.Mock implements _i4.SubiquityClient {
           ),
         )),
       ) as _i5.Future<_i2.StorageResponseV2>);
+
   @override
   _i5.Future<_i2.StorageResponseV2> editPartitionV2(
     _i2.Disk? disk,
@@ -668,6 +703,7 @@ class MockSubiquityClient extends _i1.Mock implements _i4.SubiquityClient {
           ),
         )),
       ) as _i5.Future<_i2.StorageResponseV2>);
+
   @override
   _i5.Future<_i2.StorageResponseV2> deletePartitionV2(
     _i2.Disk? disk,
@@ -693,6 +729,7 @@ class MockSubiquityClient extends _i1.Mock implements _i4.SubiquityClient {
           ),
         )),
       ) as _i5.Future<_i2.StorageResponseV2>);
+
   @override
   _i5.Future<_i2.StorageResponseV2> addBootPartitionV2(_i2.Disk? disk) =>
       (super.noSuchMethod(
@@ -709,6 +746,7 @@ class MockSubiquityClient extends _i1.Mock implements _i4.SubiquityClient {
           ),
         )),
       ) as _i5.Future<_i2.StorageResponseV2>);
+
   @override
   _i5.Future<_i2.StorageResponseV2> reformatDiskV2(_i2.Disk? disk) =>
       (super.noSuchMethod(
@@ -725,6 +763,7 @@ class MockSubiquityClient extends _i1.Mock implements _i4.SubiquityClient {
           ),
         )),
       ) as _i5.Future<_i2.StorageResponseV2>);
+
   @override
   _i5.Future<void> reboot({bool? immediate = false}) => (super.noSuchMethod(
         Invocation.method(
@@ -735,6 +774,7 @@ class MockSubiquityClient extends _i1.Mock implements _i4.SubiquityClient {
         returnValue: _i5.Future<void>.value(),
         returnValueForMissingStub: _i5.Future<void>.value(),
       ) as _i5.Future<void>);
+
   @override
   _i5.Future<void> shutdown({bool? immediate = false}) => (super.noSuchMethod(
         Invocation.method(
@@ -745,6 +785,7 @@ class MockSubiquityClient extends _i1.Mock implements _i4.SubiquityClient {
         returnValue: _i5.Future<void>.value(),
         returnValueForMissingStub: _i5.Future<void>.value(),
       ) as _i5.Future<void>);
+
   @override
   _i5.Future<_i2.WSLSetupOptions> wslSetupOptions() => (super.noSuchMethod(
         Invocation.method(
@@ -760,6 +801,7 @@ class MockSubiquityClient extends _i1.Mock implements _i4.SubiquityClient {
           ),
         )),
       ) as _i5.Future<_i2.WSLSetupOptions>);
+
   @override
   _i5.Future<void> setWslSetupOptions(_i2.WSLSetupOptions? options) =>
       (super.noSuchMethod(
@@ -770,6 +812,7 @@ class MockSubiquityClient extends _i1.Mock implements _i4.SubiquityClient {
         returnValue: _i5.Future<void>.value(),
         returnValueForMissingStub: _i5.Future<void>.value(),
       ) as _i5.Future<void>);
+
   @override
   _i5.Future<_i2.WSLConfigurationBase> wslConfigurationBase() =>
       (super.noSuchMethod(
@@ -786,6 +829,7 @@ class MockSubiquityClient extends _i1.Mock implements _i4.SubiquityClient {
           ),
         )),
       ) as _i5.Future<_i2.WSLConfigurationBase>);
+
   @override
   _i5.Future<void> setWslConfigurationBase(_i2.WSLConfigurationBase? conf) =>
       (super.noSuchMethod(
@@ -796,6 +840,7 @@ class MockSubiquityClient extends _i1.Mock implements _i4.SubiquityClient {
         returnValue: _i5.Future<void>.value(),
         returnValueForMissingStub: _i5.Future<void>.value(),
       ) as _i5.Future<void>);
+
   @override
   _i5.Future<_i2.WSLConfigurationAdvanced> wslConfigurationAdvanced() =>
       (super.noSuchMethod(
@@ -812,6 +857,7 @@ class MockSubiquityClient extends _i1.Mock implements _i4.SubiquityClient {
           ),
         )),
       ) as _i5.Future<_i2.WSLConfigurationAdvanced>);
+
   @override
   _i5.Future<void> setWslConfigurationAdvanced(
           _i2.WSLConfigurationAdvanced? conf) =>
@@ -823,6 +869,7 @@ class MockSubiquityClient extends _i1.Mock implements _i4.SubiquityClient {
         returnValue: _i5.Future<void>.value(),
         returnValueForMissingStub: _i5.Future<void>.value(),
       ) as _i5.Future<void>);
+
   @override
   _i5.Future<_i2.AnyStep> getKeyboardStep([String? step = r'0']) =>
       (super.noSuchMethod(
@@ -838,6 +885,7 @@ class MockSubiquityClient extends _i1.Mock implements _i4.SubiquityClient {
           ),
         )),
       ) as _i5.Future<_i2.AnyStep>);
+
   @override
   _i5.Future<_i2.DriversResponse> getDrivers() => (super.noSuchMethod(
         Invocation.method(
@@ -853,6 +901,7 @@ class MockSubiquityClient extends _i1.Mock implements _i4.SubiquityClient {
           ),
         )),
       ) as _i5.Future<_i2.DriversResponse>);
+
   @override
   _i5.Future<void> setDrivers({required bool? install}) => (super.noSuchMethod(
         Invocation.method(
@@ -863,6 +912,7 @@ class MockSubiquityClient extends _i1.Mock implements _i4.SubiquityClient {
         returnValue: _i5.Future<void>.value(),
         returnValueForMissingStub: _i5.Future<void>.value(),
       ) as _i5.Future<void>);
+
   @override
   _i5.Future<_i2.CodecsData> getCodecs() => (super.noSuchMethod(
         Invocation.method(
@@ -877,6 +927,7 @@ class MockSubiquityClient extends _i1.Mock implements _i4.SubiquityClient {
           ),
         )),
       ) as _i5.Future<_i2.CodecsData>);
+
   @override
   _i5.Future<void> setCodecs({required bool? install}) => (super.noSuchMethod(
         Invocation.method(
@@ -887,6 +938,7 @@ class MockSubiquityClient extends _i1.Mock implements _i4.SubiquityClient {
         returnValue: _i5.Future<void>.value(),
         returnValueForMissingStub: _i5.Future<void>.value(),
       ) as _i5.Future<void>);
+
   @override
   _i5.Future<_i2.RefreshStatus> checkRefresh({bool? wait = true}) =>
       (super.noSuchMethod(
@@ -904,6 +956,7 @@ class MockSubiquityClient extends _i1.Mock implements _i4.SubiquityClient {
           ),
         )),
       ) as _i5.Future<_i2.RefreshStatus>);
+
   @override
   _i5.Future<String> startRefresh() => (super.noSuchMethod(
         Invocation.method(
@@ -912,6 +965,7 @@ class MockSubiquityClient extends _i1.Mock implements _i4.SubiquityClient {
         ),
         returnValue: _i5.Future<String>.value(''),
       ) as _i5.Future<String>);
+
   @override
   _i5.Future<_i2.Change> getRefreshProgress(String? changeId) =>
       (super.noSuchMethod(
@@ -927,6 +981,7 @@ class MockSubiquityClient extends _i1.Mock implements _i4.SubiquityClient {
           ),
         )),
       ) as _i5.Future<_i2.Change>);
+
   @override
   _i5.Future<bool> hasActiveDirectorySupport() => (super.noSuchMethod(
         Invocation.method(
@@ -935,6 +990,7 @@ class MockSubiquityClient extends _i1.Mock implements _i4.SubiquityClient {
         ),
         returnValue: _i5.Future<bool>.value(false),
       ) as _i5.Future<bool>);
+
   @override
   _i5.Future<_i2.AdConnectionInfo> getActiveDirectory() => (super.noSuchMethod(
         Invocation.method(
@@ -950,6 +1006,7 @@ class MockSubiquityClient extends _i1.Mock implements _i4.SubiquityClient {
           ),
         )),
       ) as _i5.Future<_i2.AdConnectionInfo>);
+
   @override
   _i5.Future<void> setActiveDirectory(_i2.AdConnectionInfo? info) =>
       (super.noSuchMethod(
@@ -960,6 +1017,7 @@ class MockSubiquityClient extends _i1.Mock implements _i4.SubiquityClient {
         returnValue: _i5.Future<void>.value(),
         returnValueForMissingStub: _i5.Future<void>.value(),
       ) as _i5.Future<void>);
+
   @override
   _i5.Future<List<_i2.AdDomainNameValidation>> checkActiveDirectoryDomainName(
           String? domain) =>
@@ -971,6 +1029,7 @@ class MockSubiquityClient extends _i1.Mock implements _i4.SubiquityClient {
         returnValue: _i5.Future<List<_i2.AdDomainNameValidation>>.value(
             <_i2.AdDomainNameValidation>[]),
       ) as _i5.Future<List<_i2.AdDomainNameValidation>>);
+
   @override
   _i5.Future<_i2.AdDomainNameValidation> pingActiveDirectoryDomainController(
           String? domain) =>
@@ -982,6 +1041,7 @@ class MockSubiquityClient extends _i1.Mock implements _i4.SubiquityClient {
         returnValue: _i5.Future<_i2.AdDomainNameValidation>.value(
             _i2.AdDomainNameValidation.OK),
       ) as _i5.Future<_i2.AdDomainNameValidation>);
+
   @override
   _i5.Future<_i2.AdAdminNameValidation> checkActiveDirectoryAdminName(
           String? admin) =>
@@ -993,6 +1053,7 @@ class MockSubiquityClient extends _i1.Mock implements _i4.SubiquityClient {
         returnValue: _i5.Future<_i2.AdAdminNameValidation>.value(
             _i2.AdAdminNameValidation.OK),
       ) as _i5.Future<_i2.AdAdminNameValidation>);
+
   @override
   _i5.Future<_i2.AdPasswordValidation> checkActiveDirectoryPassword(
           String? password) =>
@@ -1004,6 +1065,7 @@ class MockSubiquityClient extends _i1.Mock implements _i4.SubiquityClient {
         returnValue: _i5.Future<_i2.AdPasswordValidation>.value(
             _i2.AdPasswordValidation.OK),
       ) as _i5.Future<_i2.AdPasswordValidation>);
+
   @override
   _i5.Future<_i2.AdJoinResult> getActiveDirectoryJoinResult(
           {bool? wait = true}) =>
@@ -1033,6 +1095,7 @@ class MockSubiquityServer extends _i1.Mock implements _i6.SubiquityServer {
         ),
         returnValueForMissingStub: null,
       );
+
   @override
   _i3.Endpoint get endpoint => (super.noSuchMethod(
         Invocation.getter(#endpoint),
@@ -1041,6 +1104,7 @@ class MockSubiquityServer extends _i1.Mock implements _i6.SubiquityServer {
           Invocation.getter(#endpoint),
         ),
       ) as _i3.Endpoint);
+
   @override
   _i5.Future<_i3.Endpoint> start({
     List<String>? args,
@@ -1067,6 +1131,7 @@ class MockSubiquityServer extends _i1.Mock implements _i6.SubiquityServer {
           ),
         )),
       ) as _i5.Future<_i3.Endpoint>);
+
   @override
   _i5.Future<void> stop() => (super.noSuchMethod(
         Invocation.method(
@@ -1092,6 +1157,7 @@ class MockSubiquityStatusMonitor extends _i1.Mock
         Invocation.getter(#onStatusChanged),
         returnValue: _i5.Stream<_i2.ApplicationStatus?>.empty(),
       ) as _i5.Stream<_i2.ApplicationStatus?>);
+
   @override
   _i5.Future<bool> start(_i3.Endpoint? endpoint) => (super.noSuchMethod(
         Invocation.method(
@@ -1100,6 +1166,7 @@ class MockSubiquityStatusMonitor extends _i1.Mock
         ),
         returnValue: _i5.Future<bool>.value(false),
       ) as _i5.Future<bool>);
+
   @override
   _i5.Future<void> stop() => (super.noSuchMethod(
         Invocation.method(
