@@ -6,8 +6,8 @@ part of 'types.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_ErrorReportRef _$$_ErrorReportRefFromJson(Map<String, dynamic> json) =>
-    _$_ErrorReportRef(
+_$ErrorReportRefImpl _$$ErrorReportRefImplFromJson(Map<String, dynamic> json) =>
+    _$ErrorReportRefImpl(
       state: $enumDecode(_$ErrorReportStateEnumMap, json['state']),
       base: json['base'] as String,
       kind: $enumDecode(_$ErrorReportKindEnumMap, json['kind']),
@@ -15,7 +15,8 @@ _$_ErrorReportRef _$$_ErrorReportRefFromJson(Map<String, dynamic> json) =>
       oopsId: json['oops_id'] as String?,
     );
 
-Map<String, dynamic> _$$_ErrorReportRefToJson(_$_ErrorReportRef instance) =>
+Map<String, dynamic> _$$ErrorReportRefImplToJson(
+        _$ErrorReportRefImpl instance) =>
     <String, dynamic>{
       'state': _$ErrorReportStateEnumMap[instance.state]!,
       'base': instance.base,
@@ -43,8 +44,9 @@ const _$ErrorReportKindEnumMap = {
   ErrorReportKind.UNKNOWN: 'UNKNOWN',
 };
 
-_$_ApplicationStatus _$$_ApplicationStatusFromJson(Map<String, dynamic> json) =>
-    _$_ApplicationStatus(
+_$ApplicationStatusImpl _$$ApplicationStatusImplFromJson(
+        Map<String, dynamic> json) =>
+    _$ApplicationStatusImpl(
       state: $enumDecode(_$ApplicationStateEnumMap, json['state']),
       confirmingTty: json['confirming_tty'] as String,
       error: json['error'] == null
@@ -57,8 +59,8 @@ _$_ApplicationStatus _$$_ApplicationStatusFromJson(Map<String, dynamic> json) =>
       eventSyslogId: json['event_syslog_id'] as String,
     );
 
-Map<String, dynamic> _$$_ApplicationStatusToJson(
-        _$_ApplicationStatus instance) =>
+Map<String, dynamic> _$$ApplicationStatusImplToJson(
+        _$ApplicationStatusImpl instance) =>
     <String, dynamic>{
       'state': _$ApplicationStateEnumMap[instance.state]!,
       'confirming_tty': instance.confirmingTty,
@@ -84,21 +86,22 @@ const _$ApplicationStateEnumMap = {
   ApplicationState.EXITED: 'EXITED',
 };
 
-_$_KeyFingerprint _$$_KeyFingerprintFromJson(Map<String, dynamic> json) =>
-    _$_KeyFingerprint(
+_$KeyFingerprintImpl _$$KeyFingerprintImplFromJson(Map<String, dynamic> json) =>
+    _$KeyFingerprintImpl(
       keytype: json['keytype'] as String,
       fingerprint: json['fingerprint'] as String,
     );
 
-Map<String, dynamic> _$$_KeyFingerprintToJson(_$_KeyFingerprint instance) =>
+Map<String, dynamic> _$$KeyFingerprintImplToJson(
+        _$KeyFingerprintImpl instance) =>
     <String, dynamic>{
       'keytype': instance.keytype,
       'fingerprint': instance.fingerprint,
     };
 
-_$_LiveSessionSSHInfo _$$_LiveSessionSSHInfoFromJson(
+_$LiveSessionSSHInfoImpl _$$LiveSessionSSHInfoImplFromJson(
         Map<String, dynamic> json) =>
-    _$_LiveSessionSSHInfo(
+    _$LiveSessionSSHInfoImpl(
       username: json['username'] as String,
       passwordKind: $enumDecode(_$PasswordKindEnumMap, json['password_kind']),
       password: json['password'] as String?,
@@ -112,8 +115,8 @@ _$_LiveSessionSSHInfo _$$_LiveSessionSSHInfoFromJson(
           .toList(),
     );
 
-Map<String, dynamic> _$$_LiveSessionSSHInfoToJson(
-        _$_LiveSessionSSHInfo instance) =>
+Map<String, dynamic> _$$LiveSessionSSHInfoImplToJson(
+        _$LiveSessionSSHInfoImpl instance) =>
     <String, dynamic>{
       'username': instance.username,
       'password_kind': _$PasswordKindEnumMap[instance.passwordKind]!,
@@ -131,15 +134,15 @@ const _$PasswordKindEnumMap = {
   PasswordKind.UNKNOWN: 'UNKNOWN',
 };
 
-_$_RefreshStatus _$$_RefreshStatusFromJson(Map<String, dynamic> json) =>
-    _$_RefreshStatus(
+_$RefreshStatusImpl _$$RefreshStatusImplFromJson(Map<String, dynamic> json) =>
+    _$RefreshStatusImpl(
       availability:
           $enumDecode(_$RefreshCheckStateEnumMap, json['availability']),
       currentSnapVersion: json['current_snap_version'] as String? ?? '',
       newSnapVersion: json['new_snap_version'] as String? ?? '',
     );
 
-Map<String, dynamic> _$$_RefreshStatusToJson(_$_RefreshStatus instance) =>
+Map<String, dynamic> _$$RefreshStatusImplToJson(_$RefreshStatusImpl instance) =>
     <String, dynamic>{
       'availability': _$RefreshCheckStateEnumMap[instance.availability]!,
       'current_snap_version': instance.currentSnapVersion,
@@ -152,30 +155,31 @@ const _$RefreshCheckStateEnumMap = {
   RefreshCheckState.UNAVAILABLE: 'UNAVAILABLE',
 };
 
-_$StepPressKey _$$StepPressKeyFromJson(Map<String, dynamic> json) =>
-    _$StepPressKey(
+_$StepPressKeyImpl _$$StepPressKeyImplFromJson(Map<String, dynamic> json) =>
+    _$StepPressKeyImpl(
       symbols:
           (json['symbols'] as List<dynamic>).map((e) => e as String).toList(),
       keycodes: const JsonMapConverter().fromJson(json['keycodes'] as List),
       $type: json[r'$type'] as String?,
     );
 
-Map<String, dynamic> _$$StepPressKeyToJson(_$StepPressKey instance) =>
+Map<String, dynamic> _$$StepPressKeyImplToJson(_$StepPressKeyImpl instance) =>
     <String, dynamic>{
       'symbols': instance.symbols,
       'keycodes': const JsonMapConverter().toJson(instance.keycodes),
       r'$type': instance.$type,
     };
 
-_$StepKeyPresent _$$StepKeyPresentFromJson(Map<String, dynamic> json) =>
-    _$StepKeyPresent(
+_$StepKeyPresentImpl _$$StepKeyPresentImplFromJson(Map<String, dynamic> json) =>
+    _$StepKeyPresentImpl(
       symbol: json['symbol'] as String,
       yes: json['yes'] as String,
       no: json['no'] as String,
       $type: json[r'$type'] as String?,
     );
 
-Map<String, dynamic> _$$StepKeyPresentToJson(_$StepKeyPresent instance) =>
+Map<String, dynamic> _$$StepKeyPresentImplToJson(
+        _$StepKeyPresentImpl instance) =>
     <String, dynamic>{
       'symbol': instance.symbol,
       'yes': instance.yes,
@@ -183,47 +187,52 @@ Map<String, dynamic> _$$StepKeyPresentToJson(_$StepKeyPresent instance) =>
       r'$type': instance.$type,
     };
 
-_$StepResult _$$StepResultFromJson(Map<String, dynamic> json) => _$StepResult(
+_$StepResultImpl _$$StepResultImplFromJson(Map<String, dynamic> json) =>
+    _$StepResultImpl(
       layout: json['layout'] as String,
       variant: json['variant'] as String,
       $type: json[r'$type'] as String?,
     );
 
-Map<String, dynamic> _$$StepResultToJson(_$StepResult instance) =>
+Map<String, dynamic> _$$StepResultImplToJson(_$StepResultImpl instance) =>
     <String, dynamic>{
       'layout': instance.layout,
       'variant': instance.variant,
       r'$type': instance.$type,
     };
 
-_$_KeyboardSetting _$$_KeyboardSettingFromJson(Map<String, dynamic> json) =>
-    _$_KeyboardSetting(
+_$KeyboardSettingImpl _$$KeyboardSettingImplFromJson(
+        Map<String, dynamic> json) =>
+    _$KeyboardSettingImpl(
       layout: json['layout'] as String,
       variant: json['variant'] as String? ?? '',
       toggle: json['toggle'] as String?,
     );
 
-Map<String, dynamic> _$$_KeyboardSettingToJson(_$_KeyboardSetting instance) =>
+Map<String, dynamic> _$$KeyboardSettingImplToJson(
+        _$KeyboardSettingImpl instance) =>
     <String, dynamic>{
       'layout': instance.layout,
       'variant': instance.variant,
       'toggle': instance.toggle,
     };
 
-_$_KeyboardVariant _$$_KeyboardVariantFromJson(Map<String, dynamic> json) =>
-    _$_KeyboardVariant(
+_$KeyboardVariantImpl _$$KeyboardVariantImplFromJson(
+        Map<String, dynamic> json) =>
+    _$KeyboardVariantImpl(
       code: json['code'] as String,
       name: json['name'] as String,
     );
 
-Map<String, dynamic> _$$_KeyboardVariantToJson(_$_KeyboardVariant instance) =>
+Map<String, dynamic> _$$KeyboardVariantImplToJson(
+        _$KeyboardVariantImpl instance) =>
     <String, dynamic>{
       'code': instance.code,
       'name': instance.name,
     };
 
-_$_KeyboardLayout _$$_KeyboardLayoutFromJson(Map<String, dynamic> json) =>
-    _$_KeyboardLayout(
+_$KeyboardLayoutImpl _$$KeyboardLayoutImplFromJson(Map<String, dynamic> json) =>
+    _$KeyboardLayoutImpl(
       code: json['code'] as String,
       name: json['name'] as String,
       variants: (json['variants'] as List<dynamic>)
@@ -231,15 +240,16 @@ _$_KeyboardLayout _$$_KeyboardLayoutFromJson(Map<String, dynamic> json) =>
           .toList(),
     );
 
-Map<String, dynamic> _$$_KeyboardLayoutToJson(_$_KeyboardLayout instance) =>
+Map<String, dynamic> _$$KeyboardLayoutImplToJson(
+        _$KeyboardLayoutImpl instance) =>
     <String, dynamic>{
       'code': instance.code,
       'name': instance.name,
       'variants': instance.variants.map((e) => e.toJson()).toList(),
     };
 
-_$_KeyboardSetup _$$_KeyboardSetupFromJson(Map<String, dynamic> json) =>
-    _$_KeyboardSetup(
+_$KeyboardSetupImpl _$$KeyboardSetupImplFromJson(Map<String, dynamic> json) =>
+    _$KeyboardSetupImpl(
       setting:
           KeyboardSetting.fromJson(json['setting'] as Map<String, dynamic>),
       layouts: (json['layouts'] as List<dynamic>)
@@ -247,14 +257,15 @@ _$_KeyboardSetup _$$_KeyboardSetupFromJson(Map<String, dynamic> json) =>
           .toList(),
     );
 
-Map<String, dynamic> _$$_KeyboardSetupToJson(_$_KeyboardSetup instance) =>
+Map<String, dynamic> _$$KeyboardSetupImplToJson(_$KeyboardSetupImpl instance) =>
     <String, dynamic>{
       'setting': instance.setting.toJson(),
       'layouts': instance.layouts.map((e) => e.toJson()).toList(),
     };
 
-_$_SourceSelection _$$_SourceSelectionFromJson(Map<String, dynamic> json) =>
-    _$_SourceSelection(
+_$SourceSelectionImpl _$$SourceSelectionImplFromJson(
+        Map<String, dynamic> json) =>
+    _$SourceSelectionImpl(
       name: json['name'] as String,
       description: json['description'] as String,
       id: json['id'] as String,
@@ -263,7 +274,8 @@ _$_SourceSelection _$$_SourceSelectionFromJson(Map<String, dynamic> json) =>
       isDefault: json['default'] as bool,
     );
 
-Map<String, dynamic> _$$_SourceSelectionToJson(_$_SourceSelection instance) =>
+Map<String, dynamic> _$$SourceSelectionImplToJson(
+        _$SourceSelectionImpl instance) =>
     <String, dynamic>{
       'name': instance.name,
       'description': instance.description,
@@ -273,9 +285,9 @@ Map<String, dynamic> _$$_SourceSelectionToJson(_$_SourceSelection instance) =>
       'default': instance.isDefault,
     };
 
-_$_SourceSelectionAndSetting _$$_SourceSelectionAndSettingFromJson(
+_$SourceSelectionAndSettingImpl _$$SourceSelectionAndSettingImplFromJson(
         Map<String, dynamic> json) =>
-    _$_SourceSelectionAndSetting(
+    _$SourceSelectionAndSettingImpl(
       sources: (json['sources'] as List<dynamic>)
           .map((e) => SourceSelection.fromJson(e as Map<String, dynamic>))
           .toList(),
@@ -283,15 +295,16 @@ _$_SourceSelectionAndSetting _$$_SourceSelectionAndSettingFromJson(
       searchDrivers: json['search_drivers'] as bool,
     );
 
-Map<String, dynamic> _$$_SourceSelectionAndSettingToJson(
-        _$_SourceSelectionAndSetting instance) =>
+Map<String, dynamic> _$$SourceSelectionAndSettingImplToJson(
+        _$SourceSelectionAndSettingImpl instance) =>
     <String, dynamic>{
       'sources': instance.sources.map((e) => e.toJson()).toList(),
       'current_id': instance.currentId,
       'search_drivers': instance.searchDrivers,
     };
 
-_$_ZdevInfo _$$_ZdevInfoFromJson(Map<String, dynamic> json) => _$_ZdevInfo(
+_$ZdevInfoImpl _$$ZdevInfoImplFromJson(Map<String, dynamic> json) =>
+    _$ZdevInfoImpl(
       id: json['id'] as String,
       type: json['type'] as String,
       on: json['on'] as bool,
@@ -302,7 +315,7 @@ _$_ZdevInfo _$$_ZdevInfoFromJson(Map<String, dynamic> json) => _$_ZdevInfo(
       names: json['names'] as String,
     );
 
-Map<String, dynamic> _$$_ZdevInfoToJson(_$_ZdevInfo instance) =>
+Map<String, dynamic> _$$ZdevInfoImplToJson(_$ZdevInfoImpl instance) =>
     <String, dynamic>{
       'id': instance.id,
       'type': instance.type,
@@ -314,8 +327,8 @@ Map<String, dynamic> _$$_ZdevInfoToJson(_$_ZdevInfo instance) =>
       'names': instance.names,
     };
 
-_$_NetworkStatus _$$_NetworkStatusFromJson(Map<String, dynamic> json) =>
-    _$_NetworkStatus(
+_$NetworkStatusImpl _$$NetworkStatusImplFromJson(Map<String, dynamic> json) =>
+    _$NetworkStatusImpl(
       devices: (json['devices'] as List<dynamic>)
           .map((e) => NetDevInfo.fromJson(e as Map<String, dynamic>))
           .toList(),
@@ -323,7 +336,7 @@ _$_NetworkStatus _$$_NetworkStatusFromJson(Map<String, dynamic> json) =>
           _$PackageInstallStateEnumMap, json['wlan_support_install_state']),
     );
 
-Map<String, dynamic> _$$_NetworkStatusToJson(_$_NetworkStatus instance) =>
+Map<String, dynamic> _$$NetworkStatusImplToJson(_$NetworkStatusImpl instance) =>
     <String, dynamic>{
       'devices': instance.devices.map((e) => e.toJson()).toList(),
       'wlan_support_install_state':
@@ -338,7 +351,8 @@ const _$PackageInstallStateEnumMap = {
   PackageInstallState.DONE: 'DONE',
 };
 
-_$_OsProber _$$_OsProberFromJson(Map<String, dynamic> json) => _$_OsProber(
+_$OsProberImpl _$$OsProberImplFromJson(Map<String, dynamic> json) =>
+    _$OsProberImpl(
       long: json['long'] as String,
       label: json['label'] as String,
       type: json['type'] as String,
@@ -346,7 +360,7 @@ _$_OsProber _$$_OsProberFromJson(Map<String, dynamic> json) => _$_OsProber(
       version: json['version'] as String?,
     );
 
-Map<String, dynamic> _$$_OsProberToJson(_$_OsProber instance) =>
+Map<String, dynamic> _$$OsProberImplToJson(_$OsProberImpl instance) =>
     <String, dynamic>{
       'long': instance.long,
       'label': instance.label,
@@ -355,7 +369,8 @@ Map<String, dynamic> _$$_OsProberToJson(_$_OsProber instance) =>
       'version': instance.version,
     };
 
-_$Partition _$$PartitionFromJson(Map<String, dynamic> json) => _$Partition(
+_$PartitionImpl _$$PartitionImplFromJson(Map<String, dynamic> json) =>
+    _$PartitionImpl(
       size: json['size'] as int?,
       number: json['number'] as int?,
       preserve: json['preserve'] as bool?,
@@ -379,7 +394,7 @@ _$Partition _$$PartitionFromJson(Map<String, dynamic> json) => _$Partition(
       $type: json[r'$type'] as String?,
     );
 
-Map<String, dynamic> _$$PartitionToJson(_$Partition instance) =>
+Map<String, dynamic> _$$PartitionImplToJson(_$PartitionImpl instance) =>
     <String, dynamic>{
       'size': instance.size,
       'number': instance.number,
@@ -399,14 +414,14 @@ Map<String, dynamic> _$$PartitionToJson(_$Partition instance) =>
       r'$type': instance.$type,
     };
 
-_$Gap _$$GapFromJson(Map<String, dynamic> json) => _$Gap(
+_$GapImpl _$$GapImplFromJson(Map<String, dynamic> json) => _$GapImpl(
       offset: json['offset'] as int,
       size: json['size'] as int,
       usable: $enumDecode(_$GapUsableEnumMap, json['usable']),
       $type: json[r'$type'] as String?,
     );
 
-Map<String, dynamic> _$$GapToJson(_$Gap instance) => <String, dynamic>{
+Map<String, dynamic> _$$GapImplToJson(_$GapImpl instance) => <String, dynamic>{
       'offset': instance.offset,
       'size': instance.size,
       'usable': _$GapUsableEnumMap[instance.usable]!,
@@ -418,17 +433,17 @@ const _$GapUsableEnumMap = {
   GapUsable.TOO_MANY_PRIMARY_PARTS: 'TOO_MANY_PRIMARY_PARTS',
 };
 
-_$_ZFS _$$_ZFSFromJson(Map<String, dynamic> json) => _$_ZFS(
+_$ZFSImpl _$$ZFSImplFromJson(Map<String, dynamic> json) => _$ZFSImpl(
       volume: json['volume'] as String,
       properties: json['properties'] as Map<String, dynamic>?,
     );
 
-Map<String, dynamic> _$$_ZFSToJson(_$_ZFS instance) => <String, dynamic>{
+Map<String, dynamic> _$$ZFSImplToJson(_$ZFSImpl instance) => <String, dynamic>{
       'volume': instance.volume,
       'properties': instance.properties,
     };
 
-_$_ZPool _$$_ZPoolFromJson(Map<String, dynamic> json) => _$_ZPool(
+_$ZPoolImpl _$$ZPoolImplFromJson(Map<String, dynamic> json) => _$ZPoolImpl(
       pool: json['pool'] as String,
       mountpoint: json['mountpoint'] as String,
       zfses: json['zfses'] == null
@@ -439,7 +454,8 @@ _$_ZPool _$$_ZPoolFromJson(Map<String, dynamic> json) => _$_ZPool(
       defaultFeatures: json['default_features'] as bool? ?? true,
     );
 
-Map<String, dynamic> _$$_ZPoolToJson(_$_ZPool instance) => <String, dynamic>{
+Map<String, dynamic> _$$ZPoolImplToJson(_$ZPoolImpl instance) =>
+    <String, dynamic>{
       'pool': instance.pool,
       'mountpoint': instance.mountpoint,
       'zfses': instance.zfses?.toJson(),
@@ -448,7 +464,7 @@ Map<String, dynamic> _$$_ZPoolToJson(_$_ZPool instance) => <String, dynamic>{
       'default_features': instance.defaultFeatures,
     };
 
-_$_Disk _$$_DiskFromJson(Map<String, dynamic> json) => _$_Disk(
+_$DiskImpl _$$DiskImplFromJson(Map<String, dynamic> json) => _$DiskImpl(
       id: json['id'] as String,
       label: json['label'] as String,
       type: json['type'] as String,
@@ -470,7 +486,8 @@ _$_Disk _$$_DiskFromJson(Map<String, dynamic> json) => _$_Disk(
       hasInUsePartition: json['has_in_use_partition'] as bool? ?? false,
     );
 
-Map<String, dynamic> _$$_DiskToJson(_$_Disk instance) => <String, dynamic>{
+Map<String, dynamic> _$$DiskImplToJson(_$DiskImpl instance) =>
+    <String, dynamic>{
       'id': instance.id,
       'label': instance.label,
       'type': instance.type,
@@ -488,17 +505,17 @@ Map<String, dynamic> _$$_DiskToJson(_$_Disk instance) => <String, dynamic>{
       'has_in_use_partition': instance.hasInUsePartition,
     };
 
-_$_GuidedDisallowedCapability _$$_GuidedDisallowedCapabilityFromJson(
+_$GuidedDisallowedCapabilityImpl _$$GuidedDisallowedCapabilityImplFromJson(
         Map<String, dynamic> json) =>
-    _$_GuidedDisallowedCapability(
+    _$GuidedDisallowedCapabilityImpl(
       capability: $enumDecode(_$GuidedCapabilityEnumMap, json['capability']),
       reason: $enumDecode(
           _$GuidedDisallowedCapabilityReasonEnumMap, json['reason']),
       message: json['message'] as String?,
     );
 
-Map<String, dynamic> _$$_GuidedDisallowedCapabilityToJson(
-        _$_GuidedDisallowedCapability instance) =>
+Map<String, dynamic> _$$GuidedDisallowedCapabilityImplToJson(
+        _$GuidedDisallowedCapabilityImpl instance) =>
     <String, dynamic>{
       'capability': _$GuidedCapabilityEnumMap[instance.capability]!,
       'reason': _$GuidedDisallowedCapabilityReasonEnumMap[instance.reason]!,
@@ -526,8 +543,9 @@ const _$GuidedDisallowedCapabilityReasonEnumMap = {
   GuidedDisallowedCapabilityReason.THIRD_PARTY_DRIVERS: 'THIRD_PARTY_DRIVERS',
 };
 
-_$_StorageResponse _$$_StorageResponseFromJson(Map<String, dynamic> json) =>
-    _$_StorageResponse(
+_$StorageResponseImpl _$$StorageResponseImplFromJson(
+        Map<String, dynamic> json) =>
+    _$StorageResponseImpl(
       status: $enumDecode(_$ProbeStatusEnumMap, json['status']),
       errorReport: json['error_report'] == null
           ? null
@@ -540,7 +558,8 @@ _$_StorageResponse _$$_StorageResponseFromJson(Map<String, dynamic> json) =>
       storageVersion: json['storage_version'] as int? ?? 1,
     );
 
-Map<String, dynamic> _$$_StorageResponseToJson(_$_StorageResponse instance) =>
+Map<String, dynamic> _$$StorageResponseImplToJson(
+        _$StorageResponseImpl instance) =>
     <String, dynamic>{
       'status': _$ProbeStatusEnumMap[instance.status]!,
       'error_report': instance.errorReport?.toJson(),
@@ -564,8 +583,9 @@ const _$BootloaderEnumMap = {
   Bootloader.PREP: 'PREP',
 };
 
-_$_StorageResponseV2 _$$_StorageResponseV2FromJson(Map<String, dynamic> json) =>
-    _$_StorageResponseV2(
+_$StorageResponseV2Impl _$$StorageResponseV2ImplFromJson(
+        Map<String, dynamic> json) =>
+    _$StorageResponseV2Impl(
       status: $enumDecode(_$ProbeStatusEnumMap, json['status']),
       errorReport: json['error_report'] == null
           ? null
@@ -580,8 +600,8 @@ _$_StorageResponseV2 _$$_StorageResponseV2FromJson(Map<String, dynamic> json) =>
       installMinimumSize: json['install_minimum_size'] as int?,
     );
 
-Map<String, dynamic> _$$_StorageResponseV2ToJson(
-        _$_StorageResponseV2 instance) =>
+Map<String, dynamic> _$$StorageResponseV2ImplToJson(
+        _$StorageResponseV2Impl instance) =>
     <String, dynamic>{
       'status': _$ProbeStatusEnumMap[instance.status]!,
       'error_report': instance.errorReport?.toJson(),
@@ -591,17 +611,17 @@ Map<String, dynamic> _$$_StorageResponseV2ToJson(
       'install_minimum_size': instance.installMinimumSize,
     };
 
-_$_GuidedResizeValues _$$_GuidedResizeValuesFromJson(
+_$GuidedResizeValuesImpl _$$GuidedResizeValuesImplFromJson(
         Map<String, dynamic> json) =>
-    _$_GuidedResizeValues(
+    _$GuidedResizeValuesImpl(
       installMax: json['install_max'] as int,
       minimum: json['minimum'] as int,
       recommended: json['recommended'] as int,
       maximum: json['maximum'] as int,
     );
 
-Map<String, dynamic> _$$_GuidedResizeValuesToJson(
-        _$_GuidedResizeValues instance) =>
+Map<String, dynamic> _$$GuidedResizeValuesImplToJson(
+        _$GuidedResizeValuesImpl instance) =>
     <String, dynamic>{
       'install_max': instance.installMax,
       'minimum': instance.minimum,
@@ -609,9 +629,9 @@ Map<String, dynamic> _$$_GuidedResizeValuesToJson(
       'maximum': instance.maximum,
     };
 
-_$GuidedStorageTargetReformat _$$GuidedStorageTargetReformatFromJson(
+_$GuidedStorageTargetReformatImpl _$$GuidedStorageTargetReformatImplFromJson(
         Map<String, dynamic> json) =>
-    _$GuidedStorageTargetReformat(
+    _$GuidedStorageTargetReformatImpl(
       diskId: json['disk_id'] as String,
       allowed: (json['allowed'] as List<dynamic>?)
               ?.map((e) => $enumDecode(_$GuidedCapabilityEnumMap, e))
@@ -625,8 +645,8 @@ _$GuidedStorageTargetReformat _$$GuidedStorageTargetReformatFromJson(
       $type: json[r'$type'] as String?,
     );
 
-Map<String, dynamic> _$$GuidedStorageTargetReformatToJson(
-        _$GuidedStorageTargetReformat instance) =>
+Map<String, dynamic> _$$GuidedStorageTargetReformatImplToJson(
+        _$GuidedStorageTargetReformatImpl instance) =>
     <String, dynamic>{
       'disk_id': instance.diskId,
       'allowed':
@@ -635,9 +655,9 @@ Map<String, dynamic> _$$GuidedStorageTargetReformatToJson(
       r'$type': instance.$type,
     };
 
-_$GuidedStorageTargetResize _$$GuidedStorageTargetResizeFromJson(
+_$GuidedStorageTargetResizeImpl _$$GuidedStorageTargetResizeImplFromJson(
         Map<String, dynamic> json) =>
-    _$GuidedStorageTargetResize(
+    _$GuidedStorageTargetResizeImpl(
       diskId: json['disk_id'] as String,
       partitionNumber: json['partition_number'] as int,
       newSize: json['new_size'] as int,
@@ -656,8 +676,8 @@ _$GuidedStorageTargetResize _$$GuidedStorageTargetResizeFromJson(
       $type: json[r'$type'] as String?,
     );
 
-Map<String, dynamic> _$$GuidedStorageTargetResizeToJson(
-        _$GuidedStorageTargetResize instance) =>
+Map<String, dynamic> _$$GuidedStorageTargetResizeImplToJson(
+        _$GuidedStorageTargetResizeImpl instance) =>
     <String, dynamic>{
       'disk_id': instance.diskId,
       'partition_number': instance.partitionNumber,
@@ -671,9 +691,9 @@ Map<String, dynamic> _$$GuidedStorageTargetResizeToJson(
       r'$type': instance.$type,
     };
 
-_$GuidedStorageTargetUseGap _$$GuidedStorageTargetUseGapFromJson(
+_$GuidedStorageTargetUseGapImpl _$$GuidedStorageTargetUseGapImplFromJson(
         Map<String, dynamic> json) =>
-    _$GuidedStorageTargetUseGap(
+    _$GuidedStorageTargetUseGapImpl(
       diskId: json['disk_id'] as String,
       gap: Gap.fromJson(json['gap'] as Map<String, dynamic>),
       allowed: (json['allowed'] as List<dynamic>?)
@@ -688,8 +708,8 @@ _$GuidedStorageTargetUseGap _$$GuidedStorageTargetUseGapFromJson(
       $type: json[r'$type'] as String?,
     );
 
-Map<String, dynamic> _$$GuidedStorageTargetUseGapToJson(
-        _$GuidedStorageTargetUseGap instance) =>
+Map<String, dynamic> _$$GuidedStorageTargetUseGapImplToJson(
+        _$GuidedStorageTargetUseGapImpl instance) =>
     <String, dynamic>{
       'disk_id': instance.diskId,
       'gap': instance.gap.toJson(),
@@ -699,9 +719,9 @@ Map<String, dynamic> _$$GuidedStorageTargetUseGapToJson(
       r'$type': instance.$type,
     };
 
-_$GuidedStorageTargetManual _$$GuidedStorageTargetManualFromJson(
+_$GuidedStorageTargetManualImpl _$$GuidedStorageTargetManualImplFromJson(
         Map<String, dynamic> json) =>
-    _$GuidedStorageTargetManual(
+    _$GuidedStorageTargetManualImpl(
       allowed: (json['allowed'] as List<dynamic>)
           .map((e) => $enumDecode(_$GuidedCapabilityEnumMap, e))
           .toList(),
@@ -713,8 +733,8 @@ _$GuidedStorageTargetManual _$$GuidedStorageTargetManualFromJson(
       $type: json[r'$type'] as String?,
     );
 
-Map<String, dynamic> _$$GuidedStorageTargetManualToJson(
-        _$GuidedStorageTargetManual instance) =>
+Map<String, dynamic> _$$GuidedStorageTargetManualImplToJson(
+        _$GuidedStorageTargetManualImpl instance) =>
     <String, dynamic>{
       'allowed':
           instance.allowed.map((e) => _$GuidedCapabilityEnumMap[e]!).toList(),
@@ -722,20 +742,20 @@ Map<String, dynamic> _$$GuidedStorageTargetManualToJson(
       r'$type': instance.$type,
     };
 
-_$_RecoveryKey _$$_RecoveryKeyFromJson(Map<String, dynamic> json) =>
-    _$_RecoveryKey(
+_$RecoveryKeyImpl _$$RecoveryKeyImplFromJson(Map<String, dynamic> json) =>
+    _$RecoveryKeyImpl(
       liveLocation: json['live_location'] as String?,
       backupLocation: json['backup_location'] as String?,
     );
 
-Map<String, dynamic> _$$_RecoveryKeyToJson(_$_RecoveryKey instance) =>
+Map<String, dynamic> _$$RecoveryKeyImplToJson(_$RecoveryKeyImpl instance) =>
     <String, dynamic>{
       'live_location': instance.liveLocation,
       'backup_location': instance.backupLocation,
     };
 
-_$_GuidedChoiceV2 _$$_GuidedChoiceV2FromJson(Map<String, dynamic> json) =>
-    _$_GuidedChoiceV2(
+_$GuidedChoiceV2Impl _$$GuidedChoiceV2ImplFromJson(Map<String, dynamic> json) =>
+    _$GuidedChoiceV2Impl(
       target:
           GuidedStorageTarget.fromJson(json['target'] as Map<String, dynamic>),
       capability: $enumDecode(_$GuidedCapabilityEnumMap, json['capability']),
@@ -748,7 +768,8 @@ _$_GuidedChoiceV2 _$$_GuidedChoiceV2FromJson(Map<String, dynamic> json) =>
       resetPartition: json['reset_partition'] as bool? ?? false,
     );
 
-Map<String, dynamic> _$$_GuidedChoiceV2ToJson(_$_GuidedChoiceV2 instance) =>
+Map<String, dynamic> _$$GuidedChoiceV2ImplToJson(
+        _$GuidedChoiceV2Impl instance) =>
     <String, dynamic>{
       'target': instance.target.toJson(),
       'capability': _$GuidedCapabilityEnumMap[instance.capability]!,
@@ -763,9 +784,9 @@ const _$SizingPolicyEnumMap = {
   SizingPolicy.ALL: 'ALL',
 };
 
-_$_GuidedStorageResponseV2 _$$_GuidedStorageResponseV2FromJson(
+_$GuidedStorageResponseV2Impl _$$GuidedStorageResponseV2ImplFromJson(
         Map<String, dynamic> json) =>
-    _$_GuidedStorageResponseV2(
+    _$GuidedStorageResponseV2Impl(
       status: $enumDecode(_$ProbeStatusEnumMap, json['status']),
       errorReport: json['error_report'] == null
           ? null
@@ -781,8 +802,8 @@ _$_GuidedStorageResponseV2 _$$_GuidedStorageResponseV2FromJson(
           const [],
     );
 
-Map<String, dynamic> _$$_GuidedStorageResponseV2ToJson(
-        _$_GuidedStorageResponseV2 instance) =>
+Map<String, dynamic> _$$GuidedStorageResponseV2ImplToJson(
+        _$GuidedStorageResponseV2Impl instance) =>
     <String, dynamic>{
       'status': _$ProbeStatusEnumMap[instance.status]!,
       'error_report': instance.errorReport?.toJson(),
@@ -790,54 +811,56 @@ Map<String, dynamic> _$$_GuidedStorageResponseV2ToJson(
       'targets': instance.targets.map((e) => e.toJson()).toList(),
     };
 
-_$_AddPartitionV2 _$$_AddPartitionV2FromJson(Map<String, dynamic> json) =>
-    _$_AddPartitionV2(
+_$AddPartitionV2Impl _$$AddPartitionV2ImplFromJson(Map<String, dynamic> json) =>
+    _$AddPartitionV2Impl(
       diskId: json['disk_id'] as String,
       partition: Partition.fromJson(json['partition'] as Map<String, dynamic>),
       gap: Gap.fromJson(json['gap'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$$_AddPartitionV2ToJson(_$_AddPartitionV2 instance) =>
+Map<String, dynamic> _$$AddPartitionV2ImplToJson(
+        _$AddPartitionV2Impl instance) =>
     <String, dynamic>{
       'disk_id': instance.diskId,
       'partition': instance.partition.toJson(),
       'gap': instance.gap.toJson(),
     };
 
-_$_ModifyPartitionV2 _$$_ModifyPartitionV2FromJson(Map<String, dynamic> json) =>
-    _$_ModifyPartitionV2(
+_$ModifyPartitionV2Impl _$$ModifyPartitionV2ImplFromJson(
+        Map<String, dynamic> json) =>
+    _$ModifyPartitionV2Impl(
       diskId: json['disk_id'] as String,
       partition: Partition.fromJson(json['partition'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$$_ModifyPartitionV2ToJson(
-        _$_ModifyPartitionV2 instance) =>
+Map<String, dynamic> _$$ModifyPartitionV2ImplToJson(
+        _$ModifyPartitionV2Impl instance) =>
     <String, dynamic>{
       'disk_id': instance.diskId,
       'partition': instance.partition.toJson(),
     };
 
-_$_ReformatDisk _$$_ReformatDiskFromJson(Map<String, dynamic> json) =>
-    _$_ReformatDisk(
+_$ReformatDiskImpl _$$ReformatDiskImplFromJson(Map<String, dynamic> json) =>
+    _$ReformatDiskImpl(
       diskId: json['disk_id'] as String,
       ptable: json['ptable'] as String?,
     );
 
-Map<String, dynamic> _$$_ReformatDiskToJson(_$_ReformatDisk instance) =>
+Map<String, dynamic> _$$ReformatDiskImplToJson(_$ReformatDiskImpl instance) =>
     <String, dynamic>{
       'disk_id': instance.diskId,
       'ptable': instance.ptable,
     };
 
-_$_IdentityData _$$_IdentityDataFromJson(Map<String, dynamic> json) =>
-    _$_IdentityData(
+_$IdentityDataImpl _$$IdentityDataImplFromJson(Map<String, dynamic> json) =>
+    _$IdentityDataImpl(
       realname: json['realname'] as String? ?? '',
       username: json['username'] as String? ?? '',
       cryptedPassword: json['crypted_password'] as String? ?? '',
       hostname: json['hostname'] as String? ?? '',
     );
 
-Map<String, dynamic> _$$_IdentityDataToJson(_$_IdentityData instance) =>
+Map<String, dynamic> _$$IdentityDataImplToJson(_$IdentityDataImpl instance) =>
     <String, dynamic>{
       'realname': instance.realname,
       'username': instance.username,
@@ -845,7 +868,8 @@ Map<String, dynamic> _$$_IdentityDataToJson(_$_IdentityData instance) =>
       'hostname': instance.hostname,
     };
 
-_$_SSHData _$$_SSHDataFromJson(Map<String, dynamic> json) => _$_SSHData(
+_$SSHDataImpl _$$SSHDataImplFromJson(Map<String, dynamic> json) =>
+    _$SSHDataImpl(
       installServer: json['install_server'] as bool,
       allowPw: json['allow_pw'] as bool,
       authorizedKeys: (json['authorized_keys'] as List<dynamic>?)
@@ -854,22 +878,22 @@ _$_SSHData _$$_SSHDataFromJson(Map<String, dynamic> json) => _$_SSHData(
           const [],
     );
 
-Map<String, dynamic> _$$_SSHDataToJson(_$_SSHData instance) =>
+Map<String, dynamic> _$$SSHDataImplToJson(_$SSHDataImpl instance) =>
     <String, dynamic>{
       'install_server': instance.installServer,
       'allow_pw': instance.allowPw,
       'authorized_keys': instance.authorizedKeys,
     };
 
-_$_SSHIdentity _$$_SSHIdentityFromJson(Map<String, dynamic> json) =>
-    _$_SSHIdentity(
+_$SSHIdentityImpl _$$SSHIdentityImplFromJson(Map<String, dynamic> json) =>
+    _$SSHIdentityImpl(
       keyType: json['key_type'] as String,
       key: json['key'] as String,
       keyComment: json['key_comment'] as String,
       keyFingerprint: json['key_fingerprint'] as String,
     );
 
-Map<String, dynamic> _$$_SSHIdentityToJson(_$_SSHIdentity instance) =>
+Map<String, dynamic> _$$SSHIdentityImplToJson(_$SSHIdentityImpl instance) =>
     <String, dynamic>{
       'key_type': instance.keyType,
       'key': instance.key,
@@ -877,9 +901,9 @@ Map<String, dynamic> _$$_SSHIdentityToJson(_$_SSHIdentity instance) =>
       'key_fingerprint': instance.keyFingerprint,
     };
 
-_$_SSHFetchIdResponse _$$_SSHFetchIdResponseFromJson(
+_$SSHFetchIdResponseImpl _$$SSHFetchIdResponseImplFromJson(
         Map<String, dynamic> json) =>
-    _$_SSHFetchIdResponse(
+    _$SSHFetchIdResponseImpl(
       status: $enumDecode(_$SSHFetchIdStatusEnumMap, json['status']),
       identities: (json['identities'] as List<dynamic>?)
           ?.map((e) => SSHIdentity.fromJson(e as Map<String, dynamic>))
@@ -887,8 +911,8 @@ _$_SSHFetchIdResponse _$$_SSHFetchIdResponseFromJson(
       error: json['error'] as String?,
     );
 
-Map<String, dynamic> _$$_SSHFetchIdResponseToJson(
-        _$_SSHFetchIdResponse instance) =>
+Map<String, dynamic> _$$SSHFetchIdResponseImplToJson(
+        _$SSHFetchIdResponseImpl instance) =>
     <String, dynamic>{
       'status': _$SSHFetchIdStatusEnumMap[instance.status]!,
       'identities': instance.identities?.map((e) => e.toJson()).toList(),
@@ -901,8 +925,9 @@ const _$SSHFetchIdStatusEnumMap = {
   SSHFetchIdStatus.FINGERPRINT_ERROR: 'FINGERPRINT_ERROR',
 };
 
-_$_ChannelSnapInfo _$$_ChannelSnapInfoFromJson(Map<String, dynamic> json) =>
-    _$_ChannelSnapInfo(
+_$ChannelSnapInfoImpl _$$ChannelSnapInfoImplFromJson(
+        Map<String, dynamic> json) =>
+    _$ChannelSnapInfoImpl(
       channelName: json['channel_name'] as String,
       revision: json['revision'] as String,
       confinement: json['confinement'] as String,
@@ -911,7 +936,8 @@ _$_ChannelSnapInfo _$$_ChannelSnapInfoFromJson(Map<String, dynamic> json) =>
       releasedAt: DateTime.parse(json['released_at'] as String),
     );
 
-Map<String, dynamic> _$$_ChannelSnapInfoToJson(_$_ChannelSnapInfo instance) =>
+Map<String, dynamic> _$$ChannelSnapInfoImplToJson(
+        _$ChannelSnapInfoImpl instance) =>
     <String, dynamic>{
       'channel_name': instance.channelName,
       'revision': instance.revision,
@@ -921,7 +947,8 @@ Map<String, dynamic> _$$_ChannelSnapInfoToJson(_$_ChannelSnapInfo instance) =>
       'released_at': instance.releasedAt.toIso8601String(),
     };
 
-_$_SnapInfo _$$_SnapInfoFromJson(Map<String, dynamic> json) => _$_SnapInfo(
+_$SnapInfoImpl _$$SnapInfoImplFromJson(Map<String, dynamic> json) =>
+    _$SnapInfoImpl(
       name: json['name'] as String,
       summary: json['summary'] as String? ?? '',
       publisher: json['publisher'] as String? ?? '',
@@ -936,7 +963,7 @@ _$_SnapInfo _$$_SnapInfoFromJson(Map<String, dynamic> json) => _$_SnapInfo(
           const [],
     );
 
-Map<String, dynamic> _$$_SnapInfoToJson(_$_SnapInfo instance) =>
+Map<String, dynamic> _$$SnapInfoImplToJson(_$SnapInfoImpl instance) =>
     <String, dynamic>{
       'name': instance.name,
       'summary': instance.summary,
@@ -949,8 +976,9 @@ Map<String, dynamic> _$$_SnapInfoToJson(_$_SnapInfo instance) =>
       'channels': instance.channels.map((e) => e.toJson()).toList(),
     };
 
-_$_DriversResponse _$$_DriversResponseFromJson(Map<String, dynamic> json) =>
-    _$_DriversResponse(
+_$DriversResponseImpl _$$DriversResponseImplFromJson(
+        Map<String, dynamic> json) =>
+    _$DriversResponseImpl(
       install: json['install'] as bool,
       drivers:
           (json['drivers'] as List<dynamic>?)?.map((e) => e as String).toList(),
@@ -958,7 +986,8 @@ _$_DriversResponse _$$_DriversResponseFromJson(Map<String, dynamic> json) =>
       searchDrivers: json['search_drivers'] as bool,
     );
 
-Map<String, dynamic> _$$_DriversResponseToJson(_$_DriversResponse instance) =>
+Map<String, dynamic> _$$DriversResponseImplToJson(
+        _$DriversResponseImpl instance) =>
     <String, dynamic>{
       'install': instance.install,
       'drivers': instance.drivers,
@@ -966,54 +995,56 @@ Map<String, dynamic> _$$_DriversResponseToJson(_$_DriversResponse instance) =>
       'search_drivers': instance.searchDrivers,
     };
 
-_$_OEMResponse _$$_OEMResponseFromJson(Map<String, dynamic> json) =>
-    _$_OEMResponse(
+_$OEMResponseImpl _$$OEMResponseImplFromJson(Map<String, dynamic> json) =>
+    _$OEMResponseImpl(
       metapackages: (json['metapackages'] as List<dynamic>?)
           ?.map((e) => e as String)
           .toList(),
     );
 
-Map<String, dynamic> _$$_OEMResponseToJson(_$_OEMResponse instance) =>
+Map<String, dynamic> _$$OEMResponseImplToJson(_$OEMResponseImpl instance) =>
     <String, dynamic>{
       'metapackages': instance.metapackages,
     };
 
-_$_CodecsData _$$_CodecsDataFromJson(Map<String, dynamic> json) =>
-    _$_CodecsData(
+_$CodecsDataImpl _$$CodecsDataImplFromJson(Map<String, dynamic> json) =>
+    _$CodecsDataImpl(
       install: json['install'] as bool,
     );
 
-Map<String, dynamic> _$$_CodecsDataToJson(_$_CodecsData instance) =>
+Map<String, dynamic> _$$CodecsDataImplToJson(_$CodecsDataImpl instance) =>
     <String, dynamic>{
       'install': instance.install,
     };
 
-_$_DriversPayload _$$_DriversPayloadFromJson(Map<String, dynamic> json) =>
-    _$_DriversPayload(
+_$DriversPayloadImpl _$$DriversPayloadImplFromJson(Map<String, dynamic> json) =>
+    _$DriversPayloadImpl(
       install: json['install'] as bool,
     );
 
-Map<String, dynamic> _$$_DriversPayloadToJson(_$_DriversPayload instance) =>
+Map<String, dynamic> _$$DriversPayloadImplToJson(
+        _$DriversPayloadImpl instance) =>
     <String, dynamic>{
       'install': instance.install,
     };
 
-_$_SnapSelection _$$_SnapSelectionFromJson(Map<String, dynamic> json) =>
-    _$_SnapSelection(
+_$SnapSelectionImpl _$$SnapSelectionImplFromJson(Map<String, dynamic> json) =>
+    _$SnapSelectionImpl(
       name: json['name'] as String,
       channel: json['channel'] as String,
       classic: json['classic'] as bool? ?? false,
     );
 
-Map<String, dynamic> _$$_SnapSelectionToJson(_$_SnapSelection instance) =>
+Map<String, dynamic> _$$SnapSelectionImplToJson(_$SnapSelectionImpl instance) =>
     <String, dynamic>{
       'name': instance.name,
       'channel': instance.channel,
       'classic': instance.classic,
     };
 
-_$_SnapListResponse _$$_SnapListResponseFromJson(Map<String, dynamic> json) =>
-    _$_SnapListResponse(
+_$SnapListResponseImpl _$$SnapListResponseImplFromJson(
+        Map<String, dynamic> json) =>
+    _$SnapListResponseImpl(
       status: $enumDecode(_$SnapCheckStateEnumMap, json['status']),
       snaps: (json['snaps'] as List<dynamic>?)
               ?.map((e) => SnapInfo.fromJson(e as Map<String, dynamic>))
@@ -1025,7 +1056,8 @@ _$_SnapListResponse _$$_SnapListResponseFromJson(Map<String, dynamic> json) =>
           const [],
     );
 
-Map<String, dynamic> _$$_SnapListResponseToJson(_$_SnapListResponse instance) =>
+Map<String, dynamic> _$$SnapListResponseImplToJson(
+        _$SnapListResponseImpl instance) =>
     <String, dynamic>{
       'status': _$SnapCheckStateEnumMap[instance.status]!,
       'snaps': instance.snaps.map((e) => e.toJson()).toList(),
@@ -1038,62 +1070,65 @@ const _$SnapCheckStateEnumMap = {
   SnapCheckState.DONE: 'DONE',
 };
 
-_$_TimeZoneInfo _$$_TimeZoneInfoFromJson(Map<String, dynamic> json) =>
-    _$_TimeZoneInfo(
+_$TimeZoneInfoImpl _$$TimeZoneInfoImplFromJson(Map<String, dynamic> json) =>
+    _$TimeZoneInfoImpl(
       timezone: json['timezone'] as String,
       fromGeoip: json['from_geoip'] as bool,
     );
 
-Map<String, dynamic> _$$_TimeZoneInfoToJson(_$_TimeZoneInfo instance) =>
+Map<String, dynamic> _$$TimeZoneInfoImplToJson(_$TimeZoneInfoImpl instance) =>
     <String, dynamic>{
       'timezone': instance.timezone,
       'from_geoip': instance.fromGeoip,
     };
 
-_$_UbuntuProInfo _$$_UbuntuProInfoFromJson(Map<String, dynamic> json) =>
-    _$_UbuntuProInfo(
+_$UbuntuProInfoImpl _$$UbuntuProInfoImplFromJson(Map<String, dynamic> json) =>
+    _$UbuntuProInfoImpl(
       token: json['token'] as String,
     );
 
-Map<String, dynamic> _$$_UbuntuProInfoToJson(_$_UbuntuProInfo instance) =>
+Map<String, dynamic> _$$UbuntuProInfoImplToJson(_$UbuntuProInfoImpl instance) =>
     <String, dynamic>{
       'token': instance.token,
     };
 
-_$_UbuntuProResponse _$$_UbuntuProResponseFromJson(Map<String, dynamic> json) =>
-    _$_UbuntuProResponse(
+_$UbuntuProResponseImpl _$$UbuntuProResponseImplFromJson(
+        Map<String, dynamic> json) =>
+    _$UbuntuProResponseImpl(
       token: json['token'] as String,
       hasNetwork: json['has_network'] as bool,
     );
 
-Map<String, dynamic> _$$_UbuntuProResponseToJson(
-        _$_UbuntuProResponse instance) =>
+Map<String, dynamic> _$$UbuntuProResponseImplToJson(
+        _$UbuntuProResponseImpl instance) =>
     <String, dynamic>{
       'token': instance.token,
       'has_network': instance.hasNetwork,
     };
 
-_$_UPCSInitiateResponse _$$_UPCSInitiateResponseFromJson(
+_$UPCSInitiateResponseImpl _$$UPCSInitiateResponseImplFromJson(
         Map<String, dynamic> json) =>
-    _$_UPCSInitiateResponse(
+    _$UPCSInitiateResponseImpl(
       userCode: json['user_code'] as String,
       validitySeconds: json['validity_seconds'] as int,
     );
 
-Map<String, dynamic> _$$_UPCSInitiateResponseToJson(
-        _$_UPCSInitiateResponse instance) =>
+Map<String, dynamic> _$$UPCSInitiateResponseImplToJson(
+        _$UPCSInitiateResponseImpl instance) =>
     <String, dynamic>{
       'user_code': instance.userCode,
       'validity_seconds': instance.validitySeconds,
     };
 
-_$_UPCSWaitResponse _$$_UPCSWaitResponseFromJson(Map<String, dynamic> json) =>
-    _$_UPCSWaitResponse(
+_$UPCSWaitResponseImpl _$$UPCSWaitResponseImplFromJson(
+        Map<String, dynamic> json) =>
+    _$UPCSWaitResponseImpl(
       status: $enumDecode(_$UPCSWaitStatusEnumMap, json['status']),
       contractToken: json['contract_token'] as String?,
     );
 
-Map<String, dynamic> _$$_UPCSWaitResponseToJson(_$_UPCSWaitResponse instance) =>
+Map<String, dynamic> _$$UPCSWaitResponseImplToJson(
+        _$UPCSWaitResponseImpl instance) =>
     <String, dynamic>{
       'status': _$UPCSWaitStatusEnumMap[instance.status]!,
       'contract_token': instance.contractToken,
@@ -1104,23 +1139,25 @@ const _$UPCSWaitStatusEnumMap = {
   UPCSWaitStatus.TIMEOUT: 'TIMEOUT',
 };
 
-_$_UbuntuProService _$$_UbuntuProServiceFromJson(Map<String, dynamic> json) =>
-    _$_UbuntuProService(
+_$UbuntuProServiceImpl _$$UbuntuProServiceImplFromJson(
+        Map<String, dynamic> json) =>
+    _$UbuntuProServiceImpl(
       name: json['name'] as String,
       description: json['description'] as String,
       autoEnabled: json['auto_enabled'] as bool,
     );
 
-Map<String, dynamic> _$$_UbuntuProServiceToJson(_$_UbuntuProService instance) =>
+Map<String, dynamic> _$$UbuntuProServiceImplToJson(
+        _$UbuntuProServiceImpl instance) =>
     <String, dynamic>{
       'name': instance.name,
       'description': instance.description,
       'auto_enabled': instance.autoEnabled,
     };
 
-_$_UbuntuProSubscription _$$_UbuntuProSubscriptionFromJson(
+_$UbuntuProSubscriptionImpl _$$UbuntuProSubscriptionImplFromJson(
         Map<String, dynamic> json) =>
-    _$_UbuntuProSubscription(
+    _$UbuntuProSubscriptionImpl(
       contractName: json['contract_name'] as String,
       accountName: json['account_name'] as String,
       contractToken: json['contract_token'] as String,
@@ -1129,8 +1166,8 @@ _$_UbuntuProSubscription _$$_UbuntuProSubscriptionFromJson(
           .toList(),
     );
 
-Map<String, dynamic> _$$_UbuntuProSubscriptionToJson(
-        _$_UbuntuProSubscription instance) =>
+Map<String, dynamic> _$$UbuntuProSubscriptionImplToJson(
+        _$UbuntuProSubscriptionImpl instance) =>
     <String, dynamic>{
       'contract_name': instance.contractName,
       'account_name': instance.accountName,
@@ -1138,9 +1175,9 @@ Map<String, dynamic> _$$_UbuntuProSubscriptionToJson(
       'services': instance.services.map((e) => e.toJson()).toList(),
     };
 
-_$_UbuntuProCheckTokenAnswer _$$_UbuntuProCheckTokenAnswerFromJson(
+_$UbuntuProCheckTokenAnswerImpl _$$UbuntuProCheckTokenAnswerImplFromJson(
         Map<String, dynamic> json) =>
-    _$_UbuntuProCheckTokenAnswer(
+    _$UbuntuProCheckTokenAnswerImpl(
       status: $enumDecode(_$UbuntuProCheckTokenStatusEnumMap, json['status']),
       subscription: json['subscription'] == null
           ? null
@@ -1148,8 +1185,8 @@ _$_UbuntuProCheckTokenAnswer _$$_UbuntuProCheckTokenAnswerFromJson(
               json['subscription'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$$_UbuntuProCheckTokenAnswerToJson(
-        _$_UbuntuProCheckTokenAnswer instance) =>
+Map<String, dynamic> _$$UbuntuProCheckTokenAnswerImplToJson(
+        _$UbuntuProCheckTokenAnswerImpl instance) =>
     <String, dynamic>{
       'status': _$UbuntuProCheckTokenStatusEnumMap[instance.status]!,
       'subscription': instance.subscription?.toJson(),
@@ -1162,9 +1199,9 @@ const _$UbuntuProCheckTokenStatusEnumMap = {
   UbuntuProCheckTokenStatus.UNKNOWN_ERROR: 'UNKNOWN_ERROR',
 };
 
-_$_WSLConfigurationBase _$$_WSLConfigurationBaseFromJson(
+_$WSLConfigurationBaseImpl _$$WSLConfigurationBaseImplFromJson(
         Map<String, dynamic> json) =>
-    _$_WSLConfigurationBase(
+    _$WSLConfigurationBaseImpl(
       automountRoot: json['automount_root'] as String? ?? '/mnt/',
       automountOptions: json['automount_options'] as String? ?? '',
       networkGeneratehosts: json['network_generatehosts'] as bool? ?? true,
@@ -1172,8 +1209,8 @@ _$_WSLConfigurationBase _$$_WSLConfigurationBaseFromJson(
           json['network_generateresolvconf'] as bool? ?? true,
     );
 
-Map<String, dynamic> _$$_WSLConfigurationBaseToJson(
-        _$_WSLConfigurationBase instance) =>
+Map<String, dynamic> _$$WSLConfigurationBaseImplToJson(
+        _$WSLConfigurationBaseImpl instance) =>
     <String, dynamic>{
       'automount_root': instance.automountRoot,
       'automount_options': instance.automountOptions,
@@ -1181,9 +1218,9 @@ Map<String, dynamic> _$$_WSLConfigurationBaseToJson(
       'network_generateresolvconf': instance.networkGenerateresolvconf,
     };
 
-_$_WSLConfigurationAdvanced _$$_WSLConfigurationAdvancedFromJson(
+_$WSLConfigurationAdvancedImpl _$$WSLConfigurationAdvancedImplFromJson(
         Map<String, dynamic> json) =>
-    _$_WSLConfigurationAdvanced(
+    _$WSLConfigurationAdvancedImpl(
       automountEnabled: json['automount_enabled'] as bool? ?? true,
       automountMountfstab: json['automount_mountfstab'] as bool? ?? true,
       interopEnabled: json['interop_enabled'] as bool? ?? true,
@@ -1192,8 +1229,8 @@ _$_WSLConfigurationAdvanced _$$_WSLConfigurationAdvancedFromJson(
       systemdEnabled: json['systemd_enabled'] as bool? ?? false,
     );
 
-Map<String, dynamic> _$$_WSLConfigurationAdvancedToJson(
-        _$_WSLConfigurationAdvanced instance) =>
+Map<String, dynamic> _$$WSLConfigurationAdvancedImplToJson(
+        _$WSLConfigurationAdvancedImpl instance) =>
     <String, dynamic>{
       'automount_enabled': instance.automountEnabled,
       'automount_mountfstab': instance.automountMountfstab,
@@ -1202,33 +1239,35 @@ Map<String, dynamic> _$$_WSLConfigurationAdvancedToJson(
       'systemd_enabled': instance.systemdEnabled,
     };
 
-_$_WSLSetupOptions _$$_WSLSetupOptionsFromJson(Map<String, dynamic> json) =>
-    _$_WSLSetupOptions(
+_$WSLSetupOptionsImpl _$$WSLSetupOptionsImplFromJson(
+        Map<String, dynamic> json) =>
+    _$WSLSetupOptionsImpl(
       installLanguageSupportPackages:
           json['install_language_support_packages'] as bool? ?? true,
     );
 
-Map<String, dynamic> _$$_WSLSetupOptionsToJson(_$_WSLSetupOptions instance) =>
+Map<String, dynamic> _$$WSLSetupOptionsImplToJson(
+        _$WSLSetupOptionsImpl instance) =>
     <String, dynamic>{
       'install_language_support_packages':
           instance.installLanguageSupportPackages,
     };
 
-_$_TaskProgress _$$_TaskProgressFromJson(Map<String, dynamic> json) =>
-    _$_TaskProgress(
+_$TaskProgressImpl _$$TaskProgressImplFromJson(Map<String, dynamic> json) =>
+    _$TaskProgressImpl(
       label: json['label'] as String? ?? '',
       done: json['done'] as int? ?? 0,
       total: json['total'] as int? ?? 0,
     );
 
-Map<String, dynamic> _$$_TaskProgressToJson(_$_TaskProgress instance) =>
+Map<String, dynamic> _$$TaskProgressImplToJson(_$TaskProgressImpl instance) =>
     <String, dynamic>{
       'label': instance.label,
       'done': instance.done,
       'total': instance.total,
     };
 
-_$_Task _$$_TaskFromJson(Map<String, dynamic> json) => _$_Task(
+_$TaskImpl _$$TaskImplFromJson(Map<String, dynamic> json) => _$TaskImpl(
       id: json['id'] as String,
       kind: json['kind'] as String,
       summary: json['summary'] as String,
@@ -1236,7 +1275,8 @@ _$_Task _$$_TaskFromJson(Map<String, dynamic> json) => _$_Task(
       progress: TaskProgress.fromJson(json['progress'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$$_TaskToJson(_$_Task instance) => <String, dynamic>{
+Map<String, dynamic> _$$TaskImplToJson(_$TaskImpl instance) =>
+    <String, dynamic>{
       'id': instance.id,
       'kind': instance.kind,
       'summary': instance.summary,
@@ -1255,7 +1295,7 @@ const _$TaskStatusEnumMap = {
   TaskStatus.ERROR: 'ERROR',
 };
 
-_$_Change _$$_ChangeFromJson(Map<String, dynamic> json) => _$_Change(
+_$ChangeImpl _$$ChangeImplFromJson(Map<String, dynamic> json) => _$ChangeImpl(
       id: json['id'] as String,
       kind: json['kind'] as String,
       summary: json['summary'] as String,
@@ -1268,7 +1308,8 @@ _$_Change _$$_ChangeFromJson(Map<String, dynamic> json) => _$_Change(
       data: json['data'],
     );
 
-Map<String, dynamic> _$$_ChangeToJson(_$_Change instance) => <String, dynamic>{
+Map<String, dynamic> _$$ChangeImplToJson(_$ChangeImpl instance) =>
+    <String, dynamic>{
       'id': instance.id,
       'kind': instance.kind,
       'summary': instance.summary,
@@ -1279,16 +1320,16 @@ Map<String, dynamic> _$$_ChangeToJson(_$_Change instance) => <String, dynamic>{
       'data': instance.data,
     };
 
-_$_MirrorCheckResponse _$$_MirrorCheckResponseFromJson(
+_$MirrorCheckResponseImpl _$$MirrorCheckResponseImplFromJson(
         Map<String, dynamic> json) =>
-    _$_MirrorCheckResponse(
+    _$MirrorCheckResponseImpl(
       url: json['url'] as String,
       status: $enumDecode(_$MirrorCheckStatusEnumMap, json['status']),
       output: json['output'] as String,
     );
 
-Map<String, dynamic> _$$_MirrorCheckResponseToJson(
-        _$_MirrorCheckResponse instance) =>
+Map<String, dynamic> _$$MirrorCheckResponseImplToJson(
+        _$MirrorCheckResponseImpl instance) =>
     <String, dynamic>{
       'url': instance.url,
       'status': _$MirrorCheckStatusEnumMap[instance.status]!,
@@ -1301,8 +1342,8 @@ const _$MirrorCheckStatusEnumMap = {
   MirrorCheckStatus.FAILED: 'FAILED',
 };
 
-_$_MirrorPost _$$_MirrorPostFromJson(Map<String, dynamic> json) =>
-    _$_MirrorPost(
+_$MirrorPostImpl _$$MirrorPostImplFromJson(Map<String, dynamic> json) =>
+    _$MirrorPostImpl(
       elected: json['elected'] as String?,
       candidates: (json['candidates'] as List<dynamic>?)
           ?.map((e) => e as String)
@@ -1310,14 +1351,15 @@ _$_MirrorPost _$$_MirrorPostFromJson(Map<String, dynamic> json) =>
       staged: json['staged'] as String?,
     );
 
-Map<String, dynamic> _$$_MirrorPostToJson(_$_MirrorPost instance) =>
+Map<String, dynamic> _$$MirrorPostImplToJson(_$MirrorPostImpl instance) =>
     <String, dynamic>{
       'elected': instance.elected,
       'candidates': instance.candidates,
       'staged': instance.staged,
     };
 
-_$_MirrorGet _$$_MirrorGetFromJson(Map<String, dynamic> json) => _$_MirrorGet(
+_$MirrorGetImpl _$$MirrorGetImplFromJson(Map<String, dynamic> json) =>
+    _$MirrorGetImpl(
       relevant: json['relevant'] as bool,
       elected: json['elected'] as String?,
       candidates: (json['candidates'] as List<dynamic>)
@@ -1326,7 +1368,7 @@ _$_MirrorGet _$$_MirrorGetFromJson(Map<String, dynamic> json) => _$_MirrorGet(
       staged: json['staged'] as String?,
     );
 
-Map<String, dynamic> _$$_MirrorGetToJson(_$_MirrorGet instance) =>
+Map<String, dynamic> _$$MirrorGetImplToJson(_$MirrorGetImpl instance) =>
     <String, dynamic>{
       'relevant': instance.relevant,
       'elected': instance.elected,
@@ -1334,14 +1376,16 @@ Map<String, dynamic> _$$_MirrorGetToJson(_$_MirrorGet instance) =>
       'staged': instance.staged,
     };
 
-_$_AdConnectionInfo _$$_AdConnectionInfoFromJson(Map<String, dynamic> json) =>
-    _$_AdConnectionInfo(
+_$AdConnectionInfoImpl _$$AdConnectionInfoImplFromJson(
+        Map<String, dynamic> json) =>
+    _$AdConnectionInfoImpl(
       adminName: json['admin_name'] as String? ?? '',
       domainName: json['domain_name'] as String? ?? '',
       password: json['password'] as String? ?? '',
     );
 
-Map<String, dynamic> _$$_AdConnectionInfoToJson(_$_AdConnectionInfo instance) =>
+Map<String, dynamic> _$$AdConnectionInfoImplToJson(
+        _$AdConnectionInfoImpl instance) =>
     <String, dynamic>{
       'admin_name': instance.adminName,
       'domain_name': instance.domainName,
