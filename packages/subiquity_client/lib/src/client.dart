@@ -92,10 +92,10 @@ class SubiquityClient {
 
   Future<List<String>?> getInteractiveSections() async {
     final request = await _openUrl('GET', 'meta/interactive_sections');
-    return _receive(
+    return _receive<List<String>?, List<Object?>?>(
       'getInteractiveSections()',
       request,
-      (List? values) => values?.cast<String>(),
+      (List<Object?>? values) => values?.cast<String>(),
     );
   }
 
@@ -262,8 +262,11 @@ class SubiquityClient {
   /// Returns whether any disks contain BitLocker partitions.
   Future<bool> hasBitLocker() async {
     final request = await _openUrl('GET', 'storage/has_bitlocker');
-    return _receive(
-        'hasBitLocker()', request, (List disks) => disks.isNotEmpty);
+    return _receive<bool, List<Object?>>(
+      'hasBitLocker()',
+      request,
+      (disks) => disks.isNotEmpty,
+    );
   }
 
   Future<GuidedStorageResponseV2> getGuidedStorageV2({bool wait = true}) async {
@@ -289,7 +292,9 @@ class SubiquityClient {
     }
 
     String hidePasswordResponse(String method, String response) {
-      final guided = GuidedStorageResponseV2.fromJson(jsonDecode(response));
+      final guided = GuidedStorageResponseV2.fromJson(
+        jsonDecode(response) as Map<String, Object?>,
+      );
       final json = jsonEncode(guided.copyWith(
         configured: guided.configured?.copyWith(
           password: hidePassword(guided.configured?.password),
@@ -522,13 +527,14 @@ class SubiquityClient {
     final request =
         await _openUrl('POST', 'active_directory/check_domain_name');
     request.write(jsonEncode(domain));
-    return _receive(
-        'checkActiveDirectoryDomainName($domain)',
-        request,
-        (List values) => values
-            .cast<String>()
-            .map(AdDomainNameValidation.values.byName)
-            .toList());
+    return _receive<List<AdDomainNameValidation>, List<Object?>>(
+      'checkActiveDirectoryDomainName($domain)',
+      request,
+      (values) => values
+          .cast<String>()
+          .map(AdDomainNameValidation.values.byName)
+          .toList(),
+    );
   }
 
   Future<AdDomainNameValidation> pingActiveDirectoryDomainController(

@@ -21,10 +21,8 @@ jobs:
         with:
           submodules: recursive
 
-      - uses: subosito/flutter-action@v2
-        with:
-          channel: 'stable'
-          flutter-version: '3.10.x'
+      - uses: asdf-vm/actions/install@v2
+      - uses: bluefireteam/melos-action@v2
 
       - name: Install lcov
         run: sudo apt update && sudo apt install lcov
@@ -40,10 +38,7 @@ jobs:
           echo "XDG_RUNTIME_DIR=/run/user/$UID" >> $GITHUB_ENV
 
       - name: Run tests
-        run: |
-          flutter pub global activate melos
-          melos bootstrap
-          melos coverage
+        run: melos coverage
 
       - name: Upload coverage results
         uses: codecov/codecov-action@v3
@@ -57,8 +52,8 @@ jobs:
         with:
           submodules: recursive
       - uses: dart-lang/setup-dart@v1
-      - run: dart pub global activate melos
-      - run: melos bootstrap
+      - uses: asdf-vm/actions/install@v2
+      - uses: bluefireteam/melos-action@v3
       - run: melos analyze
 
   format:
@@ -68,8 +63,8 @@ jobs:
         with:
           submodules: recursive
       - uses: dart-lang/setup-dart@v1
-      - run: dart pub global activate melos
-      - run: melos bootstrap
+      - uses: asdf-vm/actions/install@v2
+      - uses: bluefireteam/melos-action@v3
       - run: melos format
 
   generate:
@@ -79,9 +74,9 @@ jobs:
         with:
           submodules: recursive
       - uses: dart-lang/setup-dart@v1
+      - uses: asdf-vm/actions/install@v2
+      - uses: bluefireteam/melos-action@v3
       - run: make generate
-      - run: dart pub global activate melos
-      - run: melos bootstrap
       - run: melos generate
       - name: Warn about outdated generated files
         if: github.event_name == 'pull_request'

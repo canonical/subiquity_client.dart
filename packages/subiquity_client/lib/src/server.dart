@@ -50,7 +50,7 @@ class SubiquityServer {
         );
         final response = await request.close();
         final json = jsonDecode(await response.transform(utf8.decoder).join());
-        final status = ApplicationStatus.fromJson(json);
+        final status = ApplicationStatus.fromJson(json as Map<String, Object?>);
         log.info(status.state);
         if (status.state == ApplicationState.STARTING_UP ||
             status.state == ApplicationState.CLOUD_INIT_WAIT ||

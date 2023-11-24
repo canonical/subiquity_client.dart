@@ -1,11 +1,7 @@
 name: subiquity_client
 
 packages:
-  - .
   - packages/**
-
-ignore:
-  - synthetic_package
 
 scripts:
   # analyze all packages
