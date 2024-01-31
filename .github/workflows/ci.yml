@@ -98,7 +98,7 @@ jobs:
           fi
       - name: Create PR for outdated generated files
         if: github.event_name == 'push'
-        uses: peter-evans/create-pull-request@v5
+        uses: peter-evans/create-pull-request@v6
         with:
           title: 'Regenerate files on `${{github.ref_name}}`'
           commit-message: 'Regenerate files on `${{github.ref_name}}`'
