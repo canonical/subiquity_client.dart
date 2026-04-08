@@ -19,7 +19,7 @@ dependencies:
 
 dev_dependencies:
   build_runner: ^2.2.0
-  freezed: ^2.3.5
+  freezed: ^3.0.0
   json_serializable: ^6.3.1
   lints: ^2.0.1
   melos: ^3.0.1
